@@ -1,0 +1,24 @@
+# Ambientes virtuais
+.venv/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+.npm
+*.local
+
+# Build
+dist/
+frontend/dist/
+
+# Sistema
+.DS_Store
+Thumbs.db
