@@ -93,19 +93,54 @@ class MotorBusca:
             if disc:
                 self.indice_por_disciplina[disc].append(r)
 
-        # 2. Carregar todos os PDFs de manuais existentes no disco
-        for disc_id in DISCIPLINAS_CONFIG.keys():
-            disc_pasta = os.path.join(REPO_7ANO, disc_id)
-            if not os.path.exists(disc_pasta):
+        # 2. Carregar manuais do catálogo oficial (79 manuais do 7º ano)
+        manuais_cat = self.catalogo.get("manuais_para_exportar_pdf", [])
+
+        # Indexar ficheiros PDF locais caso existam no disco
+        mapa_locais = {}
+        if os.path.exists(REPO_7ANO):
+            padrao = os.path.join(REPO_7ANO, "*", "*", "01_Manuais_e_Cadernos_PDF", "*.pdf")
+            for p in glob.glob(padrao):
+                base = os.path.basename(p).lower()
+                mapa_locais[base] = p
+
+        for m in manuais_cat:
+            disc_id = m.get("disciplina")
+            if not disc_id:
                 continue
-            pdfs = glob.glob(os.path.join(disc_pasta, "**", "01_Manuais_e_Cadernos_PDF", "*.pdf"), recursive=True)
-            for p in pdfs:
-                nome = os.path.basename(p)
-                self.manuais_por_disciplina[disc_id].append({
-                    "caminho": p,
-                    "nome": nome,
-                    "tamanho_mb": round(os.path.getsize(p) / (1024 * 1024), 1)
-                })
+
+            nome_vol = m.get("nome_volume") or "Manual"
+            proj_tit = m.get("titulo_projeto") or m.get("projeto") or ""
+            proj_id = m.get("project_id", "")
+            
+            # Tentar associar ao PDF descarregado localmente
+            caminho_local = ""
+            tem_pdf_local = False
+            tamanho = 35.0
+
+            norm_vol = re.sub(r'[^a-z0-9]', '', nome_vol.lower())
+            for base_nome, p in mapa_locais.items():
+                norm_base = re.sub(r'[^a-z0-9]', '', base_nome)
+                if norm_vol and (norm_vol in norm_base or norm_base in norm_vol):
+                    caminho_local = p
+                    tem_pdf_local = True
+                    try:
+                        tamanho = round(os.path.getsize(p) / (1024 * 1024), 1)
+                    except Exception:
+                        pass
+                    break
+
+            self.manuais_por_disciplina[disc_id].append({
+                "caminho": caminho_local,
+                "nome": f"{proj_tit} - {nome_vol}",
+                "nome_simples": nome_vol,
+                "projeto": proj_tit,
+                "tamanho_mb": tamanho,
+                "project_id": proj_id,
+                "tem_pdf_local": tem_pdf_local,
+                "link_escolavirtual": f"https://app.escolavirtual.pt/library/libraryteacher/detail/{proj_id}/" if proj_id else "https://app.escolavirtual.pt/",
+                "tipo": "Manual Oficial Escola Virtual"
+            })
 
     def listar_disciplinas(self):
         res = []

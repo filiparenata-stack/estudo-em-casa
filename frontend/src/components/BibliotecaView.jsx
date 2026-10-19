@@ -6,7 +6,8 @@ import {
   ExternalLink,
   FileText,
   CheckCircle,
-  FileCheck
+  Sparkles,
+  Laptop
 } from 'lucide-react';
 
 export default function BibliotecaView({ disciplina }) {
@@ -32,18 +33,35 @@ export default function BibliotecaView({ disciplina }) {
       if (resp.ok) {
         setAbertoInfo(caminho);
         setTimeout(() => setAbertoInfo(null), 3000);
+      } else {
+        alert('Este ficheiro PDF encontra-se guardado localmente no teu PC. Para o abrir com 1 clique, executa a aplicação no computador com o ficheiro iniciar_app.bat.');
       }
     } catch (e) {
-      alert('Erro ao abrir ficheiro no computador: ' + e.message);
+      alert('Para abrir PDFs diretamente do disco rígido, executa a app no computador através do ficheiro iniciar_app.bat.');
     }
   };
 
   const manuaisFiltrados = manuais.filter((m) =>
-    m.nome.toLowerCase().includes(busca.toLowerCase())
+    (m.nome || '').toLowerCase().includes(busca.toLowerCase()) ||
+    (m.projeto || '').toLowerCase().includes(busca.toLowerCase())
   );
 
   return (
     <div className="flex-1 p-6 max-w-5xl mx-auto flex flex-col gap-6">
+      {/* Banner Informativo */}
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-blue-900 shadow-sm">
+        <div className="flex items-center gap-2.5">
+          <Sparkles className="w-4 h-4 text-blue-600 shrink-0" />
+          <span>
+            <strong>Acervo Oficial de 79 Manuais do 7.º Ano:</strong> Todos os manuais, cadernos e dossiês estão indexados para resumos e testes.
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5 text-slate-500 font-medium">
+          <Laptop className="w-3.5 h-3.5 text-indigo-600" />
+          <span>Online & Offline no PC</span>
+        </div>
+      </div>
+
       <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <span className="text-xs uppercase font-bold text-blue-600">Biblioteca Digital</span>
@@ -51,7 +69,7 @@ export default function BibliotecaView({ disciplina }) {
             Manuais e Dossiês de {disciplina?.nome}
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
-            PDFs em alta resolução vertical (3840×2400) prontos a ler no computador ou tablet.
+            Manuais completos e cadernos de atividades para estudo e preparação para testes.
           </p>
         </div>
 
@@ -87,24 +105,38 @@ export default function BibliotecaView({ disciplina }) {
               </div>
               <div className="min-w-0">
                 <h3 className="text-sm font-bold text-slate-800 leading-snug line-clamp-2">
-                  {m.nome.replace('.pdf', '').replace(/_/g, ' ')}
+                  {m.nome_simples || m.nome}
                 </h3>
-                <span className="text-[11px] text-slate-400 font-medium">
-                  {m.tamanho_mb} MB • PDF Alta Resolução
+                <p className="text-[11px] text-slate-500 truncate mt-0.5">
+                  {m.projeto || 'Escola Virtual 7.º Ano'}
+                </p>
+                <span className="inline-block mt-1.5 px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
+                  {m.tem_pdf_local ? 'PDF Local (3840×2400)' : 'Manual Oficial Escola Virtual'}
                 </span>
               </div>
             </div>
 
             <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
               <span className="text-[11px] font-semibold text-slate-400">
-                Página a página vertical
+                7.º Ano
               </span>
-              <button
-                onClick={() => abrirFicheiro(m.caminho)}
-                className="px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer"
-              >
-                Abrir PDF <ExternalLink className="w-3 h-3" />
-              </button>
+              {m.tem_pdf_local ? (
+                <button
+                  onClick={() => abrirFicheiro(m.caminho)}
+                  className="px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer"
+                >
+                  Abrir PDF <ExternalLink className="w-3 h-3" />
+                </button>
+              ) : (
+                <a
+                  href={m.link_escolavirtual || 'https://app.escolavirtual.pt/'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+                >
+                  Ler na Escola Virtual <ExternalLink className="w-3 h-3" />
+                </a>
+              )}
             </div>
           </div>
         ))}
