@@ -102,11 +102,10 @@ def post_exportar_pdf(resumo: dict):
 @app.post("/api/quiz")
 def post_gerar_quiz(req: QuizRequest):
     pasta_disc = os.path.join(REPO_7ANO, req.disciplina_id)
-    questoes = []
-    if os.path.exists(pasta_disc):
-        questoes = extrator.buscar_questoes_por_topico(pasta_disc, req.topicos, limite=req.quantidade)
+    # Procurar questões no banco oficial de 1.434 perguntas (Cloud & Local)
+    questoes = extrator.buscar_questoes_por_topico(pasta_disc, req.topicos, limite=req.quantidade)
     
-    # Se não houver questões suficientes extraídas de docx locais (ou em ambiente cloud como Vercel),
+    # Se não houver questões suficientes para este tópico específico,
     # gerar questões estruturadas com base nos conceitos chave e manuais oficiais
     if len(questoes) < 3:
         resumo = gerador.gerar_resumo_estruturado(req.disciplina_id, req.periodo, req.topicos)
