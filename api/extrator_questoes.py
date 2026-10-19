@@ -126,7 +126,7 @@ class ExtratorQuestoes:
         """Procura e extrai questões reais de testes e fichas que correspondam aos tópicos."""
         disc_id = os.path.basename(pasta_disciplina.rstrip('/\\'))
         questoes_encontradas = []
-        termos = [t.lower() for t in re.findall(r'\w+', topicos) if len(t) > 2]
+        termos = [t.lower().rstrip('s') for t in re.findall(r'\w+', topicos) if len(t) > 2]
 
         # 1. Procurar no Banco de Questões pré-extraído (funciona na Cloud / Vercel e local)
         if self.banco and "disciplinas" in self.banco:
@@ -136,11 +136,11 @@ class ExtratorQuestoes:
                 enunc_l = q.get("enunciado", "").lower()
                 score = 0
                 if topicos.lower() in enunc_l:
-                    score += 10
+                    score += 15
                 for t in termos:
                     if t in enunc_l:
-                        score += 3
-                if score > 0 or not termos:
+                        score += 5
+                if score > 0:
                     pontuadas.append((score, q))
             pontuadas.sort(key=lambda x: x[0], reverse=True)
             for _, q in pontuadas[:limite]:
