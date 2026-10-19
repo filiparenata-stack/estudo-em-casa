@@ -17,6 +17,7 @@ from motor_busca import MotorBusca, REPO_7ANO
 from extrator_questoes import ExtratorQuestoes
 from gerador_resumos import GeradorResumos
 from exportador_pdf import ExportadorPDF
+from motor_quizzes import MotorQuizzes
 
 app = FastAPI(
     title="Escola Virtual 7.º Ano - API de Estudo e Resumos",
@@ -36,6 +37,7 @@ motor = MotorBusca()
 extrator = ExtratorQuestoes()
 gerador = GeradorResumos(motor, extrator)
 exportador = ExportadorPDF()
+motor_quiz = MotorQuizzes()
 
 class ResumoRequest(BaseModel):
     disciplina_id: str
@@ -101,32 +103,12 @@ def post_exportar_pdf(resumo: dict):
 
 @app.post("/api/quiz")
 def post_gerar_quiz(req: QuizRequest):
-    pasta_disc = os.path.join(REPO_7ANO, req.disciplina_id)
-    # Procurar questões no banco oficial de 1.434 perguntas (Cloud & Local)
-    questoes = extrator.buscar_questoes_por_topico(pasta_disc, req.topicos, limite=req.quantidade)
-    
-    # Se não houver questões suficientes para este tópico específico,
-    # gerar questões estruturadas com base nos conceitos chave e manuais oficiais
-    if len(questoes) < 3:
-        resumo = gerador.gerar_resumo_estruturado(req.disciplina_id, req.periodo, req.topicos)
-        conceitos = resumo.get("conceitos_chave", [])
-        for idx, c in enumerate(conceitos):
-            questoes.append({
-                "id": f"q_gen_{idx+1}",
-                "numero": f"{idx+1}",
-                "grupo": "Consolidação Conceitual",
-                "enunciado": f"Considera o tema «{req.topicos}». Qual das seguintes afirmações define corretamente o conceito de {c['termo']}?",
-                "tipo": "escolha_multipla",
-                "opcoes": [
-                    {"letra": "A", "texto": c["definicao"]},
-                    {"letra": "B", "texto": f"É uma propriedade irrelevante no contexto de {c['termo']}."},
-                    {"letra": "C", "texto": f"Aplica-se apenas em casos excecionais onde não ocorre {c['termo']}."},
-                    {"letra": "D", "texto": "Nenhuma das opções anteriores está correta."}
-                ],
-                "resposta_correta": "A",
-                "explicacao": f"Definição oficial do programa: {c['definicao']}",
-                "ficheiro_origem": "Conceitos Oficiais do Manual 7.º Ano"
-            })
+    # Gerar quiz pedagógico e rigoroso com questões curadas e conceitos reais do 7.º Ano
+    questoes = motor_quiz.gerar_quiz_pedagogico(
+        disciplina_id=req.disciplina_id,
+        tema=req.topicos,
+        quantidade=req.quantidade or 8
+    )
 
     return {
         "disciplina_id": req.disciplina_id,
