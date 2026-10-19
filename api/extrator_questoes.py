@@ -1,11 +1,23 @@
 import os
 import re
+import json
 import glob
 from docx import Document
 
+BANCO_JSON = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "banco_questoes_7ano.json")
+
 class ExtratorQuestoes:
     def __init__(self):
-        pass
+        self.banco = self._carregar_banco()
+
+    def _carregar_banco(self):
+        if os.path.exists(BANCO_JSON):
+            try:
+                with open(BANCO_JSON, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception as e:
+                print(f"[Aviso] Falha ao ler banco de questões ({BANCO_JSON}): {e}")
+        return None
 
     def extrair_texto_docx(self, caminho_docx):
         try:
@@ -112,37 +124,48 @@ class ExtratorQuestoes:
 
     def buscar_questoes_por_topico(self, pasta_disciplina, topicos, limite=15):
         """Procura e extrai questões reais de testes e fichas que correspondam aos tópicos."""
-        docx_testes = glob.glob(os.path.join(pasta_disciplina, "**", "02_Testes_e_Avaliacao", "**", "*.docx"), recursive=True)
-        docx_fichas = glob.glob(os.path.join(pasta_disciplina, "**", "03_Fichas_e_Exercicios", "**", "*.docx"), recursive=True)
-        
-        todos_docx = docx_testes + docx_fichas
+        disc_id = os.path.basename(pasta_disciplina.rstrip('/\\'))
+        questoes_encontradas = []
         termos = [t.lower() for t in re.findall(r'\w+', topicos) if len(t) > 2]
 
-        questoes_encontradas = []
+        # 1. Procurar no Banco de Questões pré-extraído (funciona na Cloud / Vercel e local)
+        if self.banco and "disciplinas" in self.banco:
+            qs_banco = self.banco["disciplinas"].get(disc_id, {}).get("questoes", [])
+            pontuadas = []
+            for q in qs_banco:
+                enunc_l = q.get("enunciado", "").lower()
+                score = 0
+                if topicos.lower() in enunc_l:
+                    score += 10
+                for t in termos:
+                    if t in enunc_l:
+                        score += 3
+                if score > 0 or not termos:
+                    pontuadas.append((score, q))
+            pontuadas.sort(key=lambda x: x[0], reverse=True)
+            for _, q in pontuadas[:limite]:
+                questoes_encontradas.append(q)
 
-        for c_doc in todos_docx:
-            if len(questoes_encontradas) >= limite:
-                break
-            nome_baixo = os.path.basename(c_doc).lower()
-            
-            # Priorizar documentos cujo nome coincida com o tema
-            score_doc = sum(1 for t in termos if t in nome_baixo)
-            if termos and score_doc == 0 and len(todos_docx) > 5:
-                continue
-
-            # Procurar se há ficheiro de solução com nome parecido
-            solucao_doc = None
-            dir_doc = os.path.dirname(c_doc)
-            candidatos_sol = glob.glob(os.path.join(dir_doc, "*soluc*.docx")) + glob.glob(os.path.join(dir_doc, "*resoluc*.docx"))
-            if candidatos_sol:
-                solucao_doc = candidatos_sol[0]
-
-            qs = self.extrair_questoes_de_teste(c_doc, solucao_doc)
-            for q in qs:
-                # Filtrar questões com tamanho razoável
-                if len(q["enunciado"]) > 15:
-                    questoes_encontradas.append(q)
+        # 2. Se correr localmente e ainda houver espaço no limite, procurar nos ficheiros DOCX do disco
+        if len(questoes_encontradas) < limite and os.path.exists(pasta_disciplina):
+            docx_testes = glob.glob(os.path.join(pasta_disciplina, "**", "02_Testes_e_Avaliacao", "**", "*.docx"), recursive=True)
+            docx_fichas = glob.glob(os.path.join(pasta_disciplina, "**", "03_Fichas_e_Exercicios", "**", "*.docx"), recursive=True)
+            todos_docx = docx_testes + docx_fichas
+            for c_doc in todos_docx:
                 if len(questoes_encontradas) >= limite:
                     break
+                nome_baixo = os.path.basename(c_doc).lower()
+                score_doc = sum(1 for t in termos if t in nome_baixo)
+                if termos and score_doc == 0 and len(todos_docx) > 5:
+                    continue
+                dir_doc = os.path.dirname(c_doc)
+                candidatos_sol = glob.glob(os.path.join(dir_doc, "*soluc*.docx")) + glob.glob(os.path.join(dir_doc, "*resoluc*.docx"))
+                solucao_doc = candidatos_sol[0] if candidatos_sol else None
+                qs = self.extrair_questoes_de_teste(c_doc, solucao_doc)
+                for q in qs:
+                    if len(q.get("enunciado", "")) > 15:
+                        questoes_encontradas.append(q)
+                    if len(questoes_encontradas) >= limite:
+                        break
 
         return questoes_encontradas[:limite]

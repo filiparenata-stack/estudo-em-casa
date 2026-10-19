@@ -113,10 +113,20 @@ class MotorBusca:
             proj_tit = m.get("titulo_projeto") or m.get("projeto") or ""
             proj_id = m.get("project_id", "")
             
-            # Tentar associar ao PDF descarregado localmente
+            # Tentar associar ao PDF descarregado localmente e ao link do GitHub
             caminho_local = ""
             tem_pdf_local = False
             tamanho = 35.0
+            url_github = ""
+
+            mapa_github_urls = {}
+            caminho_mapa_gh = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "manuais_github_urls.json")
+            if os.path.exists(caminho_mapa_gh):
+                try:
+                    with open(caminho_mapa_gh, "r", encoding="utf-8") as f_gh:
+                        mapa_github_urls = json.load(f_gh)
+                except Exception:
+                    pass
 
             norm_vol = re.sub(r'[^a-z0-9]', '', nome_vol.lower())
             for base_nome, p in mapa_locais.items():
@@ -130,6 +140,12 @@ class MotorBusca:
                         pass
                     break
 
+            for fich_nome, gh_url in mapa_github_urls.items():
+                norm_gh = re.sub(r'[^a-z0-9]', '', fich_nome.lower())
+                if norm_vol and (norm_vol in norm_gh or norm_gh in norm_vol):
+                    url_github = gh_url
+                    break
+
             self.manuais_por_disciplina[disc_id].append({
                 "caminho": caminho_local,
                 "nome": f"{proj_tit} - {nome_vol}",
@@ -138,6 +154,7 @@ class MotorBusca:
                 "tamanho_mb": tamanho,
                 "project_id": proj_id,
                 "tem_pdf_local": tem_pdf_local,
+                "url_github": url_github,
                 "link_escolavirtual": f"https://app.escolavirtual.pt/library/libraryteacher/detail/{proj_id}/" if proj_id else "https://app.escolavirtual.pt/",
                 "tipo": "Manual Oficial Escola Virtual"
             })

@@ -7,7 +7,8 @@ import {
   FileText,
   CheckCircle,
   Sparkles,
-  Laptop
+  Laptop,
+  DownloadCloud
 } from 'lucide-react';
 
 export default function BibliotecaView({ disciplina }) {
@@ -53,12 +54,12 @@ export default function BibliotecaView({ disciplina }) {
         <div className="flex items-center gap-2.5">
           <Sparkles className="w-4 h-4 text-blue-600 shrink-0" />
           <span>
-            <strong>Acervo Oficial de 79 Manuais do 7.º Ano:</strong> Todos os manuais, cadernos e dossiês estão indexados para resumos e testes.
+            <strong>Acervo Oficial de 79 Manuais do 7.º Ano:</strong> Todos os manuais, cadernos e dossiês estão indexados para resumos e testes. Podes ler os PDFs em alta resolução alojados no GitHub ou aceder à Escola Virtual.
           </span>
         </div>
-        <div className="flex items-center gap-1.5 text-slate-500 font-medium">
-          <Laptop className="w-3.5 h-3.5 text-indigo-600" />
-          <span>Online & Offline no PC</span>
+        <div className="flex items-center gap-1.5 text-slate-500 font-medium shrink-0">
+          <DownloadCloud className="w-3.5 h-3.5 text-emerald-600" />
+          <span>GitHub Cloud & PC</span>
         </div>
       </div>
 
@@ -69,7 +70,7 @@ export default function BibliotecaView({ disciplina }) {
             Manuais e Dossiês de {disciplina?.nome}
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
-            Manuais completos e cadernos de atividades para estudo e preparação para testes.
+            Manuais completos e cadernos de atividades em alta resolução (3840×2400) prontos a ler online ou offline.
           </p>
         </div>
 
@@ -110,33 +111,61 @@ export default function BibliotecaView({ disciplina }) {
                 <p className="text-[11px] text-slate-500 truncate mt-0.5">
                   {m.projeto || 'Escola Virtual 7.º Ano'}
                 </p>
-                <span className="inline-block mt-1.5 px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
-                  {m.tem_pdf_local ? 'PDF Local (3840×2400)' : 'Manual Oficial Escola Virtual'}
-                </span>
+                <div className="flex flex-wrap gap-1 mt-1.5">
+                  {m.url_github && (
+                    <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      PDF GitHub Cloud
+                    </span>
+                  )}
+                  {m.tem_pdf_local && (
+                    <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                      PDF Local (PC)
+                    </span>
+                  )}
+                  {!m.url_github && !m.tem_pdf_local && (
+                    <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
+                      Escola Virtual Digital
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 
-            <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-2 flex-wrap">
               <span className="text-[11px] font-semibold text-slate-400">
-                7.º Ano
+                {m.tamanho_mb ? `${m.tamanho_mb} MB` : '7.º Ano'}
               </span>
-              {m.tem_pdf_local ? (
-                <button
-                  onClick={() => abrirFicheiro(m.caminho)}
-                  className="px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer"
-                >
-                  Abrir PDF <ExternalLink className="w-3 h-3" />
-                </button>
-              ) : (
+              <div className="flex items-center gap-1.5">
+                {m.url_github && (
+                  <a
+                    href={m.url_github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center gap-1 transition-all shadow-sm"
+                    title="Ler ou descarregar o PDF original alojado no GitHub"
+                  >
+                    Ver PDF <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+                {m.tem_pdf_local && (
+                  <button
+                    onClick={() => abrirFicheiro(m.caminho)}
+                    className="px-2.5 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer"
+                    title="Abrir no leitor de PDF do teu computador"
+                  >
+                    PC <ExternalLink className="w-3 h-3" />
+                  </button>
+                )}
                 <a
                   href={m.link_escolavirtual || 'https://app.escolavirtual.pt/'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
+                  className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1 transition-all"
+                  title="Abrir na Escola Virtual"
                 >
-                  Ler na Escola Virtual <ExternalLink className="w-3 h-3" />
+                  Online <ExternalLink className="w-3 h-3" />
                 </a>
-              )}
+              </div>
             </div>
           </div>
         ))}
