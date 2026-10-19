@@ -48,7 +48,7 @@ class ResumoRequest(BaseModel):
 class QuizRequest(BaseModel):
     disciplina_id: str
     periodo: str = "Todos"
-    topicos: str
+    topicos: str = ""
     quantidade: int = 10
 
 class AbrirFicheiroRequest(BaseModel):
