@@ -140,11 +140,27 @@ class MotorBusca:
                         pass
                     break
 
-            for fich_nome, gh_url in mapa_github_urls.items():
-                norm_gh = re.sub(r'[^a-z0-9]', '', fich_nome.lower())
-                if norm_vol and (norm_vol in norm_gh or norm_gh in norm_vol):
-                    url_github = gh_url
-                    break
+            vol_words = [w for w in re.findall(r'[a-z0-9]+', nome_vol.lower()) if w not in ['interativo', 'de', 'do', 'da', 'em', 'e', 'os', 'as']]
+            proj_l = proj_tit.lower()
+            best_f = None
+            best_score = 0
+            for f_nome, info_gh in mapa_github_urls.items():
+                f_l = f_nome.lower()
+                gh_url_link = info_gh.get("url", "") if isinstance(info_gh, dict) else info_gh
+                score = 0
+                if ('faq' in proj_l and 'faq' in f_l) or ('geo' in proj_l and 'geo' in f_l and 'cien' not in f_l) or ('cien' in proj_l and 'cien' in f_l) or ('hist' in proj_l and 'hist' in f_l) or ('mat' in proj_l and 'mat' in f_l) or ('ing' in proj_l and 'ing' in f_l) or ('palavra' in proj_l and 'palavra' in f_l) or ('marche' in proj_l and 'marche' in f_l) or ('defis' in proj_l and 'defis' in f_l):
+                    score += 10
+                else:
+                    continue
+                for w in vol_words:
+                    if w in f_l:
+                        score += 5
+                if score > best_score and score >= 15:
+                    best_score = score
+                    best_f = gh_url_link
+
+            if best_f:
+                url_github = best_f
 
             self.manuais_por_disciplina[disc_id].append({
                 "caminho": caminho_local,
