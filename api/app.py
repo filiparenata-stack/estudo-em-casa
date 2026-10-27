@@ -45,6 +45,10 @@ class ResumoRequest(BaseModel):
     conteudos: str
     nivel: str = "completo"
 
+class AnkiRequest(BaseModel):
+    disciplina_id: str
+    periodo: str = "1_Periodo"
+
 class QuizRequest(BaseModel):
     disciplina_id: str
     periodo: str = "Todos"
@@ -74,6 +78,42 @@ def get_manuais(disc_id: str):
 @app.get("/api/topicos/{disc_id}")
 def get_topicos(disc_id: str, periodo: Optional[str] = "Todos"):
     return motor.listar_topicos_sugeridos(disc_id, periodo)
+
+@app.get("/api/resumo/periodo")
+def get_resumo_periodo(disciplina_id: str, periodo: Optional[str] = "1_Periodo"):
+    try:
+        dados = gerador.obter_resumo_periodo(disciplina_id, periodo)
+        return dados
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao obter resumo do período: {str(e)}")
+
+@app.post("/api/exportar-pdf-periodo")
+def post_exportar_pdf_periodo(dados: dict):
+    try:
+        pdf_bytes = exportador.gerar_pdf_resumo_periodo(dados)
+        disc_id = dados.get("disciplina_id", "7ano")
+        periodo = dados.get("periodo", "1_Periodo")
+        nome_ficheiro = f"Dossie_Estudo_{disc_id}_{periodo}.pdf"
+        return Response(
+            content=pdf_bytes,
+            media_type="application/pdf",
+            headers={"Content-Disposition": f'attachment; filename="{nome_ficheiro}"'}
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao compilar PDF do período: {str(e)}")
+
+@app.post("/api/exportar-anki")
+def post_exportar_anki(req: AnkiRequest):
+    try:
+        tsv_content = gerador.exportar_para_anki_tsv(req.disciplina_id, req.periodo)
+        nome_ficheiro = f"Anki_Flashcards_{req.disciplina_id}_{req.periodo}.txt"
+        return Response(
+            content=tsv_content.encode("utf-8"),
+            media_type="text/tab-separated-values; charset=utf-8",
+            headers={"Content-Disposition": f'attachment; filename="{nome_ficheiro}"'}
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao gerar baralho Anki: {str(e)}")
 
 @app.post("/api/resumo")
 def post_gerar_resumo(req: ResumoRequest):

@@ -1,0 +1,197 @@
+{
+  "disciplina_id": "02_Geografia_7",
+  "disciplina_nome": "Geografia",
+  "icone": "Globe",
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: A Terra - Estudos e Representações (Mapas e Coordenadas)",
+      "metas": [
+        "Identificar os elementos fundamentais de um mapa (título, escala, orientação, legenda, fonte)",
+        "Determinar a localização absoluta usando Latitude e Longitude",
+        "Distinguir escalas numéricas de gráficas e converter distâncias no mapa em distâncias reais"
+      ],
+      "topicos": [
+        {
+          "id": "geo7_p1_t1",
+          "titulo": "Coordenadas Geográficas: Latitude e Longitude",
+          "subdominio": "A Terra: Estudos e Representações",
+          "conceitos_chave": [
+            {
+              "termo": "Latitude",
+              "definicao": "Distância angular medida em graus (0° a 90° Norte ou Sul) a partir do Equador (paralelo de referência)."
+            },
+            {
+              "termo": "Longitude",
+              "definicao": "Distância angular medida em graus (0° a 180° Este ou Oeste) a partir do Meridiano de Greenwich (meridiano zero)."
+            },
+            {
+              "termo": "Localização Absoluta",
+              "definicao": "Ponto exato na superfície terrestre dado pelo cruzamento do paralelo com o meridiano correspondente."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p1_t1_2.png",
+          "imagem_legenda": "Rede cartográfica mostrando os paralelos, meridianos, hemisférios e quadrantes geográficos.",
+          "foco_teste": {
+            "questao_exemplo": "Observa o planisfério e indica as coordenadas geográficas (latitude e longitude) dos pontos A e B. Ponto A: paralelo 40° Norte e meridiano 10° Oeste.",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p1_t1_1.png",
+            "proposta_resolucao": "Ponto A: Latitude: 40° N (ou 40° Norte); Longitude: 10° O (ou 10° Oeste). Corresponde a Portugal Continental na Península Ibérica.",
+            "criterio_cotacao": "Indicação correta do valor numérico com símbolo de graus e da letra do hemisfério (N/S e E/O).",
+            "erro_frequente": "Trocar a latitude pela longitude ou esquecer-se de escrever o hemisfério (N/S/E/O)."
+          },
+          "flashcards": [
+            {
+              "frente": "A partir de que linha de referência se mede a Latitude?",
+              "verso": "A partir do Equador (0°), variando de 0° a 90° Norte e de 0° a 90° Sul.",
+              "dica": "Paralelos"
+            },
+            {
+              "frente": "Qual é a linha de referência da Longitude?",
+              "verso": "O Meridiano de Greenwich (0°), variando de 0° a 180° Este e de 0° a 180° Oeste.",
+              "dica": "Meridianos"
+            }
+          ]
+        },
+        {
+          "id": "geo7_p1_t2",
+          "titulo": "Escalas Cartográficas e Cálculos de Distância",
+          "subdominio": "Representação da Terra",
+          "conceitos_chave": [
+            {
+              "termo": "Escala Numérica",
+              "definicao": "Fração 1:D que indica quantas vezes a realidade foi reduzida no mapa (ex.: 1:50 000 significa que 1 cm no mapa = 50 000 cm = 500 m na realidade)."
+            },
+            {
+              "termo": "Escala Gráfica",
+              "definicao": "Segmento de reta graduado que permite ler diretamente a distância real correspondente à distância no mapa."
+            },
+            {
+              "termo": "Escala Grande vs Pequena",
+              "definicao": "Escala Grande (pequeno denominador, ex.: 1:10 000): representa áreas pequenas com muito detalhe (plantas). Escala Pequena (grande denominador, ex.: 1:20 000 000): representa grandes áreas com pouco detalhe (planisférios)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p1_t2_2.png",
+          "imagem_legenda": "Comparação entre escala grande e escala pequena e cálculo da Distância Real = Distância no Mapa × Denominador.",
+          "foco_teste": {
+            "questao_exemplo": "Num mapa com escala 1:2 500 000, a distância entre duas cidades é de 6 cm. Calcula a distância real em quilómetros.",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p1_t2_1.png",
+            "proposta_resolucao": "Distância Real = 6 cm × 2 500 000 = 15 000 000 cm. Convertendo para quilómetros: 15 000 000 cm = 150 000 m = 150 km.",
+            "criterio_cotacao": "Apresentação do cálculo multiplicativo (40%), conversão correta de cm para km (40%) e indicação da unidade km (20%).",
+            "erro_frequente": "Errar no número de zeros ao converter centímetros para quilómetros (dividir por 100 000)."
+          },
+          "flashcards": [
+            {
+              "frente": "Quantos centímetros tem 1 quilómetro?",
+              "verso": "1 km = 1000 m = 100 000 cm (para converter cm em km, divide-se por 100 000 ou corta-se 5 zeros).",
+              "dica": "Conversão rápida"
+            },
+            {
+              "frente": "Qual das escalas representa maior detalhe: 1:5000 ou 1:500 000?",
+              "verso": "1:5000 (Escala Grande), pois a realidade foi menos reduzida, permitindo observar ruas e edifícios.",
+              "dica": "Menor denominador = Maior detalhe"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: O Meio Natural - Relevo, Bacias Hidrográficas e Clima",
+      "metas": [
+        "Diferenciar as principais formas de relevo (montanhas, planaltos, planícies, vales) e o perfil dos rios",
+        "Distinguir tempo meteorológico de clima",
+        "Interpretar gráficos termopluviométricos (TMM, TMA, Precipitação Total e Meses Secos segundo Gaussen)"
+      ],
+      "topicos": [
+        {
+          "id": "geo7_p2_t1",
+          "titulo": "Elementos e Fatores do Clima",
+          "subdominio": "O Meio Natural - Clima",
+          "conceitos_chave": [
+            {
+              "termo": "Tempo vs Clima",
+              "definicao": "Tempo: estado da atmosfera num dado momento e lugar (passageiro). Clima: sucessão habitual dos estados de tempo ao longo de pelo menos 30 anos."
+            },
+            {
+              "termo": "Fatores do Clima",
+              "definicao": "Latitude (mais quente junto ao Equador), Altitude (a temperatura desce cerca de 0,6°C a cada 100 m de subida), Proximidade do mar (ameniza as temperaturas) e Relevo."
+            },
+            {
+              "termo": "Gráfico Termopluviométrico",
+              "definicao": "Representa a temperatura média mensal em linha vermelha (escala à direita) e a precipitação mensal em barras azuis (escala à esquerda, com P = 2T)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p2_t1_2.png",
+          "imagem_legenda": "Gráfico termopluviométrico de clima Mediterrâneo com identificação dos meses secos de verão (P <= 2T).",
+          "foco_teste": {
+            "questao_exemplo": "Analisa o gráfico termopluviométrico fornecido: (a) Calcula a Amplitude Térmica Anual (ATA). (b) Identifica se existem meses secos segundo o índice de Gaussen (P ≤ 2T).",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p2_t1_1.png",
+            "proposta_resolucao": "(a) ATA = T_máx - T_mín = 24°C (julho) - 10°C (janeiro) = 14°C. (b) Sim, de junho a setembro as barras de precipitação ficam abaixo da curva da temperatura (P ≤ 2T), definindo 4 meses secos (típico do clima Mediterrâneo).",
+            "criterio_cotacao": "Fórmula da ATA e cálculo (50%) + identificação dos meses secos e regra P ≤ 2T (50%).",
+            "erro_frequente": "Somar temperaturas em vez de subtrair para calcular a amplitude térmica."
+          },
+          "flashcards": [
+            {
+              "frente": "Como se calcula a Amplitude Térmica Anual (ATA)?",
+              "verso": "Temperatura do mês mais quente menos a temperatura do mês mais frio: ATA = T_máx - T_mín.",
+              "dica": "Diferença térmica"
+            },
+            {
+              "frente": "Quando é que um mês é considerado seco num gráfico termopluviométrico?",
+              "verso": "Quando a precipitação total do mês é igual ou inferior ao dobro da temperatura média desse mês: P ≤ 2T.",
+              "dica": "Índice de Gaussen"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: A População Mundial - Dinâmica e Distribuição",
+      "metas": [
+        "Calcular indicadores demográficos (Taxa de Natalidade, Mortalidade, Crescimento Natural e Saldo Migratório)",
+        "Analisar pirâmides etárias (jovem/expansiva, envelhecida/decrescente, adulta/estacionária)",
+        "Identificar fatores de atração e de repulsão das migrações humanas"
+      ],
+      "topicos": [
+        {
+          "id": "geo7_p3_t1",
+          "titulo": "Indicadores Demográficos e Crescimento Populacional",
+          "subdominio": "A População Mundial",
+          "conceitos_chave": [
+            {
+              "termo": "Taxa de Natalidade (TN) e Mortalidade (TM)",
+              "definicao": "Número de nados-vivos ou óbitos por cada mil habitantes num ano (expressa em permilagem: ‰)."
+            },
+            {
+              "termo": "Crescimento Natural (CN)",
+              "definicao": "Diferença entre nascimentos e mortes: CN = Nados-vivos - Óbitos (ou TCN = TN - TM)."
+            },
+            {
+              "termo": "Crescimento Efetivo (CE)",
+              "definicao": "Balanço total da população: CE = Crescimento Natural + Saldo Migratório (Imigração - Emigração)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p3_t1_2.png",
+          "imagem_legenda": "Tipos de pirâmides etárias: Jovem (base larga), Rejuvenescida e Envelhecida (topo largo e base estreita).",
+          "foco_teste": {
+            "questao_exemplo": "Um país tem 10 milhões de habitantes, 80 000 nados-vivos, 110 000 óbitos, 40 000 imigrantes e 15 000 emigrantes. (a) Calcula o Crescimento Natural. (b) Calcula o Saldo Migratório. (c) A população aumentou ou diminuiu?",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p3_t1_1.png",
+            "proposta_resolucao": "(a) CN = 80 000 - 110 000 = -30 000 habitantes (saldo natural negativo). (b) SM = 40 000 - 15 000 = +25 000 habitantes. (c) Crescimento Efetivo = -30 000 + 25 000 = -5 000 habitantes. A população diminuiu em 5000 pessoas.",
+            "criterio_cotacao": "Apresentação das equações (30%), cálculos corretos (50%) e conclusão fundamentada (20%).",
+            "erro_frequente": "Esquecer o sinal negativo quando os óbitos superam os nascimentos."
+          },
+          "flashcards": [
+            {
+              "frente": "O que indica uma pirâmide etária com a base muito estreita e o topo largo?",
+              "verso": "Indica uma população envelhecida, com baixa natalidade e elevada esperança média de vida (comum em países desenvolvidos como Portugal).",
+              "dica": "Envelhecimento demográfico"
+            },
+            {
+              "frente": "Qual a fórmula do Crescimento Efetivo da população?",
+              "verso": "Crescimento Efetivo = Crescimento Natural + Saldo Migratório (CE = CN + SM).",
+              "dica": "Demografia total"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

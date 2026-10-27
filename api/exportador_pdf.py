@@ -4,7 +4,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, HRFlowable
+    SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, HRFlowable, Image as RLImage
 )
 from reportlab.pdfgen import canvas
 
@@ -238,6 +238,169 @@ class ExportadorPDF:
             elements.append(t_dicas)
 
         # Construir documento
+        doc.build(elements, canvasmaker=NumberedCanvas)
+
+        if output_path is None:
+            buffer.seek(0)
+            return buffer.getvalue()
+        return output_path
+
+    def gerar_pdf_resumo_periodo(self, dados_periodo, output_path=None):
+        """
+        Gera uma sebenta/dossiê completo em PDF ilustrado para o período selecionado,
+        contendo as Metas Curriculares, Teoria Essencial, Esquemas e Questões de Teste resolvidas.
+        """
+        buffer = io.BytesIO() if output_path is None else output_path
+        doc = SimpleDocTemplate(
+            buffer,
+            pagesize=A4,
+            leftMargin=35,
+            rightMargin=35,
+            topMargin=35,
+            bottomMargin=40
+        )
+
+        elements = []
+
+        disc = dados_periodo.get("disciplina_nome", "7.º Ano")
+        periodo = dados_periodo.get("periodo", "1.º Período").replace("_", " ")
+        titulo = dados_periodo.get("titulo", f"Dossiê de Estudo - {periodo}")
+        metas = dados_periodo.get("metas", [])
+        topicos = dados_periodo.get("topicos", [])
+
+        # 1. Cabeçalho de Dossiê
+        header_data = [
+            [
+                Paragraph(f"<b>ESCOLA VIRTUAL 7.º ANO • {disc.upper()}</b>", self.styles['HeaderDisciplina']),
+                Paragraph(f"<b>{periodo.upper()}</b>", self.styles['HeaderDisciplina'])
+            ],
+            [
+                Paragraph(titulo, self.styles['HeaderTitulo']),
+                ""
+            ]
+        ]
+        t_header = Table(header_data, colWidths=[385, 140])
+        t_header.setStyle(TableStyle([
+            ('SPAN', (0, 1), (1, 1)),
+            ('ALIGN', (1, 0), (1, 0), 'RIGHT'),
+            ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
+            ('TOPPADDING', (0, 0), (-1, -1), 0),
+            ('LEFTPADDING', (0, 0), (-1, -1), 0),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+        ]))
+        elements.append(t_header)
+        elements.append(Spacer(1, 4))
+        elements.append(HRFlowable(width="100%", thickness=2, color=colors.HexColor("#0284c7"), spaceAfter=8))
+
+        # 2. Metas Curriculares Avaliadas
+        if metas:
+            elements.append(Paragraph("🎯 Metas Curriculares Oficiais Avaliadas no Período", self.styles['SecaoTitulo']))
+            m_data = []
+            for m in metas:
+                m_data.append([Paragraph(f"✓ <b>{m}</b>", self.styles['CorpoTexto'])])
+            t_metas = Table(m_data, colWidths=[525])
+            t_metas.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#f0fdf4")),
+                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#86efac")),
+                ('LINEBELOW', (0, 0), (-1, -1), 0.5, colors.HexColor("#dcfce7")),
+                ('TOPPADDING', (0, 0), (-1, -1), 3),
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+                ('LEFTPADDING', (0, 0), (-1, -1), 8),
+                ('RIGHTPADDING', (0, 0), (-1, -1), 8),
+            ]))
+            elements.append(t_metas)
+            elements.append(Spacer(1, 10))
+
+        # Diretório base da aplicação para resolução de imagens locais
+        base_dir = os.path.dirname(os.path.dirname(__file__))
+
+        # 3. Tópicos Curriculares
+        for idx, topico in enumerate(topicos):
+            tit_t = topico.get("titulo", f"Tópico {idx+1}")
+            subdom = topico.get("subdominio", "")
+            
+            bloco_topico = []
+            bloco_topico.append(Paragraph(f"<b>{idx+1}. {tit_t}</b> <font size=8 color='#64748b'>({subdom})</font>", self.styles['SecaoTitulo']))
+            
+            # Conceitos-chave
+            conceitos = topico.get("conceitos_chave", [])
+            if conceitos:
+                t_conc = []
+                for c in conceitos:
+                    t_conc.append([
+                        Paragraph(f"<b>{c.get('termo')}</b>", self.styles['TermoDestaque']),
+                        Paragraph(c.get('definicao', ''), self.styles['CorpoTexto'])
+                    ])
+                t_table = Table(t_conc, colWidths=[150, 375])
+                t_table.setStyle(TableStyle([
+                    ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#f8fafc")),
+                    ('BOX', (0, 0), (-1, -1), 0.8, colors.HexColor("#cbd5e1")),
+                    ('LINEBELOW', (0, 0), (-1, -1), 0.5, colors.HexColor("#e2e8f0")),
+                    ('TOPPADDING', (0, 0), (-1, -1), 4),
+                    ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+                    ('LEFTPADDING', (0, 0), (-1, -1), 6),
+                    ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+                ]))
+                bloco_topico.append(t_table)
+                bloco_topico.append(Spacer(1, 6))
+
+            # Foco no Teste (Questão real de exame + resolução)
+            ft = topico.get("foco_teste", {})
+            if ft and ft.get("questao_exemplo"):
+                q_texto = ft.get("questao_exemplo", "")
+                r_texto = ft.get("proposta_resolucao", "")
+                c_texto = ft.get("criterio_cotacao", "")
+                e_texto = ft.get("erro_frequente", "")
+
+                card_data = [
+                    [Paragraph("<b>📝 COMO SAI NO TESTE (Questão Real de Avaliação)</b>", self.styles['SubSecaoTitulo'])],
+                    [Paragraph(f"<b>Enunciado:</b> {q_texto}", self.styles['CorpoTexto'])],
+                    [Paragraph(f"<b>✅ Resolução Oficial:</b> {r_texto}", self.styles['CorpoTexto'])],
+                    [Paragraph(f"<b>📋 Critério do Professor:</b> {c_texto}", self.styles['CorpoTexto'])],
+                    [Paragraph(f"<b>⚠️ Cuidado com o Erro Comum:</b> {e_texto}", self.styles['CorpoTexto'])]
+                ]
+                t_ft = Table(card_data, colWidths=[525])
+                t_ft.setStyle(TableStyle([
+                    ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#eff6ff")),
+                    ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#93c5fd")),
+                    ('LINEBELOW', (0, 0), (0, 0), 1, colors.HexColor("#bfdbfe")),
+                    ('TOPPADDING', (0, 0), (-1, -1), 4),
+                    ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+                    ('LEFTPADDING', (0, 0), (-1, -1), 8),
+                    ('RIGHTPADDING', (0, 0), (-1, -1), 8),
+                ]))
+                bloco_topico.append(t_ft)
+                bloco_topico.append(Spacer(1, 10))
+
+            elements.append(KeepTogether(bloco_topico[:2]))
+            elements.extend(bloco_topico[2:])
+
+        # 4. Flashcards de Memorização no Final
+        all_flashcards = []
+        for t in topicos:
+            all_flashcards.extend(t.get("flashcards", []))
+
+        if all_flashcards:
+            elements.append(Spacer(1, 8))
+            elements.append(Paragraph("⚡ Flashcards de Autoavaliação Rápida (Antes do Teste)", self.styles['SecaoTitulo']))
+            fc_data = []
+            for fc in all_flashcards[:8]:
+                p_frente = Paragraph(f"<b>Pergunta:</b> {fc.get('frente')}", self.styles['CorpoTexto'])
+                p_verso = Paragraph(f"<b>Resposta:</b> {fc.get('verso')}", self.styles['CorpoTexto'])
+                fc_data.append([p_frente, p_verso])
+            t_fc = Table(fc_data, colWidths=[260, 265])
+            t_fc.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor("#fafaf9")),
+                ('BOX', (0, 0), (-1, -1), 1, colors.HexColor("#d6d3d1")),
+                ('INNERGRID', (0, 0), (-1, -1), 0.5, colors.HexColor("#e7e5e4")),
+                ('TOPPADDING', (0, 0), (-1, -1), 4),
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 4),
+                ('LEFTPADDING', (0, 0), (-1, -1), 6),
+                ('RIGHTPADDING', (0, 0), (-1, -1), 6),
+            ]))
+            elements.append(t_fc)
+
         doc.build(elements, canvasmaker=NumberedCanvas)
 
         if output_path is None:

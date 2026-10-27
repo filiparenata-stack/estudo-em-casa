@@ -1,0 +1,241 @@
+{
+  "disciplina_id": "06_Matematica_7",
+  "disciplina_nome": "Matemática",
+  "icone": "Calculator",
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Números Racionais, Potências e Notação Científica",
+      "metas": [
+        "Aplicar as regras operatórias das potências com expoentes inteiros (positivos e negativos)",
+        "Escrever e operar com números em Notação Científica (a × 10ⁿ, com 1 ≤ a < 10)",
+        "Resolver expressões numéricas com prioridade correta das operações e parêntesis"
+      ],
+      "topicos": [
+        {
+          "id": "mat7_p1_t1",
+          "titulo": "Regras das Potências e Expoente Negativo",
+          "subdominio": "Números e Operações",
+          "conceitos_chave": [
+            {
+              "termo": "Multiplicação de potências",
+              "definicao": "Mesma base: aᵐ × aⁿ = aᵐ⁺ⁿ | Mesmo expoente: aⁿ × bⁿ = (a × b)ⁿ."
+            },
+            {
+              "termo": "Divisão de potências",
+              "definicao": "Mesma base: aᵐ : aⁿ = aᵐ⁻ⁿ | Mesmo expoente: aⁿ : bⁿ = (a : b)ⁿ."
+            },
+            {
+              "termo": "Potência de uma potência",
+              "definicao": "(aᵐ)ⁿ = aᵐˣⁿ | Expoente zero: a⁰ = 1 (com a ≠ 0)."
+            },
+            {
+              "termo": "Expoente Inteiro Negativo",
+              "definicao": "a⁻ⁿ = 1 / aⁿ e (a/b)⁻ⁿ = (b/a)ⁿ. Inverte-se a base e muda-se o sinal do expoente!"
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p1_t1_1.png",
+          "imagem_legenda": "Quadro resumo oficial das regras operatórias de potências com exemplos práticos.",
+          "foco_teste": {
+            "questao_exemplo": "Escreve sob a forma de uma única potência a expressão: [(-3)⁴ × (-3)⁻²]³ : (-3)⁵.",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p1_t1_1.png",
+            "proposta_resolucao": "1.º Dentro de parênteses retos (mesma base, somam-se expoentes): (-3)⁴⁺⁽⁻²⁾ = (-3)². 2.º Potência de potência: [(-3)²]³ = (-3)²ˣ³ = (-3)⁶. 3.º Divisão (mesma base, subtraem-se expoentes): (-3)⁶ : (-3)⁵ = (-3)⁶⁻⁵ = (-3)¹ = -3.",
+            "criterio_cotacao": "Aplicação sequencial das regras operatórias (60%) e resultado final em potência única (40%).",
+            "erro_frequente": "Multiplicar as bases em vez de somar os expoentes quando as bases são iguais."
+          },
+          "flashcards": [
+            {
+              "frente": "A que é igual (2/3)⁻²?",
+              "verso": "(3/2)² = 9/4 (inverte-se a fração e eleva-se ao expoente positivo).",
+              "dica": "Expoente negativo"
+            },
+            {
+              "frente": "Qual o resultado de 7⁵ × 2⁵?",
+              "verso": "(7 × 2)⁵ = 14⁵ (mesmo expoente, multiplicam-se as bases).",
+              "dica": "Mesmo expoente"
+            }
+          ]
+        },
+        {
+          "id": "mat7_p1_t2",
+          "titulo": "Notação Científica",
+          "subdominio": "Números e Operações",
+          "conceitos_chave": [
+            {
+              "termo": "Forma Canónica",
+              "definicao": "a × 10ⁿ, onde 1 ≤ a < 10 (apenas um algarismo diferente de zero antes da vírgula) e n é um número inteiro."
+            },
+            {
+              "termo": "Números Grandes",
+              "definicao": "A vírgula recua para a esquerda e o expoente n é positivo (ex.: 450 000 000 = 4,5 × 10⁸)."
+            },
+            {
+              "termo": "Números Pequenos",
+              "definicao": "A vírgula avança para a direita e o expoente n é negativo (ex.: 0,000032 = 3,2 × 10⁻⁵)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p1_t2_1.png",
+          "imagem_legenda": "Regras de deslocamento da vírgula e ordem de grandeza na notação científica.",
+          "foco_teste": {
+            "questao_exemplo": "Efetua a operação e apresenta o resultado em notação científica: (3 × 10⁴) × (5 × 10⁻⁷).",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p1_t2_1.png",
+            "proposta_resolucao": "(3 × 5) × (10⁴ × 10⁻⁷) = 15 × 10⁻³. Como 15 não está entre 1 e 10, ajustamos: 15 = 1,5 × 10¹. Logo: 1,5 × 10¹ × 10⁻³ = 1,5 × 10⁻².",
+            "criterio_cotacao": "Multiplicação dos coeficientes e das potências de 10 (50%) + conversão final para notação científica estrita (50%).",
+            "erro_frequente": "Deixar o resultado como 15 × 10⁻³ (não é notação científica válida porque 15 ≥ 10)."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a condição obrigatória para o coeficiente 'a' na notação científica a × 10ⁿ?",
+              "verso": "O número 'a' tem de ser maior ou igual a 1 e estritamente menor que 10 (1 ≤ a < 10).",
+              "dica": "Regra canónica"
+            },
+            {
+              "frente": "Como se escreve 0,00045 em notação científica?",
+              "verso": "4,5 × 10⁻⁴ (a vírgula deslocou 4 casas para a direita).",
+              "dica": "Expoente negativo"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Álgebra - Equações do 1.º Grau",
+      "metas": [
+        "Resolver equações do 1.º grau com parênteses e denominadores numéricos",
+        "Classificar equações em: Possível e Determinada, Possível e Indeterminada (0x = 0) ou Impossível (0x = k, k≠0)",
+        "Modelar e resolver problemas do quotidiano através de equações"
+      ],
+      "topicos": [
+        {
+          "id": "mat7_p2_t1",
+          "titulo": "Resolução e Classificação de Equações do 1.º Grau",
+          "subdominio": "Álgebra - Equações",
+          "conceitos_chave": [
+            {
+              "termo": "Princípios de Equivalência",
+              "definicao": "Princípio da Adição: somar ou subtrair o mesmo termo a ambos os membros. Princípio da Multiplicação: multiplicar ou dividir ambos os membros por um número não nulo."
+            },
+            {
+              "termo": "Passos de Resolução",
+              "definicao": "1.º Desembaraçar de parênteses; 2.º Reduzir ao mesmo denominador e eliminar denominadores; 3.º Agrupar termos com incógnita no 1.º membro e termos independentes no 2.º membro; 4.º Reduzir termos semelhantes e isolar a incógnita."
+            },
+            {
+              "termo": "Classificação",
+              "definicao": "Possível e Determinada: tem 1 solução única (x = a). Possível e Indeterminada: 0x = 0 (infinitas soluções, CS = R). Impossível: 0x = k (nenhuma solução, CS = ∅)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p2_t1_2.png",
+          "imagem_legenda": "Guia algorítmico passo a passo para resolução de equações com denominadores e parênteses.",
+          "foco_teste": {
+            "questao_exemplo": "Resolve a equação em Q: (2x - 1) / 3 - (x + 2) / 2 = 1.",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p2_t1_1.png",
+            "proposta_resolucao": "1.º mmc(3, 2) = 6. Multiplicando cada termo: 2(2x - 1) / 6 - 3(x + 2) / 6 = 6 / 6. 2.º Eliminando denominadores: 4x - 2 - 3x - 6 = 6. 3.º Agrupando: x - 8 = 6 ➔ x = 6 + 8 ➔ x = 14. Conjunto Solução: CS = {14}. Equação Possível e Determinada.",
+            "criterio_cotacao": "Redução ao mesmo denominador (25%), atenção ao sinal menos antes do parênteses (-3x - 6) (35%), isolamento e CS (40%).",
+            "erro_frequente": "Não trocar o sinal de todos os termos do numerador quando há um sinal menos antes do traço de fração!"
+          },
+          "flashcards": [
+            {
+              "frente": "Como se classifica uma equação que resulta em 0x = 0?",
+              "verso": "Equação Possível e Indeterminada (tem uma infinidade de soluções: qualquer número real satisfaz a equação).",
+              "dica": "Classificação"
+            },
+            {
+              "frente": "O que acontece ao sinal do numerador quando temos -(x - 5)?",
+              "verso": "Fica -x + 5 (o sinal menos antes do parênteses inverte todos os sinais no interior).",
+              "dica": "Cuidado com o sinal menos"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Funções, Proporcionalidade Direta e Estatística",
+      "metas": [
+        "Identificar funções de proporcionalidade direta (y = k · x) e interpretar a constante k",
+        "Calcular medidas de localização estatística: Média, Mediana, Moda e Amplitude",
+        "Calcular áreas e volumes de prismas retos e cilindros"
+      ],
+      "topicos": [
+        {
+          "id": "mat7_p3_t1",
+          "titulo": "Função de Proporcionalidade Direta (y = kx)",
+          "subdominio": "Funções e Proporcionalidade",
+          "conceitos_chave": [
+            {
+              "termo": "Constante de Proporcionalidade (k)",
+              "definicao": "Razão constante entre a variável dependente y e a independente x: k = y / x (com x ≠ 0)."
+            },
+            {
+              "termo": "Representação Gráfica",
+              "definicao": "O gráfico de uma função de proporcionalidade direta é sempre uma reta que passa obrigatoriamente pela origem do referencial cartesiano (0, 0)."
+            },
+            {
+              "termo": "Expressão Algébrica",
+              "definicao": "f(x) = kx. Se k > 0 a reta é crescente; se k < 0 a reta é decrescente."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p3_t1_1.png",
+          "imagem_legenda": "Gráfico da reta y = kx passando na origem (0,0) e tabela de valores com razão constante k = y/x.",
+          "foco_teste": {
+            "questao_exemplo": "Uma torneira aberta despeja água a caudal constante. Ao fim de 4 minutos despejou 28 litros. (a) Determina a constante de proporcionalidade direta e o seu significado. (b) Escreve a expressão que dá o volume V em função do tempo t.",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p3_t1_1.png",
+            "proposta_resolucao": "(a) k = V / t = 28 / 4 = 7. Significado: o caudal da torneira é de 7 litros por cada minuto. (b) Expressão algébrica: V(t) = 7t.",
+            "criterio_cotacao": "Cálculo de k e indicação do significado físico com unidades l/min (60%) e expressão correta (40%).",
+            "erro_frequente": "Inverter a razão calculando 4/28 em vez de 28/4."
+          },
+          "flashcards": [
+            {
+              "frente": "Que característica geométrica tem obrigatoriamente o gráfico de uma proporcionalidade direta?",
+              "verso": "É uma linha reta que passa pela origem do referencial (ponto (0, 0)).",
+              "dica": "Origem cartesiana"
+            },
+            {
+              "frente": "Como se calcula a constante de proporcionalidade direta k a partir de um ponto (x, y)?",
+              "verso": "k = y / x (a coordenada y dividida pela coordenada x).",
+              "dica": "Fórmula k"
+            }
+          ]
+        },
+        {
+          "id": "mat7_p3_t2",
+          "titulo": "Estatística: Média, Mediana, Moda e Amplitude",
+          "subdominio": "Organização e Tratamento de Dados",
+          "conceitos_chave": [
+            {
+              "termo": "Média Aritmética (x̄)",
+              "definicao": "Soma de todos os dados dividida pelo número total de observações: x̄ = (∑ xᵢ) / n."
+            },
+            {
+              "termo": "Mediana (Me)",
+              "definicao": "Valor central do conjunto ordenado por ordem crescente: se n for ímpar, é o termo do meio; se n for par, é a média dos dois termos centrais."
+            },
+            {
+              "termo": "Moda (Mo) e Amplitude",
+              "definicao": "Moda: dado que ocorre com maior frequência absoluta. Amplitude: diferença entre o valor máximo e o valor mínimo (A = Máx - Mín)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p3_t2_1.png",
+          "imagem_legenda": "Exemplo de cálculo da Mediana e Média a partir de uma tabela de frequências absolutas.",
+          "foco_teste": {
+            "questao_exemplo": "Considera as notas obtidas por 8 alunos: 12, 15, 10, 18, 15, 14, 16, 20. Determina: (a) A moda; (b) A amplitude; (c) A mediana.",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p3_t2_1.png",
+            "proposta_resolucao": "1.º Ordenar o rol: 10, 12, 14, 15, 15, 16, 18, 20. (a) Moda = 15 (aparece 2 vezes). (b) Amplitude = 20 - 10 = 10 valores. (c) Como n = 8 (par), os termos centrais são o 4.º e o 5.º (15 e 15): Mediana = (15 + 15) / 2 = 15.",
+            "criterio_cotacao": "Ordenação prévia dos dados (20%), cálculo correto de Moda (25%), Amplitude (25%) e Mediana (30%).",
+            "erro_frequente": "Tentar achar a mediana sem ordenar previamente os dados em ordem crescente."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual é o primeiro passo obrigatório antes de calcular a mediana de um conjunto de dados?",
+              "verso": "Ordenar todos os dados por ordem crescente (formar o rol ordenado).",
+              "dica": "Passo 1"
+            },
+            {
+              "frente": "Como se calcula a mediana se a amostra tiver um número par de elementos?",
+              "verso": "Faz-se a média aritmética dos dois valores centrais da lista ordenada.",
+              "dica": "Amostra par"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,319 @@
+{
+  "disciplina_id": "01_Fisico_Quimica_7",
+  "disciplina_nome": "Físico-Química",
+  "icone": "Atom",
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Espaço, Universo e Constituição da Matéria",
+      "metas": [
+        "Identificar a estrutura do Universo e a posição da Terra no Sistema Solar",
+        "Utilizar unidades astronómicas (ua e ano-luz) em cálculos de distância",
+        "Distinguir substâncias puras de misturas e classificar misturas homogéneas e heterogéneas",
+        "Relacionar a constituição corpuscular da matéria com os estados físicos"
+      ],
+      "topicos": [
+        {
+          "id": "fq7_p1_t1",
+          "titulo": "Universo e Distâncias no Universo",
+          "subdominio": "Espaço - Universo",
+          "conceitos_chave": [
+            {
+              "termo": "Unidade Astronómica (ua)",
+              "definicao": "Distância média da Terra ao Sol (1 ua ≈ 1,5 × 10⁸ km = 150 milhões de km). Usada no Sistema Solar."
+            },
+            {
+              "termo": "Ano-luz (a.l.)",
+              "definicao": "Distância percorrida pela luz no vácuo durante um ano terrestre (1 a.l. ≈ 9,5 × 10¹² km). Usada para distâncias estelares e galácticas."
+            },
+            {
+              "termo": "Hierarquia Cósmica",
+              "definicao": "Terra ➔ Sistema Solar ➔ Braço de Órion ➔ Via Láctea ➔ Grupo Local ➔ Superenxame da Virgem ➔ Universo Observável."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t1_1.png",
+          "imagem_legenda": "Organização e hierarquia das estruturas no Universo: de satélites a superenxames de galáxias.",
+          "foco_teste": {
+            "questao_exemplo": "A estrela Sirius encontra-se a 8,6 anos-luz da Terra. Calcula a distância a Sirius em quilómetros, apresentando o resultado em notação científica com dois algarismos significativos. (Dado: 1 a.l. ≈ 9,5 × 10¹² km)",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t1_1.png",
+            "proposta_resolucao": "d = 8,6 × (9,5 × 10¹² km) = 8,17 × 10¹³ km ≈ 8,2 × 10¹³ km. A luz emitida por Sirius hoje demorará 8,6 anos a chegar aos nossos telescópios.",
+            "criterio_cotacao": "Obrigatório: fórmula ou proporção (20%), cálculo correto (40%), notação científica rigorosa (20%) e indicação correta da unidade km (20%).",
+            "erro_frequente": "Esquecer a notação científica ou confundir a unidade de distância (ano-luz) com uma unidade de tempo."
+          },
+          "flashcards": [
+            {
+              "frente": "O que mede 1 Unidade Astronómica (ua) e qual o seu valor?",
+              "verso": "Mede a distância média da Terra ao Sol, equivalente a aproximadamente 150 milhões de km (1,5 × 10⁸ km).",
+              "dica": "Sistema Solar"
+            },
+            {
+              "frente": "O ano-luz é uma unidade de tempo ou de distância?",
+              "verso": "É estritamente uma unidade de distância astronómica (distância percorrida pela luz num ano no vácuo: ≈ 9,5 × 10¹² km).",
+              "dica": "Não confundir"
+            }
+          ]
+        },
+        {
+          "id": "fq7_p1_t2",
+          "titulo": "O Sistema Solar e os Corpos Celestes",
+          "subdominio": "Espaço - Sistema Solar",
+          "conceitos_chave": [
+            {
+              "termo": "Planetas Telúricos (Rochosos)",
+              "definicao": "Mercúrio, Vénus, Terra e Marte: mais densos, menor raio, crosta sólida, poucos ou nenhuns satélites."
+            },
+            {
+              "termo": "Planetas Gasosos (Gigantes)",
+              "definicao": "Júpiter, Saturno, Úrano e Neptuno: atmosfera espessa de hidrogénio e hélio, menor densidade, anéis e múltiplos satélites."
+            },
+            {
+              "termo": "Planetas Anões e Asteroides",
+              "definicao": "Plutão, Ceres e Éris não limparam a sua órbita. A cintura de asteroides situa-se entre Marte e Júpiter."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t2_1.png",
+          "imagem_legenda": "Ordem dos planetas a partir do Sol e distinção entre planetas interiores e exteriores.",
+          "foco_teste": {
+            "questao_exemplo": "Considera a tabela com as características de dois planetas X e Y: Planeta X (densidade 5,4 g/cm³, 0 luas, superfície rochosa) e Planeta Y (densidade 1,3 g/cm³, 79 luas, atmosfera espessa). Classifica X e Y quanto ao tipo de planeta.",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t2_1.png",
+            "proposta_resolucao": "O Planeta X é um planeta telúrico/rochoso (alta densidade e rochoso, típico dos planetas interiores como Mercúrio/Terra). O Planeta Y é um planeta gasoso/gigante (baixa densidade e múltiplos satélites, típico dos exteriores como Júpiter).",
+            "criterio_cotacao": "Classificação correta acompanhada da justificação baseada nos dados da densidade e da presença de satélites.",
+            "erro_frequente": "Dizer que os planetas gasosos são mais densos porque são muito maiores (a densidade é massa por volume!)."
+          },
+          "flashcards": [
+            {
+              "frente": "Quais são os 4 planetas rochosos por ordem de proximidade ao Sol?",
+              "verso": "Mercúrio, Vénus, Terra e Marte.",
+              "dica": "Telúricos"
+            },
+            {
+              "frente": "Onde se localiza a Cintura Principal de Asteroides?",
+              "verso": "Entre a órbita de Marte (último rochoso) e a órbita de Júpiter (primeiro gasoso).",
+              "dica": "Fronteira rochosos/gasosos"
+            }
+          ]
+        },
+        {
+          "id": "fq7_p1_t3",
+          "titulo": "Substâncias Puras e Misturas",
+          "subdominio": "Materiais - Constituição do Mundo Material",
+          "conceitos_chave": [
+            {
+              "termo": "Substância Pura",
+              "definicao": "Matéria com composição constante e propriedades características bem definidas (PF e PE fixos). Pode ser elementar (um só elemento) ou composta."
+            },
+            {
+              "termo": "Mistura Homogénea",
+              "definicao": "Apresenta um único aspeto visual uniforme mesmo ao microscópio (ex.: ar não poluído, água do mar filtrada, bronze)."
+            },
+            {
+              "termo": "Mistura Heterogénea e Coloidal",
+              "definicao": "Heterogénea: distinguem-se diferentes fases a olho nu (água e azeite). Coloidal: parece homogénea a olho nu mas é heterogénea ao microscópio ótico (leite, sangue, nevoeiro)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t3_1.png",
+          "imagem_legenda": "Classificação da matéria: substâncias puras (elementares vs compostas) e misturas (homogéneas, heterogéneas e coloides).",
+          "foco_teste": {
+            "questao_exemplo": "Num laboratório prepararam-se três recipientes: A (água e sal totalmente dissolvido), B (água, areia e azeite) e C (leite gordo). Classifica cada sistema justificando.",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t3_1.png",
+            "proposta_resolucao": "A é uma mistura homogénea (solução com uma única fase uniforme). B é uma mistura heterogénea (três fases distintas visíveis). C é uma mistura coloidal (efeito Tyndall, partículas dispersas visíveis ao microscópio).",
+            "criterio_cotacao": "Classificação de cada mistura (60%) e justificação com base no número de fases observáveis (40%).",
+            "erro_frequente": "Considerar o leite como mistura homogénea por parecer uniforme a olho nu."
+          },
+          "flashcards": [
+            {
+              "frente": "O leite e o sangue são misturas homogéneas?",
+              "verso": "Não, são misturas coloidais (heterogéneas ao microscópio ótico, dispersam a luz).",
+              "dica": "Coloides"
+            },
+            {
+              "frente": "Qual a diferença entre substância elementar e substância composta?",
+              "verso": "A elementar é formada por átomos de um só elemento químico (ex.: O₂), a composta por mais de um elemento (ex.: H₂O).",
+              "dica": "Átomos"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Transformações Físicas e Químicas e Propriedades dos Materiais",
+      "metas": [
+        "Diferenciar transformações físicas (sem novas substâncias) de químicas (com formação de novos produtos)",
+        "Identificar evidências macroscópicas de reações químicas (mudança de cor, cheiro, gás, luz, calor, precipitado)",
+        "Calcular e interpretar a massa volúmica (ρ = m / V)",
+        "Identificar pontos de fusão e de ebulição em gráficos de aquecimento/arrefecimento"
+      ],
+      "topicos": [
+        {
+          "id": "fq7_p2_t1",
+          "titulo": "Transformações Físicas vs Químicas",
+          "subdominio": "Materiais - Transformações",
+          "conceitos_chave": [
+            {
+              "termo": "Transformação Física",
+              "definicao": "Muda a forma ou o estado físico, mas as substâncias mantêm-se as mesmas (ex.: fusão do gelo, rasgar papel, dissolução de açúcar)."
+            },
+            {
+              "termo": "Transformação Química (Reação)",
+              "definicao": "Os reagentes transformam-se em novas substâncias (produtos de reação) com propriedades diferentes (ex.: combustão, ferrugem, fotossíntese)."
+            },
+            {
+              "termo": "Sinais de Reação Química",
+              "definicao": "Libertação de gás (efervescência), alteração de cor, formação de um precipitado sólido, libertação de luz ou calor, emissão de cheiro."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t1_2.png",
+          "imagem_legenda": "Evidências de reações químicas no laboratório e distinção molecular face às mudanças de estado.",
+          "foco_teste": {
+            "questao_exemplo": "Ao juntar ácido clorídrico a um pedaço de magnésio observa-se intensa efervescência e o tubo de ensaio aquece. Trata-se de uma transformação física ou química? Justifica com duas evidências observadas.",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t1_1.png",
+            "proposta_resolucao": "Trata-se de uma transformação química (reação química). Evidências: libertação de um gás (efervescência de hidrogénio) e variação de temperatura (aquecimento do tubo / reação exotérmica), demonstrando a formação de novas substâncias.",
+            "criterio_cotacao": "Identificação correta (40%) + indicação e justificação de ambas as evidências (60%).",
+            "erro_frequente": "Confundir efervescência por reação com ebulição de um líquido."
+          },
+          "flashcards": [
+            {
+              "frente": "Quais são 4 sinais visíveis de que ocorreu uma reação química?",
+              "verso": "1. Mudança de cor; 2. Libertação de gás; 3. Formação de precipitado; 4. Variação de temperatura ou luz.",
+              "dica": "Evidências"
+            },
+            {
+              "frente": "A fusão do gelo e a evaporação da água são transformações físicas ou químicas?",
+              "verso": "Físicas, porque as moléculas continuam a ser de água (H₂O), alterando apenas a sua organização espacial.",
+              "dica": "Estados físicos"
+            }
+          ]
+        },
+        {
+          "id": "fq7_p2_t2",
+          "titulo": "Massa Volúmica e Propriedades Físicas",
+          "subdominio": "Materiais - Propriedades Físicas",
+          "conceitos_chave": [
+            {
+              "termo": "Massa Volúmica (ρ)",
+              "definicao": "Relação entre a massa e o volume de um corpo: ρ = m / V. Unidade SI: kg/m³ (muito usada em laboratório: g/cm³)."
+            },
+            {
+              "termo": "Ponto de Fusão e de Ebulição",
+              "definicao": "Temperaturas às quais ocorrem as mudanças sólido ➔ líquido e líquido ➔ gás, a uma dada pressão. Nas substâncias puras mantêm-se constantes durante a transição."
+            },
+            {
+              "termo": "Flutuação e Densidade",
+              "definicao": "Um corpo flutua num líquido se a sua massa volúmica for menor que a do líquido; afunda se for maior."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t2_2.png",
+          "imagem_legenda": "Gráfico de temperatura vs tempo durante o aquecimento de uma substância pura e cálculo de ρ = m / V.",
+          "foco_teste": {
+            "questao_exemplo": "Um bloco maciço tem uma massa de 270 g e ocupa um volume de 100 cm³. (a) Calcula a massa volúmica em g/cm³. (b) Sabendo que a massa volúmica da água pura é 1,0 g/cm³, o bloco flutuará ou afundará na água?",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t2_1.png",
+            "proposta_resolucao": "(a) ρ = m / V = 270 g / 100 cm³ = 2,7 g/cm³ (alumínio). (b) O bloco afundará na água pura, pois a sua massa volúmica (2,7 g/cm³) é superior à da água (1,0 g/cm³).",
+            "criterio_cotacao": "Fórmula explícita (25%), valor numérico e unidade g/cm³ (50%), justificação da flutuação comparando valores (25%).",
+            "erro_frequente": "Omitir a unidade no resultado final ou inverter m e V na fórmula."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a fórmula da massa volúmica e as suas unidades habituais?",
+              "verso": "ρ = m / V (massa dividida por volume). Unidades: kg/m³ no SI e g/cm³ em laboratório.",
+              "dica": "Fórmula fundamental"
+            },
+            {
+              "frente": "Como se comporta a temperatura de uma substância pura durante a ebulição?",
+              "verso": "A temperatura permanece estritamente constante (patamar térmico) enquanto coexistem líquido e vapor.",
+              "dica": "Patamar de mudança de estado"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Separação de Misturas e Fontes de Energia",
+      "metas": [
+        "Selecionar métodos adequados de separação de misturas (filtração, decantação, destilação, cristalização, cromatografia)",
+        "Distinguir fontes de energia renováveis e não renováveis",
+        "Descrever transferências e transformações de energia de acordo com a Lei da Conservação da Energia"
+      ],
+      "topicos": [
+        {
+          "id": "fq7_p3_t1",
+          "titulo": "Métodos de Separação de Misturas",
+          "subdominio": "Materiais - Separação",
+          "conceitos_chave": [
+            {
+              "termo": "Filtração e Decantação",
+              "definicao": "Separa sólidos não dissolvidos de líquidos (líquido-sólido heterogéneo) ou líquidos imiscíveis de diferentes densidades (ampola de decantação)."
+            },
+            {
+              "termo": "Destilação Simples",
+              "definicao": "Separa um sólido dissolvido num líquido ou líquidos miscíveis com grande diferença de pontos de ebulição, recolhendo o destilado após condensação."
+            },
+            {
+              "termo": "Cristalização",
+              "definicao": "Evaporação lenta do solvente permitindo a formação de cristais puros de soluto (ex.: salinas marinhas)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t1_2.png",
+          "imagem_legenda": "Aparelhos laboratoriais: montagem de destilação simples com balão, termómetro, condensador e erlenmeyer.",
+          "foco_teste": {
+            "questao_exemplo": "Deseja-se obter água pura a partir de uma amostra de água salgada com terra em suspensão. Indica por ordem os dois processos laboratoriais a utilizar e identifica o papel do condensador de Liebig.",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t1_1.png",
+            "proposta_resolucao": "1.º Filtração simples (para reter a terra no papel de filtro). 2.º Destilação simples (para separar a água do sal dissolvido). O condensador arrefece os vapores de água que se libertam no balão, fazendo-os passar ao estado líquido por condensação.",
+            "criterio_cotacao": "Sequência correta dos métodos (50%) + explicação física do condensador (50%).",
+            "erro_frequente": "Propor decantação para separar o sal dissolvido (o sal não decanta por estar em solução!)."
+          },
+          "flashcards": [
+            {
+              "frente": "Que método permite separar água e álcool e em que propriedade física se baseia?",
+              "verso": "Destilação fracionada/simples, baseada na diferença dos pontos de ebulição dos dois líquidos.",
+              "dica": "Líquidos miscíveis"
+            },
+            {
+              "frente": "Para que serve a ampola de decantação?",
+              "verso": "Para separar líquidos imiscíveis com diferentes densidades (ex.: água e azeite).",
+              "dica": "Laboratório"
+            }
+          ]
+        },
+        {
+          "id": "fq7_p3_t2",
+          "titulo": "Fontes de Energia e Conservação",
+          "subdominio": "Energia - Transferências",
+          "conceitos_chave": [
+            {
+              "termo": "Fontes Renováveis vs Não Renováveis",
+              "definicao": "Renováveis: solar, eólica, hídrica, biomassa, geotérmica, marés. Não renováveis: combustíveis fósseis (carvão, petróleo, gás natural) e urânio."
+            },
+            {
+              "termo": "Lei da Conservação da Energia",
+              "definicao": "A energia não se cria nem se destrói, apenas se transforma de umas formas noutras ou se transfere entre corpos."
+            },
+            {
+              "termo": "Rendimento Energético",
+              "definicao": "Razão entre a energia útil obtida e a energia total fornecida (η = E_útil / E_total × 100%)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t2_2.png",
+          "imagem_legenda": "Diagrama de Sankey mostrando a energia fornecida, a energia útil e a energia dissipada sob a forma de calor.",
+          "foco_teste": {
+            "questao_exemplo": "Uma lâmpada consome 100 J de energia elétrica e fornece 15 J de energia luminosa (útil). (a) O que aconteceu à restante energia? (b) Calcula o rendimento da lâmpada.",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t2_1.png",
+            "proposta_resolucao": "(a) A energia restante (85 J) foi dissipada para o ambiente sob a forma de calor (energia térmica). (b) Rendimento = (15 J / 100 J) × 100% = 15%.",
+            "criterio_cotacao": "Aplicação do princípio da conservação da energia (50%) e cálculo correto com símbolo percentual (50%).",
+            "erro_frequente": "Dizer que a energia de 85 J 'desapareceu' ou foi destruída."
+          },
+          "flashcards": [
+            {
+              "frente": "O que postula a Lei da Conservação da Energia?",
+              "verso": "A energia total num sistema isolado permanece constante: não pode ser criada nem destruída, apenas transformada ou transferida.",
+              "dica": "Princípio universal"
+            },
+            {
+              "frente": "Indica 3 fontes de energia renováveis e 2 não renováveis.",
+              "verso": "Renováveis: solar, eólica, hídrica. Não renováveis: petróleo, gás natural (ou carvão/urânio).",
+              "dica": "Sustentabilidade"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

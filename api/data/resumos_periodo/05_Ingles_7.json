@@ -1,0 +1,157 @@
+{
+  "disciplina_id": "05_Ingles_7",
+  "disciplina_nome": "Inglês",
+  "icone": "Languages",
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Family, Daily Routines & School Life",
+      "metas": [
+        "Use Present Simple for daily habits and routines (3rd person singular -s/-es)",
+        "Use Present Continuous for actions happening at the moment of speaking",
+        "Apply Frequency Adverbs (always, usually, often, sometimes, never) in the correct word order"
+      ],
+      "topicos": [
+        {
+          "id": "ing7_p1_t1",
+          "titulo": "Present Simple vs Present Continuous",
+          "subdominio": "Grammar & Daily Routines",
+          "conceitos_chave": [
+            {
+              "termo": "Present Simple",
+              "definicao": "Used for routines, habits and facts. Key words: every day, always, usually, on Mondays. Rule: He/She/It + verb-s/es."
+            },
+            {
+              "termo": "Present Continuous",
+              "definicao": "Used for actions happening now. Rule: am/is/are + verb-ing. Key words: now, at the moment, right now, Look!, Listen!."
+            },
+            {
+              "termo": "Frequency Adverbs Position",
+              "definicao": "Placed BEFORE main verbs (ex: 'He often plays football'), but AFTER the verb to be (ex: 'She is always on time')."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p1_t1_2.png",
+          "imagem_legenda": "Grammar box comparing Present Simple (routine) with Present Continuous (action in progress).",
+          "foco_teste": {
+            "questao_exemplo": "Complete the sentences with Present Simple or Present Continuous: (a) Listen! Mark ______ (play) the guitar in his room. (b) My parents usually ______ (go) to work by train.",
+            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p1_t1_1.png",
+            "proposta_resolucao": "(a) is playing (action happening right now indicated by 'Listen!'). (b) go (routine action indicated by the frequency adverb 'usually').",
+            "criterio_cotacao": "Correct verb form for each sentence (50% each).",
+            "erro_frequente": "Forgetting the auxiliary 'is/are' in the continuous tense or adding '-s' to verbs with 'I/You/We/They'."
+          },
+          "flashcards": [
+            {
+              "frente": "Where do adverbs of frequency go in a sentence with the verb TO BE?",
+              "verso": "They go AFTER the verb to be (ex: 'She is never late').",
+              "dica": "Position rule"
+            },
+            {
+              "frente": "When do you use Present Continuous?",
+              "verso": "For actions happening at the exact moment of speaking (now, at the moment, Look!).",
+              "dica": "-ing form"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Home, Town & Describing Places (Adjectives)",
+      "metas": [
+        "Describe rooms, furniture and prepositions of place (next to, behind, opposite, between)",
+        "Use Comparative of Superiority (short adjectives -er than; long adjectives more ... than)",
+        "Use Superlative of Superiority (the -est / the most ...)"
+      ],
+      "topicos": [
+        {
+          "id": "ing7_p2_t1",
+          "titulo": "Comparative and Superlative Adjectives",
+          "subdominio": "Grammar - Adjectives",
+          "conceitos_chave": [
+            {
+              "termo": "Short Adjectives Comparative",
+              "definicao": "Adj + -er + than (ex: tall ➔ taller than; big ➔ bigger than; easy ➔ easier than)."
+            },
+            {
+              "termo": "Long Adjectives Comparative",
+              "definicao": "more + Adj + than (ex: comfortable ➔ more comfortable than; expensive ➔ more expensive than)."
+            },
+            {
+              "termo": "Irregular Adjectives",
+              "definicao": "good ➔ better ➔ the best; bad ➔ worse ➔ the worst; far ➔ further ➔ the furthest."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p2_t1_1.png",
+          "imagem_legenda": "Summary chart showing short, long, and irregular comparative and superlative forms.",
+          "foco_teste": {
+            "questao_exemplo": "Complete with the correct comparative or superlative form: (a) London is ________ (busy) than Porto. (b) This sofa is ________________ (comfortable) in the whole house.",
+            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p2_t1_1.png",
+            "proposta_resolucao": "(a) busier (short adjective ending in -y: changes to -ier + than). (b) the most comfortable (long adjective in superlative context: the most + adjective).",
+            "criterio_cotacao": "Correct spelling and comparative/superlative structure (50% each).",
+            "erro_frequente": "Writing 'more busier' (double comparative) or forgetting 'the' before superlatives."
+          },
+          "flashcards": [
+            {
+              "frente": "What are the comparative and superlative forms of 'good' and 'bad'?",
+              "verso": "Good ➔ better than ➔ the best. Bad ➔ worse than ➔ the worst.",
+              "dica": "Irregular forms"
+            },
+            {
+              "frente": "How do you form the comparative of a long adjective like 'modern'?",
+              "verso": "more modern than (never add -er to long adjectives).",
+              "dica": "Rule for long adjectives"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Past Experiences, Free Time & Sports",
+      "metas": [
+        "Use Past Simple with regular verbs (-ed) and irregular verbs (went, saw, bought, had)",
+        "Form negative and interrogative sentences in Past Simple with 'did / didn't'",
+        "Distinguish countable and uncountable nouns (some, any, much, many, a lot of)"
+      ],
+      "topicos": [
+        {
+          "id": "ing7_p3_t1",
+          "titulo": "Past Simple: Regular & Irregular Verbs",
+          "subdominio": "Grammar - Past Simple",
+          "conceitos_chave": [
+            {
+              "termo": "Regular Verbs",
+              "definicao": "Add -ed to base form: play ➔ played, live ➔ lived, study ➔ studied, stop ➔ stopped (CVC rule)."
+            },
+            {
+              "termo": "Irregular Verbs",
+              "definicao": "Memorized 2nd column list: go ➔ went, have ➔ had, see ➔ saw, buy ➔ bought, write ➔ wrote, eat ➔ ate."
+            },
+            {
+              "termo": "Negatives & Questions",
+              "definicao": "Auxiliary DID: Did you visit London? / I didn't visit London. The main verb stays in the INFINITIVE!"
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p3_t1_1.png",
+          "imagem_legenda": "Past Simple affirmative, negative (didn't + inf) and question (Did + subj + inf) structures.",
+          "foco_teste": {
+            "questao_exemplo": "Turn the sentence into negative and question: 'Sarah went to the sports club yesterday.'",
+            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p3_t1_1.png",
+            "proposta_resolucao": "Negative: Sarah didn't go to the sports club yesterday. Question: Did Sarah go to the sports club yesterday?",
+            "criterio_cotacao": "Use of didn't / Did (50%) and returning 'went' to base form 'go' (50%).",
+            "erro_frequente": "Writing 'didn't went' (wrong! Auxiliary already carries the past, verb must be in base form)."
+          },
+          "flashcards": [
+            {
+              "frente": "What is the past simple of 'buy', 'see', and 'go'?",
+              "verso": "Buy ➔ bought; See ➔ saw; Go ➔ went.",
+              "dica": "Irregular verbs"
+            },
+            {
+              "frente": "Is 'I didn't saw the film' correct?",
+              "verso": "No! Correct is: 'I didn't see the film' (after didn't, the verb is always in the bare infinitive).",
+              "dica": "Common test trap"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

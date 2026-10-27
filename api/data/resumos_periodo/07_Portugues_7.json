@@ -1,0 +1,161 @@
+{
+  "disciplina_id": "07_Portugues_7",
+  "disciplina_nome": "Português",
+  "icone": "GraduationCap",
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Texto Narrativo e Classes de Palavras",
+      "metas": [
+        "Identificar a estrutura da narrativa (introdução, peripécia, ponto culminante e desenlace)",
+        "Distinguir classes e subclasses de palavras (Nomes, Verbos, Determinantes, Pronomes, Conjunções)",
+        "Reconhecer recursos expressivos: metáfora, comparação, personificação e hipérbole"
+      ],
+      "topicos": [
+        {
+          "id": "port7_p1_t1",
+          "titulo": "Classes de Palavras e Recursos Expressivos",
+          "subdominio": "Gramática e Leitura",
+          "conceitos_chave": [
+            {
+              "termo": "Determinante vs Pronome",
+              "definicao": "O Determinante acompanha o nome (ex.: 'O meu livro'); o Pronome substitui o nome (ex.: 'O meu é este')."
+            },
+            {
+              "termo": "Conjunções Coordenativas",
+              "definicao": "Copulativas (e, nem), Adversativas (mas, porém, contudo), Disjuntivas (ou, ou...ou), Conclusivas (logo, portanto) e Explicativas (pois)."
+            },
+            {
+              "termo": "Recursos Expressivos",
+              "definicao": "Metáfora (associação direta de sentido sem palavra comparativa), Comparação (usa 'como', 'parece'), Personificação (atribuição de traços humanos a seres inanimados) e Hipérbole (exagero intencional)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p1_t1_2.png",
+          "imagem_legenda": "Tabela de sistematização das classes gramaticais e mapa concetual dos recursos de estilo.",
+          "foco_teste": {
+            "questao_exemplo": "Identifica a classe e subclasse das palavras sublinhadas na frase: 'Aquele rapaz perdeu o livro, mas eu emprestei-lhe o meu.' (Palavras: Aquele, mas, meu).",
+            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p1_t1_1.png",
+            "proposta_resolucao": "- 'Aquele': Determinante demonstrativo (acompanha o nome 'rapaz'). - 'mas': Conjunção coordenativa adversativa (introduz oposição). - 'meu': Pronome possessivo (substitui a expressão 'meu livro').",
+            "criterio_cotacao": "Classe e subclasse completas de cada palavra (33% cada).",
+            "erro_frequente": "Classificar 'meu' como determinante quando ele está a substituir o nome e não a acompanhá-lo."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a diferença entre uma comparação e uma metáfora?",
+              "verso": "A comparação usa expressamente uma palavra de ligação (como, tal qual, parece); a metáfora faz a fusão de sentidos direta sem conectivo comparativo.",
+              "dica": "Recursos de estilo"
+            },
+            {
+              "frente": "Que conjunções coordenativas introduzem uma ideia de oposição?",
+              "verso": "As conjunções adversativas: mas, porém, contudo, todavia, no entanto.",
+              "dica": "Conjunções"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Funções Sintáticas e Texto Dramático",
+      "metas": [
+        "Identificar todas as funções sintáticas ao nível da frase (Sujeito, Predicado, Complementos e Modificadores)",
+        "Distinguir Complemento Direto, Indireto e Oblíquo",
+        "Caracterizar o texto dramático (didascálias/indicações cénicas, réplicas, monólogos e apartes)"
+      ],
+      "topicos": [
+        {
+          "id": "port7_p2_t1",
+          "titulo": "Funções Sintáticas no Grupo Verbal",
+          "subdominio": "Gramática - Sintaxe",
+          "conceitos_chave": [
+            {
+              "termo": "Complemento Direto",
+              "definicao": "Selecionado pelo verbo, responde à pergunta 'o quê?' ou 'quem?' e pode ser substituído pelos pronomes o, a, os, as."
+            },
+            {
+              "termo": "Complemento Indireto",
+              "definicao": "Iniciado obrigatoriamente pela preposição 'a', responde à pergunta 'a quem?' e substitui-se por lhe, lhes."
+            },
+            {
+              "termo": "Complemento Oblíquo",
+              "definicao": "Preposicionado e obrigatório para o sentido do verbo (se for retirado a frase fica incompleta), mas NÃO pode ser substituído por lhe/lhes (ex.: 'Ele mora em Lisboa', 'Ela foi a Paris')."
+            },
+            {
+              "termo": "Modificador do Grupo Verbal",
+              "definicao": "Elemento acessório que indica tempo, lugar ou modo; pode ser retirado da frase sem afetar a sua gramaticalidade."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p2_t1_2.png",
+          "imagem_legenda": "Árvore sintática das funções da frase: Sujeito, Predicado, Complementos e Modificadores.",
+          "foco_teste": {
+            "questao_exemplo": "Na frase: 'Ontem, a professora entregou o teste ao aluno na sala de aula', identifica a função sintática de: (a) 'Ontem'; (b) 'o teste'; (c) 'ao aluno'; (d) 'na sala de aula'.",
+            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p2_t1_1.png",
+            "proposta_resolucao": "(a) 'Ontem': Modificador (do grupo verbal / de frase). (b) 'o teste': Complemento direto (entregou-o). (c) 'ao aluno': Complemento indireto (entregou-lhe). (d) 'na sala de aula': Modificador do grupo verbal (valor locativo acessório).",
+            "criterio_cotacao": "Classificação correta de cada uma das 4 funções sintáticas (25% cada).",
+            "erro_frequente": "Confundir complemento oblíquo com modificador (se pode ser retirado sem estragar o sentido essencial do verbo, é modificador!)."
+          },
+          "flashcards": [
+            {
+              "frente": "Como se testa se uma palavra ou grupo é Complemento Direto?",
+              "verso": "Tenta-se substituir pelos pronomes o, a, os, as (ex.: 'Comi uma maçã' ➔ 'Comi-a').",
+              "dica": "Teste da pronominalização"
+            },
+            {
+              "frente": "Qual a diferença entre Complemento Oblíquo e Modificador?",
+              "verso": "O Complemento Oblíquo é obrigatório para o sentido do verbo (ex.: 'Vou a casa'); o Modificador é acessório e pode ser retirado (ex.: 'Cheguei cedo').",
+              "dica": "Obrigatoriedade"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Orações Coordenadas, Subordinadas e Texto dos Media",
+      "metas": [
+        "Distinguir orações coordenadas (copulativas, adversativas, conclusivas, disjuntivas, explicativas)",
+        "Distinguir orações subordinadas adverbiais (causais, temporais, finais, condicionais, comparativas, consecutivas e concessivas)",
+        "Identificar a estrutura da notícia (título, lead/guia e corpo da notícia)"
+      ],
+      "topicos": [
+        {
+          "id": "port7_p3_t1",
+          "titulo": "Complexidade Frásica: Coordenação e Subordinação",
+          "subdominio": "Gramática - Orações",
+          "conceitos_chave": [
+            {
+              "termo": "Orações Coordenadas",
+              "definicao": "Independentes sintaticamente entre si, ligadas por conjunções coordenativas (ex.: 'Estudei muito [coordenada 1], portanto passei no teste [coordenada conclusiva]')."
+            },
+            {
+              "termo": "Orações Subordinadas Adverbiais",
+              "definicao": "Desempenham função sintática de modificador em relação à oração subordinante: Causal ('porque'), Temporal ('quando', 'enquanto'), Final ('para que'), Condicional ('se')."
+            },
+            {
+              "termo": "Subordinada Substantiva Relativa",
+              "definicao": "Introduzida por pronome relativo sem antecedente (ex.: 'Quem cala consente')."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p3_t1_2.png",
+          "imagem_legenda": "Guia de classificação de orações coordenadas e subordinadas adverbiais e respetivas conjunções.",
+          "foco_teste": {
+            "questao_exemplo": "Divide e classifica as orações da frase complexa: 'Quando o sinal tocou, os alunos saíram da sala porque a aula tinha terminado.'",
+            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p3_t1_1.png",
+            "proposta_resolucao": "1. 'Quando o sinal tocou': Oração subordinada adverbial temporal. 2. 'os alunos saíram da sala': Oração subordinante. 3. 'porque a aula tinha terminado': Oração subordinada adverbial causal.",
+            "criterio_cotacao": "Divisão rigorosa (30%) + classificação exata de cada uma das 3 orações (70%).",
+            "erro_frequente": "Chamar 'oração principal' a toda a frase em vez de isolar a oração subordinante."
+          },
+          "flashcards": [
+            {
+              "frente": "Que tipo de oração subordinada introduz a conjunção 'se'?",
+              "verso": "Oração subordinada adverbial condicional (estabelece uma condição necessária).",
+              "dica": "Condição"
+            },
+            {
+              "frente": "Qual a diferença entre oração subordinante e subordinada?",
+              "verso": "A subordinante é o núcleo principal da frase; a subordinada depende da subordinante e desempenha uma função sintática nessa frase.",
+              "dica": "Dependência sintática"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

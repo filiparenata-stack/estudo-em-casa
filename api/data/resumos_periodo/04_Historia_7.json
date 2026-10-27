@@ -1,0 +1,197 @@
+{
+  "disciplina_id": "04_Historia_7",
+  "disciplina_nome": "História",
+  "icone": "BookOpen",
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Das Sociedades Recoletoras à Grécia Antiga",
+      "metas": [
+        "Diferenciar o Paleolítico (sociedades recoletoras, nomadismo, domínio do fogo, arte rupestre) do Neolítico (agricultura, pastorícia, sedentarização, olaria e monumentos megalíticos)",
+        "Caracterizar as primeiras civilizações dos grandes rios (Egito: Nilo, escrita hieroglífica, religião politeísta e pirâmides)",
+        "Analisar o modelo da Cidade-Estado grega e a Democracia em Atenas no século V a.C."
+      ],
+      "topicos": [
+        {
+          "id": "hist7_p1_t1",
+          "titulo": "Paleolítico vs Neolítico: A Revolução Neolítica",
+          "subdominio": "Das Sociedades Recoletoras às Primeiras Sociedades Produtoras",
+          "conceitos_chave": [
+            {
+              "termo": "Paleolítico (Idade da Pedra Lascada)",
+              "definicao": "Vida nómada, subsistência baseada na caça, pesca e recoleção de frutos. Domínio do fogo, fabrico de bifaces e arte rupestre (pinturas nas cavernas)."
+            },
+            {
+              "termo": "Revolução Neolítica (Pedra Polida)",
+              "definicao": "Invenção da agricultura e domesticação de animais (pastorícia). Fixação das comunidades (sedentarização), aldeamentos, invenção da cerâmica, tecelagem e cestaria."
+            },
+            {
+              "termo": "Megalitismo",
+              "definicao": "Construções monumentais em grandes blocos de pedra: Menires (culto à fertilidade/astros) e Antas ou Dólmenes (monumentos funerários coletivos)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p1_t1_2.png",
+          "imagem_legenda": "Aldeia neolítica mostrando a agricultura, pastorícia, tecelagem, moagem de cereais e antas megalíticas.",
+          "foco_teste": {
+            "questao_exemplo": "Explica por que razão a invenção da agricultura provocou a sedentarização das comunidades humanas no Neolítico.",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p1_t1_1.png",
+            "proposta_resolucao": "Ao inventar a agricultura e a pastorícia, o Homem deixou de ter necessidade de percorrer longas distâncias atrás dos animais ou frutos selvagens (nomadismo). Passou a ter de permanecer junto dos campos de cultivo para lavrar, semear, vigiar e colher os cereais, construindo habitações permanentes e fundando as primeiras aldeias (sedentarização).",
+            "criterio_cotacao": "Relação causa-efeito entre os ciclos agrícolas e a necessidade de permanência no local (100%).",
+            "erro_frequente": "Dizer que o Homem do Paleolítico já praticava agricultura."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a principal diferença económica entre o Paleolítico e o Neolítico?",
+              "verso": "No Paleolítico a economia era recoletora (caça e recoleção); no Neolítico tornou-se produtora (agricultura e pecuária).",
+              "dica": "Economia"
+            },
+            {
+              "frente": "Para que serviam as Antas (ou Dólmenes) no Neolítico?",
+              "verso": "Eram monumentos funerários coletivos para sepultamento dos mortos da comunidade.",
+              "dica": "Megalitos"
+            }
+          ]
+        },
+        {
+          "id": "hist7_p1_t2",
+          "titulo": "A Civilização Egípcia e a Democracia Grega",
+          "subdominio": "Primeiras Civilizações e Grécia Clássica",
+          "conceitos_chave": [
+            {
+              "termo": "O Egito e o Rio Nilo",
+              "definicao": "'O Egito é uma dádiva do Nilo' (Heródoto): as cheias anuais fertilizavam as margens com o limo. Sociedade estratificada governada pelo Faraó (rei e deus vivo)."
+            },
+            {
+              "termo": "Democracia Ateniense",
+              "definicao": "Governo do povo (demos = povo, kratos = poder). Democracia direta na Eclésia (assembleia dos cidadãos)."
+            },
+            {
+              "termo": "Limites da Cidadania em Atenas",
+              "definicao": "Apenas eram cidadãos os homens livres, filhos de pai e mãe atenienses com mais de 20 anos. Mulheres, metecos (estrangeiros) e escravos estavam excluídos dos direitos políticos."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p1_t2_2.png",
+          "imagem_legenda": "A Acrópole de Atenas e o esquema da pirâmide social da pólis ateniense (Cidadãos vs Não-Cidadãos).",
+          "foco_teste": {
+            "questao_exemplo": "Indica dois aspetos em que a democracia ateniense era direta e apresenta duas razões pelas quais era considerada uma democracia restrita ou imperfeita.",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p1_t2_1.png",
+            "proposta_resolucao": "Era direta porque os cidadãos participavam e votavam pessoalmente as leis na Eclésia, sem deputados intermediários. Era restrita porque apenas uma minoria (cerca de 10% a 15% da população) tinha estatuto de cidadão: as mulheres, os escravos e os metecos não tinham quaisquer direitos políticos.",
+            "criterio_cotacao": "Identificação da participação direta (50%) + identificação dos grupos sociais excluídos (50%).",
+            "erro_frequente": "Pensar que as mulheres podiam votar na assembleia grega."
+          },
+          "flashcards": [
+            {
+              "frente": "Quem tinha direitos de voto na democracia de Atenas no século V a.C.?",
+              "verso": "Apenas os homens livres, maiores de 20 anos, filhos de pai e mãe atenienses.",
+              "dica": "Estatuto de cidadão"
+            },
+            {
+              "frente": "Por que razão os egípcios mumificavam os corpos dos seus mortos?",
+              "verso": "Acreditavam na vida após a morte e na imortalidade da alma (o Ka precisava do corpo preservado para regressar).",
+              "dica": "Religião egípcia"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: O Mundo Romano e a Romanização na Península Ibérica",
+      "metas": [
+        "Caracterizar o Império Romano no seu apogeu (Pax Romana, direito romano, exército disciplinado e rede de estradas)",
+        "Identificar os fatores e marcas da Romanização na Península Ibérica (língua latina, direito, cidades, pontes, aquedutos e mosaicos)",
+        "Explicar a emergência e expansão do Cristianismo e o Édito de Milão"
+      ],
+      "topicos": [
+        {
+          "id": "hist7_p2_t1",
+          "titulo": "O Império Romano e a Romanização",
+          "subdominio": "O Mundo Romano",
+          "conceitos_chave": [
+            {
+              "termo": "Pax Romana",
+              "definicao": "Período de paz, prosperidade económica e estabilidade política e militar iniciado com o Imperador Octávio César Augusto (século I e II d.C.)."
+            },
+            {
+              "termo": "Romanização",
+              "definicao": "Processo de assimilação e adoção da cultura, língua (latim), leis (Direito Romano), religião e estilo de vida romano pelos povos conquistados."
+            },
+            {
+              "termo": "Vestígios Romanos em Portugal",
+              "definicao": "Cidades como Conímbriga, pontes (Chaves, Ponte de Lima), templos (Templo Romano de Évora) e indústrias de salga de peixe e garum (Tróia)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p2_t1_2.png",
+          "imagem_legenda": "A extensão máxima do Império Romano em torno do Mare Nostrum (Mediterrâneo) e os traçados das vias romanas.",
+          "foco_teste": {
+            "questao_exemplo": "Menciona quatro fatores que facilitaram a integração e romanização dos povos da Península Ibérica no Império Romano.",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p2_t1_1.png",
+            "proposta_resolucao": "1. A criação de uma densa rede de estradas e pontes (facilitando o comércio e a deslocação rápida das legiões); 2. A difusão do latim como língua comum oficial; 3. A aplicação do Direito Romano e a atribuição da cidadania romana; 4. A presença dos soldados do exército romano e a fundação de cidades com banhos, teatros e templos.",
+            "criterio_cotacao": "Indicação correta e justificada de 4 fatores (25% cada).",
+            "erro_frequente": "Referir apenas monumentos isolados sem explicar o papel unificador do exército, do latim e do direito."
+          },
+          "flashcards": [
+            {
+              "frente": "O que significa 'Romanização'?",
+              "verso": "É a assimilação da língua latina, dos costumes, do direito, da religião e dos modos de vida romanos pelos povos dominados por Roma.",
+              "dica": "Conceito central"
+            },
+            {
+              "frente": "Dá dois exemplos de monumentos romanos preservados em Portugal.",
+              "verso": "O Templo de Diana/Romano em Évora e as ruínas da cidade romana de Conímbriga (ou a Ponte Romana de Chaves).",
+              "dica": "Património nacional"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: A Europa Medieval e o Nascimento de Portugal",
+      "metas": [
+        "Caracterizar a sociedade senhorial e feudal tripartida (Clero, Nobreza e Povo/Servos)",
+        "Descrever a Reconquista Cristã na Península Ibérica e o Tratado de Zamora (1143)",
+        "Analisar o desenvolvimento urbano e mercantil nos séculos XII a XIV"
+      ],
+      "topicos": [
+        {
+          "id": "hist7_p3_t1",
+          "titulo": "A Sociedade Feudal e o Nascimento de Portugal (1143)",
+          "subdominio": "A Idade Média e a Afirmação de Portugal",
+          "conceitos_chave": [
+            {
+              "termo": "Sociedade Trifuncional",
+              "definicao": "Clero (os que rezam / oratores), Nobreza (os que combatem / bellatores) e Povo/Servos (os que trabalham / laboratores para sustentar as outras ordens)."
+            },
+            {
+              "termo": "Tratado de Zamora (1143)",
+              "definicao": "Acordo de paz entre D. Afonso Henriques e o seu primo Afonso VII de Leão e Castela, reconhecendo D. Afonso Henriques como o primeiro Rei de Portugal."
+            },
+            {
+              "termo": "Bula Manifestis Probatum (1179)",
+              "definicao": "Documento papal do Papa Alexandre III que confirma e reconhece perante toda a cristandade a independência do Reino de Portugal."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p3_t1_2.png",
+          "imagem_legenda": "Pirâmide da sociedade feudal com as três ordens de estados e o mapa da Reconquista da Península Ibérica.",
+          "foco_teste": {
+            "questao_exemplo": "Identifica a data e o documento diplomático assinado em 1143 que marcou o reconhecimento da independência de Portugal e indica o nome do primeiro rei português.",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p3_t1_1.png",
+            "proposta_resolucao": "O documento foi o Tratado de Zamora, assinado em 1143 entre D. Afonso Henriques e Afonso VII de Leão. O primeiro rei de Portugal foi D. Afonso Henriques (O Conquistador).",
+            "criterio_cotacao": "Tratado de Zamora (40%), ano 1143 (20%) e D. Afonso Henriques (40%).",
+            "erro_frequente": "Confundir o Tratado de Zamora (1143) com a Bula Papal Manifestis Probatum (1179)."
+          },
+          "flashcards": [
+            {
+              "frente": "Quais eram as três ordens da sociedade feudal medieval e a função de cada uma?",
+              "verso": "1. Clero (rezar e apoiar os pobres); 2. Nobreza (defender o reino e combater); 3. Povo/Camponeses (trabalhar na agricultura e sustentar o reino).",
+              "dica": "Ordens sociais"
+            },
+            {
+              "frente": "Que documento em 1179 confirmou internacionalmente a independência do reino de Portugal?",
+              "verso": "A Bula Manifestis Probatum emitida pelo Papa Alexandre III.",
+              "dica": "Reconhecimento papal"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

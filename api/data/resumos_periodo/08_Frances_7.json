@@ -1,0 +1,157 @@
+{
+  "disciplina_id": "08_Frances_7",
+  "disciplina_nome": "Francês",
+  "icone": "Compass",
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Premiers Contacts, Présentations et Verbes Fondamentaux",
+      "metas": [
+        "Se saluer, se présenter et épeler son nom (l'alphabet et les nombres de 0 à 60)",
+        "Conjuguer les verbes fondamentaux au présent: Être et Avoir",
+        "Utiliser les articles définis (le, la, l', les) et indéfinis (un, une, des)"
+      ],
+      "topicos": [
+        {
+          "id": "fr7_p1_t1",
+          "titulo": "Les Verbes Être et Avoir et les Articles",
+          "subdominio": "Grammaire et Communication",
+          "conceitos_chave": [
+            {
+              "termo": "Verbe Être (Présent)",
+              "definicao": "Je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont."
+            },
+            {
+              "termo": "Verbe Avoir (Présent)",
+              "definicao": "J'ai, tu as, il/elle/on a, nous avons, vous avez, ils/elles ont."
+            },
+            {
+              "termo": "Articles Définis et Indéfinis",
+              "definicao": "Définis: le (masc.), la (fém.), l' (voyelle/h muet), les (pluriel). Indéfinis: un (masc.), une (fém.), des (pluriel)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p1_t1_2.png",
+          "imagem_legenda": "Tableau de conjugaison au présent des verbes être et avoir avec exemples d'utilisation.",
+          "foco_teste": {
+            "questao_exemplo": "Complète les phrases avec le verbe Être ou Avoir au présent: (a) Nous ______ portugais et nous ______ 12 ans. (b) Paul et Marc ______ des livres dans leur sac.",
+            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p1_t1_1.png",
+            "proposta_resolucao": "(a) Nous sommes portugais et nous avons 12 ans. (b) Paul et Marc ont des livres dans leur sac.",
+            "criterio_cotacao": "Orthographe correcte de chaque verbe conjugué (33% chacun).",
+            "erro_frequente": "Confondre 'ils sont' (verbe être) et 'ils ont' (verbe avoir)."
+          },
+          "flashcards": [
+            {
+              "frente": "Conjugue le verbe ÊTRE au présent pour toutes les personnes.",
+              "verso": "Je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont.",
+              "dica": "Verbe d'état"
+            },
+            {
+              "frente": "Conjugue le verbe AVOIR au présent pour toutes les personnes.",
+              "verso": "J'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont.",
+              "dica": "Possession et âge"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: La Famille, la Description Physique et les Verbes en -ER",
+      "metas": [
+        "Décrire physiquement une personne (taille, cheveux, yeux) et son caractère",
+        "Conjuguer les verbes réguliers du 1er groupe (-ER) au présent de l'indicatif",
+        "Employer le féminin et le pluriel des adjectifs qualificatifs"
+      ],
+      "topicos": [
+        {
+          "id": "fr7_p2_t1",
+          "titulo": "Les Verbes du 1er Groupe (-ER) et la Description",
+          "subdominio": "Grammaire et Vocabulaire",
+          "conceitos_chave": [
+            {
+              "termo": "Terminaisons du 1er Groupe",
+              "definicao": "Radical + terminaisons: -e, -es, -e, -ons, -ez, -ent (ex: parler ➔ je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent)."
+            },
+            {
+              "termo": "Féminin des Adjectifs",
+              "definicao": "Règle générale: ajouter un -e au masculin (grand ➔ grande; petit ➔ petite; blond ➔ blonde). Cas particuliers: -eux ➔ -euse (généreux ➔ généreuse)."
+            },
+            {
+              "termo": "Les Adjectifs Possessifs",
+              "definicao": "Mon/ma/mes, ton/ta/tes, son/sa/ses, notre/nos, votre/vos, leur/leurs."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p2_t1_2.png",
+          "imagem_legenda": "Schéma des terminaisons des verbes en -ER et vocabulaire de la famille et du portrait.",
+          "foco_teste": {
+            "questao_exemplo": "Mets les verbes entre parenthèses au présent: (a) Elles ______ (habiter) à Paris. (b) Tu ______ (aimer) la musique française?",
+            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p2_t1_1.png",
+            "proposta_resolucao": "(a) habitent (terminaison -ent pour la 3e personne du pluriel). (b) aimes (terminaison -es pour tu).",
+            "criterio_cotacao": "Radical et terminaison corrects (50% chaque phrase).",
+            "erro_frequente": "Oublier le 's' avec 'tu' ou prononcer la terminaison '-ent' qui est muette."
+          },
+          "flashcards": [
+            {
+              "frente": "Quelles sont les 6 terminaisons des verbes du 1er groupe (-ER) au présent?",
+              "verso": "-e, -es, -e, -ons, -ez, -ent.",
+              "dica": "Règle d'or"
+            },
+            {
+              "frente": "Comment forme-t-on le féminin de l'adjectif 'intelligent'?",
+              "verso": "Intelligente (on ajoute un -e au masculin).",
+              "dica": "Accord"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: L'École, les Loisirs et la Négation",
+      "metas": [
+        "Parler des matières scolaires, de l'emploi du temps et des activités quotidiennes",
+        "Former la phrase négative avec 'ne ... pas'",
+        "Exprimer l'heure et les goûts (adorer, aimer, détester, préférer)"
+      ],
+      "topicos": [
+        {
+          "id": "fr7_p3_t1",
+          "titulo": "La Négation et les Activités Quotidiennes",
+          "subdominio": "Communication et Syntaxe",
+          "conceitos_chave": [
+            {
+              "termo": "La Structure Négative",
+              "definicao": "Sujet + ne (ou n') + verbe + pas (ex.: 'Je ne parle pas espagnol', 'Elle n'aime pas le sport')."
+            },
+            {
+              "termo": "L'Heure en Français",
+              "definicao": "Il est huit heures / Il est huit heures et quart (8h15) / Il est huit heures et demie (8h30) / Il est neuf heures moins le quart (8h45)."
+            },
+            {
+              "termo": "Exprimer ses Goûts",
+              "definicao": "J'adore (+ article défini), j'aime, je n'aime pas, je déteste (ex.: 'J'adore les sciences')."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p3_t1_2.png",
+          "imagem_legenda": "Illustration du vocabulaire scolaire, expression de l'heure et règle de la négation encadrant le verbe.",
+          "foco_teste": {
+            "questao_exemplo": "Transforme la phrase affirmative en phrase négative: 'Lucas mange des fruits à la cantine.'",
+            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p3_t1_1.png",
+            "proposta_resolucao": "Lucas ne mange pas de fruits à la cantine. (Attention: l'article indéfini 'des' devient 'de' dans la phrase négative).",
+            "criterio_cotacao": "Placement de 'ne ... pas' (60%) et transformation de 'des' en 'de' (40%).",
+            "erro_frequente": "Laisser 'des' au lieu de 'de' après 'pas' (ne ... pas de)."
+          },
+          "flashcards": [
+            {
+              "frente": "Où se placent 'ne' et 'pas' dans une phrase négative simple?",
+              "verso": "'ne' (ou n') se place avant le verbe conjugué et 'pas' se place immédiatement après le verbe.",
+              "dica": "Structure sandwich"
+            },
+            {
+              "frente": "Comment dit-on 8h15 et 8h30 en français?",
+              "verso": "Il est huit heures et quart (8h15) / Il est huit heures et demie (8h30).",
+              "dica": "L'heure"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

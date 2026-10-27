@@ -1,0 +1,237 @@
+{
+  "disciplina_id": "03_Ciencias_Naturais_7",
+  "disciplina_nome": "Ciências Naturais",
+  "icone": "Dna",
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: A Terra Conta a sua História (Fósseis e Deriva Continental)",
+      "metas": [
+        "Explicar a importância dos fósseis na reconstituição da história da Terra (paleoambientes e idade das rochas)",
+        "Distinguir fósseis de idade de fósseis de fácies",
+        "Enunciar a Teoria da Deriva Continental de Wegener e os seus argumentos (morfológico, paleontológico, geológico e paleoclimático)"
+      ],
+      "topicos": [
+        {
+          "id": "cn7_p1_t1",
+          "titulo": "Fósseis e Paleoambientes",
+          "subdominio": "A Terra conta a sua história",
+          "conceitos_chave": [
+            {
+              "termo": "Fóssil",
+              "definicao": "Restos de seres vivos ou vestígios da sua atividade (icnofósseis) preservados nas rochas (geralmente sedimentares)."
+            },
+            {
+              "termo": "Fóssil de Idade",
+              "definicao": "Ser vivo com curta duração na Terra e grande dispersão geográfica (ex.: Trilobites na Era Paleozoica, Amonites na Era Mesozoica). Permite datar rochas."
+            },
+            {
+              "termo": "Fóssil de Fácies",
+              "definicao": "Ser vivo adaptado a condições ambientais muito específicas (ex.: Corais de águas quentes e pouco profundas). Permite caracterizar o ambiente do passado."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t1_2.png",
+          "imagem_legenda": "Trilobites (Paleozoico), Amonites (Mesozoico) e processos de fossilização (mineralização, moldagem, mumificação).",
+          "foco_teste": {
+            "questao_exemplo": "Foram descobertos fósseis de corais num estrato rochoso numa serra no centro de Portugal. Que tipo de fóssil é este e o que nos permite concluir sobre o ambiente daquela região no passado?",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t1_1.png",
+            "proposta_resolucao": "Trata-se de um fóssil de fácies. Permite concluir que aquela região, no passado geológico em que os corais viveram, esteve submersa por um mar quente, límpido, bem iluminado e pouco profundo.",
+            "criterio_cotacao": "Classificação como fóssil de fácies (50%) e descrição completa do paleoambiente marinho (50%).",
+            "erro_frequente": "Confundir fóssil de idade (datação) com fóssil de fácies (clima e meio ambiente)."
+          },
+          "flashcards": [
+            {
+              "frente": "Que características deve ter um bom fóssil de idade?",
+              "verso": "Curta distribuição no tempo geológico (viveu pouco tempo) e ampla distribuição geográfica (espalhado por todo o mundo).",
+              "dica": "Datação relativa"
+            },
+            {
+              "frente": "As trilobites e as amonites são características de que eras geológicas?",
+              "verso": "Trilobites ➔ Era Paleozoica (Primária). Amonites ➔ Era Mesozoica (Secundária).",
+              "dica": "Grandes eras"
+            }
+          ]
+        },
+        {
+          "id": "cn7_p1_t2",
+          "titulo": "Deriva Continental e Tectónica de Placas",
+          "subdominio": "Dinâmica da Terra",
+          "conceitos_chave": [
+            {
+              "termo": "Pangeia e Pantalassa",
+              "definicao": "Supercontinente único proposto por Alfred Wegener há 250 milhões de anos, rodeado por um único oceano (Pantalassa)."
+            },
+            {
+              "termo": "Argumentos de Wegener",
+              "definicao": "1. Morfológico (encaixe das costas de África e América do Sul); 2. Paleontológico (fósseis idênticos de Mesosaurus); 3. Geológico (continuidade de cadeias rochosas); 4. Paleoclimático (glaciações em regiões tropicais atuais)."
+            },
+            {
+              "termo": "Limites de Placas",
+              "definicao": "Divergentes (riftes oceânicos, criação de crosta), Convergentes (fossas oceânicas e cordilheiras, destruição de crosta) e Conservantes/Transformantes (falhas sem criação nem destruição)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t2_2.png",
+          "imagem_legenda": "Mapa das placas tectónicas globais e tipos de limites (convergentes, divergentes e transformantes).",
+          "foco_teste": {
+            "questao_exemplo": "Explica de que modo a descoberta de fósseis de Mesosaurus (um réptil de água doce incapaz de atravessar oceanos) em África e na América do Sul apoiou a teoria de Wegener.",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t2_1.png",
+            "proposta_resolucao": "Sendo o Mesosaurus um animal terrestre de água doce que não conseguia nadar no oceano Atlântico salgado, a sua presença simultânea em África e na América do Sul comprova que os dois continentes estiveram outrora unidos num único bloco continental.",
+            "criterio_cotacao": "Identificação do argumento paleontológico (30%), menção às limitações biológicas do animal (40%) e conclusão do contacto continental prévio (30%).",
+            "erro_frequente": "Dizer que os animais migraram nadando pelo oceano Atlântico."
+          },
+          "flashcards": [
+            {
+              "frente": "Quais foram os 4 argumentos usados por Wegener para defender a Deriva Continental?",
+              "verso": "Argumento Morfológico, Paleontológico, Geológico e Paleoclimático.",
+              "dica": "Wegener"
+            },
+            {
+              "frente": "O que acontece num limite divergente entre placas tectónicas?",
+              "verso": "As placas afastam-se, sobe magma do manto através do rifte e forma-se nova crosta oceânica.",
+              "dica": "Afastamento"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Dinâmica Interna da Terra (Vulcanismo e Sismos)",
+      "metas": [
+        "Distinguir vulcanismo do tipo efusivo, explosivo e misto (viscosidade da lava, gases e piroclastos)",
+        "Identificar os elementos de um vulcão e manifestações de vulcanismo secundário (géiseres, fumarolas e nascentes termais)",
+        "Diferenciar Magnitude sísmica (Richter) de Intensidade sísmica (Mercalli)"
+      ],
+      "topicos": [
+        {
+          "id": "cn7_p2_t1",
+          "titulo": "Vulcanismo Central e Tipos de Erupção",
+          "subdominio": "Dinâmica Interna - Vulcanismo",
+          "conceitos_chave": [
+            {
+              "termo": "Estrutura do Vulcão",
+              "definicao": "Câmara magmática, chaminé vulcânica principal, cratera e cone vulcânico formado por camadas de lava e piroclastos."
+            },
+            {
+              "termo": "Erupção Efusiva",
+              "definicao": "Lava básica, muito fluida, com pouca quantidade de gases dissolvidos; escorre calmamente formando mantos ou escoadas de lava longas (ex.: Kilauea no Havai)."
+            },
+            {
+              "termo": "Erupção Explosiva",
+              "definicao": "Lava ácida, muito viscosa e rica em sílica e gases; liberta nuvens ardentes, grandes projeções de piroclastos (cinzas, lapilli e bombas) e forma agulhas vulcânicas ou cúpulas."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t1_2.png",
+          "imagem_legenda": "Corte transversal de um vulcão ativo e comparação visual entre erupção efusiva e explosiva.",
+          "foco_teste": {
+            "questao_exemplo": "Um vulcão emitiu lavas pastosas que solidificaram rapidamente na cratera, originando fortes explosões com nuvens de cinzas e piroclastos. Classifica o tipo de erupção e caracteriza a viscosidade e teor em gases da lava.",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t1_1.png",
+            "proposta_resolucao": "Trata-se de uma erupção do tipo explosivo. A lava é muito viscosa (ácida, escorre com grande dificuldade) e tem um teor muito elevado de gases retidos, cuja libertação violenta provoca as explosões e fragmentação de rochas.",
+            "criterio_cotacao": "Classificação correta (40%) + análise correta da viscosidade e teor gasoso (60%).",
+            "erro_frequente": "Associar erupção explosiva a lava muito fluida (é o oposto: a fluida dá escoadas calmas!)."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a diferença entre magma e lava?",
+              "verso": "Magma é a rocha fundida com gases no interior da Terra; Lava é o magma que atingiu a superfície e perdeu a maior parte dos gases.",
+              "dica": "Interior vs Superfície"
+            },
+            {
+              "frente": "Quais são as 3 manifestações de vulcanismo secundário?",
+              "verso": "Fumarolas (emissões de vapor/gás), Géiseres (jatos intermitentes de água a ferver) e Nascentes Termais (águas quentes ricas em minerais).",
+              "dica": "Vulcanismo atenuado"
+            }
+          ]
+        },
+        {
+          "id": "cn7_p2_t2",
+          "titulo": "Sismicidade: Hipocentro, Epicentro e Escalas Sísmicas",
+          "subdominio": "Dinâmica Interna - Sismos",
+          "conceitos_chave": [
+            {
+              "termo": "Hipocentro (ou Foco Sísmico)",
+              "definicao": "Ponto no interior da Terra onde se dá a rutura da rocha e libertação de energia elástica sob a forma de ondas sísmicas."
+            },
+            {
+              "termo": "Epicentro",
+              "definicao": "Ponto na superfície terrestre na vertical do hipocentro, onde o sismo é sentido primeiro e geralmente com maior intensidade."
+            },
+            {
+              "termo": "Escala de Richter vs Mercalli",
+              "definicao": "Richter: mede a Magnitude (quantidade real de energia libertada, calculada a partir dos sismogramas). Mercalli Modificada: mede a Intensidade (danos observados em edifícios e sensações humanas, de I a XII em numeração romana)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t2_2.png",
+          "imagem_legenda": "Propagação das ondas sísmicas a partir do hipocentro e localização do epicentro à superfície.",
+          "foco_teste": {
+            "questao_exemplo": "Um sismo com magnitude 6,5 causou destruição total de edifícios (Grau IX da escala de Mercalli) na localidade A e apenas foi sentido por pessoas em repouso (Grau III) na localidade B. Explica por que razão a magnitude foi idêntica mas a intensidade foi diferente.",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t2_1.png",
+            "proposta_resolucao": "A magnitude é única para todo o sismo porque mede a quantidade total de energia libertada no hipocentro. A intensidade varia com a distância ao epicentro, a natureza dos solos e a qualidade das construções, sendo maior junto ao epicentro (localidade A) e menor em locais afastados (localidade B).",
+            "criterio_cotacao": "Conceito de magnitude como valor único de energia (50%) + explicação da variação da intensidade com a distância/danos (50%).",
+            "erro_frequente": "Afirmar que a magnitude diminui à medida que nos afastamos do epicentro (a magnitude não muda, o que diminui é a intensidade!)."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a diferença fundamental entre Magnitude e Intensidade sísmica?",
+              "verso": "Magnitude mede a energia libertada no foco (Escala de Richter, valor único); Intensidade mede os estragos provocados à superfície (Escala de Mercalli, varia com a distância).",
+              "dica": "Richter vs Mercalli"
+            },
+            {
+              "frente": "Onde se localiza o epicentro em relação ao hipocentro?",
+              "verso": "Na superfície terrestre, exatamente na linha vertical direta acima do hipocentro.",
+              "dica": "Superfície"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Dinâmica Externa da Terra e o Ciclo Litológico (Rochas)",
+      "metas": [
+        "Identificar as etapas de formação das rochas sedimentares (meteorização, erosão, transporte, sedimentação, diagénese)",
+        "Distinguir rochas magmáticas (intrusivas/plutónicas vs extrusivas/vulcânicas) e metamórficas",
+        "Descrever o Ciclo das Rochas e a transformação contínua dos materiais da crosta"
+      ],
+      "topicos": [
+        {
+          "id": "cn7_p3_t1",
+          "titulo": "Os Três Grandes Grupos de Rochas e o Ciclo Litológico",
+          "subdominio": "Dinâmica Externa - Rochas",
+          "conceitos_chave": [
+            {
+              "termo": "Rochas Sedimentares",
+              "definicao": "Formadas à superfície pela acumulação de sedimentos. Etapas: Meteorização ➔ Erosão ➔ Transporte ➔ Sedimentação ➔ Diagénese (compactação e cimentação). Ex.: arenito, argilito, calcário."
+            },
+            {
+              "termo": "Rochas Magmáticas",
+              "definicao": "Formadas pelo arrefecimento e solidificação do magma. Intrusivas/Plutónicas (lento em profundidade, cristais visíveis, ex.: granito); Extrusivas/Vulcânicas (rápido à superfície, sem cristais desenvolvidos, ex.: basalto)."
+            },
+            {
+              "termo": "Rochas Metamórficas",
+              "definicao": "Resultam da transformação de rochas pré-existentes sob altas pressões e temperaturas sem chegarem a fundir (ex.: xisto, gnaisse, mármore)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t1_2.png",
+          "imagem_legenda": "O Ciclo das Rochas: interligação dinâmica entre rochas magmáticas, sedimentares e metamórficas.",
+          "foco_teste": {
+            "questao_exemplo": "Compara o granito e o basalto quanto à sua génese (origem) e textura dos minerais visíveis.",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t1_1.png",
+            "proposta_resolucao": "O granito é uma rocha magmática intrusiva (plutónica): arrefecimento lento em profundidade, permitindo a formação de cristais bem desenvolvidos visíveis a olho nu (textura granular). O basalto é uma rocha magmática extrusiva (vulcânica): arrefecimento rápido à superfície, com cristais microscópicos dispersos numa massa vítrea (textura agranular).",
+            "criterio_cotacao": "Classificação correta de ambas as rochas (40%) e comparação da velocidade de arrefecimento com o tamanho dos cristais (60%).",
+            "erro_frequente": "Dizer que o mármore é uma rocha magmática (o mármore é metamórfico derivado do calcário sedimentar)."
+          },
+          "flashcards": [
+            {
+              "frente": "Quais são as 5 etapas da formação de uma rocha sedimentar detrítica?",
+              "verso": "1. Meteorização, 2. Erosão, 3. Transporte, 4. Sedimentação, 5. Diagénese (compactação + cimentação).",
+              "dica": "Sedimentogénese"
+            },
+            {
+              "frente": "Que rocha se obtém por metamorfismo do calcário?",
+              "verso": "O mármore.",
+              "dica": "Metamorfismo"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
