@@ -1,0 +1,654 @@
+{
+  "disciplina_id": "matematica_3ano",
+  "disciplina_nome": "Matemática",
+  "ano": 3,
+  "icone": "Calculator",
+  "livro_referencia": "Missão ZUP - Matemática 3.º Ano (Porto Editora)",
+  "unidades": [
+    {
+      "id": "mat3_u1",
+      "titulo": "Números até 10 000 e Operações",
+      "paginas_livro": "Páginas 18-69",
+      "pagina_inicio": 18,
+      "pagina_fim": 69,
+      "resumo_pedagogico": "Estudo aprofundado do sistema de numeração decimal posicional no universo numérico até 10 000: leitura, escrita por extenso, decomposição em ordens (unidades, dezenas, centenas e milhares) e classes. Comparação e ordenação de números utilizando os sinais matemáticos (<, >, =). Compreensão e aplicação dos algoritmos verticais formais da adição com transporte e da subtração com empréstimo/desagrupamento. Propriedades das operações (comutativa, associativa e elemento neutro). Estratégias de cálculo mental, arredondamento à dezena e centena mais próximas, e resolução de problemas do quotidiano envolvendo quantias monetárias e contagem.",
+      "conceitos_chave": [
+        {
+          "termo": "Valor Posicional",
+          "definicao": "O valor de um algarismo depende estritamente da ordem ou posição que ocupa no número (unidades, dezenas, centenas, unidades de milhar)."
+        },
+        {
+          "termo": "Ordens e Classes",
+          "definicao": "Cada grupo de três ordens forma uma classe (classe das unidades simples e classe dos milhares). Cada ordem tem um valor 10 vezes superior à ordem imediatamente à sua direita."
+        },
+        {
+          "termo": "Propriedade Comutativa",
+          "definicao": "Na adição e na multiplicação, a alteração da ordem das parcelas ou dos fatores não altera a soma nem o produto final (ex.: 450 + 550 = 550 + 450 = 1000)."
+        },
+        {
+          "termo": "Decomposição Numérica",
+          "definicao": "Expressão de um número como a soma do valor posicional de cada um dos seus algarismos (ex.: 4325 = 4000 + 300 + 20 + 5)."
+        },
+        {
+          "termo": "Algoritmo da Adição e Subtração",
+          "definicao": "Técnica de cálculo por colunas alinhadas pela ordem das unidades, efetuando transporte para a ordem superior ou desagrupamento da ordem à esquerda."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Quantas centenas há em 2000?",
+          "resposta": "20 centenas (20 x 100 = 2000).",
+          "frente": "Quantas centenas há em 2000?",
+          "verso": "20 centenas (20 x 100 = 2000).",
+          "dica": "Relação entre centenas e milhares"
+        },
+        {
+          "pergunta": "Qual é o valor do algarismo 7 no número 7452?",
+          "resposta": "7000 (ocupa a ordem das unidades de milhar).",
+          "frente": "Qual é o valor do algarismo 7 no número 7452?",
+          "verso": "7000 (ocupa a ordem das unidades de milhar).",
+          "dica": "Valor posicional"
+        },
+        {
+          "pergunta": "Quanto é 450 + 550?",
+          "resposta": "1000.",
+          "frente": "Quanto é 450 + 550?",
+          "verso": "1000.",
+          "dica": "Cálculo mental com complementos para 1000"
+        },
+        {
+          "pergunta": "O que afirma a propriedade comutativa da adição?",
+          "resposta": "A ordem das parcelas não altera a soma (a + b = b + a).",
+          "frente": "O que afirma a propriedade comutativa da adição?",
+          "verso": "A ordem das parcelas não altera a soma (a + b = b + a).",
+          "dica": "Propriedades das operações"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Quanto é 450 + 550?",
+          "opcoes": [
+            "1000",
+            "950",
+            "1100",
+            "900"
+          ],
+          "resposta_correta": "1000",
+          "explicacao": "450 + 550 = 1000 (400+500=900; 50+50=100; 900+100=1000)."
+        },
+        {
+          "pergunta": "No número 8463, qual é a ordem ocupada pelo algarismo 4?",
+          "opcoes": [
+            "Centenas",
+            "Dezenas",
+            "Unidades de milhar",
+            "Unidades simples"
+          ],
+          "resposta_correta": "Centenas",
+          "explicacao": "O número tem 8 milhares, 4 centenas, 6 dezenas e 3 unidades."
+        },
+        {
+          "pergunta": "Qual é a decomposição decimal correta de 5048?",
+          "opcoes": [
+            "5000 + 40 + 8",
+            "500 + 40 + 8",
+            "5000 + 400 + 8",
+            "50 + 48"
+          ],
+          "resposta_correta": "5000 + 40 + 8",
+          "explicacao": "5 milhares (5000) + 0 centenas + 4 dezenas (40) + 8 unidades (8)."
+        },
+        {
+          "pergunta": "Se subtraíres 350 a 1000, qual é o resultado obtido?",
+          "opcoes": [
+            "650",
+            "750",
+            "600",
+            "700"
+          ],
+          "resposta_correta": "650",
+          "explicacao": "1000 - 350 = 650."
+        }
+      ]
+    },
+    {
+      "id": "mat3_u2",
+      "titulo": "Multiplicação e Divisão",
+      "paginas_livro": "Páginas 70-99",
+      "pagina_inicio": 70,
+      "pagina_fim": 99,
+      "resumo_pedagogico": "Desenvolvimento do sentido das operações de multiplicação e divisão: consolidação das tabuadas do 1 ao 10; multiplicação mental por potências de base 10 (10, 100 e 1000) e por múltiplos de 10; propriedade distributiva da multiplicação em relação à adição (ex.: 6 x 14 = 6 x 10 + 6 x 4 = 84); algoritmo formal da multiplicação por números de um e dois algarismos; a divisão como partilha equitativa e medida/agrupamento; divisão exata e divisão inteira com resto (Dividendo = Divisor x Quociente + Resto, com Resto < Divisor); relação de reciprocidade entre a multiplicação e a divisão como operações inversas.",
+      "conceitos_chave": [
+        {
+          "termo": "Operações Inversas",
+          "definicao": "A divisão é a operação inversa da multiplicação (se 7 x 8 = 56, então 56 : 7 = 8 e 56 : 8 = 7)."
+        },
+        {
+          "termo": "Propriedade Distributiva",
+          "definicao": "Permite multiplicar um fator por uma soma multiplicando-o por cada uma das parcelas e somando os resultados."
+        },
+        {
+          "termo": "Termos da Divisão",
+          "definicao": "Dividendo (quantidade a dividir), Divisor (partes em que se divide), Quociente (resultado) e Resto (o que sobra)."
+        },
+        {
+          "termo": "Múltiplos de um Número",
+          "definicao": "Produtos resultantes da multiplicação desse número por qualquer número natural (ex.: múltiplos de 5: 0, 5, 10, 15, 20...)."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Quanto é 8 x 7?",
+          "resposta": "56.",
+          "frente": "Quanto é 8 x 7?",
+          "verso": "56.",
+          "dica": "Tabuada do 8 e do 7"
+        },
+        {
+          "pergunta": "Qual é o quociente e o resto de 23 a dividir por 4?",
+          "resposta": "Quociente: 5, Resto: 3 (pois 4 x 5 + 3 = 23).",
+          "frente": "Qual é o quociente e o resto de 23 a dividir por 4?",
+          "verso": "Quociente: 5, Resto: 3 (pois 4 x 5 + 3 = 23).",
+          "dica": "Divisão com resto"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Qual é o resultado da multiplicação 25 x 4?",
+          "opcoes": [
+            "100",
+            "80",
+            "120",
+            "90"
+          ],
+          "resposta_correta": "100",
+          "explicacao": "25 x 4 = 100."
+        },
+        {
+          "pergunta": "Numa divisão inteira onde o dividendo é 47 e o divisor é 5, qual é o resto?",
+          "opcoes": [
+            "2",
+            "5",
+            "9",
+            "0"
+          ],
+          "resposta_correta": "2",
+          "explicacao": "47 = 5 x 9 + 2. O resto é 2."
+        }
+      ]
+    },
+    {
+      "id": "mat3_u3",
+      "titulo": "Frações e Decimais",
+      "paginas_livro": "Páginas 100-124",
+      "pagina_inicio": 100,
+      "pagina_fim": 124,
+      "resumo_pedagogico": "Construção conceptual do número fracionário: a fração como representação de partes iguais de uma unidade ou de um conjunto de objetos (metade 1/2, um terço 1/3, um quarto 1/4, um quinto 1/5 e um décimo 1/10). Significado dos termos da fração: numerador (número de partes consideradas) e denominador (número total de partes iguais em que o todo foi dividido). Comparação de frações com o mesmo denominador. Noção intuitiva de frações equivalentes através de representações visuais e manipulação de tiras de papel. Introdução aos números decimais: a décima como 0,1 (ou 1/10) e a sua relação com o sistema monetário (euros e cêntimos).",
+      "conceitos_chave": [
+        {
+          "termo": "Numerador e Denominador",
+          "definicao": "O denominador (em baixo) indica as partes iguais em que o todo se dividiu; o numerador (em cima) indica as partes que se tomaram."
+        },
+        {
+          "termo": "Fração Unitária",
+          "definicao": "Fração que tem o número 1 no numerador, representando uma só parte do todo (ex.: 1/2, 1/3, 1/4)."
+        },
+        {
+          "termo": "Frações Equivalentes",
+          "definicao": "Frações diferentes que representam exatamente a mesma quantidade do todo (ex.: 1/2 é equivalente a 2/4)."
+        },
+        {
+          "termo": "Número Decimal e Décima",
+          "definicao": "Representação com vírgula de partes da unidade; 0,1 corresponde a uma décima (1/10)."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "O que representa o denominador numa fração?",
+          "resposta": "O número total de partes iguais em que a unidade ou o todo foi dividido.",
+          "frente": "O que representa o denominador numa fração?",
+          "verso": "O número total de partes iguais em que a unidade ou o todo foi dividido.",
+          "dica": "Termos fracionários"
+        },
+        {
+          "pergunta": "Se comeres 2 fatias de uma piza cortada em 8 partes iguais, que fração comeste?",
+          "resposta": "2/8 (dois oitavos), que é equivalente a 1/4 (um quarto).",
+          "frente": "Se comeres 2 fatias de uma piza cortada em 8 partes iguais, que fração comeste?",
+          "verso": "2/8 (dois oitavos), que é equivalente a 1/4 (um quarto).",
+          "dica": "Frações da vida real"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Qual das seguintes frações representa 'metade' de uma figura?",
+          "opcoes": [
+            "1/2",
+            "1/4",
+            "2/3",
+            "1/10"
+          ],
+          "resposta_correta": "1/2",
+          "explicacao": "1/2 lê-se 'um meio' ou metade."
+        },
+        {
+          "pergunta": "Entre as frações 3/8 e 5/8, qual é a maior?",
+          "opcoes": [
+            "5/8",
+            "3/8",
+            "São iguais",
+            "Depende da figura"
+          ],
+          "resposta_correta": "5/8",
+          "explicacao": "Com o mesmo denominador, a fração com maior numerador representa a maior quantidade."
+        }
+      ]
+    },
+    {
+      "id": "mat3_u4",
+      "titulo": "Geometria e Medida",
+      "paginas_livro": "Páginas 125-144",
+      "pagina_inicio": 125,
+      "pagina_fim": 144,
+      "resumo_pedagogico": "Exploração do espaço e formas geométricas: distinção entre sólidos geométricos (poliedros — cubos, paralelepípedos, prismas e pirâmides; e não poliedros — esferas, cones e cilindros) com contagem de faces, arestas e vértices. Figuras geométricas planas (polígonos regulares e irregulares: triângulos, quadriláteros, pentágonos, hexágonos). Simetria de reflexão e traçado de eixos de simetria. Grandezas e unidades de medida do Sistema Internacional: comprimento (metro, centímetro, milímetro e quilómetro), massa (quilograma e grama), capacidade (litro, decilitro, centilitro), tempo (horas, minutos, segundos, dias e meses no calendário e relógios analógicos/digitais), perímetro e área em quadrícula.",
+      "conceitos_chave": [
+        {
+          "termo": "Poliedros vs Não Poliedros",
+          "definicao": "Poliedros são sólidos limitados exclusivamente por superfícies planas (faces poligonais); não poliedros têm superfícies curvas."
+        },
+        {
+          "termo": "Faces, Arestas e Vértices",
+          "definicao": "As faces são as superfícies planas; as arestas são os segmentos de reta onde duas faces se cruzam; os vértices são os pontos de união das arestas."
+        },
+        {
+          "termo": "Eixo de Simetria",
+          "definicao": "Linha imaginária que divide uma figura em duas partes perfeitamente sobreponíveis por dobragem."
+        },
+        {
+          "termo": "Perímetro e Área",
+          "definicao": "O perímetro é a medida do contorno de uma figura plana (soma dos lados); a área é a medida da superfície interior ocupada."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Quantas faces, arestas e vértices tem um cubo?",
+          "resposta": "6 faces quadradas, 12 arestas e 8 vértices.",
+          "frente": "Quantas faces, arestas e vértices tem um cubo?",
+          "verso": "6 faces quadradas, 12 arestas e 8 vértices.",
+          "dica": "Propriedades do cubo"
+        },
+        {
+          "pergunta": "Qual é o perímetro de um retângulo com 6 cm de comprimento e 4 cm de largura?",
+          "resposta": "20 cm (6 + 6 + 4 + 4 = 20 cm).",
+          "frente": "Qual é o perímetro de um retângulo com 6 cm de comprimento e 4 cm de largura?",
+          "verso": "20 cm (6 + 6 + 4 + 4 = 20 cm).",
+          "dica": "Cálculo do perímetro"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Qual dos seguintes sólidos geométricos é classificado como NÃO poliedro?",
+          "opcoes": [
+            "Cilindro",
+            "Cubo",
+            "Pirâmide",
+            "Prisma triangular"
+          ],
+          "resposta_correta": "Cilindro",
+          "explicacao": "O cilindro tem uma superfície lateral curva, logo é um não poliedro."
+        },
+        {
+          "pergunta": "Quantos minutos tem uma hora e meia?",
+          "opcoes": [
+            "90 minutos",
+            "60 minutos",
+            "75 minutos",
+            "100 minutos"
+          ],
+          "resposta_correta": "90 minutos",
+          "explicacao": "1 hora (60 min) + meia hora (30 min) = 90 minutos."
+        }
+      ]
+    },
+    {
+      "id": "mat3_u5",
+      "titulo": "Organização e Tratamento de Dados",
+      "paginas_livro": "Páginas 145-164",
+      "pagina_inicio": 145,
+      "pagina_fim": 164,
+      "resumo_pedagogico": "Desenvolvimento da literacia estatística: recolha de informação, organização e classificação de dados utilizando listas ordenadas, tabelas de contagem com traços e tabelas de frequência absoluta. Construção e leitura crítica de gráficos de barras verticais e horizontais, pictogramas com escala (onde cada símbolo representa 2, 5 ou 10 unidades), diagramas de Venn (conjuntos sobrepostos) e diagramas de Carroll (classificação por critérios binários de presença/ausência). Identificação da moda estatística (o dado mais frequente) e formulação de conclusões fundamentadas.",
+      "conceitos_chave": [
+        {
+          "termo": "Frequência Absoluta",
+          "definicao": "Número exato de vezes que um determinado dado ou valor ocorre num conjunto recolhido."
+        },
+        {
+          "termo": "Gráfico de Barras",
+          "definicao": "Representação gráfica onde a altura ou comprimento das barras é proporcional à frequência dos dados."
+        },
+        {
+          "termo": "Diagrama de Carroll",
+          "definicao": "Tabela de dupla entrada usada para classificar elementos segundo a presença ou ausência de determinadas características."
+        },
+        {
+          "termo": "Moda Estatística",
+          "definicao": "O valor ou categoria que surge com maior frequência num conjunto de observações."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "O que é a moda num conjunto de dados estatísticos?",
+          "resposta": "É o valor ou categoria que se repete mais vezes (que tem a maior frequência absoluta).",
+          "frente": "O que é a moda num conjunto de dados estatísticos?",
+          "verso": "É o valor ou categoria que se repete mais vezes (que tem a maior frequência absoluta).",
+          "dica": "Estatística descritiva"
+        },
+        {
+          "pergunta": "Num pictograma, se cada desenho de um livro representa 5 livros lidos, quantos livros representam 4 desenhos?",
+          "resposta": "20 livros (4 x 5 = 20).",
+          "frente": "Num pictograma, se cada desenho de um livro representa 5 livros lidos, quantos livros representam 4 desenhos?",
+          "verso": "20 livros (4 x 5 = 20).",
+          "dica": "Interpretação de pictogramas"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Se numa turma 8 alunos preferem cães, 12 preferem gatos e 4 preferem peixes, qual é a moda dos animais de estimação?",
+          "opcoes": [
+            "Gatos",
+            "Cães",
+            "Peixes",
+            "A turma não tem moda"
+          ],
+          "resposta_correta": "Gatos",
+          "explicacao": "Gatos é a opção com maior frequência absoluta (12 preferências)."
+        },
+        {
+          "pergunta": "Que tipo de diagrama organiza dados numa grelha bidimensional através de critérios de sim/não ou pertence/não pertence?",
+          "opcoes": [
+            "Diagrama de Carroll",
+            "Pictograma",
+            "Reta numérica",
+            "Gráfico circular"
+          ],
+          "resposta_correta": "Diagrama de Carroll",
+          "explicacao": "O Diagrama de Carroll classifica elementos por atributos dicotómicos em grelha."
+        }
+      ]
+    }
+  ],
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Sistema Decimal até 10 000 e Operações Fundamentais",
+      "metas": [
+        "Compreender o valor posicional dos algarismos até às unidades de milhar",
+        "Executar algoritmos da adição e subtração com transporte e empréstimo",
+        "Resolver problemas de cálculo mental e estimativas de grandezas"
+      ],
+      "topicos": [
+        {
+          "id": "mat3_u1",
+          "titulo": "Números até 10 000 e Operações",
+          "subdominio": "Números e Operações",
+          "conceitos_chave": [
+            {
+              "termo": "Valor Posicional",
+              "definicao": "O valor de um algarismo depende estritamente da ordem ou posição que ocupa no número (unidades, dezenas, centenas, unidades de milhar)."
+            },
+            {
+              "termo": "Ordens e Classes",
+              "definicao": "Cada grupo de três ordens forma uma classe (classe das unidades simples e classe dos milhares). Cada ordem tem um valor 10 vezes superior à ordem imediatamente à sua direita."
+            },
+            {
+              "termo": "Propriedade Comutativa",
+              "definicao": "Na adição e na multiplicação, a alteração da ordem das parcelas ou dos fatores não altera a soma nem o produto final (ex.: 450 + 550 = 550 + 450 = 1000)."
+            },
+            {
+              "termo": "Decomposição Numérica",
+              "definicao": "Expressão de um número como a soma do valor posicional de cada um dos seus algarismos (ex.: 4325 = 4000 + 300 + 20 + 5)."
+            },
+            {
+              "termo": "Algoritmo da Adição e Subtração",
+              "definicao": "Técnica de cálculo por colunas alinhadas pela ordem das unidades, efetuando transporte para a ordem superior ou desagrupamento da ordem à esquerda."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Calcula 3480 + 2650 através do algoritmo vertical.",
+            "proposta_resolucao": "Alinham-se as ordens: 0+0=0; 8+5=13 (fica 3 e vai 1); 4+6+1=11 (fica 1 e vai 1); 3+2+1=6. Resultado: 6130.",
+            "criterio_cotacao": "Alinhamento das ordens (30%), transporte correto (40%) e resultado final exato (30%).",
+            "erro_frequente": "Esquecer de somar o transporte na ordem das centenas."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Quantas centenas há em 2000?",
+              "resposta": "20 centenas (20 x 100 = 2000).",
+              "frente": "Quantas centenas há em 2000?",
+              "verso": "20 centenas (20 x 100 = 2000).",
+              "dica": "Relação entre centenas e milhares"
+            },
+            {
+              "pergunta": "Qual é o valor do algarismo 7 no número 7452?",
+              "resposta": "7000 (ocupa a ordem das unidades de milhar).",
+              "frente": "Qual é o valor do algarismo 7 no número 7452?",
+              "verso": "7000 (ocupa a ordem das unidades de milhar).",
+              "dica": "Valor posicional"
+            },
+            {
+              "pergunta": "Quanto é 450 + 550?",
+              "resposta": "1000.",
+              "frente": "Quanto é 450 + 550?",
+              "verso": "1000.",
+              "dica": "Cálculo mental com complementos para 1000"
+            },
+            {
+              "pergunta": "O que afirma a propriedade comutativa da adição?",
+              "resposta": "A ordem das parcelas não altera a soma (a + b = b + a).",
+              "frente": "O que afirma a propriedade comutativa da adição?",
+              "verso": "A ordem das parcelas não altera a soma (a + b = b + a).",
+              "dica": "Propriedades das operações"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Multiplicação, Divisão e Sentido Fracionário",
+      "metas": [
+        "Dominar a tabuada e aplicar a propriedade distributiva",
+        "Efetuar divisões exatas e inteiras com cálculo do quociente e resto",
+        "Reconhecer frações unitárias e comparar frações com o mesmo denominador"
+      ],
+      "topicos": [
+        {
+          "id": "mat3_u2",
+          "titulo": "Multiplicação e Divisão",
+          "subdominio": "Multiplicação e Divisão",
+          "conceitos_chave": [
+            {
+              "termo": "Operações Inversas",
+              "definicao": "A divisão é a operação inversa da multiplicação (se 7 x 8 = 56, então 56 : 7 = 8 e 56 : 8 = 7)."
+            },
+            {
+              "termo": "Propriedade Distributiva",
+              "definicao": "Permite multiplicar um fator por uma soma multiplicando-o por cada uma das parcelas e somando os resultados."
+            },
+            {
+              "termo": "Termos da Divisão",
+              "definicao": "Dividendo (quantidade a dividir), Divisor (partes em que se divide), Quociente (resultado) e Resto (o que sobra)."
+            },
+            {
+              "termo": "Múltiplos de um Número",
+              "definicao": "Produtos resultantes da multiplicação desse número por qualquer número natural (ex.: múltiplos de 5: 0, 5, 10, 15, 20...)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "A Renata tem 4 caixas com 24 lápis de cor cada uma. Quantos lápis tem no total?",
+            "proposta_resolucao": "4 x 24 = 4 x 20 + 4 x 4 = 80 + 16 = 96 lápis.",
+            "criterio_cotacao": "Estratégia de cálculo (50%) e resposta completa com unidade (50%).",
+            "erro_frequente": "Multiplicar apenas as dezenas e esquecer as unidades."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Quanto é 8 x 7?",
+              "resposta": "56.",
+              "frente": "Quanto é 8 x 7?",
+              "verso": "56.",
+              "dica": "Tabuada do 8 e do 7"
+            },
+            {
+              "pergunta": "Qual é o quociente e o resto de 23 a dividir por 4?",
+              "resposta": "Quociente: 5, Resto: 3 (pois 4 x 5 + 3 = 23).",
+              "frente": "Qual é o quociente e o resto de 23 a dividir por 4?",
+              "verso": "Quociente: 5, Resto: 3 (pois 4 x 5 + 3 = 23).",
+              "dica": "Divisão com resto"
+            }
+          ]
+        },
+        {
+          "id": "mat3_u3",
+          "titulo": "Frações e Decimais",
+          "subdominio": "Frações e Decimais",
+          "conceitos_chave": [
+            {
+              "termo": "Numerador e Denominador",
+              "definicao": "O denominador (em baixo) indica as partes iguais em que o todo se dividiu; o numerador (em cima) indica as partes que se tomaram."
+            },
+            {
+              "termo": "Fração Unitária",
+              "definicao": "Fração que tem o número 1 no numerador, representando uma só parte do todo (ex.: 1/2, 1/3, 1/4)."
+            },
+            {
+              "termo": "Frações Equivalentes",
+              "definicao": "Frações diferentes que representam exatamente a mesma quantidade do todo (ex.: 1/2 é equivalente a 2/4)."
+            },
+            {
+              "termo": "Número Decimal e Décima",
+              "definicao": "Representação com vírgula de partes da unidade; 0,1 corresponde a uma décima (1/10)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Representa graficamente e por fração a parte pintada de uma barra com 5 partes onde 3 estão sombreadas.",
+            "proposta_resolucao": "A fração é 3/5 (três quintos).",
+            "criterio_cotacao": "Numerador 3 e denominador 5 corretos (100%).",
+            "erro_frequente": "Inverter os termos escrevendo 5/3."
+          },
+          "flashcards": [
+            {
+              "pergunta": "O que representa o denominador numa fração?",
+              "resposta": "O número total de partes iguais em que a unidade ou o todo foi dividido.",
+              "frente": "O que representa o denominador numa fração?",
+              "verso": "O número total de partes iguais em que a unidade ou o todo foi dividido.",
+              "dica": "Termos fracionários"
+            },
+            {
+              "pergunta": "Se comeres 2 fatias de uma piza cortada em 8 partes iguais, que fração comeste?",
+              "resposta": "2/8 (dois oitavos), que é equivalente a 1/4 (um quarto).",
+              "frente": "Se comeres 2 fatias de uma piza cortada em 8 partes iguais, que fração comeste?",
+              "verso": "2/8 (dois oitavos), que é equivalente a 1/4 (um quarto).",
+              "dica": "Frações da vida real"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Geometria, Medidas e Tratamento de Dados",
+      "metas": [
+        "Classificar poliedros e não poliedros através das suas faces, arestas e vértices",
+        "Calcular perímetros de polígonos e ler horas em relógios analógicos",
+        "Interpretar e construir tabelas de frequências, gráficos de barras e pictogramas"
+      ],
+      "topicos": [
+        {
+          "id": "mat3_u4",
+          "titulo": "Geometria e Medida",
+          "subdominio": "Geometria e Medida",
+          "conceitos_chave": [
+            {
+              "termo": "Poliedros vs Não Poliedros",
+              "definicao": "Poliedros são sólidos limitados exclusivamente por superfícies planas (faces poligonais); não poliedros têm superfícies curvas."
+            },
+            {
+              "termo": "Faces, Arestas e Vértices",
+              "definicao": "As faces são as superfícies planas; as arestas são os segmentos de reta onde duas faces se cruzam; os vértices são os pontos de união das arestas."
+            },
+            {
+              "termo": "Eixo de Simetria",
+              "definicao": "Linha imaginária que divide uma figura em duas partes perfeitamente sobreponíveis por dobragem."
+            },
+            {
+              "termo": "Perímetro e Área",
+              "definicao": "O perímetro é a medida do contorno de uma figura plana (soma dos lados); a área é a medida da superfície interior ocupada."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Um quadrado tem 5 cm de lado. Qual é o seu perímetro?",
+            "proposta_resolucao": "O quadrado tem 4 lados iguais: 4 x 5 cm = 20 cm.",
+            "criterio_cotacao": "Fórmula do perímetro (50%) e valor numérico com unidade (50%).",
+            "erro_frequente": "Calcular a área (5 x 5 = 25 cm²) em vez do perímetro."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Quantas faces, arestas e vértices tem um cubo?",
+              "resposta": "6 faces quadradas, 12 arestas e 8 vértices.",
+              "frente": "Quantas faces, arestas e vértices tem um cubo?",
+              "verso": "6 faces quadradas, 12 arestas e 8 vértices.",
+              "dica": "Propriedades do cubo"
+            },
+            {
+              "pergunta": "Qual é o perímetro de um retângulo com 6 cm de comprimento e 4 cm de largura?",
+              "resposta": "20 cm (6 + 6 + 4 + 4 = 20 cm).",
+              "frente": "Qual é o perímetro de um retângulo com 6 cm de comprimento e 4 cm de largura?",
+              "verso": "20 cm (6 + 6 + 4 + 4 = 20 cm).",
+              "dica": "Cálculo do perímetro"
+            }
+          ]
+        },
+        {
+          "id": "mat3_u5",
+          "titulo": "Organização e Tratamento de Dados",
+          "subdominio": "Estatística e Dados",
+          "conceitos_chave": [
+            {
+              "termo": "Frequência Absoluta",
+              "definicao": "Número exato de vezes que um determinado dado ou valor ocorre num conjunto recolhido."
+            },
+            {
+              "termo": "Gráfico de Barras",
+              "definicao": "Representação gráfica onde a altura ou comprimento das barras é proporcional à frequência dos dados."
+            },
+            {
+              "termo": "Diagrama de Carroll",
+              "definicao": "Tabela de dupla entrada usada para classificar elementos segundo a presença ou ausência de determinadas características."
+            },
+            {
+              "termo": "Moda Estatística",
+              "definicao": "O valor ou categoria que surge com maior frequência num conjunto de observações."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "A partir de uma tabela de contagem, determina a moda das cores de camisolas preferidas.",
+            "proposta_resolucao": "Identifica-se a cor com maior frequência de registos na tabela.",
+            "criterio_cotacao": "Leitura correta da tabela e indicação da categoria modal (100%).",
+            "erro_frequente": "Indicar o valor numérico da frequência em vez do nome da categoria."
+          },
+          "flashcards": [
+            {
+              "pergunta": "O que é a moda num conjunto de dados estatísticos?",
+              "resposta": "É o valor ou categoria que se repete mais vezes (que tem a maior frequência absoluta).",
+              "frente": "O que é a moda num conjunto de dados estatísticos?",
+              "verso": "É o valor ou categoria que se repete mais vezes (que tem a maior frequência absoluta).",
+              "dica": "Estatística descritiva"
+            },
+            {
+              "pergunta": "Num pictograma, se cada desenho de um livro representa 5 livros lidos, quantos livros representam 4 desenhos?",
+              "resposta": "20 livros (4 x 5 = 20).",
+              "frente": "Num pictograma, se cada desenho de um livro representa 5 livros lidos, quantos livros representam 4 desenhos?",
+              "verso": "20 livros (4 x 5 = 20).",
+              "dica": "Interpretação de pictogramas"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

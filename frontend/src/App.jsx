@@ -96,6 +96,17 @@ export default function App() {
           {viewAtiva === 'biblioteca' && (
             <BibliotecaView
               disciplina={disciplinaSelecionada}
+              onVerResumos={(disciplinaId) => {
+                if (disciplinaId) {
+                  const target = disciplinas.find(
+                    (d) => d.id === disciplinaId || d.id.startsWith(disciplinaId.split('_')[0])
+                  );
+                  if (target) {
+                    setDisciplinaSelecionada(target);
+                  }
+                }
+                setViewAtiva('resumos');
+              }}
             />
           )}
         </main>

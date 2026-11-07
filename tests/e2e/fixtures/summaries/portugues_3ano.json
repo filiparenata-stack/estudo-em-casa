@@ -1,0 +1,99 @@
+{
+  "disciplina_id": "portugues_3ano",
+  "disciplina_nome": "Português",
+  "ano": 3,
+  "livro_referencia": "Missão ZUP - Português 3.º Ano (Porto Editora)",
+  "file_candidates": [
+    "portugues_3ano.json",
+    "07_Portugues_3.json",
+    "portugues.json"
+  ],
+  "unidades": [
+    {
+      "id": "port3_u1",
+      "titulo": "Ortografia, Dígrafos e Fonemas",
+      "paginas_livro": "Páginas 8-34",
+      "pagina_inicio": 8,
+      "pagina_fim": 34,
+      "resumo_pedagogico": "Estudo das regras de acentuação gráfica, regras de ortografia do r/rr, c/ç, g/gu e dígrafos ch, lh, nh.",
+      "conceitos_chave": [
+        {
+          "termo": "Dígrafo",
+          "definicao": "Duas letras que representam um único som (ch, lh, nh, rr, ss)."
+        },
+        {
+          "termo": "Regra do r/rr",
+          "definicao": "Entre vogais, o r simples tem som fraco; para som forte entre vogais usa-se rr."
+        },
+        {
+          "termo": "Sílaba Tónica",
+          "definicao": "A sílaba pronunciada com maior intensidade na palavra."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "O que é um dígrafo?",
+          "resposta": "Duas letras que representam apenas um fonema/som."
+        },
+        {
+          "pergunta": "Dá três exemplos de dígrafos na língua portuguesa.",
+          "resposta": "ch, lh e nh."
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Qual das seguintes palavras contém um dígrafo?",
+          "opcoes": [
+            "Chave",
+            "Prato",
+            "Escola",
+            "Braço"
+          ],
+          "resposta_correta": "Chave",
+          "explicacao": "'ch' é um dígrafo consonântico."
+        }
+      ]
+    },
+    {
+      "id": "port3_u2",
+      "titulo": "Classes de Palavras e Tipos de Frase",
+      "paginas_livro": "Páginas 35-74",
+      "pagina_inicio": 35,
+      "pagina_fim": 74,
+      "resumo_pedagogico": "Classificação de nomes próprios e comuns, determinantes artigos, adjetivos qualificativos e verbos nos tempos presente, pretérito perfeito e futuro.",
+      "conceitos_chave": [
+        {
+          "termo": "Nome Próprio vs Comum",
+          "definicao": "Nomes próprios identificam seres únicos (escrevem-se com maiúscula); comuns identificam classes de seres."
+        },
+        {
+          "termo": "Adjetivo Qualificativo",
+          "definicao": "Palavra que atribui uma qualidade ou característica ao nome."
+        },
+        {
+          "termo": "Verbo",
+          "definicao": "Palavra que exprime uma ação, estado ou fenómeno."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "O que indica um verbo?",
+          "resposta": "Ações, estados ou acontecimentos localizados no tempo."
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Na frase 'A Renata leu um livro bonito', a palavra 'bonito' é um:",
+          "opcoes": [
+            "Adjetivo",
+            "Verbo",
+            "Nome próprio",
+            "Determinante"
+          ],
+          "resposta_correta": "Adjetivo",
+          "explicacao": "Atribui uma qualidade ao nome 'livro'."
+        }
+      ]
+    }
+  ]
+}

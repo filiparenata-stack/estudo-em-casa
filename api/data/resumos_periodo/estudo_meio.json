@@ -1,0 +1,588 @@
+{
+  "disciplina_id": "estudo_meio_3ano",
+  "disciplina_nome": "Estudo do Meio",
+  "ano": 3,
+  "icone": "Globe",
+  "livro_referencia": "Missão ZUP - Estudo do Meio 3.º Ano (Porto Editora)",
+  "unidades": [
+    {
+      "id": "em3_u1",
+      "titulo": "O Corpo Humano, Esqueleto e Saúde",
+      "paginas_livro": "Páginas 10-50",
+      "pagina_inicio": 10,
+      "pagina_fim": 50,
+      "resumo_pedagogico": "Estudo abrangente da anatomia e fisiologia do corpo humano no 3.º ano: as grandes divisões (cabeça, tronco e membros superiores e inferiores); o sistema esquelético composto por cerca de 206 ossos, a sua função de sustentação mecânica, proteção de órgãos nobres e produção de células sanguíneas; principais ossos: crânio (protege o cérebro), caixa torácica com costelas e esterno (protege o coração e os pulmões), coluna vertebral (protege a medula espinal e dá eixo ao corpo) e ossos longos dos membros (fémur, úmero); as articulações e a sua classificação em móveis (joelho, ombro), semimóveis (vértebras) e fixas (crânio); o sistema muscular e o trabalho em pares antagónicos (bíceps e tríceps); dentição de leite vs definitiva; regras de higiene postural ao sentar e transportar a mochila; noções dos sistemas digestivo, respiratório e circulatório.",
+      "conceitos_chave": [
+        {
+          "termo": "Esqueleto",
+          "definicao": "Conjunto articulado de todos os ossos do corpo que desempenha três funções vitais: sustentar o corpo, permitir o movimento e proteger órgãos internos sensíveis como cérebro, coração e pulmões."
+        },
+        {
+          "termo": "Articulação",
+          "definicao": "Ponto de união e contacto entre dois ou mais ossos. Classificam-se em móveis (ampla amplitude de movimento), semimóveis (movimento reduzido) e fixas (sem mobilidade, como as suturas do crânio)."
+        },
+        {
+          "termo": "Caixa Torácica",
+          "definicao": "Estrutura óssea formada pelas costelas, esterno e vértebras dorsais, cuja missão principal é abrigar e proteger os pulmões e o coração contra impactos externos."
+        },
+        {
+          "termo": "Músculos e Tendões",
+          "definicao": "Órgãos que produzem movimento através da contração e descontração voluntária ou involuntária, ligados aos ossos por cordões resistentes chamados tendões."
+        },
+        {
+          "termo": "Postura e Saúde",
+          "definicao": "Hábitos corretos de posicionamento da coluna vertebral ao estudar, dormir e caminhar, evitando desvios da coluna e dores nas costas."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Qual a principal função do esqueleto humano?",
+          "resposta": "Sustentar o corpo e proteger os órgãos internos como coração, pulmões e cérebro.",
+          "frente": "Qual a principal função do esqueleto humano?",
+          "verso": "Sustentar o corpo e proteger os órgãos internos como coração, pulmões e cérebro.",
+          "dica": "Função óssea"
+        },
+        {
+          "pergunta": "Que ossos compõem a caixa torácica e que órgãos protegem?",
+          "resposta": "As costelas e o esterno, que protegem o coração e os pulmões.",
+          "frente": "Que ossos compõem a caixa torácica e que órgãos protegem?",
+          "verso": "As costelas e o esterno, que protegem o coração e os pulmões.",
+          "dica": "Anatomia torácica"
+        },
+        {
+          "pergunta": "Dá um exemplo de uma articulação móvel e de uma articulação fixa.",
+          "resposta": "Móvel: o joelho ou o cotovelo; Fixa: os ossos do crânio.",
+          "frente": "Dá um exemplo de uma articulação móvel e de uma articulação fixa.",
+          "verso": "Móvel: o joelho ou o cotovelo; Fixa: os ossos do crânio.",
+          "dica": "Tipos de articulações"
+        },
+        {
+          "pergunta": "Qual é o osso mais longo do corpo humano?",
+          "resposta": "O fémur (localizado na coxa).",
+          "frente": "Qual é o osso mais longo do corpo humano?",
+          "verso": "O fémur (localizado na coxa).",
+          "dica": "Ossos dos membros"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Qual dos seguintes órgãos é protegido pela caixa torácica?",
+          "opcoes": [
+            "Coração",
+            "Estômago",
+            "Bexiga",
+            "Cérebro"
+          ],
+          "resposta_correta": "Coração",
+          "explicacao": "As costelas e o esterno formam a caixa torácica que protege o coração e os pulmões."
+        },
+        {
+          "pergunta": "Como se classifica a articulação entre os ossos que formam a caixa do crânio?",
+          "opcoes": [
+            "Articulação fixa",
+            "Articulação móvel",
+            "Articulação semimóvel",
+            "Articulação muscular"
+          ],
+          "resposta_correta": "Articulação fixa",
+          "explicacao": "Os ossos do crânio estão firmemente unidos por articulações fixas para proteger o cérebro."
+        },
+        {
+          "pergunta": "Qual é o nome da estrutura flexível que liga os músculos aos ossos?",
+          "opcoes": [
+            "Tendão",
+            "Cartilagem",
+            "Medula",
+            "Artéria"
+          ],
+          "resposta_correta": "Tendão",
+          "explicacao": "Os tendões transmitem a força da contração muscular aos ossos, permitindo o movimento."
+        },
+        {
+          "pergunta": "Qual dos seguintes comportamentos ajuda a manter uma postura correta?",
+          "opcoes": [
+            "Transportar a mochila apoiada em ambas as alças nas costas",
+            "Sentar com a coluna torta e debruçada sobre a mesa",
+            "Carregar todo o peso da mochila só num ombro",
+            "Usar sapatos sem apoio de calcanhar"
+          ],
+          "resposta_correta": "Transportar a mochila apoiada em ambas as alças nas costas",
+          "explicacao": "Apoiar as duas alças distribui o peso uniformemente pela coluna, prevenindo lesões."
+        }
+      ]
+    },
+    {
+      "id": "em3_u2",
+      "titulo": "Os Seres Vivos e o Ambiente",
+      "paginas_livro": "Páginas 51-95",
+      "pagina_inicio": 51,
+      "pagina_fim": 95,
+      "resumo_pedagogico": "Biodiversidade no meio envolvente: o reino vegetal e a constituição da planta completa (raiz — fixação e absorção de água/sais; caule — suporte e transporte de seiva; folhas — respiração, transpiração e fotossíntese; flores — reprodução; frutos e sementes — proteção e disseminação). Classificação das plantas: folha caduca (cai no outono) vs folha perene (mantém-se verde todo o ano); plantas espontâneas e cultivadas. O reino animal: animais vertebrados (com esqueleto interno: mamíferos, aves, répteis, anfíbios e peixes) e invertebrados (sem coluna vertebral). Critérios de classificação animal: regime alimentar (herbívoros, carnívoros, omnívoros); reprodução (vivíparos e ovíparos); revestimento da pele (pelos, penas, escamas, carapaça, pele nua); modos de locomoção adaptados ao habitat (marcha, salto, voo, natação, reptação). Relações ecológicas e cadeias alimentares.",
+      "conceitos_chave": [
+        {
+          "termo": "Partes da Planta",
+          "definicao": "Raiz, caule, folhas, flores e frutos. Cada parte desempenha uma função especializada no crescimento e reprodução vegetal."
+        },
+        {
+          "termo": "Vertebrados e Invertebrados",
+          "definicao": "Vertebrados possuem coluna vertebral e esqueleto ósseo ou cartilagíneo interno; invertebrados não possuem coluna vertebral."
+        },
+        {
+          "termo": "Regimes Alimentares",
+          "definicao": "Herbívoros alimentam-se exclusivamente de plantas; carnívoros de outros animais; omnívoros de plantas e animais."
+        },
+        {
+          "termo": "Cadeia Alimentar",
+          "definicao": "Sequência de seres vivos interligados pela relação de alimentação (produtores, consumidores primários e predadores)."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Qual a principal função das folhas de uma planta?",
+          "resposta": "Realizar a fotossíntese (produção do alimento com a luz solar), a respiração e a transpiração.",
+          "frente": "Qual a principal função das folhas de uma planta?",
+          "verso": "Realizar a fotossíntese (produção do alimento com a luz solar), a respiração e a transpiração.",
+          "dica": "Fisiologia vegetal"
+        },
+        {
+          "pergunta": "Em que classe de vertebrados se inserem animais como a rã e a salamandra?",
+          "resposta": "Anfíbios (nascem na água com guelras e vivem na terra em adultos com respiração pulmonar e cutânea).",
+          "frente": "Em que classe de vertebrados se inserem animais como a rã e a salamandra?",
+          "verso": "Anfíbios (nascem na água com guelras e vivem na terra em adultos com respiração pulmonar e cutânea).",
+          "dica": "Grupos de vertebrados"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Qual das seguintes partes da planta é responsável pela absorção da água e dos sais minerais do solo?",
+          "opcoes": [
+            "Raiz",
+            "Folha",
+            "Caule",
+            "Flor"
+          ],
+          "resposta_correta": "Raiz",
+          "explicacao": "A raiz fixa a planta ao solo e retira dele a água e os nutrientes essenciais."
+        },
+        {
+          "pergunta": "Um animal que nasce de um ovo posto no meio exterior diz-se:",
+          "opcoes": [
+            "Ovíparo",
+            "Vivíparo",
+            "Mamífero",
+            "Herbívoro"
+          ],
+          "resposta_correta": "Ovíparo",
+          "explicacao": "Os animais ovíparos reproduzem-se por ovos onde o embrião se desenvolve externamente."
+        }
+      ]
+    },
+    {
+      "id": "em3_u3",
+      "titulo": "A Terra, o Espaço e os Recursos Naturais",
+      "paginas_livro": "Páginas 96-130",
+      "pagina_inicio": 96,
+      "pagina_fim": 130,
+      "resumo_pedagogico": "O planeta Terra no Sistema Solar: identificação do Sol como estrela central e dos oito planetas (Mercúrio, Vénus, Terra, Marte, Júpiter, Saturno, Úrano, Neptuno) e satélites naturais (a Lua). Movimentos da Terra e as suas consequências diretas no planeta: o movimento de rotação (sobre o seu próprio eixo, com a duração de 24 horas, que origina a sucessão dos dias e das noites) e o movimento de translação (à volta do Sol, com a duração de 365 dias e 6 horas, que associado à inclinação do eixo terrestre dá origem às quatro estações do ano). A atmosfera terrestre e o ciclo hidrológico da água (evaporação, condensação, precipitação e infiltração). Estados físicos da matéria (sólido, líquido e gasoso) e mudanças de estado. Orientação geográfica: os pontos cardeais (Norte, Sul, Este, Oeste), orientação pelo Sol e utilização da bússola.",
+      "conceitos_chave": [
+        {
+          "termo": "Movimento de Rotação",
+          "definicao": "Giro completo que a Terra dá sobre si mesma de oeste para este em cerca de 24 horas, provocando a alternância entre o dia e a noite."
+        },
+        {
+          "termo": "Movimento de Translação",
+          "definicao": "Trajetória elíptica que a Terra percorre em redor do Sol em 365 dias e 6 horas, responsável pelas quatro estações do ano."
+        },
+        {
+          "termo": "Ciclo da Água",
+          "definicao": "Circulação contínua da água entre a superfície terrestre e a atmosfera através da evaporação, condensação nas nuvens e precipitação (chuva/neve)."
+        },
+        {
+          "termo": "Pontos Cardeais",
+          "definicao": "Direções de referência para navegação e orientação espacial: Norte, Sul, Este (onde o Sol nasce) e Oeste (onde o Sol se põe)."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Qual é a consequência do movimento de rotação da Terra?",
+          "resposta": "A sucessão dos dias e das noites (dura cerca de 24 horas).",
+          "frente": "Qual é a consequência do movimento de rotação da Terra?",
+          "verso": "A sucessão dos dias e das noites (dura cerca de 24 horas).",
+          "dica": "Movimentos terrestres"
+        },
+        {
+          "pergunta": "O que acontece na fase de evaporação do ciclo da água?",
+          "resposta": "A água líquida dos rios, mares e lagos aquece com o Sol e transforma-se em vapor de água invisível que sobe na atmosfera.",
+          "frente": "O que acontece na fase de evaporação do ciclo da água?",
+          "verso": "A água líquida dos rios, mares e lagos aquece com o Sol e transforma-se em vapor de água invisível que sobe na atmosfera.",
+          "dica": "Estados da água"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Quanto tempo demora aproximadamente a Terra a completar uma volta completa em torno do Sol?",
+          "opcoes": [
+            "365 dias e 6 horas (1 ano)",
+            "24 horas (1 dia)",
+            "30 dias (1 mês)",
+            "12 horas"
+          ],
+          "resposta_correta": "365 dias e 6 horas (1 ano)",
+          "explicacao": "É o movimento de translação que dura um ano e define as quatro estações."
+        },
+        {
+          "pergunta": "Se estenderes o braço direito na direção onde nasce o Sol (Este), que direção terás à tua frente?",
+          "opcoes": [
+            "Norte",
+            "Sul",
+            "Oeste",
+            "Este"
+          ],
+          "resposta_correta": "Norte",
+          "explicacao": "Ao apontar o braço direito para Este, o braço esquerdo aponta para Oeste e à frente fica o Norte."
+        }
+      ]
+    },
+    {
+      "id": "em3_u4",
+      "titulo": "O Passado, a História Local e a Sociedade",
+      "paginas_livro": "Páginas 131-155",
+      "pagina_inicio": 131,
+      "pagina_fim": 155,
+      "resumo_pedagogico": "O tempo histórico e a memória coletiva: como conhecemos o passado através das fontes históricas (fontes orais — testemunhos de avós; fontes escritas — cartas, jornais antigos e documentos; fontes materiais — monumentos, cerâmicas e moedas antigas; fontes visuais — fotografias e pinturas). A comunidade e o património local: história da freguesia e do concelho, figuras históricas ilustres, lendas, tradições, festas populares e monumentos representativos. As instituições públicas fundamentais: a Junta de Freguesia, a Câmara Municipal, o tribunal, os Bombeiros Voluntários e o centro de saúde. Evolução dos meios de transporte e de comunicação ao longo das décadas.",
+      "conceitos_chave": [
+        {
+          "termo": "Fontes Históricas",
+          "definicao": "Todos os vestígios, documentos, objetos ou relatos deixados pelas pessoas do passado que permitem aos historiadores compreender os acontecimentos antigos."
+        },
+        {
+          "termo": "Património Cultural",
+          "definicao": "Conjunto de bens materiais (castelos, igrejas, pelourinhos) e imateriais (danças, cantares, gastronomia) herdados dos antepassados."
+        },
+        {
+          "termo": "Poder Local",
+          "definicao": "Órgãos de governação próximos dos cidadãos responsáveis pela administração da freguesia (Junta de Freguesia) e do concelho (Câmara Municipal)."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Dá dois exemplos de fontes históricas materiais.",
+          "resposta": "Moedas antigas, castelos, monumentos e ferramentas de cerâmica.",
+          "frente": "Dá dois exemplos de fontes históricas materiais.",
+          "verso": "Moedas antigas, castelos, monumentos e ferramentas de cerâmica.",
+          "dica": "Vestígios arqueológicos"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Um relato oral contado por um avô sobre a sua infância na aldeia é um exemplo de:",
+          "opcoes": [
+            "Fonte histórica oral",
+            "Fonte histórica escrita",
+            "Fonte histórica material",
+            "Ficção científica"
+          ],
+          "resposta_correta": "Fonte histórica oral",
+          "explicacao": "Os testemunhos falados transmitidos de geração em geração são fontes orais."
+        }
+      ]
+    },
+    {
+      "id": "em3_u5",
+      "titulo": "Os Materiais, a Tecnologia e a Sustentabilidade",
+      "paginas_livro": "Páginas 156-171",
+      "pagina_inicio": 156,
+      "pagina_fim": 171,
+      "resumo_pedagogico": "Ciência dos materiais e consciência ambiental: exploração das propriedades dos materiais correntes (dureza, flexibilidade, transparência, permeabilidade à água, condução térmica e elétrica). Origem dos materiais: recursos naturais renováveis e não renováveis; materiais naturais e transformados/artificiais. Misturas homogéneas (aspeto uniforme) e heterogéneas (fases distinguíveis a olho nu); processos simples de separação de misturas (filtração, decantação e evaporação). Sustentabilidade e conservação do planeta: a política dos 5 R's (Reduzir o consumo supérfluo, Reutilizar embalagens, Reciclar materiais no ecoponto, Recusar produtos poluentes e Repensar atitudes diárias). Preservação dos recursos hídricos e transição energética.",
+      "conceitos_chave": [
+        {
+          "termo": "Propriedades dos Materiais",
+          "definicao": "Características que diferenciam os materiais: dureza (resistência ao risco), elasticidade (retoma a forma original), permeabilidade (capacidade de deixar passar líquidos)."
+        },
+        {
+          "termo": "Mistura Homogénea vs Heterogénea",
+          "definicao": "Na mistura homogénea não se conseguem distinguir os componentes (ex.: água com sal dissolvido); na heterogénea os componentes são visíveis (ex.: água com areia)."
+        },
+        {
+          "termo": "Política dos 5 R's",
+          "definicao": "Regras ecológicas prioritárias para minimizar a produção de resíduos e proteger o ambiente: Reduzir, Reutilizar, Reciclar, Recuperar e Repensar."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Qual a diferença entre uma mistura homogénea e uma mistura heterogénea?",
+          "resposta": "Na homogénea não se distinguem as substâncias (uma só fase); na heterogénea veem-se duas ou mais fases distintas.",
+          "frente": "Qual a diferença entre uma mistura homogénea e uma mistura heterogénea?",
+          "verso": "Na homogénea não se distinguem as substâncias (uma só fase); na heterogénea veem-se duas ou mais fases distintas.",
+          "dica": "Química dos materiais"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Em qual dos ecopontos devemos depositar uma garrafa de plástico vazia?",
+          "opcoes": [
+            "Ecoponto Amarelo",
+            "Ecoponto Azul",
+            "Ecoponto Verde",
+            "Vidrão"
+          ],
+          "resposta_correta": "Ecoponto Amarelo",
+          "explicacao": "O ecoponto amarelo destina-se a embalagens de plástico, metal e pacotes de bebidas."
+        }
+      ]
+    }
+  ],
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: O Corpo Humano, Sistema Ósseo e Prevenção",
+      "metas": [
+        "Identificar as funções do esqueleto humano e os principais ossos do corpo",
+        "Compreender o papel protetor da caixa torácica e do crânio",
+        "Adotar normas práticas de higiene física e postura correta"
+      ],
+      "topicos": [
+        {
+          "id": "em3_u1",
+          "titulo": "O Corpo Humano, Esqueleto e Saúde",
+          "subdominio": "O Meu Corpo e a Saúde",
+          "conceitos_chave": [
+            {
+              "termo": "Esqueleto",
+              "definicao": "Conjunto articulado de todos os ossos do corpo que desempenha três funções vitais: sustentar o corpo, permitir o movimento e proteger órgãos internos sensíveis como cérebro, coração e pulmões."
+            },
+            {
+              "termo": "Articulação",
+              "definicao": "Ponto de união e contacto entre dois ou mais ossos. Classificam-se em móveis (ampla amplitude de movimento), semimóveis (movimento reduzido) e fixas (sem mobilidade, como as suturas do crânio)."
+            },
+            {
+              "termo": "Caixa Torácica",
+              "definicao": "Estrutura óssea formada pelas costelas, esterno e vértebras dorsais, cuja missão principal é abrigar e proteger os pulmões e o coração contra impactos externos."
+            },
+            {
+              "termo": "Músculos e Tendões",
+              "definicao": "Órgãos que produzem movimento através da contração e descontração voluntária ou involuntária, ligados aos ossos por cordões resistentes chamados tendões."
+            },
+            {
+              "termo": "Postura e Saúde",
+              "definicao": "Hábitos corretos de posicionamento da coluna vertebral ao estudar, dormir e caminhar, evitando desvios da coluna e dores nas costas."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Indica dois órgãos vitais protegidos pelas costelas na caixa torácica.",
+            "proposta_resolucao": "O coração e os pulmões.",
+            "criterio_cotacao": "Nomeação correta dos dois órgãos (50% cada).",
+            "erro_frequente": "Indicar o estômago ou o cérebro."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Qual a principal função do esqueleto humano?",
+              "resposta": "Sustentar o corpo e proteger os órgãos internos como coração, pulmões e cérebro.",
+              "frente": "Qual a principal função do esqueleto humano?",
+              "verso": "Sustentar o corpo e proteger os órgãos internos como coração, pulmões e cérebro.",
+              "dica": "Função óssea"
+            },
+            {
+              "pergunta": "Que ossos compõem a caixa torácica e que órgãos protegem?",
+              "resposta": "As costelas e o esterno, que protegem o coração e os pulmões.",
+              "frente": "Que ossos compõem a caixa torácica e que órgãos protegem?",
+              "verso": "As costelas e o esterno, que protegem o coração e os pulmões.",
+              "dica": "Anatomia torácica"
+            },
+            {
+              "pergunta": "Dá um exemplo de uma articulação móvel e de uma articulação fixa.",
+              "resposta": "Móvel: o joelho ou o cotovelo; Fixa: os ossos do crânio.",
+              "frente": "Dá um exemplo de uma articulação móvel e de uma articulação fixa.",
+              "verso": "Móvel: o joelho ou o cotovelo; Fixa: os ossos do crânio.",
+              "dica": "Tipos de articulações"
+            },
+            {
+              "pergunta": "Qual é o osso mais longo do corpo humano?",
+              "resposta": "O fémur (localizado na coxa).",
+              "frente": "Qual é o osso mais longo do corpo humano?",
+              "verso": "O fémur (localizado na coxa).",
+              "dica": "Ossos dos membros"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Seres Vivos, Botânica e Zoologia",
+      "metas": [
+        "Descrever as funções da raiz, caule, folha e flor nas plantas",
+        "Classificar animais por regime alimentar, reprodução e presença de coluna vertebral",
+        "Compreender as relações alimentares básicas numa teia ecológica"
+      ],
+      "topicos": [
+        {
+          "id": "em3_u2",
+          "titulo": "Os Seres Vivos e o Ambiente",
+          "subdominio": "Seres Vivos e Meio Ambiente",
+          "conceitos_chave": [
+            {
+              "termo": "Partes da Planta",
+              "definicao": "Raiz, caule, folhas, flores e frutos. Cada parte desempenha uma função especializada no crescimento e reprodução vegetal."
+            },
+            {
+              "termo": "Vertebrados e Invertebrados",
+              "definicao": "Vertebrados possuem coluna vertebral e esqueleto ósseo ou cartilagíneo interno; invertebrados não possuem coluna vertebral."
+            },
+            {
+              "termo": "Regimes Alimentares",
+              "definicao": "Herbívoros alimentam-se exclusivamente de plantas; carnívoros de outros animais; omnívoros de plantas e animais."
+            },
+            {
+              "termo": "Cadeia Alimentar",
+              "definicao": "Sequência de seres vivos interligados pela relação de alimentação (produtores, consumidores primários e predadores)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Distingue um animal vivíparo de um animal ovíparo dando um exemplo de cada.",
+            "proposta_resolucao": "Vivíparo: o embrião desenvolve-se no ventre materno (ex.: cão, gato, ser humano); Ovíparo: desenvolve-se num ovo no exterior (ex.: galinha, águia, rã).",
+            "criterio_cotacao": "Definição correta (50%) e exemplos válidos (50%).",
+            "erro_frequente": "Considerar a baleia ovípara por viver na água (a baleia é um mamífero vivíparo)."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Qual a principal função das folhas de uma planta?",
+              "resposta": "Realizar a fotossíntese (produção do alimento com a luz solar), a respiração e a transpiração.",
+              "frente": "Qual a principal função das folhas de uma planta?",
+              "verso": "Realizar a fotossíntese (produção do alimento com a luz solar), a respiração e a transpiração.",
+              "dica": "Fisiologia vegetal"
+            },
+            {
+              "pergunta": "Em que classe de vertebrados se inserem animais como a rã e a salamandra?",
+              "resposta": "Anfíbios (nascem na água com guelras e vivem na terra em adultos com respiração pulmonar e cutânea).",
+              "frente": "Em que classe de vertebrados se inserem animais como a rã e a salamandra?",
+              "verso": "Anfíbios (nascem na água com guelras e vivem na terra em adultos com respiração pulmonar e cutânea).",
+              "dica": "Grupos de vertebrados"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: A Terra no Espaço, Sociedade e Meio Físico",
+      "metas": [
+        "Explicar os movimentos de rotação e translação da Terra e suas consequências",
+        "Identificar fontes históricas da localidade e órgãos do poder local",
+        "Classificar propriedades dos materiais e aplicar a regra dos 5 R's"
+      ],
+      "topicos": [
+        {
+          "id": "em3_u3",
+          "titulo": "A Terra, o Espaço e os Recursos Naturais",
+          "subdominio": "A Terra e o Espaço",
+          "conceitos_chave": [
+            {
+              "termo": "Movimento de Rotação",
+              "definicao": "Giro completo que a Terra dá sobre si mesma de oeste para este em cerca de 24 horas, provocando a alternância entre o dia e a noite."
+            },
+            {
+              "termo": "Movimento de Translação",
+              "definicao": "Trajetória elíptica que a Terra percorre em redor do Sol em 365 dias e 6 horas, responsável pelas quatro estações do ano."
+            },
+            {
+              "termo": "Ciclo da Água",
+              "definicao": "Circulação contínua da água entre a superfície terrestre e a atmosfera através da evaporação, condensação nas nuvens e precipitação (chuva/neve)."
+            },
+            {
+              "termo": "Pontos Cardeais",
+              "definicao": "Direções de referência para navegação e orientação espacial: Norte, Sul, Este (onde o Sol nasce) e Oeste (onde o Sol se põe)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Explica sucintamente como se formam os dias e as noites.",
+            "proposta_resolucao": "A Terra gira sobre o seu próprio eixo (rotação); a metade iluminada pelo Sol tem o dia, enquanto a metade oposta fica na sombra tendo a noite.",
+            "criterio_cotacao": "Menção ao movimento de rotação (50%) e à iluminação solar da esfera terrestre (50%).",
+            "erro_frequente": "Dizer que o Sol se move à volta da Terra."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Qual é a consequência do movimento de rotação da Terra?",
+              "resposta": "A sucessão dos dias e das noites (dura cerca de 24 horas).",
+              "frente": "Qual é a consequência do movimento de rotação da Terra?",
+              "verso": "A sucessão dos dias e das noites (dura cerca de 24 horas).",
+              "dica": "Movimentos terrestres"
+            },
+            {
+              "pergunta": "O que acontece na fase de evaporação do ciclo da água?",
+              "resposta": "A água líquida dos rios, mares e lagos aquece com o Sol e transforma-se em vapor de água invisível que sobe na atmosfera.",
+              "frente": "O que acontece na fase de evaporação do ciclo da água?",
+              "verso": "A água líquida dos rios, mares e lagos aquece com o Sol e transforma-se em vapor de água invisível que sobe na atmosfera.",
+              "dica": "Estados da água"
+            }
+          ]
+        },
+        {
+          "id": "em3_u4",
+          "titulo": "O Passado, a História Local e a Sociedade",
+          "subdominio": "Passado Histórico",
+          "conceitos_chave": [
+            {
+              "termo": "Fontes Históricas",
+              "definicao": "Todos os vestígios, documentos, objetos ou relatos deixados pelas pessoas do passado que permitem aos historiadores compreender os acontecimentos antigos."
+            },
+            {
+              "termo": "Património Cultural",
+              "definicao": "Conjunto de bens materiais (castelos, igrejas, pelourinhos) e imateriais (danças, cantares, gastronomia) herdados dos antepassados."
+            },
+            {
+              "termo": "Poder Local",
+              "definicao": "Órgãos de governação próximos dos cidadãos responsáveis pela administração da freguesia (Junta de Freguesia) e do concelho (Câmara Municipal)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Dá dois exemplos de património histórico construído existente na tua região.",
+            "proposta_resolucao": "Castelos, pelourinhos, igrejas antigas, pontes romanas ou palácios.",
+            "criterio_cotacao": "Exemplos verídicos e adequados (100%).",
+            "erro_frequente": "Indicar edifícios modernos ou sem valor histórico."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Dá dois exemplos de fontes históricas materiais.",
+              "resposta": "Moedas antigas, castelos, monumentos e ferramentas de cerâmica.",
+              "frente": "Dá dois exemplos de fontes históricas materiais.",
+              "verso": "Moedas antigas, castelos, monumentos e ferramentas de cerâmica.",
+              "dica": "Vestígios arqueológicos"
+            }
+          ]
+        },
+        {
+          "id": "em3_u5",
+          "titulo": "Os Materiais, a Tecnologia e a Sustentabilidade",
+          "subdominio": "Materiais e Ambiente",
+          "conceitos_chave": [
+            {
+              "termo": "Propriedades dos Materiais",
+              "definicao": "Características que diferenciam os materiais: dureza (resistência ao risco), elasticidade (retoma a forma original), permeabilidade (capacidade de deixar passar líquidos)."
+            },
+            {
+              "termo": "Mistura Homogénea vs Heterogénea",
+              "definicao": "Na mistura homogénea não se conseguem distinguir os componentes (ex.: água com sal dissolvido); na heterogénea os componentes são visíveis (ex.: água com areia)."
+            },
+            {
+              "termo": "Política dos 5 R's",
+              "definicao": "Regras ecológicas prioritárias para minimizar a produção de resíduos e proteger o ambiente: Reduzir, Reutilizar, Reciclar, Recuperar e Repensar."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Qual o método mais adequado para separar uma mistura de água com areia?",
+            "proposta_resolucao": "A filtração através de um filtro ou a decantação.",
+            "criterio_cotacao": "Indicação do método correto (100%).",
+            "erro_frequente": "Indicar evaporação (que demoraria muito mais tempo e evaporaria o líquido)."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Qual a diferença entre uma mistura homogénea e uma mistura heterogénea?",
+              "resposta": "Na homogénea não se distinguem as substâncias (uma só fase); na heterogénea veem-se duas ou mais fases distintas.",
+              "frente": "Qual a diferença entre uma mistura homogénea e uma mistura heterogénea?",
+              "verso": "Na homogénea não se distinguem as substâncias (uma só fase); na heterogénea veem-se duas ou mais fases distintas.",
+              "dica": "Química dos materiais"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

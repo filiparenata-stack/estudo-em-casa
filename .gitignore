@@ -22,3 +22,8 @@ frontend/dist/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Cache de agentes e downloads de scans brutos
+.agents/
+downloads/
+

@@ -1,0 +1,614 @@
+{
+  "disciplina_id": "ingles_3ano",
+  "disciplina_nome": "Inglês",
+  "ano": 3,
+  "icone": "Languages",
+  "livro_referencia": "Easy-Peasy English 3.º Ano (Porto Editora)",
+  "unidades": [
+    {
+      "id": "ing3_u1",
+      "titulo": "Greetings, Numbers and School Objects",
+      "paginas_livro": "Páginas 6-35",
+      "pagina_inicio": 6,
+      "pagina_fim": 35,
+      "resumo_pedagogico": "Introduction to basic English communication for 3rd grade: greetings and everyday phrases (Hello, Hi, Good morning, Good afternoon, Goodbye, Bye-bye); asking and telling names ('What is your name? - My name is...', 'Who are you?'); asking about feelings ('How are you? - I'm fine / happy / sad, thank you'); numbers from 1 to 20 with spelling and counting games; primary and secondary colours (red, blue, yellow, green, orange, purple, pink, brown, black, white); classroom instructions (Sit down, Stand up, Open your book, Listen, Look, Be quiet); school objects vocabulary (book, pencil, pen, rubber, ruler, pencil case, sharpener, scissors, glue stick, schoolbag, desk, chair).",
+      "conceitos_chave": [
+        {
+          "termo": "Greetings",
+          "definicao": "Formas de saudação e despedida em inglês: Hello/Hi (Olá), Good morning (Bom dia), Good afternoon (Boa tarde), Goodbye (Adeus)."
+        },
+        {
+          "termo": "Numbers 1-20",
+          "definicao": "Contagem e escrita dos números ordinais e cardinais de um a vinte (one, two, three, four, five... ten, eleven, twelve... twenty)."
+        },
+        {
+          "termo": "Classroom Objects",
+          "definicao": "Vocabulário essencial do material escolar e mobília da sala de aula (pencil case = estojo, rubber = borracha, ruler = régua, book = livro)."
+        },
+        {
+          "termo": "Colours",
+          "definicao": "Identificação e descrição das cores dos objetos: red, blue, green, yellow, orange, purple, pink, brown, black, white."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "How do you say 'estojo' in English?",
+          "resposta": "Pencil case.",
+          "frente": "How do you say 'estojo' in English?",
+          "verso": "Pencil case.",
+          "dica": "School objects"
+        },
+        {
+          "pergunta": "What is the English word for 'borracha'?",
+          "resposta": "Rubber.",
+          "frente": "What is the English word for 'borracha'?",
+          "verso": "Rubber.",
+          "dica": "School objects"
+        },
+        {
+          "pergunta": "How do you say 'bom dia' in English?",
+          "resposta": "Good morning.",
+          "frente": "How do you say 'bom dia' in English?",
+          "verso": "Good morning.",
+          "dica": "Greetings"
+        },
+        {
+          "pergunta": "How do you ask someone's name in English?",
+          "resposta": "What is your name?",
+          "frente": "How do you ask someone's name in English?",
+          "verso": "What is your name?",
+          "dica": "Introductions"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "What is the English word for 'borracha'?",
+          "opcoes": [
+            "Rubber",
+            "Ruler",
+            "Pencil",
+            "Desk"
+          ],
+          "resposta_correta": "Rubber",
+          "explicacao": "Rubber (ou eraser no inglês americano) significa borracha escolar."
+        },
+        {
+          "pergunta": "How do you answer politely to the question 'How are you?'?",
+          "opcoes": [
+            "I'm fine, thank you!",
+            "My name is Peter.",
+            "It is blue.",
+            "I have eight years old."
+          ],
+          "resposta_correta": "I'm fine, thank you!",
+          "explicacao": "'I'm fine, thank you!' é a resposta educada comum para 'Como estás?'."
+        },
+        {
+          "pergunta": "Which number comes immediately after 'eleven'?",
+          "opcoes": [
+            "Twelve",
+            "Ten",
+            "Thirteen",
+            "Twenty"
+          ],
+          "resposta_correta": "Twelve",
+          "explicacao": "Na sequência numérica: 10 (ten), 11 (eleven), 12 (twelve)."
+        },
+        {
+          "pergunta": "What colour do you get if you mix red and yellow?",
+          "opcoes": [
+            "Orange",
+            "Green",
+            "Purple",
+            "Brown"
+          ],
+          "resposta_correta": "Orange",
+          "explicacao": "A mistura de vermelho (red) com amarelo (yellow) origina o cor-de-laranja (orange)."
+        }
+      ]
+    },
+    {
+      "id": "ing3_u2",
+      "titulo": "Family & Friends",
+      "paginas_livro": "Páginas 36-65",
+      "pagina_inicio": 36,
+      "pagina_fim": 65,
+      "resumo_pedagogico": "Exploring family relationships, feelings and physical descriptions in English: family tree vocabulary (mother/mum, father/dad, parents, brother, sister, grandmother/granny, grandfather/grandad, grandparents, baby, cousin, aunt, uncle); expressing ownership with possessive adjectives ('my', 'your', 'his', 'her'); descriptive adjectives for people (tall, short, young, old, happy, energetic, kind); identifying family roles and asking 'Who is this? - This is my brother/sister'; feelings and states of mind (tired, hungry, thirsty, scared, excited, angry).",
+      "conceitos_chave": [
+        {
+          "termo": "Family Members",
+          "definicao": "Membros do agregado familiar em inglês: mother, father, brother, sister, grandmother, grandfather."
+        },
+        {
+          "termo": "Feelings and Emotions",
+          "definicao": "Vocabulário de estados emocionais: happy, sad, excited, tired, hungry, thirsty."
+        },
+        {
+          "termo": "Possessive 'My' and 'Your'",
+          "definicao": "Determinantes possessivos para indicar pertença ('This is my mother', 'Is that your dog?')."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "How do you say 'avó' in English?",
+          "resposta": "Grandmother (ou granny).",
+          "frente": "How do you say 'avó' in English?",
+          "verso": "Grandmother (ou granny).",
+          "dica": "Family members"
+        },
+        {
+          "pergunta": "What is the opposite of 'happy' in English?",
+          "resposta": "Sad.",
+          "frente": "What is the opposite of 'happy' in English?",
+          "verso": "Sad.",
+          "dica": "Opposites and emotions"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "How do you say 'o meu irmão' in English?",
+          "opcoes": [
+            "My brother",
+            "My sister",
+            "My father",
+            "My cousin"
+          ],
+          "resposta_correta": "My brother",
+          "explicacao": "'Brother' significa irmão e 'my' significa meu."
+        },
+        {
+          "pergunta": "If you want a drink of water, how do you feel?",
+          "opcoes": [
+            "Thirsty",
+            "Hungry",
+            "Tired",
+            "Angry"
+          ],
+          "resposta_correta": "Thirsty",
+          "explicacao": "'Thirsty' significa com sede (thirsty for water)."
+        }
+      ]
+    },
+    {
+      "id": "ing3_u3",
+      "titulo": "Body & Clothes",
+      "paginas_livro": "Páginas 66-95",
+      "pagina_inicio": 66,
+      "pagina_fim": 95,
+      "resumo_pedagogico": "Describing the human body, facial features and seasonal clothing: head, face, eyes, ears, nose, mouth, teeth, hair (blond, dark, curly, straight, long, short), shoulders, knees, toes, arms, hands, legs, feet. The famous traditional song and action chant 'Head, shoulders, knees and toes'; clothing items for different weather conditions (T-shirt, shirt, jumper/sweater, jacket, coat, trousers, jeans, shorts, dress, skirt, socks, shoes, boots, trainers, hat, scarf, gloves); using the present continuous construction 'I am wearing...' and 'He/She is wearing a red coat'.",
+      "conceitos_chave": [
+        {
+          "termo": "Parts of the Body",
+          "definicao": "Partes do corpo humano: head, shoulders, knees, toes, eyes, ears, mouth, nose."
+        },
+        {
+          "termo": "Clothes and Apparel",
+          "definicao": "Peças de vestuário e calçado: T-shirt, trousers, shoes, socks, jacket, dress."
+        },
+        {
+          "termo": "Present Continuous: Wearing",
+          "definicao": "Estrutura para descrever a roupa que alguém traz vestida ('She is wearing blue jeans')."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "How do you say 'ombros' in English?",
+          "resposta": "Shoulders.",
+          "frente": "How do you say 'ombros' in English?",
+          "verso": "Shoulders.",
+          "dica": "Body parts"
+        },
+        {
+          "pergunta": "What is the English word for 'calças'?",
+          "resposta": "Trousers (ou pants).",
+          "frente": "What is the English word for 'calças'?",
+          "verso": "Trousers (ou pants).",
+          "dica": "Clothes"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Which body parts are in your face?",
+          "opcoes": [
+            "Eyes, nose, mouth",
+            "Knees, toes, elbows",
+            "Feet, legs, arms",
+            "Fingers, hands, wrists"
+          ],
+          "resposta_correta": "Eyes, nose, mouth",
+          "explicacao": "Olhos (eyes), nariz (nose) e boca (mouth) pertencem ao rosto (face)."
+        },
+        {
+          "pergunta": "What do you wear on your feet inside your shoes?",
+          "opcoes": [
+            "Socks",
+            "Gloves",
+            "Scarf",
+            "Hat"
+          ],
+          "resposta_correta": "Socks",
+          "explicacao": "'Socks' significa meias, usadas nos pés (feet)."
+        }
+      ]
+    },
+    {
+      "id": "ing3_u4",
+      "titulo": "Food, Drinks, Animals & Nature",
+      "paginas_livro": "Páginas 96-124",
+      "pagina_inicio": 96,
+      "pagina_fim": 124,
+      "resumo_pedagogico": "Vocabulary for healthy eating, meals, animals and nature: food items (apple, banana, orange, strawberry, grapes, bread, cheese, butter, sandwich, pizza, salad, chicken, fish, soup, rice, pasta); drinks (water, milk, orange juice, tea); expressing likes and dislikes ('I like bananas', 'I don't like cheese', 'Do you like apples? - Yes, I do / No, I don't'); pets and farm animals (dog, cat, rabbit, bird, fish, hamster, cow, horse, pig, sheep, duck, chicken); wild and zoo animals (lion, tiger, elephant, giraffe, monkey, snake); animal abilities with modal 'can' and 'can't' (Birds can fly; fish can swim; dogs can run).",
+      "conceitos_chave": [
+        {
+          "termo": "Food and Drinks",
+          "definicao": "Alimentos e bebidas: apple, banana, sandwich, pizza, water, milk, orange juice."
+        },
+        {
+          "termo": "Expressing Likes / Dislikes",
+          "definicao": "Estruturas de preferências pessoais: 'I like...' (Gosto de...) e 'I don't like...' (Não gosto de...)."
+        },
+        {
+          "termo": "Animals and Abilities",
+          "definicao": "Animais domésticos e selvagens e ações com 'can' (fly, swim, jump, run)."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "How do you say 'maçã' in English?",
+          "resposta": "Apple.",
+          "frente": "How do you say 'maçã' in English?",
+          "verso": "Apple.",
+          "dica": "Fruits"
+        },
+        {
+          "pergunta": "How do you say 'Eu gosto de água' in English?",
+          "resposta": "I like water.",
+          "frente": "How do you say 'Eu gosto de água' in English?",
+          "verso": "I like water.",
+          "dica": "Preferences"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Which of the following is a fruit in English?",
+          "opcoes": [
+            "Strawberry",
+            "Cheese",
+            "Chicken",
+            "Water"
+          ],
+          "resposta_correta": "Strawberry",
+          "explicacao": "'Strawberry' significa morango, que é uma fruta deliciosa."
+        },
+        {
+          "pergunta": "Which animal can fly in the sky?",
+          "opcoes": [
+            "A bird",
+            "A fish",
+            "A dog",
+            "An elephant"
+          ],
+          "resposta_correta": "A bird",
+          "explicacao": "Um pássaro (bird) tem asas e voa (can fly)."
+        }
+      ]
+    },
+    {
+      "id": "ing3_u5",
+      "titulo": "Daily Routines, Miniflashers & Cut-outs",
+      "paginas_livro": "Páginas 125-141",
+      "pagina_inicio": 125,
+      "pagina_fim": 141,
+      "resumo_pedagogico": "Everyday actions, daily routines and cut-out review games: daily verbs and habits (wake up, wash my face, brush my teeth, get dressed, have breakfast, go to school, play in the playground, have lunch, do homework, watch television, have dinner, go to bed); times of the day (morning, afternoon, evening, night); days of the week (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday); using the interactive textbook cut-outs ('Miniflashers') for pair work vocabulary recall, memory games and end-of-year comprehensive review.",
+      "conceitos_chave": [
+        {
+          "termo": "Daily Routines",
+          "definicao": "Ações quotidianas: wake up, brush my teeth, have breakfast, go to school, go to bed."
+        },
+        {
+          "termo": "Days of the Week",
+          "definicao": "Os sete dias da semana em inglês: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday."
+        },
+        {
+          "termo": "Miniflashers Review",
+          "definicao": "Cartões didáticos recortáveis do manual Easy-Peasy para jogos interativos e consolidação de vocabulário."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "How do you say 'lavar os dentes' in English?",
+          "resposta": "Brush your teeth.",
+          "frente": "How do you say 'lavar os dentes' in English?",
+          "verso": "Brush your teeth.",
+          "dica": "Daily routines"
+        },
+        {
+          "pergunta": "What is the first day of the school week in English?",
+          "resposta": "Monday (Segunda-feira).",
+          "frente": "What is the first day of the school week in English?",
+          "verso": "Monday (Segunda-feira).",
+          "dica": "Days of the week"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "What is the meal you eat in the morning when you wake up?",
+          "opcoes": [
+            "Breakfast",
+            "Lunch",
+            "Dinner",
+            "Supper"
+          ],
+          "resposta_correta": "Breakfast",
+          "explicacao": "'Breakfast' é o pequeno-almoço tomado de manhã."
+        },
+        {
+          "pergunta": "How many days are there in a full week?",
+          "opcoes": [
+            "Seven (7)",
+            "Five (5)",
+            "Ten (10)",
+            "Twelve (12)"
+          ],
+          "resposta_correta": "Seven (7)",
+          "explicacao": "Uma semana completa tem 7 dias (seven days)."
+        }
+      ]
+    }
+  ],
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Greetings, Numbers and School Objects",
+      "metas": [
+        "Greet teacher and classmates, ask and state names and feelings",
+        "Count, write and recognize numbers from 1 to 20",
+        "Identify and name 10 essential classroom objects and colours"
+      ],
+      "topicos": [
+        {
+          "id": "ing3_u1",
+          "titulo": "Greetings, Numbers and School Objects",
+          "subdominio": "Basic Communication & School",
+          "conceitos_chave": [
+            {
+              "termo": "Greetings",
+              "definicao": "Formas de saudação e despedida em inglês: Hello/Hi (Olá), Good morning (Bom dia), Good afternoon (Boa tarde), Goodbye (Adeus)."
+            },
+            {
+              "termo": "Numbers 1-20",
+              "definicao": "Contagem e escrita dos números ordinais e cardinais de um a vinte (one, two, three, four, five... ten, eleven, twelve... twenty)."
+            },
+            {
+              "termo": "Classroom Objects",
+              "definicao": "Vocabulário essencial do material escolar e mobília da sala de aula (pencil case = estojo, rubber = borracha, ruler = régua, book = livro)."
+            },
+            {
+              "termo": "Colours",
+              "definicao": "Identificação e descrição das cores dos objetos: red, blue, green, yellow, orange, purple, pink, brown, black, white."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Translate the sentence: 'O meu estojo é azul.'",
+            "proposta_resolucao": "'My pencil case is blue.'",
+            "criterio_cotacao": "Vocabulário de 'pencil case' (50%) e adjetivo de cor 'blue' (50%).",
+            "erro_frequente": "Escrever 'My pen is blue'."
+          },
+          "flashcards": [
+            {
+              "pergunta": "How do you say 'estojo' in English?",
+              "resposta": "Pencil case.",
+              "frente": "How do you say 'estojo' in English?",
+              "verso": "Pencil case.",
+              "dica": "School objects"
+            },
+            {
+              "pergunta": "What is the English word for 'borracha'?",
+              "resposta": "Rubber.",
+              "frente": "What is the English word for 'borracha'?",
+              "verso": "Rubber.",
+              "dica": "School objects"
+            },
+            {
+              "pergunta": "How do you say 'bom dia' in English?",
+              "resposta": "Good morning.",
+              "frente": "How do you say 'bom dia' in English?",
+              "verso": "Good morning.",
+              "dica": "Greetings"
+            },
+            {
+              "pergunta": "How do you ask someone's name in English?",
+              "resposta": "What is your name?",
+              "frente": "How do you ask someone's name in English?",
+              "verso": "What is your name?",
+              "dica": "Introductions"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Family, Feelings, Body and Clothes",
+      "metas": [
+        "Name immediate family members and describe basic feelings",
+        "Recognize and touch parts of the face and body during chants",
+        "Describe clothing items and what people are wearing"
+      ],
+      "topicos": [
+        {
+          "id": "ing3_u2",
+          "titulo": "Family & Friends",
+          "subdominio": "Family and Friends",
+          "conceitos_chave": [
+            {
+              "termo": "Family Members",
+              "definicao": "Membros do agregado familiar em inglês: mother, father, brother, sister, grandmother, grandfather."
+            },
+            {
+              "termo": "Feelings and Emotions",
+              "definicao": "Vocabulário de estados emocionais: happy, sad, excited, tired, hungry, thirsty."
+            },
+            {
+              "termo": "Possessive 'My' and 'Your'",
+              "definicao": "Determinantes possessivos para indicar pertença ('This is my mother', 'Is that your dog?')."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Answer the question: 'Who is your father's mother?'",
+            "proposta_resolucao": "'My grandmother' (or granny).",
+            "criterio_cotacao": "Identificação do membro correto da família (100%).",
+            "erro_frequente": "Dizer 'mother'."
+          },
+          "flashcards": [
+            {
+              "pergunta": "How do you say 'avó' in English?",
+              "resposta": "Grandmother (ou granny).",
+              "frente": "How do you say 'avó' in English?",
+              "verso": "Grandmother (ou granny).",
+              "dica": "Family members"
+            },
+            {
+              "pergunta": "What is the opposite of 'happy' in English?",
+              "resposta": "Sad.",
+              "frente": "What is the opposite of 'happy' in English?",
+              "verso": "Sad.",
+              "dica": "Opposites and emotions"
+            }
+          ]
+        },
+        {
+          "id": "ing3_u3",
+          "titulo": "Body & Clothes",
+          "subdominio": "Body and Clothing",
+          "conceitos_chave": [
+            {
+              "termo": "Parts of the Body",
+              "definicao": "Partes do corpo humano: head, shoulders, knees, toes, eyes, ears, mouth, nose."
+            },
+            {
+              "termo": "Clothes and Apparel",
+              "definicao": "Peças de vestuário e calçado: T-shirt, trousers, shoes, socks, jacket, dress."
+            },
+            {
+              "termo": "Present Continuous: Wearing",
+              "definicao": "Estrutura para descrever a roupa que alguém traz vestida ('She is wearing blue jeans')."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Write two items of clothing you wear on your legs or feet.",
+            "proposta_resolucao": "Trousers (or jeans, shorts) and shoes (or socks, boots).",
+            "criterio_cotacao": "Dois termos válidos em inglês (50% cada).",
+            "erro_frequente": "Escrever 'T-shirt' ou 'hat'."
+          },
+          "flashcards": [
+            {
+              "pergunta": "How do you say 'ombros' in English?",
+              "resposta": "Shoulders.",
+              "frente": "How do you say 'ombros' in English?",
+              "verso": "Shoulders.",
+              "dica": "Body parts"
+            },
+            {
+              "pergunta": "What is the English word for 'calças'?",
+              "resposta": "Trousers (ou pants).",
+              "frente": "What is the English word for 'calças'?",
+              "verso": "Trousers (ou pants).",
+              "dica": "Clothes"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Food, Animals, Daily Routines & Miniflashers",
+      "metas": [
+        "Express food likes and dislikes using 'I like' and 'I don't like'",
+        "Name common pets, farm animals and describe basic actions with 'can'",
+        "Recall daily routine actions and use Miniflashers for active review"
+      ],
+      "topicos": [
+        {
+          "id": "ing3_u4",
+          "titulo": "Food, Drinks, Animals & Nature",
+          "subdominio": "Food and Nature",
+          "conceitos_chave": [
+            {
+              "termo": "Food and Drinks",
+              "definicao": "Alimentos e bebidas: apple, banana, sandwich, pizza, water, milk, orange juice."
+            },
+            {
+              "termo": "Expressing Likes / Dislikes",
+              "definicao": "Estruturas de preferências pessoais: 'I like...' (Gosto de...) e 'I don't like...' (Não gosto de...)."
+            },
+            {
+              "termo": "Animals and Abilities",
+              "definicao": "Animais domésticos e selvagens e ações com 'can' (fly, swim, jump, run)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Translate into English: 'Eu gosto de maçãs mas não gosto de leite.'",
+            "proposta_resolucao": "'I like apples but I don't like milk.'",
+            "criterio_cotacao": "Estruturas 'I like' (40%), 'I don't like' (40%) e conector 'but' (20%).",
+            "erro_frequente": "Omitir o auxiliar 'don't'."
+          },
+          "flashcards": [
+            {
+              "pergunta": "How do you say 'maçã' in English?",
+              "resposta": "Apple.",
+              "frente": "How do you say 'maçã' in English?",
+              "verso": "Apple.",
+              "dica": "Fruits"
+            },
+            {
+              "pergunta": "How do you say 'Eu gosto de água' in English?",
+              "resposta": "I like water.",
+              "frente": "How do you say 'Eu gosto de água' in English?",
+              "verso": "I like water.",
+              "dica": "Preferences"
+            }
+          ]
+        },
+        {
+          "id": "ing3_u5",
+          "titulo": "Daily Routines, Miniflashers & Cut-outs",
+          "subdominio": "Daily Routines",
+          "conceitos_chave": [
+            {
+              "termo": "Daily Routines",
+              "definicao": "Ações quotidianas: wake up, brush my teeth, have breakfast, go to school, go to bed."
+            },
+            {
+              "termo": "Days of the Week",
+              "definicao": "Os sete dias da semana em inglês: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday."
+            },
+            {
+              "termo": "Miniflashers Review",
+              "definicao": "Cartões didáticos recortáveis do manual Easy-Peasy para jogos interativos e consolidação de vocabulário."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Put the routine actions in order: 'have breakfast', 'wake up', 'go to school'.",
+            "proposta_resolucao": "1. Wake up -> 2. Have breakfast -> 3. Go to school.",
+            "criterio_cotacao": "Ordenação lógica cronológica (100%).",
+            "erro_frequente": "Colocar 'go to school' antes de 'have breakfast'."
+          },
+          "flashcards": [
+            {
+              "pergunta": "How do you say 'lavar os dentes' in English?",
+              "resposta": "Brush your teeth.",
+              "frente": "How do you say 'lavar os dentes' in English?",
+              "verso": "Brush your teeth.",
+              "dica": "Daily routines"
+            },
+            {
+              "pergunta": "What is the first day of the school week in English?",
+              "resposta": "Monday (Segunda-feira).",
+              "frente": "What is the first day of the school week in English?",
+              "verso": "Monday (Segunda-feira).",
+              "dica": "Days of the week"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

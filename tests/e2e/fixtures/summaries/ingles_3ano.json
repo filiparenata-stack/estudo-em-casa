@@ -1,0 +1,50 @@
+{
+  "disciplina_id": "ingles_3ano",
+  "disciplina_nome": "Inglês",
+  "ano": 3,
+  "livro_referencia": "Easy-Peasy English 3.º Ano (Porto Editora)",
+  "file_candidates": [
+    "ingles_3ano.json",
+    "05_Ingles_3.json",
+    "ingles.json"
+  ],
+  "unidades": [
+    {
+      "id": "ing3_u1",
+      "titulo": "Greetings, Numbers and School Objects",
+      "paginas_livro": "Páginas 6-35",
+      "pagina_inicio": 6,
+      "pagina_fim": 35,
+      "resumo_pedagogico": "Introdução às saudações em inglês, identificação de materiais escolares, cores e contagem de 1 a 20.",
+      "conceitos_chave": [
+        {
+          "termo": "Greetings",
+          "definicao": "Good morning, Good afternoon, Goodbye, Hello, Hi."
+        },
+        {
+          "termo": "Classroom Objects",
+          "definicao": "Pencil, pen, rubber, ruler, book, schoolbag."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "How do you say 'estojo' in English?",
+          "resposta": "Pencil case."
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "What is the English word for 'borracha'?",
+          "opcoes": [
+            "Rubber",
+            "Ruler",
+            "Pencil",
+            "Desk"
+          ],
+          "resposta_correta": "Rubber",
+          "explicacao": "Rubber (ou eraser) significa borracha em inglês."
+        }
+      ]
+    }
+  ]
+}

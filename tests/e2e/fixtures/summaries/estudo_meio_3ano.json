@@ -1,0 +1,50 @@
+{
+  "disciplina_id": "estudo_meio_3ano",
+  "disciplina_nome": "Estudo do Meio",
+  "ano": 3,
+  "livro_referencia": "Missão ZUP - Estudo do Meio 3.º Ano (Porto Editora)",
+  "file_candidates": [
+    "estudo_meio_3ano.json",
+    "03_Estudo_Meio_3.json",
+    "estudo_meio.json"
+  ],
+  "unidades": [
+    {
+      "id": "em3_u1",
+      "titulo": "O Corpo Humano, Esqueleto e Saúde",
+      "paginas_livro": "Páginas 10-50",
+      "pagina_inicio": 10,
+      "pagina_fim": 50,
+      "resumo_pedagogico": "Estrutura do corpo humano: órgãos principais, sistema esquelético (ossos e articulações), sistema muscular e hábitos saudáveis de alimentação e postura.",
+      "conceitos_chave": [
+        {
+          "termo": "Esqueleto",
+          "definicao": "Conjunto de ossos que dá suporte ao corpo e protege órgãos vitais."
+        },
+        {
+          "termo": "Articulação",
+          "definicao": "Ponto de união entre dois ou mais ossos que permite o movimento (móveis, semimóveis, fixas)."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Qual a principal função do esqueleto humano?",
+          "resposta": "Sustentar o corpo e proteger os órgãos internos como coração, pulmões e cérebro."
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Qual dos seguintes órgãos é protegido pela caixa torácica?",
+          "opcoes": [
+            "Coração",
+            "Estômago",
+            "Bexiga",
+            "Cérebro"
+          ],
+          "resposta_correta": "Coração",
+          "explicacao": "As costelas e o esterno protegem o coração e os pulmões."
+        }
+      ]
+    }
+  ]
+}

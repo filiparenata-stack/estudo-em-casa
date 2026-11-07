@@ -1,0 +1,50 @@
+{
+  "disciplina_id": "matematica_3ano",
+  "disciplina_nome": "Matemática",
+  "ano": 3,
+  "livro_referencia": "Missão ZUP - Matemática 3.º Ano (Porto Editora)",
+  "file_candidates": [
+    "matematica_3ano.json",
+    "06_Matematica_3.json",
+    "matematica.json"
+  ],
+  "unidades": [
+    {
+      "id": "mat3_u1",
+      "titulo": "Números até 10 000 e Operações",
+      "paginas_livro": "Páginas 18-69",
+      "pagina_inicio": 18,
+      "pagina_fim": 69,
+      "resumo_pedagogico": "Compreensão do sistema de numeração decimal posicional até 10 000, decomposição e algoritmos formais da adição e subtração.",
+      "conceitos_chave": [
+        {
+          "termo": "Valor Posicional",
+          "definicao": "O valor de um algarismo depende da posição que ocupa (unidades, dezenas, centenas, milhares)."
+        },
+        {
+          "termo": "Propriedade Comutativa",
+          "definicao": "Na adição e multiplicação, a ordem dos termos não altera o resultado."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Quantas centenas há em 2000?",
+          "resposta": "20 centenas (20 x 100 = 2000)."
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Quanto é 450 + 550?",
+          "opcoes": [
+            "1000",
+            "950",
+            "1100",
+            "900"
+          ],
+          "resposta_correta": "1000",
+          "explicacao": "450 + 550 = 1000."
+        }
+      ]
+    }
+  ]
+}

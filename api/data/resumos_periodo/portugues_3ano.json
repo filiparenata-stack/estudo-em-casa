@@ -1,0 +1,679 @@
+{
+  "disciplina_id": "portugues_3ano",
+  "disciplina_nome": "Português",
+  "ano": 3,
+  "icone": "BookOpen",
+  "livro_referencia": "Missão ZUP - Português 3.º Ano (Porto Editora)",
+  "unidades": [
+    {
+      "id": "port3_u1",
+      "titulo": "Ortografia, Dígrafos e Fonemas",
+      "paginas_livro": "Páginas 8-34",
+      "pagina_inicio": 8,
+      "pagina_fim": 34,
+      "resumo_pedagogico": "Estudo detalhado das regras de ortografia da língua portuguesa: regras do som do 'r' (som brando simples entre vogais vs som forte com 'rr' entre vogais); regras de 'c' e 'ç'; dígrafos consonânticos (ch, lh, nh, rr, ss); acentuação gráfica (acento agudo, circunflexo e grave) e til; divisão silábica, classificação de palavras quanto ao número de sílabas (monossílabos, dissílabos, trissílabos e polissílabos) e identificação da sílaba tónica (palavras agudas, graves e esdrúxulas).",
+      "conceitos_chave": [
+        {
+          "termo": "Dígrafo",
+          "definicao": "Duas letras consecutivas que representam um único som ou fonema (como ch, lh, nh, rr, ss)."
+        },
+        {
+          "termo": "Regra do r/rr",
+          "definicao": "Entre vogais, o 'r' simples tem som brando (ex.: caro); para som forte entre vogais usa-se obrigatoriamente 'rr' (ex.: carro). Nenhuma palavra começa ou termina com 'rr'."
+        },
+        {
+          "termo": "Sílaba Tónica",
+          "definicao": "A sílaba de uma palavra que é articulada com maior intensidade e elevação de tom. Conforme a sua posição, a palavra é classificada em aguda (última), grave (penúltima) ou esdrúxula (antepenúltima)."
+        },
+        {
+          "termo": "Acentuação Gráfica",
+          "definicao": "Uso de sinais gráficos: acento agudo (indica vogal aberta), acento circunflexo (vogal fechada) e til (indica nasalidade)."
+        },
+        {
+          "termo": "Uso do C e Ç",
+          "definicao": "A cedilha (ç) só se usa antes das vogais a, o, u para representar o som /s/. Nunca se usa ç antes de e ou i, nem no início de palavras."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "O que é um dígrafo?",
+          "resposta": "Duas letras que representam apenas um fonema/som.",
+          "frente": "O que é um dígrafo?",
+          "verso": "Duas letras que representam apenas um fonema/som.",
+          "dica": "Fonemas e grafemas"
+        },
+        {
+          "pergunta": "Dá três exemplos de dígrafos na língua portuguesa.",
+          "resposta": "ch, lh e nh.",
+          "frente": "Dá três exemplos de dígrafos na língua portuguesa.",
+          "verso": "ch, lh e nh.",
+          "dica": "Exemplos consonânticos"
+        },
+        {
+          "pergunta": "Qual a diferença de som entre 'caro' e 'carro'?",
+          "resposta": "Em 'caro' o 'r' simples entre vogais tem som brando/fraco; em 'carro' o 'rr' tem som forte.",
+          "frente": "Qual a diferença de som entre 'caro' e 'carro'?",
+          "verso": "Em 'caro' o 'r' simples entre vogais tem som brando/fraco; em 'carro' o 'rr' tem som forte.",
+          "dica": "Ortografia do r e rr"
+        },
+        {
+          "pergunta": "Como se classifica uma palavra quanto à sílaba tónica se for a penúltima sílaba a mais forte?",
+          "resposta": "Palavra grave (ex.: janela, livro).",
+          "frente": "Como se classifica uma palavra quanto à sílaba tónica se for a penúltima sílaba a mais forte?",
+          "verso": "Palavra grave (ex.: janela, livro).",
+          "dica": "Acentuação tónica"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Qual das seguintes palavras contém um dígrafo?",
+          "opcoes": [
+            "Chave",
+            "Prato",
+            "Escola",
+            "Braço"
+          ],
+          "resposta_correta": "Chave",
+          "explicacao": "'ch' é um dígrafo consonântico que representa apenas um som."
+        },
+        {
+          "pergunta": "Quando é que se deve utilizar o dígrafo 'rr' na língua portuguesa?",
+          "opcoes": [
+            "Apenas entre vogais para reproduzir o som forte do 'r'",
+            "No início de palavras para dar ênfase",
+            "Antes de qualquer consoante",
+            "No final das palavras no infinitivo"
+          ],
+          "resposta_correta": "Apenas entre vogais para reproduzir o som forte do 'r'",
+          "explicacao": "O dígrafo 'rr' só ocorre entre vogais; no início de palavra o som forte usa apenas um 'r'."
+        },
+        {
+          "pergunta": "Qual das seguintes opções apresenta uma palavra esdrúxula?",
+          "opcoes": [
+            "Lâmpada",
+            "Café",
+            "Menino",
+            "Papel"
+          ],
+          "resposta_correta": "Lâmpada",
+          "explicacao": "A sílaba tónica de 'lâm-pa-da' é a antepenúltima, logo é esdrúxula."
+        },
+        {
+          "pergunta": "Em qual das seguintes situações NUNCA se pode colocar cedilha (ç)?",
+          "opcoes": [
+            "No início de qualquer palavra ou antes das vogais 'e' e 'i'",
+            "Antes da vogal 'a' no meio da palavra",
+            "Antes da vogal 'o' em palavras derivadas",
+            "Antes da vogal 'u' em palavras com som /s/"
+          ],
+          "resposta_correta": "No início de qualquer palavra ou antes das vogais 'e' e 'i'",
+          "explicacao": "A cedilha nunca inicia palavras e antes de 'e' e 'i' usa-se a letra 'c' simples."
+        }
+      ]
+    },
+    {
+      "id": "port3_u2",
+      "titulo": "Classes de Palavras e Tipos de Frase",
+      "paginas_livro": "Páginas 35-74",
+      "pagina_inicio": 35,
+      "pagina_fim": 74,
+      "resumo_pedagogico": "Identificação e classificação gramatical das principais classes de palavras do 3.º ano: nomes próprios e comuns, género (masculino/feminino) e número (singular/plural); determinantes artigos definidos (o, a, os, as) e indefinidos (um, uma, uns, umas); determinantes possessivos (meu, teu, seu, nosso) e demonstrativos (este, esse, aquele); adjetivos qualificativos e a sua concordância em género e número com o nome; verbos no infinitivo e conjugação no presente, pretérito perfeito e futuro do modo indicativo; tipos de frase (declarativa, interrogativa, exclamativa e imperativa) nas formas afirmativa e negativa.",
+      "conceitos_chave": [
+        {
+          "termo": "Nome Próprio vs Comum",
+          "definicao": "Nomes próprios identificam seres únicos (pessoas, cidades, rios) e escrevem-se com maiúscula inicial; comuns identificam classes gerais de seres, objetos ou lugares."
+        },
+        {
+          "termo": "Determinante Artigo",
+          "definicao": "Palavra que precede o nome para o determinar. Podem ser definidos (o, a, os, as) quando conhecidos, ou indefinidos (um, uma, uns, umas) quando não especificados."
+        },
+        {
+          "termo": "Adjetivo Qualificativo",
+          "definicao": "Palavra que atribui uma qualidade, estado ou característica ao nome, concordando com ele em género e em número."
+        },
+        {
+          "termo": "Verbo",
+          "definicao": "Palavra que exprime ações, estados ou fenómenos naturais, situando-os no tempo (passado, presente ou futuro)."
+        },
+        {
+          "termo": "Tipos de Frase",
+          "definicao": "As frases podem ser declarativas (informam ou afirmam), interrogativas (fazem perguntas), exclamativas (manifestam emoções) ou imperativas (dão ordens ou conselhos)."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "O que indica um verbo?",
+          "resposta": "Ações, estados ou acontecimentos localizados no tempo.",
+          "frente": "O que indica um verbo?",
+          "verso": "Ações, estados ou acontecimentos localizados no tempo.",
+          "dica": "Classe verbal"
+        },
+        {
+          "pergunta": "O que distingue um nome próprio de um comum?",
+          "resposta": "O nome próprio individualiza um ser específico e escreve-se com maiúscula; o comum nomeia qualquer elemento da mesma espécie.",
+          "frente": "O que distingue um nome próprio de um comum?",
+          "verso": "O nome próprio individualiza um ser específico e escreve-se com maiúscula; o comum nomeia qualquer elemento da mesma espécie.",
+          "dica": "Classes de nomes"
+        },
+        {
+          "pergunta": "Quais são os determinantes artigos definidos?",
+          "resposta": "O, a, os, as.",
+          "frente": "Quais são os determinantes artigos definidos?",
+          "verso": "O, a, os, as.",
+          "dica": "Artigos"
+        },
+        {
+          "pergunta": "Em que tempo verbal está a frase: 'A Renata estudou Português'?",
+          "resposta": "Pretérito perfeito do indicativo (ação passada totalmente concluída).",
+          "frente": "Em que tempo verbal está a frase: 'A Renata estudou Português'?",
+          "verso": "Pretérito perfeito do indicativo (ação passada totalmente concluída).",
+          "dica": "Tempos verbais"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Na frase 'A Renata leu um livro bonito', a palavra 'bonito' é um:",
+          "opcoes": [
+            "Adjetivo",
+            "Verbo",
+            "Nome próprio",
+            "Determinante"
+          ],
+          "resposta_correta": "Adjetivo",
+          "explicacao": "Atribui uma qualidade ou característica ao nome 'livro'."
+        },
+        {
+          "pergunta": "Qual das seguintes frases se encontra no tempo futuro do indicativo?",
+          "opcoes": [
+            "Amanhã os alunos visitarão a biblioteca escolar.",
+            "Ontem os alunos visitaram a biblioteca escolar.",
+            "Hoje os alunos visitam a biblioteca escolar.",
+            "Os alunos gostam da biblioteca escolar."
+          ],
+          "resposta_correta": "Amanhã os alunos visitarão a biblioteca escolar.",
+          "explicacao": "A terminação '-arão' em 'visitarão' indica uma ação que irá ocorrer no futuro."
+        },
+        {
+          "pergunta": "Classifica a frase: 'Arruma os teus cadernos na mochila agora!'",
+          "opcoes": [
+            "Tipo imperativo",
+            "Tipo declarativo",
+            "Tipo interrogativo",
+            "Tipo exclamativo simples"
+          ],
+          "resposta_correta": "Tipo imperativo",
+          "explicacao": "Exprime uma ordem, instrução ou comando direto."
+        },
+        {
+          "pergunta": "Qual das seguintes opções contém apenas nomes comuns no plural?",
+          "opcoes": [
+            "Cadernos, lápis, borrachas",
+            "Lisboa, Porto, Coimbra",
+            "Eles, nós, vós",
+            "Correram, saltaram, leram"
+          ],
+          "resposta_correta": "Cadernos, lápis, borrachas",
+          "explicacao": "São nomes que identificam objetos escolares em quantidade superior a um."
+        }
+      ]
+    },
+    {
+      "id": "port3_u3",
+      "titulo": "Frase e Pontuação",
+      "paginas_livro": "Páginas 75-114",
+      "pagina_inicio": 75,
+      "pagina_fim": 114,
+      "resumo_pedagogico": "Estruturação sintática da frase: identificação do grupo do sujeito (quem pratica ou sobre quem incide a ação) e do grupo do predicado (o que se diz sobre o sujeito, centrado no verbo). Regras de concordância em número e pessoa entre sujeito e verbo. Estudo funcional dos sinais de pontuação: ponto final (.), vírgula (,) para enumerações e pausas breves, ponto de interrogação (?) para perguntas diretas, ponto de exclamação (!) para emoções ou ordens, dois pontos (:) para introduzir falas ou listagens, e travessão (—) para marcar o discurso direto. Transformação e expansão de frases simples em frases complexas com conectores de ligação.",
+      "conceitos_chave": [
+        {
+          "termo": "Sujeito e Predicado",
+          "definicao": "O sujeito indica quem realiza ou sofre a ação expressa pelo verbo; o predicado é tudo aquilo que é afirmado acerca do sujeito."
+        },
+        {
+          "termo": "Sinais de Pontuação",
+          "definicao": "Sinais gráficos que organizam o texto, indicam pausas e entoação, assegurando o sentido correto da mensagem."
+        },
+        {
+          "termo": "Discurso Direto",
+          "definicao": "Reprodução exata das falas das personagens, introduzida por dois pontos e assinalada com travessão."
+        },
+        {
+          "termo": "Concordância Verbal",
+          "definicao": "O verbo varia obrigatoriamente em número (singular/plural) e pessoa gramatical de acordo com o seu sujeito."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Qual é a função do travessão num texto?",
+          "resposta": "Indicar o início da fala de uma personagem em discurso direto ou mudança de interlocutor.",
+          "frente": "Qual é a função do travessão num texto?",
+          "verso": "Indicar o início da fala de uma personagem em discurso direto ou mudança de interlocutor.",
+          "dica": "Pontuação e diálogo"
+        },
+        {
+          "pergunta": "Como se identifica o sujeito de uma frase?",
+          "resposta": "Fazendo a pergunta 'Quem é que...?' ou 'O que é que...?' antes do verbo.",
+          "frente": "Como se identifica o sujeito de uma frase?",
+          "verso": "Fazendo a pergunta 'Quem é que...?' ou 'O que é que...?' antes do verbo.",
+          "dica": "Análise sintática"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Na frase 'As andorinhas regressam na primavera', qual é o sujeito?",
+          "opcoes": [
+            "As andorinhas",
+            "Regressam",
+            "Na primavera",
+            "Regressam na primavera"
+          ],
+          "resposta_correta": "As andorinhas",
+          "explicacao": "Responde à questão: 'Quem é que regressa na primavera?'."
+        },
+        {
+          "pergunta": "Qual é o sinal de pontuação adequado para terminar a fala: 'Onde guardaste o livro de fichas'?",
+          "opcoes": [
+            "Ponto de interrogação (?)",
+            "Ponto final (.)",
+            "Vírgula (,)",
+            "Dois pontos (:)"
+          ],
+          "resposta_correta": "Ponto de interrogação (?)",
+          "explicacao": "Trata-se de uma frase interrogativa direta que requer ponto de interrogação."
+        }
+      ]
+    },
+    {
+      "id": "port3_u4",
+      "titulo": "Texto Narrativo e Poesia",
+      "paginas_livro": "Páginas 115-159",
+      "pagina_inicio": 115,
+      "pagina_fim": 159,
+      "resumo_pedagogico": "Compreensão leitora e análise de tipologias textuais: estrutura canónica do texto narrativo (introdução/situação inicial, desenvolvimento com peripécias e problema, e conclusão/desenlace); identificação do narrador (participante ou não participante), personagens (principais e secundárias), tempo e espaço da ação. Noções do texto poético: verso, estrofe (quadra, terceto), ritmo e rima. Leitura de banda desenhada (relação entre texto e imagem, vinhetas, balões de fala, pensamento e onomatopeias). Estratégias de interpretação literal, inferencial e crítica de textos em prosa e verso.",
+      "conceitos_chave": [
+        {
+          "termo": "Estrutura Narrativa",
+          "definicao": "Organização do conto ou relato em introdução (apresentação), desenvolvimento (acontecimentos e peripécias) e desenlace (resolução)."
+        },
+        {
+          "termo": "Verso e Estrofe",
+          "definicao": "O verso é cada linha de um poema; a estrofe é o conjunto ordenado de versos separados por um espaço em branco."
+        },
+        {
+          "termo": "Onomatopeia",
+          "definicao": "Palavra que imita ou reproduz um ruído ou som da natureza (ex.: tlim-tlim, au-au, pum, zzz)."
+        },
+        {
+          "termo": "Rima",
+          "definicao": "Semelhança ou igualdade de sons no final de diferentes versos de um poema."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "O que é uma estrofe formada por quatro versos?",
+          "resposta": "Uma quadra.",
+          "frente": "O que é uma estrofe formada por quatro versos?",
+          "verso": "Uma quadra.",
+          "dica": "Poesia e métrica"
+        },
+        {
+          "pergunta": "O que representa um balão em forma de nuvem numa banda desenhada?",
+          "resposta": "O pensamento ou sonho de uma personagem.",
+          "frente": "O que representa um balão em forma de nuvem numa banda desenhada?",
+          "verso": "O pensamento ou sonho de uma personagem.",
+          "dica": "Linguagem da BD"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Num texto narrativo, o momento em que os conflitos se resolvem chama-se:",
+          "opcoes": [
+            "Desenlace ou conclusão",
+            "Introdução",
+            "Ponto culminante",
+            "Peripécia inicial"
+          ],
+          "resposta_correta": "Desenlace ou conclusão",
+          "explicacao": "O desenlace é o fecho da narrativa onde a história atinge a sua resolução final."
+        },
+        {
+          "pergunta": "Como se chama o recurso que imita o som de uma campainha através da palavra 'trim-trim'?",
+          "opcoes": [
+            "Onomatopeia",
+            "Rima cruzada",
+            "Metáfora",
+            "Adjetivo"
+          ],
+          "resposta_correta": "Onomatopeia",
+          "explicacao": "As onomatopeias reproduzem foneticamente sons e ruídos da vida real."
+        }
+      ]
+    },
+    {
+      "id": "port3_u5",
+      "titulo": "Encartes e Anexos: Produção de Texto e Revisão",
+      "paginas_livro": "Páginas 160-175",
+      "pagina_inicio": 160,
+      "pagina_fim": 175,
+      "resumo_pedagogico": "Prática de produção escrita autónoma: as três fases essenciais da escrita (planificação de ideias, redação coerente em parágrafos e revisão final com grelha de autocorreção). Regras fundamentais de translineação silábica no final de linha (nunca separar dígrafos ch, lh, nh; separar rr e ss; não deixar uma vogal isolada). Enriquecimento de vocabulário, famílias de palavras, campos lexicais e sinónimos/antónimos para evitar repetições desnecessárias.",
+      "conceitos_chave": [
+        {
+          "termo": "Translineação Silábica",
+          "definicao": "Divisão correta de uma palavra no final de uma linha através de hífen, respeitando a divisão em sílabas."
+        },
+        {
+          "termo": "Família de Palavras",
+          "definicao": "Conjunto de palavras formadas a partir do mesmo radical (ex.: mar, maresia, marinho, marinheiro)."
+        },
+        {
+          "termo": "Sinónimos e Antónimos",
+          "definicao": "Sinónimos têm significado semelhante (alegre/contente); antónimos têm significados opostos (alegre/triste)."
+        }
+      ],
+      "flashcards": [
+        {
+          "pergunta": "Como se divide a palavra 'passarinho' na translineação entre duas linhas?",
+          "resposta": "Separam-se os dois 's' (pas- / sarinho), mas nunca se separa o dígrafo 'nh' (pas-sa-ri-nho).",
+          "frente": "Como se divide a palavra 'passarinho' na translineação entre duas linhas?",
+          "verso": "Separam-se os dois 's' (pas- / sarinho), mas nunca se separa o dígrafo 'nh' (pas-sa-ri-nho).",
+          "dica": "Regras de translineação"
+        }
+      ],
+      "questoes_quiz": [
+        {
+          "pergunta": "Qual das seguintes opções apresenta a correta translineação da palavra 'carroça'?",
+          "opcoes": [
+            "car- / roça",
+            "ca- / rroça",
+            "carr- / oça",
+            "carro- / ça"
+          ],
+          "resposta_correta": "car- / roça",
+          "explicacao": "Na translineação, o dígrafo 'rr' deve ser obrigatoriamente separado entre as duas linhas."
+        }
+      ]
+    }
+  ],
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Ortografia, Fonética e Classes Gramaticais",
+      "metas": [
+        "Dominar as regras do r/rr, c/ç, g/gu e dígrafos consonânticos",
+        "Classificar palavras quanto ao número de sílabas e à posição da sílaba tónica",
+        "Distinguir nomes próprios e comuns, determinantes artigos e adjetivos qualificativos"
+      ],
+      "topicos": [
+        {
+          "id": "port3_u1",
+          "titulo": "Ortografia, Dígrafos e Fonemas",
+          "subdominio": "Gramática e Ortografia",
+          "conceitos_chave": [
+            {
+              "termo": "Dígrafo",
+              "definicao": "Duas letras consecutivas que representam um único som ou fonema (como ch, lh, nh, rr, ss)."
+            },
+            {
+              "termo": "Regra do r/rr",
+              "definicao": "Entre vogais, o 'r' simples tem som brando (ex.: caro); para som forte entre vogais usa-se obrigatoriamente 'rr' (ex.: carro). Nenhuma palavra começa ou termina com 'rr'."
+            },
+            {
+              "termo": "Sílaba Tónica",
+              "definicao": "A sílaba de uma palavra que é articulada com maior intensidade e elevação de tom. Conforme a sua posição, a palavra é classificada em aguda (última), grave (penúltima) ou esdrúxula (antepenúltima)."
+            },
+            {
+              "termo": "Acentuação Gráfica",
+              "definicao": "Uso de sinais gráficos: acento agudo (indica vogal aberta), acento circunflexo (vogal fechada) e til (indica nasalidade)."
+            },
+            {
+              "termo": "Uso do C e Ç",
+              "definicao": "A cedilha (ç) só se usa antes das vogais a, o, u para representar o som /s/. Nunca se usa ç antes de e ou i, nem no início de palavras."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Identifica os dígrafos presentes no excerto: 'O coelho comeu a folha verde.'",
+            "proposta_resolucao": "'lh' em 'coelho' e 'lh' em 'folha' são dígrafos consonânticos.",
+            "criterio_cotacao": "Identificação correta dos dois dígrafos (50% cada).",
+            "erro_frequente": "Confundir dígrafos (um só som) com encontros consonantais (dois sons audíveis como pr, tr)."
+          },
+          "flashcards": [
+            {
+              "pergunta": "O que é um dígrafo?",
+              "resposta": "Duas letras que representam apenas um fonema/som.",
+              "frente": "O que é um dígrafo?",
+              "verso": "Duas letras que representam apenas um fonema/som.",
+              "dica": "Fonemas e grafemas"
+            },
+            {
+              "pergunta": "Dá três exemplos de dígrafos na língua portuguesa.",
+              "resposta": "ch, lh e nh.",
+              "frente": "Dá três exemplos de dígrafos na língua portuguesa.",
+              "verso": "ch, lh e nh.",
+              "dica": "Exemplos consonânticos"
+            },
+            {
+              "pergunta": "Qual a diferença de som entre 'caro' e 'carro'?",
+              "resposta": "Em 'caro' o 'r' simples entre vogais tem som brando/fraco; em 'carro' o 'rr' tem som forte.",
+              "frente": "Qual a diferença de som entre 'caro' e 'carro'?",
+              "verso": "Em 'caro' o 'r' simples entre vogais tem som brando/fraco; em 'carro' o 'rr' tem som forte.",
+              "dica": "Ortografia do r e rr"
+            },
+            {
+              "pergunta": "Como se classifica uma palavra quanto à sílaba tónica se for a penúltima sílaba a mais forte?",
+              "resposta": "Palavra grave (ex.: janela, livro).",
+              "frente": "Como se classifica uma palavra quanto à sílaba tónica se for a penúltima sílaba a mais forte?",
+              "verso": "Palavra grave (ex.: janela, livro).",
+              "dica": "Acentuação tónica"
+            }
+          ]
+        },
+        {
+          "id": "port3_u2",
+          "titulo": "Classes de Palavras e Tipos de Frase",
+          "subdominio": "Classes de Palavras",
+          "conceitos_chave": [
+            {
+              "termo": "Nome Próprio vs Comum",
+              "definicao": "Nomes próprios identificam seres únicos (pessoas, cidades, rios) e escrevem-se com maiúscula inicial; comuns identificam classes gerais de seres, objetos ou lugares."
+            },
+            {
+              "termo": "Determinante Artigo",
+              "definicao": "Palavra que precede o nome para o determinar. Podem ser definidos (o, a, os, as) quando conhecidos, ou indefinidos (um, uma, uns, umas) quando não especificados."
+            },
+            {
+              "termo": "Adjetivo Qualificativo",
+              "definicao": "Palavra que atribui uma qualidade, estado ou característica ao nome, concordando com ele em género e em número."
+            },
+            {
+              "termo": "Verbo",
+              "definicao": "Palavra que exprime ações, estados ou fenómenos naturais, situando-os no tempo (passado, presente ou futuro)."
+            },
+            {
+              "termo": "Tipos de Frase",
+              "definicao": "As frases podem ser declarativas (informam ou afirmam), interrogativas (fazem perguntas), exclamativas (manifestam emoções) ou imperativas (dão ordens ou conselhos)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Na frase 'A Renata comprou sapatilhas novas', identifica o adjetivo qualificativo.",
+            "proposta_resolucao": "'novas' é o adjetivo qualificativo, pois caracteriza o nome 'sapatilhas'.",
+            "criterio_cotacao": "Identificação correta da palavra e da classe (100%).",
+            "erro_frequente": "Indicar 'sapatilhas' (que é um nome comum)."
+          },
+          "flashcards": [
+            {
+              "pergunta": "O que indica um verbo?",
+              "resposta": "Ações, estados ou acontecimentos localizados no tempo.",
+              "frente": "O que indica um verbo?",
+              "verso": "Ações, estados ou acontecimentos localizados no tempo.",
+              "dica": "Classe verbal"
+            },
+            {
+              "pergunta": "O que distingue um nome próprio de um comum?",
+              "resposta": "O nome próprio individualiza um ser específico e escreve-se com maiúscula; o comum nomeia qualquer elemento da mesma espécie.",
+              "frente": "O que distingue um nome próprio de um comum?",
+              "verso": "O nome próprio individualiza um ser específico e escreve-se com maiúscula; o comum nomeia qualquer elemento da mesma espécie.",
+              "dica": "Classes de nomes"
+            },
+            {
+              "pergunta": "Quais são os determinantes artigos definidos?",
+              "resposta": "O, a, os, as.",
+              "frente": "Quais são os determinantes artigos definidos?",
+              "verso": "O, a, os, as.",
+              "dica": "Artigos"
+            },
+            {
+              "pergunta": "Em que tempo verbal está a frase: 'A Renata estudou Português'?",
+              "resposta": "Pretérito perfeito do indicativo (ação passada totalmente concluída).",
+              "frente": "Em que tempo verbal está a frase: 'A Renata estudou Português'?",
+              "verso": "Pretérito perfeito do indicativo (ação passada totalmente concluída).",
+              "dica": "Tempos verbais"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Frase, Sintaxe e Discurso",
+      "metas": [
+        "Identificar o sujeito e o predicado em frases simples",
+        "Empregar corretamente os sinais de pontuação e o travessão no diálogo",
+        "Reconhecer verbos nos tempos presente, pretérito perfeito e futuro"
+      ],
+      "topicos": [
+        {
+          "id": "port3_u3",
+          "titulo": "Frase e Pontuação",
+          "subdominio": "Sintaxe e Pontuação",
+          "conceitos_chave": [
+            {
+              "termo": "Sujeito e Predicado",
+              "definicao": "O sujeito indica quem realiza ou sofre a ação expressa pelo verbo; o predicado é tudo aquilo que é afirmado acerca do sujeito."
+            },
+            {
+              "termo": "Sinais de Pontuação",
+              "definicao": "Sinais gráficos que organizam o texto, indicam pausas e entoação, assegurando o sentido correto da mensagem."
+            },
+            {
+              "termo": "Discurso Direto",
+              "definicao": "Reprodução exata das falas das personagens, introduzida por dois pontos e assinalada com travessão."
+            },
+            {
+              "termo": "Concordância Verbal",
+              "definicao": "O verbo varia obrigatoriamente em número (singular/plural) e pessoa gramatical de acordo com o seu sujeito."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Sublinha o predicado na frase: 'Os pássaros cantam no jardim logo pela manhã.'",
+            "proposta_resolucao": "O predicado é 'cantam no jardim logo pela manhã'.",
+            "criterio_cotacao": "Delimitação integral do predicado (100%).",
+            "erro_frequente": "Sublinhar apenas o verbo e esquecer os complementos."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Qual é a função do travessão num texto?",
+              "resposta": "Indicar o início da fala de uma personagem em discurso direto ou mudança de interlocutor.",
+              "frente": "Qual é a função do travessão num texto?",
+              "verso": "Indicar o início da fala de uma personagem em discurso direto ou mudança de interlocutor.",
+              "dica": "Pontuação e diálogo"
+            },
+            {
+              "pergunta": "Como se identifica o sujeito de uma frase?",
+              "resposta": "Fazendo a pergunta 'Quem é que...?' ou 'O que é que...?' antes do verbo.",
+              "frente": "Como se identifica o sujeito de uma frase?",
+              "verso": "Fazendo a pergunta 'Quem é que...?' ou 'O que é que...?' antes do verbo.",
+              "dica": "Análise sintática"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Compreensão Textual, Poesia e Produção Escrita",
+      "metas": [
+        "Interpretar textos narrativos identificando tempo, espaço, personagens e narrador",
+        "Reconhecer versos, estrofes, quadras e rimas em textos poéticos",
+        "Redigir textos com introdução, desenvolvimento e conclusão, aplicando regras de translineação"
+      ],
+      "topicos": [
+        {
+          "id": "port3_u4",
+          "titulo": "Texto Narrativo e Poesia",
+          "subdominio": "Compreensão e Poesia",
+          "conceitos_chave": [
+            {
+              "termo": "Estrutura Narrativa",
+              "definicao": "Organização do conto ou relato em introdução (apresentação), desenvolvimento (acontecimentos e peripécias) e desenlace (resolução)."
+            },
+            {
+              "termo": "Verso e Estrofe",
+              "definicao": "O verso é cada linha de um poema; a estrofe é o conjunto ordenado de versos separados por um espaço em branco."
+            },
+            {
+              "termo": "Onomatopeia",
+              "definicao": "Palavra que imita ou reproduz um ruído ou som da natureza (ex.: tlim-tlim, au-au, pum, zzz)."
+            },
+            {
+              "termo": "Rima",
+              "definicao": "Semelhança ou igualdade de sons no final de diferentes versos de um poema."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Quantos versos e quantas estrofes tem um poema composto por duas quadras?",
+            "proposta_resolucao": "Tem 2 estrofes e 8 versos no total (4 versos por quadra).",
+            "criterio_cotacao": "Indicação correta do número de versos e estrofes (50% cada).",
+            "erro_frequente": "Confundir o conceito de verso (linha) com estrofe (conjunto de linhas)."
+          },
+          "flashcards": [
+            {
+              "pergunta": "O que é uma estrofe formada por quatro versos?",
+              "resposta": "Uma quadra.",
+              "frente": "O que é uma estrofe formada por quatro versos?",
+              "verso": "Uma quadra.",
+              "dica": "Poesia e métrica"
+            },
+            {
+              "pergunta": "O que representa um balão em forma de nuvem numa banda desenhada?",
+              "resposta": "O pensamento ou sonho de uma personagem.",
+              "frente": "O que representa um balão em forma de nuvem numa banda desenhada?",
+              "verso": "O pensamento ou sonho de uma personagem.",
+              "dica": "Linguagem da BD"
+            }
+          ]
+        },
+        {
+          "id": "port3_u5",
+          "titulo": "Encartes e Anexos: Produção de Texto e Revisão",
+          "subdominio": "Produção Escrita",
+          "conceitos_chave": [
+            {
+              "termo": "Translineação Silábica",
+              "definicao": "Divisão correta de uma palavra no final de uma linha através de hífen, respeitando a divisão em sílabas."
+            },
+            {
+              "termo": "Família de Palavras",
+              "definicao": "Conjunto de palavras formadas a partir do mesmo radical (ex.: mar, maresia, marinho, marinheiro)."
+            },
+            {
+              "termo": "Sinónimos e Antónimos",
+              "definicao": "Sinónimos têm significado semelhante (alegre/contente); antónimos têm significados opostos (alegre/triste)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Divide corretamente a palavra 'bessouro' no final de uma linha.",
+            "proposta_resolucao": "bes- / souro (o dígrafo 'ss' separa-se sempre).",
+            "criterio_cotacao": "Colocação do hífen e separação das consoantes gémeas (100%).",
+            "erro_frequente": "Manter os dois 's' na mesma linha."
+          },
+          "flashcards": [
+            {
+              "pergunta": "Como se divide a palavra 'passarinho' na translineação entre duas linhas?",
+              "resposta": "Separam-se os dois 's' (pas- / sarinho), mas nunca se separa o dígrafo 'nh' (pas-sa-ri-nho).",
+              "frente": "Como se divide a palavra 'passarinho' na translineação entre duas linhas?",
+              "verso": "Separam-se os dois 's' (pas- / sarinho), mas nunca se separa o dígrafo 'nh' (pas-sa-ri-nho).",
+              "dica": "Regras de translineação"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
