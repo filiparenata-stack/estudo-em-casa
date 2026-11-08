@@ -30,19 +30,24 @@ export default function Sidebar({
   onAbrirLivro
 }) {
   const is3Ano = anoAtivo === '3';
+  const is8Ano = anoAtivo === '8';
 
   return (
     <aside className="w-full md:w-64 bg-white border-r border-slate-200 p-4 shrink-0 flex flex-col gap-3">
       <div className="flex items-center justify-between px-2 py-1">
         <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-          {is3Ano ? 'Disciplinas do 3.º Ano' : 'Disciplinas do 7.º Ano'}
+          {is3Ano ? 'Disciplinas do 3.º Ano' : is8Ano ? 'Disciplinas do 8.º Ano' : 'Disciplinas do 7.º Ano'}
         </span>
         <span
           className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-            is3Ano ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700'
+            is3Ano
+              ? 'bg-purple-100 text-purple-700'
+              : is8Ano
+              ? 'bg-emerald-100 text-emerald-800'
+              : 'bg-blue-100 text-blue-700'
           }`}
         >
-          {is3Ano ? '🎒 Renata' : '🎓 7.º Ano'}
+          {is3Ano ? '🎒 Renata' : is8Ano ? '🚀 8.º Ano' : '🎓 7.º Ano'}
         </span>
       </div>
 
@@ -58,6 +63,8 @@ export default function Sidebar({
                 isAtivo
                   ? is3Ano
                     ? 'bg-purple-50/80 text-purple-900 border-purple-200 shadow-sm'
+                    : is8Ano
+                    ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-semibold shadow-sm'
                     : 'bg-blue-50 text-blue-900 border-blue-200 font-semibold shadow-sm'
                   : 'hover:bg-slate-50 text-slate-700 hover:text-slate-900 border-transparent'
               }`}
@@ -72,6 +79,8 @@ export default function Sidebar({
                       isAtivo
                         ? is3Ano
                           ? 'bg-purple-600 text-white'
+                          : is8Ano
+                          ? 'bg-emerald-600 text-white'
                           : 'bg-blue-600 text-white'
                         : 'bg-slate-100 text-slate-600'
                     }`}
@@ -83,6 +92,8 @@ export default function Sidebar({
                     <p className="text-[11px] text-slate-400 font-normal truncate">
                       {is3Ano
                         ? `${disc.total_recursos || 5} unidades • Manual ZUP`
+                        : is8Ano
+                        ? `${disc.total_manuais || 1} manual • ${disc.total_recursos || 4} unid.`
                         : `${disc.total_manuais || 0} manuais • ${disc.total_recursos || 0} rec.`}
                     </p>
                   </div>
@@ -90,7 +101,9 @@ export default function Sidebar({
 
                 {isAtivo && (
                   <CheckCircle2
-                    className={`w-4 h-4 shrink-0 ${is3Ano ? 'text-purple-600' : 'text-blue-600'}`}
+                    className={`w-4 h-4 shrink-0 ${
+                      is3Ano ? 'text-purple-600' : is8Ano ? 'text-emerald-600' : 'text-blue-600'
+                    }`}
                   />
                 )}
               </button>

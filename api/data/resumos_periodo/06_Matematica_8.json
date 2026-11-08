@@ -1,0 +1,138 @@
+{
+  "disciplina_id": "06_Matematica_8",
+  "disciplina_nome": "Matemática 8",
+  "icone": "Calculator",
+  "livro_referencia": "Máximo 8 • Porto Editora",
+  "ano": 8,
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Teorema de Pitágoras e Números Reais",
+      "metas": [
+        "Compreender e aplicar o Teorema de Pitágoras (a² + b² = c²)",
+        "Reconhecer números irracionais e o conjunto dos números reais (R)",
+        "Trabalhar potências de expoente inteiro e notação científica"
+      ],
+      "topicos": [
+        {
+          "id": "mat8_p1_t1",
+          "titulo": "Teorema de Pitágoras e Notação Científica",
+          "subdominio": "Geometria e Números",
+          "conceitos_chave": [
+            {
+              "termo": "Teorema de Pitágoras",
+              "definicao": "Em qualquer triângulo retângulo, o quadrado do comprimento da hipotenusa é igual à soma dos quadrados dos comprimentos dos catetos (h² = c₁² + c₂²)."
+            },
+            {
+              "termo": "Notação Científica",
+              "definicao": "Forma de escrever números na forma a × 10ⁿ, onde 1 <= |a| < 10 e n é um número inteiro."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Um triângulo retângulo tem catetos com 6 cm e 8 cm. Qual é o comprimento da hipotenusa?",
+            "proposta_resolucao": "h² = 6² + 8² = 36 + 64 = 100. Logo, h = √100 = 10 cm.",
+            "criterio_cotacao": "Fórmula de Pitágoras (40%), cálculo dos quadrados (30%) e raiz quadrada final (30%).",
+            "erro_frequente": "Somar 6 + 8 diretamente sem elevar ao quadrado."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual é a fórmula do Teorema de Pitágoras num triângulo retângulo?",
+              "verso": "h² = c₁² + c₂² (o quadrado da hipotenusa é igual à soma dos quadrados dos catetos).",
+              "dica": "Hipotenusa ao quadrado"
+            },
+            {
+              "frente": "Como se escreve 45 000 em notação científica?",
+              "verso": "4,5 × 10⁴.",
+              "dica": "Entre 1 e 10 vezes potência de base 10"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Funções Afins e Sistemas de Equações Lineares",
+      "metas": [
+        "Reconhecer a função afim f(x) = ax + b (declive e ordenada na origem)",
+        "Interpretar a representação gráfica de retas no plano cartesiano",
+        "Resolver sistemas de duas equações do 1.º grau a duas incógnitas"
+      ],
+      "topicos": [
+        {
+          "id": "mat8_p2_t1",
+          "titulo": "Função Afim e Resolução de Sistemas",
+          "subdominio": "Álgebra e Funções",
+          "conceitos_chave": [
+            {
+              "termo": "Declive (a)",
+              "definicao": "Mede a inclinação da reta na função afim f(x) = ax + b; se a > 0 a função é estritamente crescente, se a < 0 é decrescente."
+            },
+            {
+              "termo": "Ordenada na Origem (b)",
+              "definicao": "Ponto de interseção da reta com o eixo das ordenadas Oy (coordenadas (0, b))."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Dada a reta y = 3x - 5, indica o valor do declive e as coordenadas do ponto onde a reta cruza o eixo Oy.",
+            "proposta_resolucao": "O declive é a = 3 e a ordenada na origem é b = -5, logo cruza o eixo Oy no ponto de coordenadas (0, -5).",
+            "criterio_cotacao": "Identificação do declive (50%) e coordenadas completas do ponto de corte (50%).",
+            "erro_frequente": "Escrever o ponto como (-5, 0) em vez de (0, -5)."
+          },
+          "flashcards": [
+            {
+              "frente": "O que representa o parâmetro \"b\" na função afim f(x) = ax + b?",
+              "verso": "A ordenada na origem, ou seja, o valor de y quando x = 0 (ponto (0, b)).",
+              "dica": "Corte com eixo vertical"
+            },
+            {
+              "frente": "Quando duas retas no plano são paralelas?",
+              "verso": "Quando têm exatamente o mesmo declive (a₁ = a₂).",
+              "dica": "Declives iguais"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Vetores, Isometrias e Estatística",
+      "metas": [
+        "Compreender o conceito de vetor (direção, sentido e comprimento)",
+        "Reconhecer isometrias: translações, reflexões, rotações e simetrias",
+        "Calcular medidas estatísticas: média ponderada, quartis e amplitude interquartis"
+      ],
+      "topicos": [
+        {
+          "id": "mat8_p3_t1",
+          "titulo": "Isometrias e Análise de Dados (Estatística)",
+          "subdominio": "Geometria e Estatística",
+          "conceitos_chave": [
+            {
+              "termo": "Isometria",
+              "definicao": "Transformação geométrica que preserva as distâncias entre pontos e as amplitudes dos ângulos (mantém a forma e dimensões originais)."
+            },
+            {
+              "termo": "Quartis (Q1, Q2, Q3)",
+              "definicao": "Valores que dividem uma amostra ordenada de dados em quatro partes iguais (Q2 coincide com a mediana)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Uma reflexão axial é uma isometria? Justifica.",
+            "proposta_resolucao": "Sim, porque preserva as distâncias entre pontos e as medidas dos ângulos, invertendo apenas o sentido de orientação da figura.",
+            "criterio_cotacao": "Classificação como isometria (40%) e justificação pela preservação métrica (60%).",
+            "erro_frequente": "Dizer que não é isometria por a figura ficar \"espelhada\"."
+          },
+          "flashcards": [
+            {
+              "frente": "O que preserva uma isometria geométrica?",
+              "verso": "Preserva os comprimentos dos segmentos e as amplitudes dos ângulos.",
+              "dica": "Preservação de medidas"
+            },
+            {
+              "frente": "A que estatística corresponde exatamente o 2.º Quartil (Q2)?",
+              "verso": "À Mediana da amostra ordenada de dados.",
+              "dica": "50% dos dados"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

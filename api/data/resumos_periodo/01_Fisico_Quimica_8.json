@@ -1,0 +1,142 @@
+{
+  "disciplina_id": "01_Fisico_Quimica_8",
+  "disciplina_nome": "Físico-Química 8",
+  "icone": "Atom",
+  "livro_referencia": "Universo FQ 8 • Porto Editora",
+  "ano": 8,
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Reações Químicas e Equações Químicas",
+      "metas": [
+        "Compreender o conceito de reação química e distinguir reagentes de produtos de reação",
+        "Interpretar a Lei da Conservação da Massa (Lavoisier)",
+        "Acertar equações químicas com coeficientes estequiométricos"
+      ],
+      "topicos": [
+        {
+          "id": "fq8_p1_t1",
+          "titulo": "Reações Químicas e a Lei de Lavoisier",
+          "subdominio": "Transformações Químicas",
+          "conceitos_chave": [
+            {
+              "termo": "Reação Química",
+              "definicao": "Transformação em que uma ou mais substâncias iniciais (reagentes) se convertem em novas substâncias (produtos de reação)."
+            },
+            {
+              "termo": "Lei de Lavoisier",
+              "definicao": "Numa reação química em sistema fechado, a massa total dos reagentes é igual à massa total dos produtos da reação."
+            },
+            {
+              "termo": "Equação Química",
+              "definicao": "Representação simbólica de uma reação química com fórmulas químicas e coeficientes de acerto."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Acerta a seguinte equação química: N₂ (g) + H₂ (g) -> NH₃ (g)",
+            "proposta_resolucao": "N₂ (g) + 3 H₂ (g) -> 2 NH₃ (g). Verifica-se que existem 2 átomos de Nitrogénio e 6 átomos de Hidrogénio de cada lado.",
+            "criterio_cotacao": "Acerto dos coeficientes estequiométricos (100%).",
+            "erro_frequente": "Alterar os índices das fórmulas químicas (ex.: N₂H₆) em vez dos coeficientes."
+          },
+          "flashcards": [
+            {
+              "frente": "O que enuncia a Lei de Lavoisier?",
+              "verso": "Na Natureza nada se cria, nada se perde, tudo se transforma: a massa total dos reagentes é igual à massa dos produtos.",
+              "dica": "Conservação da massa"
+            },
+            {
+              "frente": "Como se equilibra uma equação química?",
+              "verso": "Ajustando os coeficientes numéricos antes das fórmulas químicas, nunca alterando os índices químicos.",
+              "dica": "Estequiometria"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Ácidos, Bases e Soluções Aquosas",
+      "metas": [
+        "Identificar o caráter químico de soluções aquosas através da escala de pH",
+        "Distinguir reações de ácido-base e reações de precipitação",
+        "Interpretar indicadores colorimétricos e a formação de sais"
+      ],
+      "topicos": [
+        {
+          "id": "fq8_p2_t1",
+          "titulo": "Escala de pH e Reações de Neutralização",
+          "subdominio": "Ácidos e Bases",
+          "conceitos_chave": [
+            {
+              "termo": "Escala de pH",
+              "definicao": "Escala de 0 a 14 a 25 °C que quantifica a acidez (pH < 7), neutralidade (pH = 7) ou basicidade (pH > 7) de uma solução."
+            },
+            {
+              "termo": "Neutralização",
+              "definicao": "Reação entre um ácido e uma base que forma um sal e água (Ácido + Base -> Sal + Água)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Indica o que acontece ao valor de pH de um sumo de limão (pH = 2,5) quando se adiciona água gradualmente.",
+            "proposta_resolucao": "O pH aumenta, aproximando-se de 7 (solução neutra), por diminuição da concentração dos iões H⁺.",
+            "criterio_cotacao": "Identificação do aumento de pH (50%) e justificação pela diluição (50%).",
+            "erro_frequente": "Afirmar que o pH pode ultrapassar 7 por simples adição de água pura."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual é o intervalo de pH para uma solução ácida a 25 ºC?",
+              "verso": "pH inferior a 7 (0 <= pH < 7).",
+              "dica": "Escala de pH"
+            },
+            {
+              "frente": "O que resulta da reação entre um ácido e uma base?",
+              "verso": "Um sal e água (Ácido + Base -> Sal + Água).",
+              "dica": "Neutralização"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Som e Luz (Ondas e Propagação)",
+      "metas": [
+        "Compreender as ondas sonoras e a sua propagação em meios materiais",
+        "Distinguir reflexão, refração e dispersão da luz",
+        "Calcular velocidade de propagação (v = d / t)"
+      ],
+      "topicos": [
+        {
+          "id": "fq8_p3_t1",
+          "titulo": "Produção e Propagação do Som e da Luz",
+          "subdominio": "Ondas",
+          "conceitos_chave": [
+            {
+              "termo": "Onda Sonora",
+              "definicao": "Onda mecânica longitudinal originada por vibrações que necessita de meio material para se propagar."
+            },
+            {
+              "termo": "Velocidade da Luz",
+              "definicao": "Velocidade máxima de propagação no vácuo (cerca de 300 000 km/s ou 3 × 10⁸ m/s)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Explica por que razão vemos o relâmpago antes de ouvirmos o trovão durante uma trovoada.",
+            "proposta_resolucao": "Porque a luz se propaga a cerca de 300 000 km/s no ar, enquanto o som viaja muito mais lentamente, a cerca de 340 m/s.",
+            "criterio_cotacao": "Comparação correta das velocidades de propagação da luz e do som.",
+            "erro_frequente": "Dizer que o trovão é gerado segundos após o relâmpago."
+          },
+          "flashcards": [
+            {
+              "frente": "O som propaga-se no vácuo?",
+              "verso": "Não, porque o som é uma onda mecânica e necessita de partículas materiais para se propagar.",
+              "dica": "Vácuo vs meio material"
+            },
+            {
+              "frente": "Qual a velocidade aproximada do som no ar?",
+              "verso": "Aproximadamente 340 m/s à temperatura ambiente.",
+              "dica": "Velocidade sonora"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

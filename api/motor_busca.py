@@ -172,6 +172,97 @@ DISCIPLINAS_3ANO_CONFIG = {
     }
 }
 
+DISCIPLINAS_8ANO_CONFIG = {
+    "01_Fisico_Quimica_8": {
+        "nome": "Físico-Química 8",
+        "ano": 8,
+        "cor": "from-cyan-500 to-blue-600",
+        "cor_badge": "bg-cyan-100 text-cyan-800 border-cyan-300",
+        "icone": "Atom",
+        "descricao": "Reações Químicas, Som e Luz",
+        "livro_pdf": "/books/livro_fisico_quimica_8ano.pdf",
+        "total_paginas": 200,
+        "total_unidades": 4
+    },
+    "02_Geografia_8": {
+        "nome": "Geografia 8",
+        "ano": 8,
+        "cor": "from-emerald-500 to-teal-600",
+        "cor_badge": "bg-emerald-100 text-emerald-800 border-emerald-300",
+        "icone": "Globe2",
+        "descricao": "População, Povoamento e Atividades Económicas",
+        "livro_pdf": "/books/livro_geografia_8ano.pdf",
+        "total_paginas": 190,
+        "total_unidades": 4
+    },
+    "03_Ciencias_Naturais_8": {
+        "nome": "Ciências Naturais 8",
+        "ano": 8,
+        "cor": "from-teal-500 to-green-600",
+        "cor_badge": "bg-teal-100 text-teal-800 border-teal-300",
+        "icone": "Leaf",
+        "descricao": "Sustentabilidade na Terra e Gestão dos Ecossistemas",
+        "livro_pdf": "/books/livro_ciencias_8ano.pdf",
+        "total_paginas": 195,
+        "total_unidades": 4
+    },
+    "04_Historia_8": {
+        "nome": "História 8",
+        "ano": 8,
+        "cor": "from-amber-500 to-orange-600",
+        "cor_badge": "bg-amber-100 text-amber-800 border-amber-300",
+        "icone": "Hourglass",
+        "descricao": "Expansão Marítima, Renascimento, Iluminismo e Revoluções",
+        "livro_pdf": "/books/livro_historia_8ano.pdf",
+        "total_paginas": 210,
+        "total_unidades": 4
+    },
+    "05_Ingles_8": {
+        "nome": "Inglês 8",
+        "ano": 8,
+        "cor": "from-blue-500 to-indigo-600",
+        "cor_badge": "bg-blue-100 text-blue-800 border-blue-300",
+        "icone": "Languages",
+        "descricao": "Teen Life, Media, Environment and World Issues",
+        "livro_pdf": "/books/livro_ingles_8ano.pdf",
+        "total_paginas": 180,
+        "total_unidades": 4
+    },
+    "06_Matematica_8": {
+        "nome": "Matemática 8",
+        "ano": 8,
+        "cor": "from-rose-500 to-red-600",
+        "cor_badge": "bg-rose-100 text-rose-800 border-rose-300",
+        "icone": "Calculator",
+        "descricao": "Teorema de Pitágoras, Funções Afins, Vetores e Isometrias",
+        "livro_pdf": "/books/livro_matematica_8ano.pdf",
+        "total_paginas": 220,
+        "total_unidades": 4
+    },
+    "07_Portugues_8": {
+        "nome": "Português 8",
+        "ano": 8,
+        "cor": "from-purple-500 to-indigo-600",
+        "cor_badge": "bg-purple-100 text-purple-800 border-purple-300",
+        "icone": "BookOpenText",
+        "descricao": "Texto Dramático, Poesia Lírica, Crónica e Sintaxe Complexa",
+        "livro_pdf": "/books/livro_portugues_8ano.pdf",
+        "total_paginas": 215,
+        "total_unidades": 4
+    },
+    "08_Frances_8": {
+        "nome": "Francês 8",
+        "ano": 8,
+        "cor": "from-sky-500 to-indigo-600",
+        "cor_badge": "bg-sky-100 text-sky-800 border-sky-300",
+        "icone": "Compass",
+        "descricao": "Vie Quotidienne, Loisirs, Médias et Société",
+        "livro_pdf": "/books/livro_frances_8ano.pdf",
+        "total_paginas": 175,
+        "total_unidades": 4
+    }
+}
+
 class MotorBusca:
     def __init__(self):
         self.catalogo = self._carregar_catalogo()
@@ -315,6 +406,23 @@ class MotorBusca:
                 })
             return res
 
+        if str(ano) == "8":
+            res = []
+            for disc_id, conf in DISCIPLINAS_8ANO_CONFIG.items():
+                res.append({
+                    "id": disc_id,
+                    "nome": conf["nome"],
+                    "ano": 8,
+                    "cor": conf["cor"],
+                    "cor_badge": conf["cor_badge"],
+                    "icone": conf["icone"],
+                    "descricao": conf["descricao"],
+                    "livro_pdf": conf.get("livro_pdf"),
+                    "total_recursos": conf.get("total_unidades", 4),
+                    "total_manuais": 1
+                })
+            return res
+
         res = []
         for disc_id, conf in DISCIPLINAS_CONFIG.items():
             tot_recursos = len(self.indice_por_disciplina.get(disc_id, []))
@@ -342,32 +450,61 @@ class MotorBusca:
                 "nome_simples": conf["nome"],
                 "projeto": conf["descricao"].split(" • ")[0],
                 "tamanho_mb": round(conf.get("total_paginas", 150) * 0.12, 1),
-                "tem_pdf_local": True,
+                "tem_pdf_local": os.path.exists(pdf_path),
                 "url_github": conf["livro_pdf"],
                 "link_escolavirtual": conf["livro_pdf"],
                 "tipo": "Manual Escolar Digitalizado (3.º Ano)",
                 "ano": 3,
                 "pdf_url": conf["livro_pdf"]
             }]
+
+        if disc_id in DISCIPLINAS_8ANO_CONFIG:
+            conf = DISCIPLINAS_8ANO_CONFIG[disc_id]
+            pdf_nome = conf.get("livro_pdf", "").replace("/books/", "")
+            pdf_path = os.path.join(BASE_DIR, "public", "books", pdf_nome)
+            tem_local = os.path.exists(pdf_path)
+            return [{
+                "caminho": pdf_path if tem_local else "",
+                "nome": f"{conf['nome']} - Manual Oficial",
+                "nome_simples": f"Manual {conf['nome']}",
+                "projeto": f"Manual Escolar 8.º Ano - {conf['nome']}",
+                "tamanho_mb": round(conf.get("total_paginas", 200) * 0.14, 1),
+                "tem_pdf_local": tem_local,
+                "url_github": conf["livro_pdf"] if tem_local else "",
+                "pdf_url": conf["livro_pdf"] if tem_local else "",
+                "link_escolavirtual": "https://app.escolavirtual.pt/",
+                "tipo": "Manual Escolar Oficial (8.º Ano)",
+                "ano": 8,
+                "paginas": conf.get("total_paginas", 200),
+                "limpo_sem_erros": tem_local
+            }]
+
         return self.manuais_por_disciplina.get(disc_id, [])
 
     def listar_topicos_sugeridos(self, disc_id, periodo=None):
         """Retorna tópicos extraídos das unidades ou dos títulos de testes, fichas e planificações da disciplina."""
-        if disc_id in DISCIPLINAS_3ANO_CONFIG:
-            topicos_3ano = []
+        if disc_id in DISCIPLINAS_3ANO_CONFIG or disc_id in DISCIPLINAS_8ANO_CONFIG:
+            topicos_lista = []
             json_path = os.path.join(os.path.dirname(__file__), "data", "resumos_periodo", f"{disc_id}.json")
             if os.path.exists(json_path):
                 try:
                     with open(json_path, "r", encoding="utf-8") as f:
                         data = json.load(f)
                     for u in data.get("unidades", []):
-                        topicos_3ano.append(u.get("titulo", ""))
+                        topicos_lista.append(u.get("titulo", ""))
                         for c in u.get("conceitos_chave", []):
                             if c.get("termo"):
-                                topicos_3ano.append(c["termo"])
+                                topicos_lista.append(c["termo"])
+                    for per_key, per_obj in data.get("periodos", {}).items():
+                        for t in per_obj.get("topicos", []):
+                            if t.get("titulo"):
+                                topicos_lista.append(t["titulo"])
+                            for c in t.get("conceitos_chave", []):
+                                if c.get("termo"):
+                                    topicos_lista.append(c["termo"])
                 except Exception:
                     pass
-            return [t for t in topicos_3ano if t][:40]
+            return [t for t in topicos_lista if t][:40]
 
         recursos = self.indice_por_disciplina.get(disc_id, [])
         topicos = set()

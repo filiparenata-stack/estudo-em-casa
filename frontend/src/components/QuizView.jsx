@@ -27,7 +27,15 @@ const SUGESTOES_TOPICOS = {
   "portugues_3ano": ["Ortografia e Dígrafos", "Classes de Palavras", "Nomes e Adjetivos", "Tipos de Frase", "Verbos e Tempos"],
   "matematica_3ano": ["Números até 10 000", "Adição e Subtração", "Multiplicação e Tabuadas", "Geometria e Polígonos", "Frações e Medidas"],
   "estudo_meio_3ano": ["Corpo Humano e Esqueleto", "Saúde e Higiene", "Rochas e Solos", "Portugal e Distritos", "Animais e Plantas"],
-  "ingles_3ano": ["Greetings & Numbers", "School Supplies", "Family Members", "House & Rooms", "Farm Animals"]
+  "ingles_3ano": ["Greetings & Numbers", "School Supplies", "Family Members", "House & Rooms", "Farm Animals"],
+  "01_Fisico_Quimica_8": ["Reações Químicas", "Lei de Lavoisier", "Escala de pH", "Neutralização", "Som e Luz", "Velocidade de Propagação"],
+  "02_Geografia_8": ["Pirâmides Etárias", "Taxa de Crescimento Natural", "Áreas Urbanas e CBD", "Movimentos Pendulares", "Redes de Transporte", "Globalização"],
+  "03_Ciencias_Naturais_8": ["Teias Alimentares", "Produtores e Decompositores", "Espécies Invasoras", "Biodiversidade", "Bioampliação", "Efeito de Estufa"],
+  "04_Historia_8": ["Expansão Marítima", "Tratado de Tordesilhas", "Renascimento e Humanismo", "Reforma de Lutero", "Absolutismo", "Iluminismo"],
+  "05_Ingles_8": ["Present Simple vs Continuous", "Past Simple Irregular", "First Conditional", "Modal Verbs", "Environment & Technology"],
+  "06_Matematica_8": ["Teorema de Pitágoras", "Notação Científica", "Função Afim", "Declive e Ordenada", "Sistemas de Equações", "Isometrias"],
+  "07_Portugues_8": ["Texto Dramático", "Didascálias e Gil Vicente", "Poesia Lírica", "Orações Subordinadas", "Texto de Opinião", "Figuras de Estilo"],
+  "08_Frances_8": ["Passé Composé", "Auxiliaire Être et Avoir", "L'Imparfait", "Futur Simple", "Vie Quotidienne", "Écologie"]
 };
 
 export default function QuizView({ disciplina, periodo, onMudarPeriodo, topicosIniciais, anoAtivo = '3' }) {

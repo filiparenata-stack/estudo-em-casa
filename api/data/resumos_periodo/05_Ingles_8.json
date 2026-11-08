@@ -1,0 +1,138 @@
+{
+  "disciplina_id": "05_Ingles_8",
+  "disciplina_nome": "Inglês 8",
+  "icone": "Languages",
+  "livro_referencia": "Teen World 8 • Porto Editora",
+  "ano": 8,
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Teen Life, Daily Routines & Social Media",
+      "metas": [
+        "Talk about teens' interests, daily activities and social networks",
+        "Master Present Simple vs Present Continuous",
+        "Use Past Simple regular and irregular verbs"
+      ],
+      "topicos": [
+        {
+          "id": "ing8_p1_t1",
+          "titulo": "Verb Tenses & Teen Lifestyles",
+          "subdominio": "Grammar and Communication",
+          "conceitos_chave": [
+            {
+              "termo": "Present Simple vs Present Continuous",
+              "definicao": "Present Simple for habits and routines; Present Continuous for actions happening right now (be + verb-ing)."
+            },
+            {
+              "termo": "Past Simple Irregular Verbs",
+              "definicao": "Verbs that do not end in -ed in the past (e.g., go -> went, see -> saw, buy -> bought)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Complete with Present Simple or Continuous: Look! They ______ (play) football, but they usually ______ (study) in the library.",
+            "proposta_resolucao": "are playing / study. \"Look!\" signals an action in progress, while \"usually\" indicates a habit.",
+            "criterio_cotacao": "Correct use of are playing (50%) and study (50%).",
+            "erro_frequente": "Using present continuous with frequency adverbs like \"usually\"."
+          },
+          "flashcards": [
+            {
+              "frente": "What is the past simple of \"choose\" and \"write\"?",
+              "verso": "chose / wrote.",
+              "dica": "Irregular past"
+            },
+            {
+              "frente": "When do we use the Present Continuous?",
+              "verso": "For actions happening at the moment of speaking or temporary situations.",
+              "dica": "Right now"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Technology, Future & Predictions",
+      "metas": [
+        "Discuss technology, artificial intelligence and future careers",
+        "Express future with will, be going to and Present Continuous for future plans",
+        "Form First Conditional sentences (If + present, will + infinitive)"
+      ],
+      "topicos": [
+        {
+          "id": "ing8_p2_t1",
+          "titulo": "Future Forms and First Conditional",
+          "subdominio": "Future and Conditionals",
+          "conceitos_chave": [
+            {
+              "termo": "First Conditional",
+              "definicao": "Structure used for real and possible future situations: If + Present Simple, ... will + infinitive."
+            },
+            {
+              "termo": "Will vs Be Going To",
+              "definicao": "Will for spontaneous decisions and predictions; Be going to for prior plans and intentions."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Complete the First Conditional: If it ______ (rain) tomorrow, we ______ (stay) at home.",
+            "proposta_resolucao": "rains / will stay. Note the 3rd person singular -s on \"rains\".",
+            "criterio_cotacao": "Correct tense in both clauses.",
+            "erro_frequente": "Putting \"will\" in the If-clause (e.g. \"If it will rain\")."
+          },
+          "flashcards": [
+            {
+              "frente": "Can we put \"will\" inside the \"if-clause\" in the First Conditional?",
+              "verso": "No! We say: If + Present Simple, will + verb (e.g., If I study, I will pass).",
+              "dica": "First conditional rule"
+            },
+            {
+              "frente": "When do we use \"be going to\"?",
+              "verso": "For intentions and plans decided before the moment of speaking.",
+              "dica": "Prior plan"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Environment, Planet Protection & Modal Verbs",
+      "metas": [
+        "Debate environmental issues, renewable energy and zero waste",
+        "Use modal verbs for advice and obligation (should, must, have to, mustn't)",
+        "Use relative pronouns (who, which, that, where)"
+      ],
+      "topicos": [
+        {
+          "id": "ing8_p3_t1",
+          "titulo": "Modal Verbs and Green Living",
+          "subdominio": "Modals and Environment",
+          "conceitos_chave": [
+            {
+              "termo": "Must vs Mustn't",
+              "definicao": "Must expresses strong obligation; Mustn't expresses prohibition (do not do it!)."
+            },
+            {
+              "termo": "Relative Pronouns",
+              "definicao": "Who for people, which for things/animals, where for places, that for people/things."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Choose the correct modal: You ______ (mustn't / don't have to) litter in the national park; it is strictly forbidden.",
+            "proposta_resolucao": "mustn't. Because it expresses a strict legal prohibition.",
+            "criterio_cotacao": "Correct modal selection and understanding of prohibition.",
+            "erro_frequente": "Confusing prohibition (mustn't) with lack of obligation (don't have to)."
+          },
+          "flashcards": [
+            {
+              "frente": "What is the difference between \"mustn't\" and \"don't have to\"?",
+              "verso": "Mustn't = prohibition (forbidden); Don't have to = no obligation (optional).",
+              "dica": "Obligation vs prohibition"
+            },
+            {
+              "frente": "Which relative pronoun refers to places?",
+              "verso": "Where (e.g., The school where I study).",
+              "dica": "Places"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

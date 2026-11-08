@@ -1,0 +1,138 @@
+{
+  "disciplina_id": "02_Geografia_8",
+  "disciplina_nome": "Geografia 8",
+  "icone": "Globe2",
+  "livro_referencia": "Planeta 8 • Porto Editora",
+  "ano": 8,
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: População e Povoamento Mundial",
+      "metas": [
+        "Analisar indicadores demográficos (taxas de natalidade, mortalidade e crescimento natural)",
+        "Interpretar pirâmides etárias (jovem, envelhecida, rejuvenescida)",
+        "Compreender os fluxos migratórios mundiais e as causas da mobilidade"
+      ],
+      "topicos": [
+        {
+          "id": "geo8_p1_t1",
+          "titulo": "Dinâmica Demográfica e Pirâmides Etárias",
+          "subdominio": "População",
+          "conceitos_chave": [
+            {
+              "termo": "Taxa de Crescimento Natural",
+              "definicao": "Diferença entre a taxa de natalidade e a taxa de mortalidade de uma população (TN - TM)."
+            },
+            {
+              "termo": "Pirâmide Etária",
+              "definicao": "Gráfico de barras duplo que representa a estrutura de uma população por faixas etárias e sexo."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Uma pirâmide com base estreita e topo largo caracteriza que tipo de país?",
+            "proposta_resolucao": "Um país desenvolvido com envelhecimento demográfico, baixa natalidade e elevada esperança média de vida.",
+            "criterio_cotacao": "Identificação do nível de desenvolvimento e relação com a natalidade/longevidade.",
+            "erro_frequente": "Confundir base estreita com população jovem numerosa."
+          },
+          "flashcards": [
+            {
+              "frente": "Como se calcula o Saldo Fisiológico (Crescimento Natural)?",
+              "verso": "Natalidade menos Mortalidade (Nados-vivos - Óbitos).",
+              "dica": "Indicadores demográficos"
+            },
+            {
+              "frente": "O que significa uma pirâmide etária com topo alargado?",
+              "verso": "Elevada percentagem de idosos e alta esperança de vida (população envelhecida).",
+              "dica": "Estrutura etária"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Cidades e Organização do Espaço Urbano",
+      "metas": [
+        "Compreender os processos de urbanização e metropolização",
+        "Identificar as áreas funcionais das cidades (CBD, zonas residenciais, industriais)",
+        "Reconhecer problemas urbanos e medidas de sustentabilidade das cidades"
+      ],
+      "topicos": [
+        {
+          "id": "geo8_p2_t1",
+          "titulo": "Morfologia Urbana e Áreas Funcionais",
+          "subdominio": "Povoamento Urbano",
+          "conceitos_chave": [
+            {
+              "termo": "CBD (Central Business District)",
+              "definicao": "Centro financeiro e comercial da cidade caracterizado pela máxima acessibilidade e preços do solo elevados."
+            },
+            {
+              "termo": "Suburbanização",
+              "definicao": "Crescimento urbano das periferias com deslocações pendulares diárias centro-periferia."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Descreve duas características típicas do CBD numa grande cidade.",
+            "proposta_resolucao": "Elevada concentração de serviços, escritórios e comércio nobre; predomínio de edifícios em altura; pouca população residente.",
+            "criterio_cotacao": "Apresentação de duas características válidas (50% cada).",
+            "erro_frequente": "Indicar zonas industriais pesadas no centro da cidade."
+          },
+          "flashcards": [
+            {
+              "frente": "O que é o movimento pendular?",
+              "verso": "Deslocação diária regular da população entre a residência e o local de trabalho ou estudo.",
+              "dica": "Mobilidade diária"
+            },
+            {
+              "frente": "O que caracteriza o CBD de uma cidade?",
+              "verso": "Centro de negócios com elevado tráfego, grande concentração de escritórios e elevado valor do solo.",
+              "dica": "Centro urbano"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Redes de Transporte, Telecomunicações e Turismo",
+      "metas": [
+        "Avaliar o impacto dos transportes e telecomunicações na aproximação dos lugares",
+        "Distinguir vantagens e desvantagens de cada modo de transporte",
+        "Identificar os impactos positivos e negativos do turismo global"
+      ],
+      "topicos": [
+        {
+          "id": "geo8_p3_t1",
+          "titulo": "Transportes, Globalização e Sustentabilidade",
+          "subdominio": "Redes de Comunicação",
+          "conceitos_chave": [
+            {
+              "termo": "Intermodalidade",
+              "definicao": "Utilização integrada de diferentes meios de transporte (ex.: comboio + metro + autocarro) na mesma viagem."
+            },
+            {
+              "termo": "Distância-Tempo",
+              "definicao": "Tempo necessário para percorrer o trajeto entre dois lugares, que diminui com a modernização dos transportes."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Indica uma vantagem e uma desvantagem do transporte ferroviário de mercadorias.",
+            "proposta_resolucao": "Vantagem: grande capacidade de carga e menor poluição por tonelada; Desvantagem: menor flexibilidade de itinerários (depende de linhas fixas).",
+            "criterio_cotacao": "Indicação de vantagem (50%) e desvantagem (50%).",
+            "erro_frequente": "Dizer que o comboio não tem horários definidos."
+          },
+          "flashcards": [
+            {
+              "frente": "O que significa distância-tempo?",
+              "verso": "O tempo necessário para cobrir uma determinada distância geográfica.",
+              "dica": "Encolhimento do mundo"
+            },
+            {
+              "frente": "Qual o modo de transporte mais eficiente para granéis a longas distâncias intercontinentais?",
+              "verso": "Transporte marítimo.",
+              "dica": "Grandes cargas"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

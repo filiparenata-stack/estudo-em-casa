@@ -1,0 +1,138 @@
+{
+  "disciplina_id": "07_Portugues_8",
+  "disciplina_nome": "Português 8",
+  "icone": "BookOpenText",
+  "livro_referencia": "Diálogos 8 • Porto Editora",
+  "ano": 8,
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Texto Dramático e Obras de Gil Vicente",
+      "metas": [
+        "Compreender as especificidades do texto dramático (didascálias, réplicas, apartes)",
+        "Estudar a sátira vicentina (ex.: Auto da Barca do Inferno)",
+        "Identificar processos fonológicos (assimilação, síncope, apócope, prótese)"
+      ],
+      "topicos": [
+        {
+          "id": "port8_p1_t1",
+          "titulo": "O Texto Dramático e a Crítica Social em Gil Vicente",
+          "subdominio": "Educação Literária",
+          "conceitos_chave": [
+            {
+              "termo": "Didascália (ou Notação Cénica)",
+              "definicao": "Indicação dada pelo autor do texto teatral sobre a movimentação, tom de voz, gestos e cenário dos atores."
+            },
+            {
+              "termo": "Sátira Vicentina",
+              "definicao": "Crítica cómica aos vícios e defeitos das diferentes classes e tipos sociais da sociedade quinhentista."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Identifica a função das didascálias num texto dramático.",
+            "proposta_resolucao": "Orientar o encenador e os atores sobre a representação em palco (movimentos, emoções, entoação, entradas e saídas e adereços).",
+            "criterio_cotacao": "Identificação clara da finalidade cénica das indicações textuais.",
+            "erro_frequente": "Dizer que são falas que o ator lê em voz alta para o público."
+          },
+          "flashcards": [
+            {
+              "frente": "O que é um aparte no teatro?",
+              "verso": "Fala que uma personagem dirige diretamente ao público ou para si mesma, sem que as outras personagens em cena finjam ouvir.",
+              "dica": "Fala cúmplice"
+            },
+            {
+              "frente": "Qual o objetivo principal do lema vicentino \"Ridendo castigat mores\"?",
+              "verso": "Corrigir os costumes morais da sociedade através do riso e da comédia.",
+              "dica": "Rir para corrigir"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Poesia Lírica e Recursos Expressivos",
+      "metas": [
+        "Analisar a estrutura estrófica e métrica do poema (versos, estrofes, rima e redondilha)",
+        "Identificar recursos expressivos: metáfora, personificação, anáfora, hipérbole e antítese",
+        "Dominar orações subordinadas substantivas e adjetivas"
+      ],
+      "topicos": [
+        {
+          "id": "port8_p2_t1",
+          "titulo": "Linguagem Poética e Sintaxe das Orações",
+          "subdominio": "Gramática e Poesia",
+          "conceitos_chave": [
+            {
+              "termo": "Oração Subordinada Substantiva Completiva",
+              "definicao": "Oração que desempenha a função de sujeito ou complemento direto do verbo da oração principal (introduzida por 'que' ou 'se')."
+            },
+            {
+              "termo": "Antítese",
+              "definicao": "Figura de estilo que consiste na aproximação de duas ideias ou palavras de sentidos opostos (ex.: \"fogo frio\", \"alegre tristeza\")."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Classifica a oração sublinhada: O professor confirmou [que o teste seria na terça-feira].",
+            "proposta_resolucao": "Oração subordinada substantiva completiva (desempenha a função sintática de complemento direto de \"confirmou\").",
+            "criterio_cotacao": "Classificação rigorosa da oração subordinada.",
+            "erro_frequente": "Confundir completiva com oração subordinada adjetiva relativa."
+          },
+          "flashcards": [
+            {
+              "frente": "Que figura de estilo consiste na repetição da mesma palavra no início de versos seguidos?",
+              "verso": "Anáfora.",
+              "dica": "Repetição inicial"
+            },
+            {
+              "frente": "Como se classifica a oração iniciada por pronome relativo (ex.: \"O livro que comprei\")?",
+              "verso": "Oração subordinada adjetiva relativa (restritiva ou explicativa).",
+              "dica": "Pronome relativo"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Crónica, Narrativa Breve e Escrita Argumentativa",
+      "metas": [
+        "Compreender as marcas da crónica (subjetividade, olhar sobre o quotidiano, ironia)",
+        "Estruturar um texto de opinião com tese, argumentos e contra-argumentos",
+        "Empregar conectores de oposição, causa, conclusão e concessão"
+      ],
+      "topicos": [
+        {
+          "id": "port8_p3_t1",
+          "titulo": "Texto de Opinião e Mecanismos de Coesão Textual",
+          "subdominio": "Escrita e Argumentação",
+          "conceitos_chave": [
+            {
+              "termo": "Tese",
+              "definicao": "Ponto de vista central ou opinião defendida pelo autor num texto argumentativo."
+            },
+            {
+              "termo": "Conectores Concessivos",
+              "definicao": "Conjunções que introduzem uma ideia de cedência que não anula a tese principal (ex.: embora, ainda que, se bem que)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Identifica a relação lógica estabelecida pelo conector em: \"Embora chovesse torrencialmente, foram à praia.\"",
+            "proposta_resolucao": "Relação de concessão (introduz um obstáculo que não impede a realização da ação principal).",
+            "criterio_cotacao": "Identificação do valor lógico concessivo.",
+            "erro_frequente": "Confundir concessão com causa ou condição."
+          },
+          "flashcards": [
+            {
+              "frente": "Dá dois exemplos de conectores argumentativos de conclusão.",
+              "verso": "Portanto, por conseguinte, logo, deste modo.",
+              "dica": "Conclusão"
+            },
+            {
+              "frente": "O que caracteriza essencialmente o género crónica?",
+              "verso": "Reflexão pessoal e subjetiva sobre factos do quotidiano, aliando literatura e jornalismo.",
+              "dica": "Quotidiano e subjetividade"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

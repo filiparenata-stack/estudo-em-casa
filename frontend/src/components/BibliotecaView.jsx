@@ -35,6 +35,10 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
     if (anoAtivo === '3') {
       setFiltroCategoria('renata');
     } else if (anoAtivo === '7') {
+      setFiltroCategoria('oficiais_7');
+    } else if (anoAtivo === '8') {
+      setFiltroCategoria('oficiais_8');
+    } else {
       setFiltroCategoria('todos');
     }
   }, [anoAtivo]);
@@ -205,7 +209,7 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
             }`}
           >
             <Filter className="w-3 h-3" />
-            Todos os Manuais ({livrosRenataFiltrados.length + manuaisFiltrados.length})
+            Todos os Manuais
           </button>
           <button
             onClick={() => setFiltroCategoria('renata')}
@@ -215,21 +219,32 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
                 : 'bg-purple-50 text-purple-700 hover:bg-purple-100 border border-purple-200'
             }`}
           >
-            <span>📚 Livros da Renata (3.º Ano)</span>
+            <span>🎒 3.º Ano (Renata)</span>
             <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-purple-200/60 font-bold">
               {livrosRenataFiltrados.length}
             </span>
           </button>
           <button
-            onClick={() => setFiltroCategoria('oficiais')}
+            onClick={() => setFiltroCategoria('oficiais_7')}
             className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
-              filtroCategoria === 'oficiais'
-                ? 'bg-slate-800 text-white shadow-sm'
+              filtroCategoria === 'oficiais_7'
+                ? 'bg-blue-700 text-white shadow-sm'
                 : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
             }`}
           >
             <FolderOpen className="w-3 h-3" />
-            Manuais Oficiais (7.º Ano) ({manuaisFiltrados.length})
+            <span>🎓 7.º Ano</span>
+          </button>
+          <button
+            onClick={() => setFiltroCategoria('oficiais_8')}
+            className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+              filtroCategoria === 'oficiais_8'
+                ? 'bg-emerald-600 text-white shadow-sm'
+                : 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200'
+            }`}
+          >
+            <BookOpen className="w-3 h-3" />
+            <span>🚀 8.º Ano</span>
           </button>
         </div>
       </div>
@@ -377,7 +392,7 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
       )}
 
       {/* ========================================================================= */}
-      {/* SECÇÃO OFICIAL: MANUAIS DO 7.º ANO */}
+      {/* SECÇÃO OFICIAL: MANUAIS DO 7.º OU 8.º ANO */}
       {/* ========================================================================= */}
       {filtroCategoria !== 'renata' && (
         <section className="flex flex-col gap-4 pt-4 border-t border-slate-200">
@@ -386,10 +401,14 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
               <span className="text-xl">📁</span>
               <div>
                 <h3 className="text-lg font-bold text-slate-800">
-                  Manuais e Dossiês do 7.º Ano {disciplina ? `— ${disciplina.nome}` : ''}
+                  {anoAtivo === '8'
+                    ? `Manuais e Testes do 8.º Ano ${disciplina ? `— ${disciplina.nome}` : ''}`
+                    : `Manuais e Dossiês do 7.º Ano ${disciplina ? `— ${disciplina.nome}` : ''}`}
                 </h3>
                 <p className="text-xs text-slate-500">
-                  Acervo oficial de 79 manuais e cadernos de atividades para o 7.º ano do Ensino Básico.
+                  {anoAtivo === '8'
+                    ? 'Manuais escolares oficiais e fichas de avaliação formativa do 8.º ano do Ensino Básico.'
+                    : 'Acervo oficial de 79 manuais e cadernos de atividades para o 7.º ano do Ensino Básico.'}
                 </p>
               </div>
             </div>

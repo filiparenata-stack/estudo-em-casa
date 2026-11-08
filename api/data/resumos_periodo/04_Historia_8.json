@@ -1,0 +1,138 @@
+{
+  "disciplina_id": "04_Historia_8",
+  "disciplina_nome": "História 8",
+  "icone": "Hourglass",
+  "livro_referencia": "Missão História 8 • Porto Editora",
+  "ano": 8,
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Expansão Marítima Portuguesa e Europeia",
+      "metas": [
+        "Compreender os motivos da expansão portuguesa (económicos, religiosos e sociais)",
+        "Reconhecer os marcos das navegações: Conquista de Ceuta (1415), Cabo da Boa Esperança (1488) e Chegada à Índia (1498)",
+        "Analisar a partilha do mundo: Tratado de Alcáçovas e Tratado de Tordesilhas (1494)"
+      ],
+      "topicos": [
+        {
+          "id": "hist8_p1_t1",
+          "titulo": "A Abertura ao Mundo e os Tratados de Partilha",
+          "subdominio": "Descobrimentos",
+          "conceitos_chave": [
+            {
+              "termo": "Tratado de Tordesilhas",
+              "definicao": "Acordo assinado em 1494 entre Portugal e Espanha dividindo as terras descobertas por um meridiano a 370 léguas a oeste de Cabo Verde."
+            },
+            {
+              "termo": "Rota do Cabo",
+              "definicao": "Caminho marítimo direto entre Lisboa e a Índia contornando o sul de África, inaugurado por Vasco da Gama em 1498."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Explica a importância do Tratado de Tordesilhas (1494) assinado entre Portugal e Castela.",
+            "proposta_resolucao": "Dividiu o mundo navegável em duas zonas de influência através de um meridiano, garantindo a Portugal os direitos de navegação no Atlântico Sul e a futura posse do Brasil.",
+            "criterio_cotacao": "Identificação dos dois países (30%), meridiano de demarcação (30%) e garantia para Portugal (40%).",
+            "erro_frequente": "Confundir Tordesilhas (1494) com Alcáçovas (1479)."
+          },
+          "flashcards": [
+            {
+              "frente": "Em que ano chegou Vasco da Gama a Calecute (Índia)?",
+              "verso": "Em 1498, inaugurando a Rota do Cabo.",
+              "dica": "Chegada à Índia"
+            },
+            {
+              "frente": "A que distância de Cabo Verde foi traçado o meridiano de Tordesilhas?",
+              "verso": "A 370 léguas a oeste de Cabo Verde.",
+              "dica": "Tordesilhas 1494"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Renascimento, Humanismo e Reformas Religiosas",
+      "metas": [
+        "Compreender os valores do Renascimento: antropocentrismo, racionalismo e classicismo",
+        "Analisar o desenvolvimento científico e artístico (perspetiva, geometria e harmonia)",
+        "Compreender a Reforma Protestante (Lutero, Calvino) e a Contrarreforma Católica"
+      ],
+      "topicos": [
+        {
+          "id": "hist8_p2_t1",
+          "titulo": "O Humanismo e a Reforma Protestante",
+          "subdominio": "Cultura e Religião",
+          "conceitos_chave": [
+            {
+              "termo": "Antropocentrismo",
+              "definicao": "Conceção renascentista que coloca o Homem no centro do universo e valoriza a sua capacidade criadora e racional."
+            },
+            {
+              "termo": "95 Teses de Lutero",
+              "definicao": "Documento afixado em 1517 por Martinho Lutero em Wittenberg criticando duramente a venda de indulgências pela Igreja Católica."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Contrasta o teocentrismo medieval com o antropocentrismo renascentista.",
+            "proposta_resolucao": "No teocentrismo Deus é o centro absoluto de todas as explicações do mundo; no antropocentrismo, o Homem e a razão tornam-se o foco do conhecimento e da criação.",
+            "criterio_cotacao": "Definição correta de teocentrismo (50%) e antropocentrismo (50%).",
+            "erro_frequente": "Dizer que os humanistas do Renascimento se tornaram ateus."
+          },
+          "flashcards": [
+            {
+              "frente": "O que eram as indulgências contestadas por Martinho Lutero?",
+              "verso": "Documentos papais vendidos aos fiéis em troca do perdão das penas temporais dos pecados.",
+              "dica": "Crítica de Lutero"
+            },
+            {
+              "frente": "Que técnica de pintura permitiu criar a ilusão de profundidade tridimensional no Renascimento?",
+              "verso": "A perspetiva linear (ponto de fuga).",
+              "dica": "Arte renascentista"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: O Antigo Regime, o Iluminismo e a Época das Revoluções",
+      "metas": [
+        "Caracterizar a sociedade de ordens e o Absolutismo Régio (Luís XIV e D. João V)",
+        "Reconhecer as ideias-chave do Iluminismo (razão, liberdade, igualdade jurídica e divisão de poderes)",
+        "Analisar o Marquês de Pombal e a reconstrução de Lisboa após 1755"
+      ],
+      "topicos": [
+        {
+          "id": "hist8_p3_t1",
+          "titulo": "Absolutismo Régio e o Iluminismo",
+          "subdominio": "Política e Sociedade",
+          "conceitos_chave": [
+            {
+              "termo": "Monarquia Absoluta",
+              "definicao": "Regime político onde o rei concentra todos os poderes do Estado (legislativo, executivo e judicial), justificando-se pela origem divina."
+            },
+            {
+              "termo": "Separação de Poderes",
+              "definicao": "Princípio iluminista defendido por Montesquieu onde os poderes legislativo, executivo e judicial devem ser independentes."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Indica duas reformas modernizadoras implementadas pelo Marquês de Pombal em Portugal.",
+            "proposta_resolucao": "Reconstrução planeada de Lisboa após o terramoto de 1755 com estrutura antissísmica (gaiola pombalina) e reforma do ensino e da Universidade de Coimbra.",
+            "criterio_cotacao": "Apresentação de duas medidas pombalinas válidas.",
+            "erro_frequente": "Afirmar que o Marquês de Pombal aboliu a monarquia."
+          },
+          "flashcards": [
+            {
+              "frente": "Qual foi a frase célebre atribuída a Luís XIV que simboliza o absolutismo?",
+              "verso": "\"L'État, c'est moi\" (O Estado sou eu).",
+              "dica": "Rei Sol"
+            },
+            {
+              "frente": "Quem propôs a divisão tripartida dos poderes do Estado (executivo, legislativo e judicial)?",
+              "verso": "Montesquieu, na obra \"O Espírito das Leis\".",
+              "dica": "Iluminismo"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

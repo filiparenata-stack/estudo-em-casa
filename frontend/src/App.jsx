@@ -56,6 +56,97 @@ const DISCIPLINAS_3ANO_FALLBACK = [
   }
 ];
 
+const DISCIPLINAS_8ANO_FALLBACK = [
+  {
+    id: '01_Fisico_Quimica_8',
+    nome: 'Físico-Química 8',
+    ano: 8,
+    icone: 'Atom',
+    livro_pdf: '/books/livro_fisico_quimica_8ano.pdf',
+    total_recursos: 4,
+    total_manuais: 1,
+    cor: 'from-cyan-500 to-blue-600',
+    cor_badge: 'bg-cyan-100 text-cyan-800'
+  },
+  {
+    id: '02_Geografia_8',
+    nome: 'Geografia 8',
+    ano: 8,
+    icone: 'Globe2',
+    livro_pdf: '/books/livro_geografia_8ano.pdf',
+    total_recursos: 4,
+    total_manuais: 1,
+    cor: 'from-emerald-500 to-teal-600',
+    cor_badge: 'bg-emerald-100 text-emerald-800'
+  },
+  {
+    id: '03_Ciencias_Naturais_8',
+    nome: 'Ciências Naturais 8',
+    ano: 8,
+    icone: 'Leaf',
+    livro_pdf: '/books/livro_ciencias_8ano.pdf',
+    total_recursos: 4,
+    total_manuais: 1,
+    cor: 'from-teal-500 to-green-600',
+    cor_badge: 'bg-teal-100 text-teal-800'
+  },
+  {
+    id: '04_Historia_8',
+    nome: 'História 8',
+    ano: 8,
+    icone: 'Hourglass',
+    livro_pdf: '/books/livro_historia_8ano.pdf',
+    total_recursos: 4,
+    total_manuais: 1,
+    cor: 'from-amber-500 to-orange-600',
+    cor_badge: 'bg-amber-100 text-amber-800'
+  },
+  {
+    id: '05_Ingles_8',
+    nome: 'Inglês 8',
+    ano: 8,
+    icone: 'Languages',
+    livro_pdf: '/books/livro_ingles_8ano.pdf',
+    total_recursos: 4,
+    total_manuais: 1,
+    cor: 'from-blue-500 to-indigo-600',
+    cor_badge: 'bg-blue-100 text-blue-800'
+  },
+  {
+    id: '06_Matematica_8',
+    nome: 'Matemática 8',
+    ano: 8,
+    icone: 'Calculator',
+    livro_pdf: '/books/livro_matematica_8ano.pdf',
+    total_recursos: 4,
+    total_manuais: 1,
+    cor: 'from-rose-500 to-red-600',
+    cor_badge: 'bg-rose-100 text-rose-800'
+  },
+  {
+    id: '07_Portugues_8',
+    nome: 'Português 8',
+    ano: 8,
+    icone: 'BookOpenText',
+    livro_pdf: '/books/livro_portugues_8ano.pdf',
+    total_recursos: 4,
+    total_manuais: 1,
+    cor: 'from-purple-500 to-indigo-600',
+    cor_badge: 'bg-purple-100 text-purple-800'
+  },
+  {
+    id: '08_Frances_8',
+    nome: 'Francês 8',
+    ano: 8,
+    icone: 'Compass',
+    livro_pdf: '/books/livro_frances_8ano.pdf',
+    total_recursos: 4,
+    total_manuais: 1,
+    cor: 'from-sky-500 to-indigo-600',
+    cor_badge: 'bg-sky-100 text-sky-800'
+  }
+];
+
 export default function App() {
   const [anoAtivo, setAnoAtivo] = useState(() => {
     return localStorage.getItem('ano_escolar') || '3';
@@ -86,7 +177,7 @@ export default function App() {
       return;
     }
 
-    // 7.º Ano: obter o manual escolar principal da disciplina e abrir no leitor PDF.js integrado
+    // 7.º ou 8.º Ano: obter o manual escolar principal da disciplina e abrir no leitor PDF.js integrado
     try {
       const resp = await fetch(`/api/manuais/${discId}`);
       const manuais = resp.ok ? await resp.json() : [];
@@ -98,29 +189,29 @@ export default function App() {
       if (manualPrincipal && (manualPrincipal.url_github || manualPrincipal.tem_pdf_local)) {
         const fileName = manualPrincipal.url_github
           ? decodeURIComponent(manualPrincipal.url_github.split('/').pop().split('?')[0])
-          : manualPrincipal.nome || 'manual_7ano.pdf';
+          : manualPrincipal.nome || `manual_${anoAtivo}ano.pdf`;
         const params = new URLSearchParams();
         if (fileName) params.set('file', fileName);
         if (manualPrincipal.caminho) params.set('caminho', manualPrincipal.caminho);
         if (manualPrincipal.url_github) params.set('url', manualPrincipal.url_github);
 
         setLeitorLivro({
-          id: `manual_7ano_${fileName}`,
+          id: `manual_${anoAtivo}ano_${fileName}`,
           canonicalFilename: fileName,
-          titulo: manualPrincipal.nome_simples || manualPrincipal.nome || disciplinaOuId?.nome || 'Manual 7.º Ano',
-          disciplina: disciplinaOuId?.nome || '7.º Ano',
-          ano: '7.º Ano',
+          titulo: manualPrincipal.nome_simples || manualPrincipal.nome || disciplinaOuId?.nome || `Manual ${anoAtivo}.º Ano`,
+          disciplina: disciplinaOuId?.nome || `${anoAtivo}.º Ano`,
+          ano: `${anoAtivo}.º Ano`,
           editora: manualPrincipal.projeto || 'Porto Editora / Escola Virtual',
-          paginas: 224,
+          paginas: manualPrincipal.paginas || 200,
           tamanhoFormatado: manualPrincipal.tamanho_mb ? `${manualPrincipal.tamanho_mb} MB` : 'PDF Oficial',
-          pdfUrl: `/api/pdf-proxy?${params.toString()}`,
+          pdfUrl: manualPrincipal.pdf_url || `/api/pdf-proxy?${params.toString()}`,
           downloadUrl: manualPrincipal.url_github || `/api/pdf-proxy?${params.toString()}`,
           unidades: []
         });
         setPaginaInicialLeitor(pagina || 1);
       }
     } catch (err) {
-      console.error('Erro ao abrir manual do 7.º Ano:', err);
+      console.error(`Erro ao abrir manual do ${anoAtivo}.º Ano:`, err);
     }
   };
 
@@ -134,7 +225,8 @@ export default function App() {
         return res.json();
       })
       .then((data) => {
-        const lista = data && data.length > 0 ? data : (anoAtivo === '3' ? DISCIPLINAS_3ANO_FALLBACK : []);
+        const fallback = anoAtivo === '3' ? DISCIPLINAS_3ANO_FALLBACK : anoAtivo === '8' ? DISCIPLINAS_8ANO_FALLBACK : [];
+        const lista = data && data.length > 0 ? data : fallback;
         setDisciplinas(lista);
         if (lista.length > 0) {
           setDisciplinaSelecionada(lista[0]);
@@ -142,9 +234,10 @@ export default function App() {
       })
       .catch((err) => {
         console.error('Falha ao contactar API:', err);
-        if (anoAtivo === '3') {
-          setDisciplinas(DISCIPLINAS_3ANO_FALLBACK);
-          setDisciplinaSelecionada(DISCIPLINAS_3ANO_FALLBACK[0]);
+        const fallback = anoAtivo === '3' ? DISCIPLINAS_3ANO_FALLBACK : anoAtivo === '8' ? DISCIPLINAS_8ANO_FALLBACK : [];
+        setDisciplinas(fallback);
+        if (fallback.length > 0) {
+          setDisciplinaSelecionada(fallback[0]);
         }
       })
       .finally(() => {

@@ -3235,6 +3235,65 @@ class MotorQuizzes:
                     pass
         return []
 
+    def _carregar_questoes_8ano(self, disciplina_id: str):
+        caminhos = [
+            os.path.join(DIR_DATA, "resumos_periodo", f"{disciplina_id}.json"),
+            os.path.join(os.getcwd(), "api", "data", "resumos_periodo", f"{disciplina_id}.json"),
+        ]
+        for caminho in caminhos:
+            if os.path.exists(caminho):
+                try:
+                    with open(caminho, "r", encoding="utf-8") as f:
+                        dados = json.load(f)
+                    periodos = dados.get("periodos", {})
+                    questoes = []
+                    for per_key, per_obj in periodos.items():
+                        for top in per_obj.get("topicos", []):
+                            ft = top.get("foco_teste")
+                            if ft and ft.get("questao_exemplo"):
+                                resp_certa = ft.get("proposta_resolucao", "")
+                                if len(resp_certa) > 120:
+                                    resp_certa = resp_certa[:117] + "..."
+                                questoes.append({
+                                    "periodo": per_key,
+                                    "topico": top.get("titulo", "8.º Ano"),
+                                    "dominio": top.get("subdominio", "8.º Ano"),
+                                    "dificuldade": "Médio",
+                                    "enunciado": ft.get("questao_exemplo"),
+                                    "opcoes": [
+                                        {"texto": resp_certa},
+                                        {"texto": "Incorreto devido a aplicação inadequada do critério conceptual."},
+                                        {"texto": "Incompleto por não contemplar a fundamentação pedagógica curricular."},
+                                        {"texto": "Nenhuma das opções anteriores traduz a resolução formal."}
+                                    ],
+                                    "resposta_certa_idx": 0,
+                                    "resposta_correta": resp_certa,
+                                    "explicacao": ft.get("criterio_cotacao") or ft.get("proposta_resolucao", "Resolução oficial curricular do 8.º Ano.")
+                                })
+                            for fc in top.get("flashcards", []):
+                                if fc.get("frente") and fc.get("verso"):
+                                    questoes.append({
+                                        "periodo": per_key,
+                                        "topico": top.get("titulo", "8.º Ano"),
+                                        "dominio": top.get("subdominio", "8.º Ano"),
+                                        "dificuldade": "Fácil",
+                                        "enunciado": fc["frente"],
+                                        "opcoes": [
+                                            {"texto": fc["verso"]},
+                                            {"texto": "Afirmação conceitual contrária à regra curricular."},
+                                            {"texto": "Interpretação errónea de causa e efeito."},
+                                            {"texto": "Parâmetro não aplicável ao nível do 8.º Ano."}
+                                        ],
+                                        "resposta_certa_idx": 0,
+                                        "resposta_correta": fc["verso"],
+                                        "explicacao": fc.get("dica") or "Conceito fundamental do 8.º Ano."
+                                    })
+                    if questoes:
+                        return questoes
+                except Exception:
+                    pass
+        return []
+
     def gerar_quiz_pedagogico(self, disciplina_id: str, periodo: str = "Todos", tema: str = "", quantidade: int = 8):
         """
         Gera um conjunto rigoroso e equilibrado de questões pedagógicas curadas:
@@ -3247,10 +3306,12 @@ class MotorQuizzes:
         quantidade = max(1, int(quantidade or 8))
         p_norm = self._normalizar_periodo(periodo)
 
-        # 1. Obter todas as questões curadas da disciplina (7.º Ano ou 3.º Ano)
+        # 1. Obter todas as questões curadas da disciplina (7.º Ano, 8.º Ano ou 3.º Ano)
         todas_questoes = list(QUESTOES_CURADAS_7ANO.get(disciplina_id, []))
         if not todas_questoes:
             todas_questoes = self._carregar_questoes_3ano(disciplina_id)
+        if not todas_questoes:
+            todas_questoes = self._carregar_questoes_8ano(disciplina_id)
         if not todas_questoes:
             # Fallback seguro para a primeira disciplina disponível caso ID desconhecido
             todas_questoes = list(QUESTOES_CURADAS_7ANO["01_Fisico_Quimica_7"])

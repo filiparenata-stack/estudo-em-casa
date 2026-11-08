@@ -1,0 +1,138 @@
+{
+  "disciplina_id": "08_Frances_8",
+  "disciplina_nome": "Francês 8",
+  "icone": "Compass",
+  "livro_referencia": "Mots-Clés 8 • Porto Editora",
+  "ano": 8,
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: La Vie Quotidienne, la Ville et les Transports",
+      "metas": [
+        "Parler de la routine quotidienne, des commerces et de l'orientation en ville",
+        "Utiliser le Passé Composé avec l'auxiliaire avoir et être",
+        "Employer les prépositions de lieu et les articles contractés"
+      ],
+      "topicos": [
+        {
+          "id": "fr8_p1_t1",
+          "titulo": "Le Passé Composé et les Activités Quotidiennes",
+          "subdominio": "Grammaire et Communication",
+          "conceitos_chave": [
+            {
+              "termo": "Le Passé Composé",
+              "definicao": "Temps du passé formé avec l'auxiliaire avoir ou être au présent + le participe passé du verbe (ex.: j'ai mangé, elle est partie)."
+            },
+            {
+              "termo": "Accord du Participe Passé",
+              "definicao": "Avec l'auxiliaire être, le participe passé s'accorde en genre et en nombre avec le sujet."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Conjugue au passé composé: Elles ______ (partir) en vacances en train.",
+            "proposta_resolucao": "sont parties (auxiliaire être au pluriel + accord féminin pluriel -ies).",
+            "criterio_cotacao": "Choix de l'auxiliaire être (50%) et accord correct du participe passé (50%).",
+            "erro_frequente": "Oublier l'accord en -es avec le sujet féminin pluriel."
+          },
+          "flashcards": [
+            {
+              "frente": "Quels verbes se conjuguent avec l'auxiliaire être au passé composé?",
+              "verso": "Les 14 verbes de mouvement/état (la maison d'être: aller, venir, partir, etc.) et tous les verbes pronominaux.",
+              "dica": "Maison d'être"
+            },
+            {
+              "frente": "Quel est le participe passé du verbe \"faire\" et \"prendre\"?",
+              "verso": "fait / pris.",
+              "dica": "Participes irréguliers"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Les Loisirs, la Mode et la Description Physique",
+      "metas": [
+        "Décrire les vêtements, les styles vestimentaires et exprimer des comparaisons",
+        "Utiliser l'Imparfait pour les descriptions et habitudes passées",
+        "Distinguer Passé Composé et Imparfait dans un récit"
+      ],
+      "topicos": [
+        {
+          "id": "fr8_p2_t1",
+          "titulo": "L'Imparfait et les Souvenirs d'Enfance",
+          "subdominio": "Temps du Passé",
+          "conceitos_chave": [
+            {
+              "termo": "L'Imparfait",
+              "definicao": "Formé à partir du radical de la 1ère personne du pluriel (nous) au présent + terminaisons: -ais, -ais, -ait, -ions, -iez, -aient."
+            },
+            {
+              "termo": "Comparatif",
+              "definicao": "Plus ... que (supériorité), aussi ... que (égalité), moins ... que (infériorité)."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Mets le verbe à l'imparfait: Quand nous ______ (être) petits, nous faisions du vélo tous les jours.",
+            "proposta_resolucao": "étions (radical ét- + terminaison -ions).",
+            "criterio_cotacao": "Radical et terminaison corrects.",
+            "erro_frequente": "Mettre le radical ser- ou serions."
+          },
+          "flashcards": [
+            {
+              "frente": "Quelles sont les 6 terminaisons régulières de l'Imparfait?",
+              "verso": "-ais, -ais, -ait, -ions, -iez, -aient.",
+              "dica": "Terminaisons imparfait"
+            },
+            {
+              "frente": "Comment dit-on \"Este casaco é mais caro que aquele\" en français?",
+              "verso": "Ce manteau est plus cher que celui-là.",
+              "dica": "Comparatif de supériorité"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Les Médias, l'Environnement et le Futur",
+      "metas": [
+        "Parler des nouvelles technologies, des réseaux sociaux et de la protection de la planète",
+        "Former et utiliser le Futur Simple (-ai, -as, -a, -ons, -ez, -ont)",
+        "Exprimer l'obligation avec \"Il faut + infinitif\" et le pronom 'y'"
+      ],
+      "topicos": [
+        {
+          "id": "fr8_p3_t1",
+          "titulo": "Le Futur Simple et les Gestes Écologiques",
+          "subdominio": "Futur et Environnement",
+          "conceitos_chave": [
+            {
+              "termo": "Le Futur Simple",
+              "definicao": "Infinitif du verbe (ou radical irrégulier) + terminaisons du verbe avoir: -ai, -as, -a, -ons, -ez, -ont."
+            },
+            {
+              "termo": "L'Écologie au Quotidien",
+              "definicao": "Recycler, économiser l'eau, utiliser les transports en commun, réduire les déchets."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Conjugue au futur simple: Demain, nous ______ (faire) un projet pour nettoyer la plage.",
+            "proposta_resolucao": "ferons (radical irrégulier fer- + terminaison -ons).",
+            "criterio_cotacao": "Identification du radical fer- et terminaison -ons.",
+            "erro_frequente": "Écrire \"faisons\" ou \"faierons\"."
+          },
+          "flashcards": [
+            {
+              "frente": "Quelles sont les terminaisons du Futur Simple?",
+              "verso": "-ai, -as, -a, -ons, -ez, -ont (dérivées du verbe avoir).",
+              "dica": "Terminaisons futur"
+            },
+            {
+              "frente": "Quel est le radical au futur du verbe \"aller\" et \"avoir\"?",
+              "verso": "ir- (j'irai) / aur- (j'aurai).",
+              "dica": "Radicaux irréguliers"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

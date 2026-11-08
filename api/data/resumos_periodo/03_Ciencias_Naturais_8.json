@@ -1,0 +1,142 @@
+{
+  "disciplina_id": "03_Ciencias_Naturais_8",
+  "disciplina_nome": "Ciências Naturais 8",
+  "icone": "Leaf",
+  "livro_referencia": "Planeta Vivo 8 • Porto Editora",
+  "ano": 8,
+  "periodos": {
+    "1_Periodo": {
+      "titulo": "1.º Período: Ecossistemas, Fluxos de Energia e Ciclos de Matéria",
+      "metas": [
+        "Compreender as relações bióticas intra e interespecíficas",
+        "Analisar cadeias e teias alimentares, níveis tróficos e pirâmides ecológicas",
+        "Compreender o ciclo da água, carbono e azoto nos ecossistemas"
+      ],
+      "topicos": [
+        {
+          "id": "cn8_p1_t1",
+          "titulo": "Teias Alimentares e Dinâmica Trófica",
+          "subdominio": "Ecossistemas",
+          "conceitos_chave": [
+            {
+              "termo": "Produtores",
+              "definicao": "Seres autotróficos capazes de sintetizar matéria orgânica a partir de inorgânica através da fotossíntese."
+            },
+            {
+              "termo": "Consumidores",
+              "definicao": "Seres heterotróficos que se alimentam de outros seres vivos para obter energia."
+            },
+            {
+              "termo": "Decompositores",
+              "definicao": "Fungos e bactérias que transformam matéria orgânica morta em matéria mineral."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Numa cadeia alimentar: Capim -> Gafanhoto -> Rã -> Cobra -> Águia. Identifica o consumidor secundário.",
+            "proposta_resolucao": "A rã é o consumidor secundário (o gafanhoto é o consumidor primário que se alimenta do produtor capim).",
+            "criterio_cotacao": "Identificação exata do nível trófico.",
+            "erro_frequente": "Confundir o 3º nível trófico (rã) com consumidor terciário."
+          },
+          "flashcards": [
+            {
+              "frente": "Como flui a energia ao longo de uma cadeia alimentar?",
+              "verso": "Flui de forma unidirecional, decrescendo a cada nível trófico (perdas por calor e respiração).",
+              "dica": "Fluxo unidirecional"
+            },
+            {
+              "frente": "Qual é o papel fundamental dos decompositores?",
+              "verso": "Reciclar a matéria orgânica, convertendo-a em nutrientes minerais reutilizáveis pelos produtores.",
+              "dica": "Reciclagem de nutrientes"
+            }
+          ]
+        }
+      ]
+    },
+    "2_Periodo": {
+      "titulo": "2.º Período: Gestão dos Ecossistemas e Serviços dos Ecossistemas",
+      "metas": [
+        "Avaliar os serviços prestados pelos ecossistemas (suporte, regulação, aprovisionamento e culturais)",
+        "Reconhecer as causas da perda de biodiversidade e espécies invasoras",
+        "Identificar medidas de conservação e áreas protegidas"
+      ],
+      "topicos": [
+        {
+          "id": "cn8_p2_t1",
+          "titulo": "Biodiversidade e Espécies Invasoras",
+          "subdominio": "Conservação",
+          "conceitos_chave": [
+            {
+              "termo": "Espécie Invasora",
+              "definicao": "Espécie exótica que prolifera descontroladamente, ameaçando as espécies autóctones e o equilíbrio dos ecossistemas."
+            },
+            {
+              "termo": "Biodiversidade",
+              "definicao": "Diversidade de genes, espécies e ecossistemas presentes numa região ou em todo o planeta."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Indica dois impactos negativos provocados pela introdução de espécies invasoras como a mimosa (Acacia dealbata) em Portugal.",
+            "proposta_resolucao": "Competição excessiva com espécies nativas por água/luz e aumento do risco de propagação de incêndios.",
+            "criterio_cotacao": "Apresentação de dois impactos biológicos ou ecológicos corretos.",
+            "erro_frequente": "Afirmar que a espécie invasora aumenta a biodiversidade real do ecossistema."
+          },
+          "flashcards": [
+            {
+              "frente": "O que é uma espécie autóctone?",
+              "verso": "Uma espécie originária da região geográfica onde habita naturalmente.",
+              "dica": "Nativa"
+            },
+            {
+              "frente": "Dá um exemplo de espécie vegetal invasora em Portugal.",
+              "verso": "Acácia (ou mimosa) e chorão-das-praias.",
+              "dica": "Flora invasora"
+            }
+          ]
+        }
+      ]
+    },
+    "3_Periodo": {
+      "titulo": "3.º Período: Perturbações nos Ecossistemas e Sustentabilidade",
+      "metas": [
+        "Compreender o efeito de estufa e as alterações climáticas globais",
+        "Analisar a poluição do ar, água e solo e a bioacumulação",
+        "Reconhecer estratégias de desenvolvimento sustentável e economia circular"
+      ],
+      "topicos": [
+        {
+          "id": "cn8_p3_t1",
+          "titulo": "Alterações Climáticas e Bioacumulação",
+          "subdominio": "Sustentabilidade",
+          "conceitos_chave": [
+            {
+              "termo": "Bioampliação",
+              "definicao": "Aumento da concentração de substâncias tóxicas não biodegradáveis ao longo dos níveis tróficos de uma cadeia alimentar."
+            },
+            {
+              "termo": "Efeito de Estufa",
+              "definicao": "Processo natural de retenção de radiação infravermelha por gases na atmosfera (CO₂, CH₄, vapor de água), essencial à vida, mas agravado pela atividade humana."
+            }
+          ],
+          "foco_teste": {
+            "questao_exemplo": "Numa lagoa contaminada com mercúrio, que nível trófico apresentará a maior concentração do poluente?",
+            "proposta_resolucao": "Os predadores de topo (consumidores terciários/quaternários), devido ao fenómeno da bioampliação ao longo da cadeia alimentar.",
+            "criterio_cotacao": "Identificação do nível de topo e fundamentação no conceito de bioampliação.",
+            "erro_frequente": "Dizer que são os produtores por estarem em contacto direto com a água."
+          },
+          "flashcards": [
+            {
+              "frente": "O que é a bioampliação (ou bioacumulação ao longo da teia)?",
+              "verso": "A concentração progressiva de um poluente acumulado nos tecidos dos seres vivos a cada nível trófico superior.",
+              "dica": "Poluentes persistentes"
+            },
+            {
+              "frente": "Quais são os principais gases com efeito de estufa libertados pela queima de combustíveis fósseis?",
+              "verso": "Dióxido de carbono (CO₂) e óxidos de azoto.",
+              "dica": "GEE"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -11,6 +11,7 @@ export default function Navbar({
   totalFicheiros = 4987
 }) {
   const is3Ano = anoAtivo === '3';
+  const is8Ano = anoAtivo === '8';
 
   const periodos = [
     { id: 'Todos', label: 'Todo o Ano' },
@@ -36,6 +37,8 @@ export default function Navbar({
               className={`w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-md transition-all ${
                 is3Ano
                   ? 'bg-gradient-to-tr from-purple-600 via-pink-600 to-indigo-600 shadow-purple-500/20'
+                  : is8Ano
+                  ? 'bg-gradient-to-tr from-emerald-600 via-teal-600 to-cyan-600 shadow-emerald-500/20'
                   : 'bg-gradient-to-tr from-blue-600 to-indigo-600 shadow-blue-500/20'
               }`}
             >
@@ -44,21 +47,29 @@ export default function Navbar({
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
-                  {is3Ano ? 'Estudo em Casa • 3.º Ano' : 'Escola Virtual • 7.º Ano'}
+                  {is3Ano
+                    ? 'Estudo em Casa • 3.º Ano'
+                    : is8Ano
+                    ? 'Escola Virtual • 8.º Ano'
+                    : 'Escola Virtual • 7.º Ano'}
                 </h1>
                 <span
                   className={`px-2 py-0.5 text-[11px] font-semibold rounded-full border ${
                     is3Ano
                       ? 'bg-purple-100 text-purple-800 border-purple-200'
+                      : is8Ano
+                      ? 'bg-emerald-100 text-emerald-800 border-emerald-200'
                       : 'bg-blue-100 text-blue-700 border-blue-200'
                   }`}
                 >
-                  {is3Ano ? 'Área da Renata' : 'Assistente 7.º'}
+                  {is3Ano ? 'Área da Renata' : is8Ano ? 'Assistente 8.º' : 'Assistente 7.º'}
                 </span>
               </div>
               <p className="text-xs text-slate-500 hidden sm:block">
                 {is3Ano
                   ? 'Manuais escolares digitalizados, resumos e quizzes da Renata (1.º Ciclo)'
+                  : is8Ano
+                  ? 'Manuais, resumos curriculares e simulador de testes oficiais do 8.º Ano (3.º Ciclo)'
                   : 'Resumos inteligentes e testes interativos baseados nos manuais oficiais'}
               </p>
             </div>
@@ -79,12 +90,22 @@ export default function Navbar({
             <button
               onClick={() => setAnoAtivo && setAnoAtivo('7')}
               className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
-                !is3Ano
+                anoAtivo === '7'
                   ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
               <span>🎓 7.º Ano</span>
+            </button>
+            <button
+              onClick={() => setAnoAtivo && setAnoAtivo('8')}
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
+                is8Ano
+                  ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/20'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+              }`}
+            >
+              <span>🚀 8.º Ano</span>
             </button>
           </div>
         </div>
