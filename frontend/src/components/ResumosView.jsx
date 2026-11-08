@@ -350,11 +350,11 @@ export default function ResumosView({
 
         {/* Botões de Exportação e Estudo */}
         <div className="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap">
-          {is3Ano && onAbrirLivro && (
+          {onAbrirLivro && (
             <button
               onClick={() => onAbrirLivro(disciplina, 1)}
               className="px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm shadow-purple-600/20 transition-all cursor-pointer"
-              title="Abrir o manual escolar no leitor online"
+              title="Abrir o manual escolar no leitor online integrado no browser"
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>Ler Manual Online</span>

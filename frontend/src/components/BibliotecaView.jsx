@@ -72,6 +72,32 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
     setLeitorAberto(true);
   };
 
+  // Abrir manual do 7.º Ano no Leitor Online Integrado (PDF.js via proxy HTTP Range)
+  const handleLerManual7Ano = (m) => {
+    const fileName = m.url_github
+      ? decodeURIComponent(m.url_github.split('/').pop().split('?')[0])
+      : m.nome || 'manual_7ano.pdf';
+    const params = new URLSearchParams();
+    if (fileName) params.set('file', fileName);
+    if (m.caminho) params.set('caminho', m.caminho);
+    if (m.url_github) params.set('url', m.url_github);
+
+    const livro7Ano = {
+      id: `manual_7ano_${fileName}`,
+      canonicalFilename: fileName,
+      titulo: m.nome_simples || m.nome || 'Manual 7.º Ano',
+      disciplina: disciplina?.nome || '7.º Ano',
+      ano: '7.º Ano',
+      editora: m.projeto || 'Porto Editora / Escola Virtual',
+      paginas: 224,
+      tamanhoFormatado: m.tamanho_mb ? `${m.tamanho_mb} MB` : 'PDF Oficial',
+      pdfUrl: `/api/pdf-proxy?${params.toString()}`,
+      downloadUrl: m.url_github || `/api/pdf-proxy?${params.toString()}`,
+      unidades: []
+    };
+    handleLerOnline(livro7Ano, 1);
+  };
+
   // Abrir o Modal de Resumos e Estrutura Curricular
   const handleAbrirResumos = (livro) => {
     if (onVerResumos && typeof onVerResumos === 'function') {
@@ -410,22 +436,34 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
                   <span className="text-[11px] font-semibold text-slate-400">
                     {m.tamanho_mb ? `${m.tamanho_mb} MB` : '7.º Ano'}
                   </span>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    {(m.url_github || m.tem_pdf_local) && (
+                      <button
+                        onClick={() => handleLerManual7Ano(m)}
+                        className="px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center gap-1 transition-all shadow-sm cursor-pointer"
+                        title="Abrir e ler este manual diretamente dentro do browser"
+                      >
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>Ler Online</span>
+                      </button>
+                    )}
                     {m.url_github && (
                       <a
                         href={m.url_github}
+                        download
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center gap-1 transition-all shadow-sm"
-                        title="Ler ou descarregar o PDF original alojado no GitHub"
+                        className="px-2.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-600 text-emerald-700 hover:text-white border border-emerald-200 text-xs font-semibold flex items-center gap-1 transition-all"
+                        title="Descarregar o ficheiro PDF completo para o dispositivo"
                       >
-                        Ver PDF <ExternalLink className="w-3 h-3" />
+                        <Download className="w-3 h-3" />
+                        <span>PDF</span>
                       </a>
                     )}
                     {m.tem_pdf_local && (
                       <button
                         onClick={() => abrirFicheiro(m.caminho)}
-                        className="px-2.5 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-600 text-blue-700 hover:text-white text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer"
+                        className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer"
                         title="Abrir no leitor de PDF do teu computador"
                       >
                         PC <ExternalLink className="w-3 h-3" />
@@ -438,7 +476,7 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
                       className="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1 transition-all"
                       title="Abrir na Escola Virtual"
                     >
-                      Online <ExternalLink className="w-3 h-3" />
+                      EV <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
                 </div>
