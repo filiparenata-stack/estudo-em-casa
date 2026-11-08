@@ -23,15 +23,22 @@ import {
   Search
 } from 'lucide-react';
 
+import { LIVROS_RENATA_3ANO } from '../data/booksCatalog';
+
 export default function ResumosView({
   disciplina,
   periodo,
   onMudarPeriodo,
+  anoAtivo = '3',
   onIniciarQuiz,
   onIrParaFlashcards,
+  onAbrirLivro,
   resumoAtual,
   setResumoAtual
 }) {
+  const is3Ano = anoAtivo === '3' || disciplina?.ano === 3 || disciplina?.id?.endsWith('_3ano');
+  const [unidadeFiltro, setUnidadeFiltro] = useState('');
+
   // Estado do Período selecionado (1_Periodo, 2_Periodo, 3_Periodo)
   const [periodoAtivo, setPeriodoAtivo] = useState(
     periodo && periodo !== 'Todos' ? periodo : '1_Periodo'
