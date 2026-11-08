@@ -29,7 +29,7 @@ export default function BookReaderModal({
   const [zoom, setZoom] = useState(100);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(Boolean(book?.unidades && book.unidades.length > 0));
   const modalRef = useRef(null);
   const iframeRef = useRef(null);
 
@@ -339,7 +339,17 @@ export default function BookReaderModal({
               </div>
 
               <div className="p-2 space-y-1.5">
-                {book.unidades?.map((u) => {
+                {(!book.unidades || book.unidades.length === 0) ? (
+                  <div className={`p-4 text-center rounded-xl border text-xs ${
+                    darkMode ? 'bg-slate-800/40 border-slate-700 text-slate-400' : 'bg-white border-slate-200 text-slate-500'
+                  }`}>
+                    <p className="font-semibold text-slate-700 dark:text-slate-200">Manual Integral</p>
+                    <p className="mt-1 text-[11px] leading-relaxed">
+                      Este manual encontra-se digitalizado na íntegra. Folheia o conteúdo usando a barra inferior ou as teclas ← e →.
+                    </p>
+                  </div>
+                ) : (
+                  book.unidades.map((u) => {
                   const isActive =
                     currentPage >= u.paginaInicio && currentPage <= u.paginaFim;
                   return (
@@ -397,7 +407,7 @@ export default function BookReaderModal({
                       )}
                     </button>
                   );
-                })}
+                }))}
               </div>
             </aside>
           )}

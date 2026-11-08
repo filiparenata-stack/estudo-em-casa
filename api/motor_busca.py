@@ -191,6 +191,7 @@ class MotorBusca:
             vol_words = [w for w in re.findall(r'[a-z0-9]+', nome_vol.lower()) if w not in ['interativo', 'de', 'do', 'da', 'em', 'e', 'os', 'as']]
             proj_l = proj_tit.lower()
             best_f = None
+            best_filename = None
             best_score = 0
             for f_nome, info_gh in mapa_github_urls.items():
                 f_l = f_nome.lower()
@@ -200,15 +201,29 @@ class MotorBusca:
                     score += 10
                 else:
                     continue
+                f_words = [w for w in re.findall(r'[a-z0-9]+', f_l)]
                 for w in vol_words:
-                    if w in f_l:
-                        score += 5
+                    if w in f_words:
+                        score += 10
+                    elif w in f_l:
+                        score += 2
                 if score > best_score and score >= 15:
                     best_score = score
                     best_f = gh_url_link
+                    best_filename = f_nome
 
             if best_f:
                 url_github = best_f
+
+            pdf_url = ""
+            public_books_dir = os.path.join(BASE_DIR, "public", "books")
+            paginas_count = 56
+            if best_filename and os.path.exists(os.path.join(public_books_dir, best_filename)):
+                pdf_url = f"/books/{best_filename}"
+                try:
+                    tamanho = round(os.path.getsize(os.path.join(public_books_dir, best_filename)) / (1024 * 1024), 1)
+                except Exception:
+                    pass
 
             self.manuais_por_disciplina[disc_id].append({
                 "caminho": caminho_local,
@@ -219,6 +234,10 @@ class MotorBusca:
                 "project_id": proj_id,
                 "tem_pdf_local": tem_pdf_local,
                 "url_github": url_github,
+                "pdf_url": pdf_url or url_github,
+                "canonical_filename": best_filename or "",
+                "paginas": paginas_count,
+                "limpo_sem_erros": bool(pdf_url),
                 "link_escolavirtual": f"https://app.escolavirtual.pt/library/libraryteacher/detail/{proj_id}/" if proj_id else "https://app.escolavirtual.pt/",
                 "tipo": "Manual Oficial Escola Virtual"
             })

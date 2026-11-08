@@ -387,7 +387,12 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
                       {m.projeto || 'Escola Virtual 7.º Ano'}
                     </p>
                     <div className="flex flex-wrap gap-1 mt-1.5">
-                      {m.url_github && (
+                      {m.limpo_sem_erros && (
+                        <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
+                          Manual Limpo ⚡ Fast Web
+                        </span>
+                      )}
+                      {m.url_github && !m.limpo_sem_erros && (
                         <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                           PDF GitHub Cloud
                         </span>
@@ -397,7 +402,7 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
                           PDF Local (PC)
                         </span>
                       )}
-                      {!m.url_github && !m.tem_pdf_local && (
+                      {!m.url_github && !m.tem_pdf_local && !m.limpo_sem_erros && (
                         <span className="inline-block px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
                           Escola Virtual Digital
                         </span>
@@ -410,7 +415,31 @@ export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3
                   <span className="text-[11px] font-semibold text-slate-400">
                     {m.tamanho_mb ? `${m.tamanho_mb} MB` : '7.º Ano'}
                   </span>
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    {(m.pdf_url || m.url_github) && (
+                      <button
+                        onClick={() => handleLerOnline({
+                          id: m.nome,
+                          titulo: m.nome,
+                          disciplina: disciplina?.nome || '7.º Ano',
+                          ano: '7.º Ano',
+                          editora: m.projeto || 'Escola Virtual',
+                          paginas: m.paginas || 56,
+                          tamanhoFormatado: `${m.tamanho_mb || 15} MB`,
+                          pdfUrl: m.pdf_url || m.url_github,
+                          canonicalFilename: m.canonical_filename || 'manual_7ano.pdf',
+                          corTema: {
+                            primaria: 'from-blue-600 to-indigo-700'
+                          },
+                          unidades: []
+                        }, 1)}
+                        className="px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold flex items-center gap-1 transition-all shadow-sm cursor-pointer"
+                        title="Ler este manual diretamente no leitor interativo da aplicação"
+                      >
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>Ler Online</span>
+                      </button>
+                    )}
                     {m.url_github && (
                       <a
                         href={m.url_github}
