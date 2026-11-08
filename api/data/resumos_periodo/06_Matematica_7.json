@@ -33,14 +33,16 @@
               "definicao": "a⁻ⁿ = 1 / aⁿ e (a/b)⁻ⁿ = (b/a)ⁿ. Inverte-se a base e muda-se o sinal do expoente!"
             }
           ],
-          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p1_t1_1.png",
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p1_t1_manual.png",
           "imagem_legenda": "Quadro resumo oficial das regras operatórias de potências com exemplos práticos.",
           "foco_teste": {
             "questao_exemplo": "Escreve sob a forma de uma única potência a expressão: [(-3)⁴ × (-3)⁻²]³ : (-3)⁵.",
-            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p1_t1_1.png",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p1_t1_questao.png",
             "proposta_resolucao": "1.º Dentro de parênteses retos (mesma base, somam-se expoentes): (-3)⁴⁺⁽⁻²⁾ = (-3)². 2.º Potência de potência: [(-3)²]³ = (-3)²ˣ³ = (-3)⁶. 3.º Divisão (mesma base, subtraem-se expoentes): (-3)⁶ : (-3)⁵ = (-3)⁶⁻⁵ = (-3)¹ = -3.",
             "criterio_cotacao": "Aplicação sequencial das regras operatórias (60%) e resultado final em potência única (40%).",
-            "erro_frequente": "Multiplicar as bases em vez de somar os expoentes quando as bases são iguais."
+            "erro_frequente": "Multiplicar as bases em vez de somar os expoentes quando as bases são iguais.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Simplificação de expressão numérica numa única potência"
           },
           "flashcards": [
             {
@@ -52,7 +54,36 @@
               "frente": "Qual o resultado de 7⁵ × 2⁵?",
               "verso": "(7 × 2)⁵ = 14⁵ (mesmo expoente, multiplicam-se as bases).",
               "dica": "Mesmo expoente"
+            },
+            {
+              "frente": "Qual o cuidado essencial na resolução de Regras das Potências e Expoente Negativo?",
+              "verso": "Multiplicar as bases em vez de somar os expoentes quando as bases são iguais.",
+              "dica": "Alerta de Exame"
             }
+          ],
+          "subtitulo": "Operações com Potências de Base Racional, Sinal da Potência e Regras de Prioridade",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 14–48",
+          "resumo_executivo": "Aplicação rigorosa das propriedades da multiplicação e divisão de potências (com a mesma base ou com o mesmo expoente), potência de potência, expoente nulo e expoente inteiro negativo em expressões numéricas.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Regras de Multiplicação e Divisão",
+              "conteudo": "aᵐ × aⁿ = aᵐ⁺ⁿ  |  aⁿ × bⁿ = (a × b)ⁿ  |  aᵐ : aⁿ = aᵐ⁻ⁿ  |  aⁿ : bⁿ = (a : b)ⁿ."
+            },
+            {
+              "titulo": "Potência de Potência e Sinal",
+              "conteudo": "(aᵐ)ⁿ = aᵐˣⁿ  |  a⁻ⁿ = (1/a)ⁿ  |  Base negativa: expoente PAR dá (+), expoente ÍMPAR dá (−)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p1_t1_questao.png",
+          "dicas_professor": [
+            "Atenção à diferença crítica entre (-3)² = (-3) × (-3) = +9 e -3² = -(3 × 3) = -9 (sem parênteses, o sinal menos não está elevado ao quadrado!).",
+            "Não existem regras de potências para a SOMA ou SUBTRAÇÃO (ex.: 2³ + 2² calcula-se fazendo 8 + 4 = 12, nunca somes os expoentes!)."
+          ],
+          "checklist": [
+            "Domino as 5 regras operatórias das potências e o expoente negativo.",
+            "Identifico imediatamente o sinal de uma potência de base negativa pelo expoente par/ímpar.",
+            "Distingo (-a)ⁿ de -aⁿ nas expressões numéricas."
           ]
         },
         {
@@ -73,14 +104,16 @@
               "definicao": "A vírgula avança para a direita e o expoente n é negativo (ex.: 0,000032 = 3,2 × 10⁻⁵)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p1_t2_1.png",
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p1_t2_manual.png",
           "imagem_legenda": "Regras de deslocamento da vírgula e ordem de grandeza na notação científica.",
           "foco_teste": {
             "questao_exemplo": "Efetua a operação e apresenta o resultado em notação científica: (3 × 10⁴) × (5 × 10⁻⁷).",
-            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p1_t2_1.png",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p1_t2_questao.png",
             "proposta_resolucao": "(3 × 5) × (10⁴ × 10⁻⁷) = 15 × 10⁻³. Como 15 não está entre 1 e 10, ajustamos: 15 = 1,5 × 10¹. Logo: 1,5 × 10¹ × 10⁻³ = 1,5 × 10⁻².",
             "criterio_cotacao": "Multiplicação dos coeficientes e das potências de 10 (50%) + conversão final para notação científica estrita (50%).",
-            "erro_frequente": "Deixar o resultado como 15 × 10⁻³ (não é notação científica válida porque 15 ≥ 10)."
+            "erro_frequente": "Deixar o resultado como 15 × 10⁻³ (não é notação científica válida porque 15 ≥ 10).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Operações e ordenação de números em notação científica"
           },
           "flashcards": [
             {
@@ -92,7 +125,36 @@
               "frente": "Como se escreve 0,00045 em notação científica?",
               "verso": "4,5 × 10⁻⁴ (a vírgula deslocou 4 casas para a direita).",
               "dica": "Expoente negativo"
+            },
+            {
+              "frente": "Qual o cuidado essencial na resolução de Notação Científica?",
+              "verso": "Deixar o resultado como 15 × 10⁻³ (não é notação científica válida porque 15 ≥ 10).",
+              "dica": "Alerta de Exame"
             }
+          ],
+          "subtitulo": "Escrita Canónica (a × 10ⁿ), Comparação de Grandezas e Operações em Notação Científica",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 50–78",
+          "resumo_executivo": "Representação de números muito grandes ou muito pequenos em notação científica (1 ≤ a < 10), comparação de ordens de grandeza e realização de produtos, quocientes, adições e subtrações em notação científica.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Condição de Notação Científica",
+              "conteudo": "N = a × 10ⁿ, com 1 ≤ a < 10 e n ∈ ℤ (ex.: 3,4 × 10⁵ é válido; 34 × 10⁴ não está em notação científica)."
+            },
+            {
+              "titulo": "Operações (Multiplicação e Divisão)",
+              "conteudo": "(a × 10ᵐ) × (b × 10ⁿ) = (a × b) × 10ᵐ⁺ⁿ  |  (a × 10ᵐ) : (b × 10ⁿ) = (a : b) × 10ᵐ⁻ⁿ."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p1_t2_questao.png",
+          "dicas_professor": [
+            "Para comparar dois números em notação científica, olha PRIMEIRO para o expoente da potência de 10: quem tiver maior expoente é o maior número (cuidado nos negativos: 10⁻³ > 10⁻⁵!).",
+            "Na soma ou subtração (ex.: 4×10⁵ + 3×10⁴), tens de igualar primeiro as potências de base 10 antes de somar os coeficientes."
+          ],
+          "checklist": [
+            "Converto qualquer número decimal ou inteiro para notação científica.",
+            "Ordeno números em notação científica comparando os expoentes de base 10.",
+            "Multiplico e divido números em notação científica ajustando o coeficiente final para [1, 10[."
           ]
         }
       ]
@@ -123,14 +185,16 @@
               "definicao": "Possível e Determinada: tem 1 solução única (x = a). Possível e Indeterminada: 0x = 0 (infinitas soluções, CS = R). Impossível: 0x = k (nenhuma solução, CS = ∅)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p2_t1_2.png",
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p2_t1_manual.png",
           "imagem_legenda": "Guia algorítmico passo a passo para resolução de equações com denominadores e parênteses.",
           "foco_teste": {
             "questao_exemplo": "Resolve a equação em Q: (2x - 1) / 3 - (x + 2) / 2 = 1.",
-            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p2_t1_1.png",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p2_t1_questao.png",
             "proposta_resolucao": "1.º mmc(3, 2) = 6. Multiplicando cada termo: 2(2x - 1) / 6 - 3(x + 2) / 6 = 6 / 6. 2.º Eliminando denominadores: 4x - 2 - 3x - 6 = 6. 3.º Agrupando: x - 8 = 6 ➔ x = 6 + 8 ➔ x = 14. Conjunto Solução: CS = {14}. Equação Possível e Determinada.",
             "criterio_cotacao": "Redução ao mesmo denominador (25%), atenção ao sinal menos antes do parênteses (-3x - 6) (35%), isolamento e CS (40%).",
-            "erro_frequente": "Não trocar o sinal de todos os termos do numerador quando há um sinal menos antes do traço de fração!"
+            "erro_frequente": "Não trocar o sinal de todos os termos do numerador quando há um sinal menos antes do traço de fração!",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Resolução de equação com parênteses e denominadores + Problema"
           },
           "flashcards": [
             {
@@ -142,7 +206,111 @@
               "frente": "O que acontece ao sinal do numerador quando temos -(x - 5)?",
               "verso": "Fica -x + 5 (o sinal menos antes do parênteses inverte todos os sinais no interior).",
               "dica": "Cuidado com o sinal menos"
+            },
+            {
+              "frente": "Qual o cuidado essencial na resolução de Resolução e Classificação de Equações do 1.º Grau?",
+              "verso": "Não trocar o sinal de todos os termos do numerador quando há um sinal menos antes do traço de fração!",
+              "dica": "Alerta de Exame"
             }
+          ],
+          "subtitulo": "Princípios de Equivalência, Equações com Parênteses e Denominadores e Classificação em Q",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 82–118",
+          "resumo_executivo": "Resolução metódica de equações do 1.º grau a uma incógnita (desembaraçar de parênteses, reduzir ao mesmo denominador, transpor termos e isolar a incógnita), classificação das equações e resolução de problemas algébricos.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Algoritmo de Resolução em 4 Passos",
+              "conteudo": "1.º Tirar parênteses ➔ 2.º Igualar e cortar denominadores (m.m.c.) ➔ 3.º Termos com x num membro, números no outro ➔ 4.º Isolar x e escrever C.S."
+            },
+            {
+              "titulo": "Classificação de Equações do 1.º Grau",
+              "conteudo": "x = a ➔ Possível e Determinada | 0x = 0 ➔ Possível e Indeterminada | 0x = k (k≠0) ➔ Impossível (C.S. = ∅)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p2_t1_questao.png",
+          "dicas_professor": [
+            "Armadilha mortal dos testes: quando tens um sinal MENOS antes de uma fração, ex.: -(x - 3)/2, ao tirares os denominadores o sinal menos troca TODOS os sinais do numerador: fica -x + 3!",
+            "Nunca te esqueças de reduzir TODOS os termos da equação ao mesmo denominador (incluindo os números inteiros que têm denominador 1)."
+          ],
+          "checklist": [
+            "Resolvo equações com parênteses e denominadores sem errar os sinais.",
+            "Classifico equações em Possível Determinada, Possível Indeterminada e Impossível.",
+            "Traduzo enunciados de problemas para linguagem algébrica e apresento o Conjunto-Solução (C.S.)."
+          ]
+        },
+        {
+          "id": "mat7_p2_t2",
+          "titulo": "Geometria: Ângulos, Paralelismo, Triângulos e Quadriláteros",
+          "subdominio": "Geometria e Medida - Figuras Planas",
+          "conceitos_chave": [
+            {
+              "termo": "Ângulos Verticalmente Opostos e de Lados Paralelos",
+              "definicao": "Ângulos verticalmente opostos são geometricamente iguais. Duas retas paralelas intersetadas por uma secante formam ângulos alternos internos iguais e ângulos correspondentes iguais."
+            },
+            {
+              "termo": "Soma dos Ângulos de um Triângulo",
+              "definicao": "A soma das amplitudes dos três ângulos internos de qualquer triângulo é sempre igual a 180° (α + β + γ = 180°). A soma dos ângulos externos é 360°."
+            },
+            {
+              "termo": "Teorema do Ângulo Externo e Desigualdade Triangular",
+              "definicao": "A amplitude de qualquer ângulo externo de um triângulo é igual à soma das amplitudes dos dois ângulos internos não adjacentes. Num triângulo, qualquer lado é menor que a soma dos outros dois e maior que a sua diferença."
+            },
+            {
+              "termo": "Critérios de Igualdade de Triângulos e Áreas",
+              "definicao": "Critérios de congruência: LLL (Lado-Lado-Lado), LAL (Lado-Ângulo-Lado) e ALA (Ângulo-Lado-Ângulo). Área do Trapézio: A = [(B + b) / 2] × h; Área do Papagaio/Losango: A = (D × d) / 2."
+            }
+          ],
+          "imagem_legenda": "Propriedades dos ângulos em retas paralelas, teorema do ângulo externo num triângulo e fórmulas de áreas de polígonos.",
+          "foco_teste": {
+            "questao_exemplo": "Num triângulo [ABC], sabe-se que o ângulo interno em A mede 48° e que o ângulo externo adjacente ao vértice C mede 115°. Determina as amplitudes dos ângulos internos em B e em C, justificando todos os passos.",
+            "proposta_resolucao": "1.º Pelo Teorema do Ângulo Externo, o ângulo externo em C (115°) é igual à soma dos dois ângulos internos não adjacentes (A e B): 115° = 48° + B̂ ⇔ B̂ = 115° - 48° = 67°. 2.º Como o ângulo interno e o externo em C são suplementares (formam um ângulo raso de 180°): Ĉ = 180° - 115° = 65°. (Verificação: 48° + 67° + 65° = 180°).",
+            "criterio_cotacao": "Cálculo correto de Ĉ por ângulos suplementares (40%) + cálculo correto de B̂ pela soma dos ângulos internos ou teorema do ângulo externo (60%).",
+            "erro_frequente": "Esquecer o símbolo de graus (°) ou confundir ângulos complementares (soma = 90°) com ângulos suplementares (soma = 180°).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Determinação justificada de amplitudes de ângulos e áreas",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p2_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Qual é a soma dos ângulos internos de qualquer triângulo e de qualquer quadrilátero?",
+              "verso": "Triângulo: 180°. Quadrilátero: 360° (No geral, para um polígono de n lados: S_i = (n - 2) × 180°).",
+              "dica": "Teorema fundamental"
+            },
+            {
+              "frente": "É possível construir um triângulo cujos lados meçam 3 cm, 4 cm e 8 cm?",
+              "verso": "Não! Pela desigualdade triangular, o lado maior (8 cm) teria de ser estritamente menor do que a soma dos outros dois (3 + 4 = 7 cm). Como 8 > 7, o triângulo não fecha.",
+              "dica": "Desigualdade triangular"
+            },
+            {
+              "frente": "Qual é a fórmula da área de um trapézio de base maior B, base menor b e altura h?",
+              "verso": "A = [(B + b) / 2] × h (soma das bases a dividir por 2, multiplicada pela altura).",
+              "dica": "Áreas de figuras planas"
+            }
+          ],
+          "subtitulo": "Ângulos em Retas Paralelas, Soma dos Ângulos Internos/Externos, Triângulos e Áreas",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 120–164",
+          "resumo_executivo": "Estudo dedutivo das relações angulares (ângulos verticalmente opostos, suplementares, alternos internos), propriedades dos triângulos (soma dos ângulos internos = 180°, teorema do ângulo externo, desigualdade triangular, critérios LLL, LAL, ALA) e cálculo de áreas de quadriláteros.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Teoremas Angulares no Triângulo",
+              "conteudo": "Soma dos ângulos internos: α + β + γ = 180° | Ângulo externo: δ_ext = α + β (soma dos 2 internos não adjacentes)."
+            },
+            {
+              "titulo": "Áreas de Polígonos Notáveis",
+              "conteudo": "Triângulo: (b × h)/2 | Paralelogramo: b × h | Trapézio: [(B + b)/2] × h | Losango/Papagaio: (D × d)/2."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p2_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p2_t2_questao.png",
+          "dicas_professor": [
+            "Nos exercícios de geometria, a justificação vale metade da cotação: escreve sempre 'porque são ângulos verticalmente opostos', 'porque são alternos internos' ou 'pelo teorema do ângulo externo'.",
+            "Relaciona sempre os lados com os ângulos de um triângulo: ao maior lado opõe-se sempre o maior ângulo, e a lados iguais opõem-se ângulos iguais (triângulo isósceles)!"
+          ],
+          "checklist": [
+            "Calculo ângulos desconhecidos usando paralelismo e propriedades dos triângulos.",
+            "Verifico se 3 comprimentos podem formar um triângulo pela desigualdade triangular.",
+            "Aplico os critérios de igualdade de triângulos (LLL, LAL, ALA) e fórmulas de áreas."
           ]
         }
       ]
@@ -173,14 +341,16 @@
               "definicao": "f(x) = kx. Se k > 0 a reta é crescente; se k < 0 a reta é decrescente."
             }
           ],
-          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p3_t1_1.png",
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p3_t1_manual.png",
           "imagem_legenda": "Gráfico da reta y = kx passando na origem (0,0) e tabela de valores com razão constante k = y/x.",
           "foco_teste": {
             "questao_exemplo": "Uma torneira aberta despeja água a caudal constante. Ao fim de 4 minutos despejou 28 litros. (a) Determina a constante de proporcionalidade direta e o seu significado. (b) Escreve a expressão que dá o volume V em função do tempo t.",
-            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p3_t1_1.png",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p3_t1_questao.png",
             "proposta_resolucao": "(a) k = V / t = 28 / 4 = 7. Significado: o caudal da torneira é de 7 litros por cada minuto. (b) Expressão algébrica: V(t) = 7t.",
             "criterio_cotacao": "Cálculo de k e indicação do significado físico com unidades l/min (60%) e expressão correta (40%).",
-            "erro_frequente": "Inverter a razão calculando 4/28 em vez de 28/4."
+            "erro_frequente": "Inverter a razão calculando 4/28 em vez de 28/4.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Problema de proporcionalidade direta com tabela, gráfico e expressão algébrica"
           },
           "flashcards": [
             {
@@ -192,7 +362,36 @@
               "frente": "Como se calcula a constante de proporcionalidade direta k a partir de um ponto (x, y)?",
               "verso": "k = y / x (a coordenada y dividida pela coordenada x).",
               "dica": "Fórmula k"
+            },
+            {
+              "frente": "Qual o cuidado essencial na resolução de Função de Proporcionalidade Direta (y = kx)?",
+              "verso": "Inverter a razão calculando 4/28 em vez de 28/4.",
+              "dica": "Alerta de Exame"
             }
+          ],
+          "subtitulo": "Conceito de Função, Constante de Proporcionalidade Direta (k = y/x) e Gráfico Cartesiano",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 168–202",
+          "resumo_executivo": "Caracterização de correspondências funcionais (domínio, contradomínio, objeto e imagem) e estudo analítico, tabular e gráfico da função de proporcionalidade direta f(x) = kx e resolução de problemas com percentagens e escalas.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Função de Proporcionalidade Direta",
+              "conteudo": "Expressão algébrica: y = k · x (ou f(x) = kx), onde a constante k = y / x é sempre igual para qualquer par (x, y)."
+            },
+            {
+              "titulo": "Gráfico Cartesiano",
+              "conteudo": "Conjunto de pontos alinhados sobre uma reta que passa obrigatoriamente na origem do referencial O(0, 0)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p3_t1_questao.png",
+          "dicas_professor": [
+            "Distingue sempre: x é o OBJETO (variável independente, eixo horizontal das abcissas) e y = f(x) é a IMAGEM (variável dependente, eixo vertical das ordenadas).",
+            "Se o gráfico for uma linha reta mas NÃO passar no ponto (0, 0), então NÃO é uma função de proporcionalidade direta!"
+          ],
+          "checklist": [
+            "Identifico o Domínio (objetos x) e o Contradomínio (imagens y) de uma função.",
+            "Verifico se uma tabela representa proporcionalidade direta dividindo y por x em todas as colunas.",
+            "Escrevo a expressão f(x) = kx e interpreto o significado da constante k no contexto do problema."
           ]
         },
         {
@@ -213,14 +412,16 @@
               "definicao": "Moda: dado que ocorre com maior frequência absoluta. Amplitude: diferença entre o valor máximo e o valor mínimo (A = Máx - Mín)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p3_t2_1.png",
+          "imagem_manual": "/imagens_resumos/06_Matematica_7/mat7_p3_t2_manual.png",
           "imagem_legenda": "Exemplo de cálculo da Mediana e Média a partir de uma tabela de frequências absolutas.",
           "foco_teste": {
             "questao_exemplo": "Considera as notas obtidas por 8 alunos: 12, 15, 10, 18, 15, 14, 16, 20. Determina: (a) A moda; (b) A amplitude; (c) A mediana.",
-            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p3_t2_1.png",
+            "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p3_t2_questao.png",
             "proposta_resolucao": "1.º Ordenar o rol: 10, 12, 14, 15, 15, 16, 18, 20. (a) Moda = 15 (aparece 2 vezes). (b) Amplitude = 20 - 10 = 10 valores. (c) Como n = 8 (par), os termos centrais são o 4.º e o 5.º (15 e 15): Mediana = (15 + 15) / 2 = 15.",
             "criterio_cotacao": "Ordenação prévia dos dados (20%), cálculo correto de Moda (25%), Amplitude (25%) e Mediana (30%).",
-            "erro_frequente": "Tentar achar a mediana sem ordenar previamente os dados em ordem crescente."
+            "erro_frequente": "Tentar achar a mediana sem ordenar previamente os dados em ordem crescente.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Cálculo completo de Média, Moda, Mediana e Amplitude"
           },
           "flashcards": [
             {
@@ -232,7 +433,36 @@
               "frente": "Como se calcula a mediana se a amostra tiver um número par de elementos?",
               "verso": "Faz-se a média aritmética dos dois valores centrais da lista ordenada.",
               "dica": "Amostra par"
+            },
+            {
+              "frente": "Qual o cuidado essencial na resolução de Estatística: Média, Mediana, Moda e Amplitude?",
+              "verso": "Tentar achar a mediana sem ordenar previamente os dados em ordem crescente.",
+              "dica": "Alerta de Exame"
             }
+          ],
+          "subtitulo": "Organização de Dados, Média Aritmética, Moda, Mediana, Amplitude e Gráficos",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 204–238",
+          "resumo_executivo": "Recolha e tratamento estatístico de dados quantitativos e qualitativos (frequências absolutas e relativas em fração, dízima e percentagem) e determinação rigorosa das medidas de localização (Média, Moda e Mediana) e dispersão (Amplitude).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Média (x̄) e Amplitude (A)",
+              "conteudo": "Média: x̄ = (Soma de todos os valores) / N_total  |  Amplitude: A = Valor Máximo − Valor Mínimo."
+            },
+            {
+              "titulo": "Mediana (Me) com Dados Ordenados",
+              "conteudo": "Se N é ímpar: valor central na posição (N+1)/2 | Se N é par: média dos 2 valores centrais nas posições N/2 e (N/2)+1."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/06_Matematica_7/mat7_p3_t2_questao.png",
+          "dicas_professor": [
+            "Regra n.º 1 da Mediana: ORDENA SEMPRE os dados do menor para o maior antes de escolheres o valor do meio! Se houver números repetidos, tens de os escrever tantas vezes quantas eles aparecem.",
+            "Lembra-te que a Moda pode não existir (conjunto amodal, se todos tiverem a mesma frequência) ou haver duas modas (bimodal), mas a Média e a Mediana são sempre únicas!"
+          ],
+          "checklist": [
+            "Construo tabelas de frequências absolutas e relativas (a soma das relativas é 1 ou 100%).",
+            "Calculo a Média, a Moda e a Amplitude de qualquer conjunto de dados.",
+            "Ordeno os dados e determino a Mediana tanto para N ímpar como para N par."
           ]
         }
       ]

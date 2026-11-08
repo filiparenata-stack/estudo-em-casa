@@ -72,14 +72,56 @@ export default function App() {
   const [leitorLivro, setLeitorLivro] = useState(null);
   const [paginaInicialLeitor, setPaginaInicialLeitor] = useState(1);
 
-  const handleAbrirLivro = (disciplinaOuId, pagina = 1) => {
+  const handleAbrirLivro = async (disciplinaOuId, pagina = 1) => {
     const discId = typeof disciplinaOuId === 'string' ? disciplinaOuId : disciplinaOuId?.id;
-    const livro =
-      LIVROS_RENATA_3ANO.find(
-        (l) => l.disciplinaId === discId || (discId && discId.startsWith(l.disciplinaId.split('_')[0]))
-      ) || LIVROS_RENATA_3ANO[0];
-    setLeitorLivro(livro);
-    setPaginaInicialLeitor(pagina);
+    const isDisc3Ano = String(anoAtivo) === '3' || (discId && discId.endsWith('_3ano'));
+
+    if (isDisc3Ano) {
+      const livro =
+        LIVROS_RENATA_3ANO.find(
+          (l) => l.disciplinaId === discId || (discId && discId.startsWith(l.disciplinaId.split('_')[0]))
+        ) || LIVROS_RENATA_3ANO[0];
+      setLeitorLivro(livro);
+      setPaginaInicialLeitor(pagina);
+      return;
+    }
+
+    // 7.º Ano: obter o manual escolar principal da disciplina e abrir no leitor PDF.js integrado
+    try {
+      const resp = await fetch(`/api/manuais/${discId}`);
+      const manuais = resp.ok ? await resp.json() : [];
+      const manualPrincipal =
+        manuais.find((m) => (m.url_github || m.tem_pdf_local) && /manual/i.test(m.nome || '')) ||
+        manuais.find((m) => m.url_github || m.tem_pdf_local) ||
+        manuais[0];
+
+      if (manualPrincipal && (manualPrincipal.url_github || manualPrincipal.tem_pdf_local)) {
+        const fileName = manualPrincipal.url_github
+          ? decodeURIComponent(manualPrincipal.url_github.split('/').pop().split('?')[0])
+          : manualPrincipal.nome || 'manual_7ano.pdf';
+        const params = new URLSearchParams();
+        if (fileName) params.set('file', fileName);
+        if (manualPrincipal.caminho) params.set('caminho', manualPrincipal.caminho);
+        if (manualPrincipal.url_github) params.set('url', manualPrincipal.url_github);
+
+        setLeitorLivro({
+          id: `manual_7ano_${fileName}`,
+          canonicalFilename: fileName,
+          titulo: manualPrincipal.nome_simples || manualPrincipal.nome || disciplinaOuId?.nome || 'Manual 7.º Ano',
+          disciplina: disciplinaOuId?.nome || '7.º Ano',
+          ano: '7.º Ano',
+          editora: manualPrincipal.projeto || 'Porto Editora / Escola Virtual',
+          paginas: 224,
+          tamanhoFormatado: manualPrincipal.tamanho_mb ? `${manualPrincipal.tamanho_mb} MB` : 'PDF Oficial',
+          pdfUrl: `/api/pdf-proxy?${params.toString()}`,
+          downloadUrl: manualPrincipal.url_github || `/api/pdf-proxy?${params.toString()}`,
+          unidades: []
+        });
+        setPaginaInicialLeitor(pagina || 1);
+      }
+    } catch (err) {
+      console.error('Erro ao abrir manual do 7.º Ano:', err);
+    }
   };
 
   useEffect(() => {
@@ -154,6 +196,7 @@ export default function App() {
             <ResumosView
               disciplina={disciplinaSelecionada}
               periodo={periodoAtivo}
+              onMudarPeriodo={setPeriodoAtivo}
               anoAtivo={anoAtivo}
               onIniciarQuiz={iniciarQuizComTema}
               onIrParaFlashcards={() => setViewAtiva('flashcards')}
@@ -167,6 +210,8 @@ export default function App() {
             <FlashcardsView
               resumoAtual={resumoAtual}
               disciplina={disciplinaSelecionada}
+              periodo={periodoAtivo}
+              onMudarPeriodo={setPeriodoAtivo}
               anoAtivo={anoAtivo}
             />
           )}
@@ -175,6 +220,7 @@ export default function App() {
             <QuizView
               disciplina={disciplinaSelecionada}
               periodo={periodoAtivo}
+              onMudarPeriodo={setPeriodoAtivo}
               anoAtivo={anoAtivo}
               topicosIniciais={topicoQuiz}
             />

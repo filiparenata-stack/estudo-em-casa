@@ -30,19 +30,18 @@ const SUGESTOES_TOPICOS = {
   "ingles_3ano": ["Greetings & Numbers", "School Supplies", "Family Members", "House & Rooms", "Farm Animals"]
 };
 
-export default function QuizView({ disciplina, periodo, topicosIniciais, anoAtivo = '3' }) {
+export default function QuizView({ disciplina, periodo, onMudarPeriodo, topicosIniciais, anoAtivo = '3' }) {
   const [topicos, setTopicos] = useState(topicosIniciais || '');
   const [questoes, setQuestoes] = useState([]);
   const [indiceAtual, setIndiceAtual] = useState(0);
   const [respostasUsuario, setRespostasUsuario] = useState({});
   const [aCarregar, setACarregar] = useState(false);
   const [concluido, setConcluido] = useState(false);
-  const [modoExame, setModoExame] = useState(false);
+  const [modoExame, setModoExame] = useState(false); // false = modo prática (feedback na hora), true = modo exame (só no fim)
 
-  const is3Ano = anoAtivo === '3' || disciplina?.ano === 3 || disciplina?.id?.endsWith('_3ano');
-
-  const carregarQuiz = async (temaParaUsar) => {
+  const carregarQuiz = async (temaParaUsar, periodoParaUsar) => {
     const tema = temaParaUsar !== undefined ? temaParaUsar : topicos;
+    const per = periodoParaUsar !== undefined ? periodoParaUsar : periodo;
     if (!disciplina) return;
     setACarregar(true);
     setConcluido(false);
@@ -55,42 +54,14 @@ export default function QuizView({ disciplina, periodo, topicosIniciais, anoAtiv
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           disciplina_id: disciplina.id,
-          periodo: periodo,
+          periodo: per,
           topicos: tema || disciplina.nome,
           quantidade: 8
         })
       });
       if (!resp.ok) throw new Error('Erro ao carregar quiz.');
       const data = await resp.json();
-      let questoesCarregadas = data.questoes || [];
-
-      if (questoesCarregadas.length === 0 && (disciplina.ano === 3 || disciplina.id?.endsWith('_3ano'))) {
-        const resResumo = await fetch(`/api/resumo/periodo?disciplina_id=${disciplina.id}&periodo=Todos`);
-        if (resResumo.ok) {
-          const dadosRes = await resResumo.json();
-          const letras = ['A', 'B', 'C', 'D'];
-          for (const t of (dadosRes.topicos || [])) {
-            for (const q of (t.perguntas_quiz || [])) {
-              const opcFmt = (q.opcoes || []).map((opt, i) => ({
-                letra: letras[i] || 'A',
-                texto: opt
-              }));
-              questoesCarregadas.push({
-                id: `q_${questoesCarregadas.length + 1}`,
-                numero: `${questoesCarregadas.length + 1}`,
-                grupo: `3.º Ano • ${t.titulo}`,
-                enunciado: q.pergunta,
-                opcoes: opcFmt,
-                resposta_correta: letras[q.resposta_correta] || 'A',
-                explicacao: q.explicacao,
-                ficheiro_origem: `Manual ${disciplina.nome}`
-              });
-            }
-          }
-        }
-      }
-
-      setQuestoes(questoesCarregadas);
+      setQuestoes(data.questoes || []);
     } catch (err) {
       alert('Erro ao carregar perguntas do teste: ' + err.message);
     } finally {
@@ -101,11 +72,19 @@ export default function QuizView({ disciplina, periodo, topicosIniciais, anoAtiv
   useEffect(() => {
     if (topicosIniciais) {
       setTopicos(topicosIniciais);
-      carregarQuiz(topicosIniciais);
+      carregarQuiz(topicosIniciais, periodo);
     } else if (disciplina) {
-      carregarQuiz('');
+      carregarQuiz(topicos || '', periodo);
     }
-  }, [disciplina]);
+  }, [disciplina, periodo]);
+
+  const responder = (letra) => {
+    if (respostasUsuario[indiceAtual] !== undefined) return;
+    setRespostasUsuario({
+      ...respostasUsuario,
+      [indiceAtual]: letra
+    });
+  };
 
   // Suporte a atalhos de teclado (A, B, C, D)
   useEffect(() => {
@@ -122,14 +101,6 @@ export default function QuizView({ disciplina, periodo, topicosIniciais, anoAtiv
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [indiceAtual, respostasUsuario, aCarregar, concluido, questoes]);
-
-  const responder = (letra) => {
-    if (respostasUsuario[indiceAtual] !== undefined) return;
-    setRespostasUsuario({
-      ...respostasUsuario,
-      [indiceAtual]: letra
-    });
-  };
 
   const proximaQuestao = () => {
     if (indiceAtual < questoes.length - 1) {
@@ -191,7 +162,7 @@ export default function QuizView({ disciplina, periodo, topicosIniciais, anoAtiv
           <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs">
             <button
               onClick={() => setModoExame(false)}
-              className={`px-3 py-1 rounded-lg font-semibold transition-all ${
+              className={`px-3 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
                 !modoExame ? 'bg-white text-purple-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -199,13 +170,42 @@ export default function QuizView({ disciplina, periodo, topicosIniciais, anoAtiv
             </button>
             <button
               onClick={() => setModoExame(true)}
-              className={`px-3 py-1 rounded-lg font-semibold transition-all ${
+              className={`px-3 py-1 rounded-lg font-semibold transition-all cursor-pointer ${
                 modoExame ? 'bg-white text-purple-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               Simulação de Teste
             </button>
           </div>
+        </div>
+
+        {/* Seletor Reativo de Período */}
+        <div className="flex items-center gap-1.5 p-1.5 bg-slate-100 rounded-xl overflow-x-auto">
+          {[
+            { id: 'Todos', label: 'Todos os Períodos' },
+            { id: '1_Periodo', label: '1.º Período' },
+            { id: '2_Periodo', label: '2.º Período' },
+            { id: '3_Periodo', label: '3.º Período' }
+          ].map((p) => {
+            const ativo = (periodo || 'Todos') === p.id;
+            return (
+              <button
+                key={p.id}
+                onClick={() => {
+                  if (onMudarPeriodo) {
+                    onMudarPeriodo(p.id);
+                  }
+                }}
+                className={`flex-1 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                  ativo
+                    ? 'bg-purple-600 text-white shadow-sm'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
+                }`}
+              >
+                {p.label}
+              </button>
+            );
+          })}
         </div>
 
         {/* Input de Pesquisa e Botão */}

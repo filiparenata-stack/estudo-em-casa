@@ -2,12 +2,69 @@ import os
 import re
 import json
 import glob
+import unicodedata
 from collections import defaultdict
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REPO_7ANO = os.path.join(os.path.dirname(BASE_DIR), "Escola_Virtual_7_Ano")
 CATALOGO_JSON_LOCAL = os.path.join(REPO_7ANO, "catalogo_7ano_quiz_index.json")
 CATALOGO_JSON_EMBEDDED = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "catalogo_7ano_quiz_index.json")
+
+MAPA_EXATO_MANUAIS_PDF = {
+    ("01_Fisico_Quimica_7", "FAQ 7 - Físico-Química - 7.º Ano", "Manual - Parte 1 Interativo"): "FAQ7_Fisico_Quimica_Manual_Parte1.pdf",
+    ("01_Fisico_Quimica_7", "FAQ 7 - Físico-Química - 7.º Ano", "Manual - Parte 2 Interativo"): "FAQ7_Fisico_Quimica_Manual_Parte2.pdf",
+    ("01_Fisico_Quimica_7", "FAQ 7 - Físico-Química - 7.º Ano", "Caderno de atividades Interativo"): "FAQ7_Fisico_Quimica_Caderno_Atividades.pdf",
+    ("01_Fisico_Quimica_7", "FAQ 7 - Físico-Química - 7.º Ano", "Dossiê do Professor"): "FAQ7_Dossie_do_Professor.pdf",
+    ("01_Fisico_Quimica_7", "FAQ 7 - Físico-Química - 7.º Ano", "Avaliação em 10 minutos"): "FAQ7_Avaliacao_10_Minutos.pdf",
+    ("01_Fisico_Quimica_7", "FAQ 7 - Físico-Química - 7.º Ano", "Ponto do Cidadão"): "FAQ7_Ponto_do_Cidadao.pdf",
+    ("01_Fisico_Quimica_7", "FAQ 7 - Físico-Química - 7.º Ano", "Reunião de Equipas (Método Jigsaw)"): "FAQ7_Reuniao_de_Equipas_Metodo_Jigsaw.pdf",
+    ("02_Geografia_7", "GEO+ - Geografia - 7.º Ano", "Manual Interativo"): "GEO_Mais_7_Manual_Interativo.pdf",
+    ("02_Geografia_7", "GEO+ - Geografia - 7.º Ano", "Caderno de atividades Interativo"): "GEO_Mais_7_Caderno_de_atividades_Interativo.pdf",
+    ("02_Geografia_7", "GEO+ - Geografia - 7.º Ano", "GEOPro Interativo"): "GEOPro_Interativo.pdf",
+    ("02_Geografia_7", "GEO+ - Geografia - 7.º Ano", "Portefólio do Professor"): "GEO_Mais_7_Portefolio_do_Professor.pdf",
+    ("02_Geografia_7", "GEO+ - Geografia - 7.º Ano", "+Professor"): "GEO_Mais_7_Professor.pdf",
+    ("03_Ciencias_Naturais_7", "GeoCienTIC - Ciências Naturais - 7.º Ano", "Parte I Interativo"): "GeoCienTIC_7_Parte_I_Interativo.pdf",
+    ("03_Ciencias_Naturais_7", "GeoCienTIC - Ciências Naturais - 7.º Ano", "Parte II Interativo"): "GeoCienTIC_7_Parte_II_Interativo.pdf",
+    ("03_Ciencias_Naturais_7", "GeoCienTIC - Ciências Naturais - 7.º Ano", "Caderno do Aluno Interativo"): "GeoCienTIC_7_Caderno_do_Aluno_Interativo.pdf",
+    ("03_Ciencias_Naturais_7", "GeoCienTIC - Ciências Naturais - 7.º Ano", "Guia de Apoio ao Estudo"): "GeoCienTIC_7_Guia_de_Apoio_ao_Estudo.pdf",
+    ("03_Ciencias_Naturais_7", "GeoCienTIC - Ciências Naturais - 7.º Ano", "Guia de Apoio ao Trabalho de Projeto"): "GeoCienTIC_7_Guia_de_Apoio_ao_Trabalho_de_Projeto.pdf",
+    ("03_Ciencias_Naturais_7", "GeoCienTIC - Ciências Naturais - 7.º Ano", "Dossiê do Professor"): "GeoCienTIC_7_Dossie_do_Professor.pdf",
+    ("03_Ciencias_Naturais_7", "GeoCienTIC - Ciências Naturais - 7.º Ano", "Geologia – Descobrir Portugal"): "GeoCienTIC_7_Geologia_Descobrir_Portugal.pdf",
+    ("03_Ciencias_Naturais_7", "GeoCienTIC - Ciências Naturais - 7.º Ano", "À Descoberta da Geologia de Portugal"): "GeoCienTIC_7_A_Descoberta_da_Geologia_de_Portugal.pdf",
+    ("04_Historia_7", "HSI: História Sob Investigação - 7.º Ano", "Manual"): "HSI7_Historia_Cover0_Manual.pdf",
+    ("04_Historia_7", "HSI: História Sob Investigação - 7.º Ano", "Caderno de atividades Interativo"): "HSI7_Historia_Cover1_Caderno_de_atividades_Interativo.pdf",
+    ("04_Historia_7", "HSI: História Sob Investigação - 7.º Ano", "HSInvestiga"): "HSI7_Historia_Cover2_HSInvestiga.pdf",
+    ("04_Historia_7", "HSI: História Sob Investigação - 7.º Ano", "Dossiê do Professor"): "HSI7_Historia_Cover3_Dossie_do_Professor.pdf",
+    ("04_Historia_7", "HSI: História Sob Investigação - 7.º Ano", "HSI o Essencial"): "HSI7_Historia_Cover4_HSI_o_Essencial.pdf",
+    ("04_Historia_7", "HSI: História Sob Investigação - 7.º Ano", "HSInclusão"): "HSI7_Historia_Cover5_HSInclusao.pdf",
+    ("05_Ingles_7", "Engaging - Inglês - 7.º Ano", "Interactive Manual"): "Engaging7_Ingles_Cover0_Interactive_Manual.pdf",
+    ("05_Ingles_7", "Engaging - Inglês - 7.º Ano", "Study Guide"): "Engaging7_Ingles_Cover1_Study_Guide.pdf",
+    ("05_Ingles_7", "Engaging - Inglês - 7.º Ano", "Interactive Workbook"): "Engaging7_Ingles_Cover2_Interactive_Workbook.pdf",
+    ("05_Ingles_7", "Engaging - Inglês - 7.º Ano", "Interactive Writer's & Speaker's Corner"): "Engaging7_Ingles_Cover3_Interactive_Writer_s_Speaker_s_Corner.pdf",
+    ("05_Ingles_7", "Engaging - Inglês - 7.º Ano", "Teacher's File"): "Engaging7_Ingles_Cover4_Teacher_s_File.pdf",
+    ("06_Matematica_7", "MX - Matemática - 7.º Ano", "Manual - Parte 1 Interativo"): "MX7_Matematica_Cover0_Manual_Parte_1_Interativo.pdf",
+    ("06_Matematica_7", "MX - Matemática - 7.º Ano", "Manual - Parte 2 Interativo"): "MX7_Matematica_Cover1_Manual_Parte_2_Interativo.pdf",
+    ("06_Matematica_7", "MX - Matemática - 7.º Ano", "Caderno de Fichas Interativo"): "MX7_Matematica_Cover2_Caderno_de_Fichas_Interativo.pdf",
+    ("06_Matematica_7", "MX - Matemática - 7.º Ano", "Verbos de instrução"): "MX7_Matematica_Cover3_Verbos_de_instrucao.pdf",
+    ("06_Matematica_7", "MX - Matemática - 7.º Ano", "Dossiê do Professor"): "MX7_Matematica_Cover4_Dossie_do_Professor.pdf",
+    ("06_Matematica_7", "MX - Matemática - 7.º Ano", "Matemática Inclusiva"): "MX7_Matematica_Cover5_Matematica_Inclusiva.pdf",
+    ("06_Matematica_7", "MX - Matemática - 7.º Ano", "Portefólio de Avaliação"): "MX7_Matematica_Cover6_Portefolio_de_Avaliacao.pdf",
+    ("06_Matematica_7", "MX - Matemática - 7.º Ano", "MXOn do Professor"): "MX7_Matematica_Cover7_MXOn_do_Professor.pdf",
+    ("07_Portugues_7", "Palavra-chave - Português - 7.º Ano", "Manual Interativo"): "Palavra_Chave_7_Manual_Interativo.pdf",
+    ("07_Portugues_7", "Palavra-chave - Português - 7.º Ano", "Caderno de Atividades Interativo"): "Palavra_Chave_7_Caderno_de_Atividades_Interativo.pdf",
+    ("07_Portugues_7", "Palavra-chave - Português - 7.º Ano", "SOS Leitura Interativo"): "Palavra_Chave_7_SOS_Leitura_Interativo.pdf",
+    ("08_Frances_7", "Ça marche ! - Francês - 7.º Ano", "Manual Interactif"): "Ca_Marche_7_Manual_Interactif.pdf",
+    ("08_Frances_7", "Ça marche ! - Francês - 7.º Ano", "Cahier d'exercices Interactif"): "Ca_Marche_7_Cahier_d.exercices_Interactif.pdf",
+    ("08_Frances_7", "Ça marche ! - Francês - 7.º Ano", "Cahier d' apprentissages"): "Ca_Marche_7_Cahier_d._apprentissages.pdf",
+    ("08_Frances_7", "Défis - Francês - 7.º Ano", "Manual Interactif"): "Defis_7_Manual_Interactif.pdf",
+    ("08_Frances_7", "Défis - Francês - 7.º Ano", "Cahier d'activités Interactif"): "Defis_7_Cahier_d.activites_Interactif.pdf",
+    ("08_Frances_7", "Défis - Francês - 7.º Ano", "Dossiê do Professor"): "Defis_7_Dossie_do_Professor.pdf",
+}
+
+def _normalizar_chave_pdf(nome: str) -> str:
+    s = unicodedata.normalize("NFKD", nome or "").encode("ascii", "ignore").decode("ascii")
+    s = s.replace("'", ".")
+    return s.lower()
 
 DISCIPLINAS_CONFIG = {
     "01_Fisico_Quimica_7": {
@@ -115,7 +172,6 @@ DISCIPLINAS_3ANO_CONFIG = {
     }
 }
 
-
 class MotorBusca:
     def __init__(self):
         self.catalogo = self._carregar_catalogo()
@@ -144,13 +200,29 @@ class MotorBusca:
         # 2. Carregar manuais do catálogo oficial (79 manuais do 7º ano)
         manuais_cat = self.catalogo.get("manuais_para_exportar_pdf", [])
 
-        # Indexar ficheiros PDF locais caso existam no disco
-        mapa_locais = {}
+        # Indexar ficheiros PDF locais separados estritamente por disciplina
+        mapa_locais_por_disc = defaultdict(dict)
         if os.path.exists(REPO_7ANO):
             padrao = os.path.join(REPO_7ANO, "*", "*", "01_Manuais_e_Cadernos_PDF", "*.pdf")
             for p in glob.glob(padrao):
-                base = os.path.basename(p).lower()
-                mapa_locais[base] = p
+                partes = os.path.normpath(p).split(os.sep)
+                disc_folder = None
+                for parte in partes:
+                    if parte in DISCIPLINAS_CONFIG:
+                        disc_folder = parte
+                        break
+                if disc_folder:
+                    base_norm = _normalizar_chave_pdf(os.path.basename(p))
+                    mapa_locais_por_disc[disc_folder][base_norm] = p
+
+        mapa_github_urls = {}
+        caminho_mapa_gh = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "manuais_github_urls.json")
+        if os.path.exists(caminho_mapa_gh):
+            try:
+                with open(caminho_mapa_gh, "r", encoding="utf-8") as f_gh:
+                    mapa_github_urls = json.load(f_gh)
+            except Exception:
+                pass
 
         for m in manuais_cat:
             disc_id = m.get("disciplina")
@@ -160,61 +232,43 @@ class MotorBusca:
             nome_vol = m.get("nome_volume") or "Manual"
             proj_tit = m.get("titulo_projeto") or m.get("projeto") or ""
             proj_id = m.get("project_id", "")
-            
-            # Tentar associar ao PDF descarregado localmente e ao link do GitHub
+
             caminho_local = ""
             tem_pdf_local = False
             tamanho = 35.0
             url_github = ""
 
-            mapa_github_urls = {}
-            caminho_mapa_gh = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "manuais_github_urls.json")
-            if os.path.exists(caminho_mapa_gh):
-                try:
-                    with open(caminho_mapa_gh, "r", encoding="utf-8") as f_gh:
-                        mapa_github_urls = json.load(f_gh)
-                except Exception:
-                    pass
+            chave_exata = (disc_id, proj_tit, nome_vol)
+            pdf_canonico = MAPA_EXATO_MANUAIS_PDF.get(chave_exata)
 
-            norm_vol = re.sub(r'[^a-z0-9]', '', nome_vol.lower())
-            for base_nome, p in mapa_locais.items():
-                norm_base = re.sub(r'[^a-z0-9]', '', base_nome)
-                if norm_vol and (norm_vol in norm_base or norm_base in norm_vol):
-                    caminho_local = p
+            if pdf_canonico:
+                norm_canonico = _normalizar_chave_pdf(pdf_canonico)
+                # 1. Associar ao ficheiro local da mesma disciplina
+                locais_disc = mapa_locais_por_disc.get(disc_id, {})
+                if norm_canonico in locais_disc:
+                    caminho_local = locais_disc[norm_canonico]
                     tem_pdf_local = True
                     try:
-                        tamanho = round(os.path.getsize(p) / (1024 * 1024), 1)
+                        tamanho = round(os.path.getsize(caminho_local) / (1024 * 1024), 1)
                     except Exception:
                         pass
-                    break
 
-            vol_words = [w for w in re.findall(r'[a-z0-9]+', nome_vol.lower()) if w not in ['interativo', 'de', 'do', 'da', 'em', 'e', 'os', 'as']]
-            proj_l = proj_tit.lower()
-            best_f = None
-            best_filename = None
-            best_score = 0
-            for f_nome, info_gh in mapa_github_urls.items():
-                f_l = f_nome.lower()
-                gh_url_link = info_gh.get("url", "") if isinstance(info_gh, dict) else info_gh
-                score = 0
-                if ('faq' in proj_l and 'faq' in f_l) or ('geo' in proj_l and 'geo' in f_l and 'cien' not in f_l) or ('cien' in proj_l and 'cien' in f_l) or ('hist' in proj_l and 'hist' in f_l) or ('mat' in proj_l and 'mat' in f_l) or ('ing' in proj_l and 'ing' in f_l) or ('palavra' in proj_l and 'palavra' in f_l) or ('marche' in proj_l and 'marche' in f_l) or ('defis' in proj_l and 'defis' in f_l):
-                    score += 10
-                else:
-                    continue
-                f_words = [w for w in re.findall(r'[a-z0-9]+', f_l)]
-                for w in vol_words:
-                    if w in f_words:
-                        score += 10
-                    elif w in f_l:
-                        score += 2
-                if score > best_score and score >= 15:
-                    best_score = score
-                    best_f = gh_url_link
-                    best_filename = f_nome
+                # 2. Associar ao link GitHub Release
+                info_gh = mapa_github_urls.get(pdf_canonico)
+                if not info_gh:
+                    for k_gh, v_gh in mapa_github_urls.items():
+                        if _normalizar_chave_pdf(k_gh) == norm_canonico:
+                            info_gh = v_gh
+                            break
+                if info_gh:
+                    if isinstance(info_gh, dict):
+                        url_github = info_gh.get("url", "")
+                        if not tem_pdf_local and info_gh.get("size_mb"):
+                            tamanho = info_gh["size_mb"]
+                    else:
+                        url_github = str(info_gh)
 
-            if best_f:
-                url_github = best_f
-
+            best_filename = pdf_canonico
             pdf_url = ""
             public_books_dir = os.path.join(BASE_DIR, "public", "books")
             paginas_count = 56
@@ -224,6 +278,7 @@ class MotorBusca:
                     tamanho = round(os.path.getsize(os.path.join(public_books_dir, best_filename)) / (1024 * 1024), 1)
                 except Exception:
                     pass
+
 
             self.manuais_por_disciplina[disc_id].append({
                 "caminho": caminho_local,
@@ -297,7 +352,7 @@ class MotorBusca:
         return self.manuais_por_disciplina.get(disc_id, [])
 
     def listar_topicos_sugeridos(self, disc_id, periodo=None):
-        """Retorna tópicos extraídos das unidades ou do catálogo da disciplina."""
+        """Retorna tópicos extraídos das unidades ou dos títulos de testes, fichas e planificações da disciplina."""
         if disc_id in DISCIPLINAS_3ANO_CONFIG:
             topicos_3ano = []
             json_path = os.path.join(os.path.dirname(__file__), "data", "resumos_periodo", f"{disc_id}.json")

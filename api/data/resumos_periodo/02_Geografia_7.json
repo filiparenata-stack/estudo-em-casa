@@ -29,14 +29,16 @@
               "definicao": "Ponto exato na superfície terrestre dado pelo cruzamento do paralelo com o meridiano correspondente."
             }
           ],
-          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p1_t1_2.png",
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p1_t1_manual.png",
           "imagem_legenda": "Rede cartográfica mostrando os paralelos, meridianos, hemisférios e quadrantes geográficos.",
           "foco_teste": {
             "questao_exemplo": "Observa o planisfério e indica as coordenadas geográficas (latitude e longitude) dos pontos A e B. Ponto A: paralelo 40° Norte e meridiano 10° Oeste.",
-            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p1_t1_1.png",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p1_t1_questao.png",
             "proposta_resolucao": "Ponto A: Latitude: 40° N (ou 40° Norte); Longitude: 10° O (ou 10° Oeste). Corresponde a Portugal Continental na Península Ibérica.",
             "criterio_cotacao": "Indicação correta do valor numérico com símbolo de graus e da letra do hemisfério (N/S e E/O).",
-            "erro_frequente": "Trocar a latitude pela longitude ou esquecer-se de escrever o hemisfério (N/S/E/O)."
+            "erro_frequente": "Trocar a latitude pela longitude ou esquecer-se de escrever o hemisfério (N/S/E/O).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Leitura de coordenadas geográficas em planisfério"
           },
           "flashcards": [
             {
@@ -48,7 +50,36 @@
               "frente": "Qual é a linha de referência da Longitude?",
               "verso": "O Meridiano de Greenwich (0°), variando de 0° a 180° Este e de 0° a 180° Oeste.",
               "dica": "Meridianos"
+            },
+            {
+              "frente": "Qual a regra essencial para resolver exercícios de Coordenadas Geográficas: Latitude e Longitude?",
+              "verso": "Indicação correta do valor numérico com símbolo de graus e da letra do hemisfério (N/S e E/O).",
+              "dica": "Dica de Exame"
             }
+          ],
+          "subtitulo": "Círculos de Referência (Equador e Greenwich), Paralelos, Meridianos e Hemisférios",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 14–38",
+          "resumo_executivo": "Determinação exata da localização absoluta de qualquer ponto à superfície da Terra através da rede cartográfica de paralelos (latitude 0° a 90° N/S) e meridianos (longitude 0° a 180° E/O), e localização relativa pela rosa dos ventos.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Latitude (Paralelos)",
+              "conteudo": "Medida a partir do Equador (0°) até aos Polos (90° Norte ou 90° Sul)."
+            },
+            {
+              "titulo": "Longitude (Meridianos)",
+              "conteudo": "Medida a partir do Meridiano de Greenwich (0°) até ao Antimeridiano (180° Este ou 180° Oeste)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p1_t1_questao.png",
+          "dicas_professor": [
+            "Escreve sempre o símbolo de graus (°) e o ponto cardeal do hemisfério (N ou S para latitude; E ou O para longitude).",
+            "Se um ponto estiver exatamente sobre a linha do Equador, a sua latitude é 0° (não leva N nem S!)."
+          ],
+          "checklist": [
+            "Distingo localização relativa (rosa dos ventos) de localização absoluta (coordenadas).",
+            "Determino a latitude (0°-90° N/S) e a longitude (0°-180° E/O) sem as trocar.",
+            "Identifico os 5 principais paralelos especiais (Equador, Trópicos e Círculos Polares)."
           ]
         },
         {
@@ -69,14 +100,16 @@
               "definicao": "Escala Grande (pequeno denominador, ex.: 1:10 000): representa áreas pequenas com muito detalhe (plantas). Escala Pequena (grande denominador, ex.: 1:20 000 000): representa grandes áreas com pouco detalhe (planisférios)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p1_t2_2.png",
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p1_t2_manual.png",
           "imagem_legenda": "Comparação entre escala grande e escala pequena e cálculo da Distância Real = Distância no Mapa × Denominador.",
           "foco_teste": {
             "questao_exemplo": "Num mapa com escala 1:2 500 000, a distância entre duas cidades é de 6 cm. Calcula a distância real em quilómetros.",
-            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p1_t2_1.png",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p1_t2_questao.png",
             "proposta_resolucao": "Distância Real = 6 cm × 2 500 000 = 15 000 000 cm. Convertendo para quilómetros: 15 000 000 cm = 150 000 m = 150 km.",
             "criterio_cotacao": "Apresentação do cálculo multiplicativo (40%), conversão correta de cm para km (40%) e indicação da unidade km (20%).",
-            "erro_frequente": "Errar no número de zeros ao converter centímetros para quilómetros (dividir por 100 000)."
+            "erro_frequente": "Errar no número de zeros ao converter centímetros para quilómetros (dividir por 100 000).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Problema de cálculo de distância real ou escala do mapa"
           },
           "flashcards": [
             {
@@ -88,7 +121,36 @@
               "frente": "Qual das escalas representa maior detalhe: 1:5000 ou 1:500 000?",
               "verso": "1:5000 (Escala Grande), pois a realidade foi menos reduzida, permitindo observar ruas e edifícios.",
               "dica": "Menor denominador = Maior detalhe"
+            },
+            {
+              "frente": "Qual a regra essencial para resolver exercícios de Escalas Cartográficas e Cálculos de Distância?",
+              "verso": "Apresentação do cálculo multiplicativo (40%), conversão correta de cm para km (40%) e indicação da unidade km (20%).",
+              "dica": "Dica de Exame"
             }
+          ],
+          "subtitulo": "Elementos do Mapa, Escala Numérica vs Gráfica e Problemas de Distância Real",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 40–66",
+          "resumo_executivo": "Identificação dos 5 elementos fundamentais de um mapa (Título, Orientação, Legenda, Escala e Fonte), comparação entre escalas grandes e pequenas, e aplicação da proporção matemática para converter distâncias no mapa em distâncias reais.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Fórmula Fundamental de Escalas",
+              "conteudo": "Distância Real (D) = Distância no Mapa (d) × Denominador da Escala (E)."
+            },
+            {
+              "titulo": "Conversão de Unidades (cm ⇄ km)",
+              "conteudo": "1 km = 1000 m = 100 000 cm (para passar de cm a km, desloca-se a vírgula 5 casas para a esquerda)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p1_t2_questao.png",
+          "dicas_professor": [
+            "Treina a regra dos 5 zeros: 1:50 000 em cm corresponde a 0,5 km (500 m) por cada 1 cm no mapa.",
+            "Lembra-te que a escala é uma fração: quanto MENOR for o denominador (ex: 1:2000), MAIOR é a escala e maior é o pormenor!"
+          ],
+          "checklist": [
+            "Conheço os 5 elementos obrigatórios num mapa cartográfico.",
+            "Converto escalas numéricas em escalas gráficas e vice-versa.",
+            "Calculo distâncias reais em quilómetros a partir da medição em centímetros."
           ]
         }
       ]
@@ -119,14 +181,16 @@
               "definicao": "Representa a temperatura média mensal em linha vermelha (escala à direita) e a precipitação mensal em barras azuis (escala à esquerda, com P = 2T)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p2_t1_2.png",
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p2_t1_manual.png",
           "imagem_legenda": "Gráfico termopluviométrico de clima Mediterrâneo com identificação dos meses secos de verão (P <= 2T).",
           "foco_teste": {
             "questao_exemplo": "Analisa o gráfico termopluviométrico fornecido: (a) Calcula a Amplitude Térmica Anual (ATA). (b) Identifica se existem meses secos segundo o índice de Gaussen (P ≤ 2T).",
-            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p2_t1_1.png",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p2_t1_questao.png",
             "proposta_resolucao": "(a) ATA = T_máx - T_mín = 24°C (julho) - 10°C (janeiro) = 14°C. (b) Sim, de junho a setembro as barras de precipitação ficam abaixo da curva da temperatura (P ≤ 2T), definindo 4 meses secos (típico do clima Mediterrâneo).",
             "criterio_cotacao": "Fórmula da ATA e cálculo (50%) + identificação dos meses secos e regra P ≤ 2T (50%).",
-            "erro_frequente": "Somar temperaturas em vez de subtrair para calcular a amplitude térmica."
+            "erro_frequente": "Somar temperaturas em vez de subtrair para calcular a amplitude térmica.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Interpretação de gráfico termopluviométrico e cálculo de ATA"
           },
           "flashcards": [
             {
@@ -138,7 +202,111 @@
               "frente": "Quando é que um mês é considerado seco num gráfico termopluviométrico?",
               "verso": "Quando a precipitação total do mês é igual ou inferior ao dobro da temperatura média desse mês: P ≤ 2T.",
               "dica": "Índice de Gaussen"
+            },
+            {
+              "frente": "Qual a regra essencial para resolver exercícios de Elementos e Fatores do Clima?",
+              "verso": "Fórmula da ATA e cálculo (50%) + identificação dos meses secos e regra P ≤ 2T (50%).",
+              "dica": "Dica de Exame"
             }
+          ],
+          "subtitulo": "Estado do Tempo vs Clima, Fatores Climáticos e Gráficos Termopluviométricos",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Págs. 70–102",
+          "resumo_executivo": "Análise dos elementos do clima (temperatura e precipitação), influência dos fatores climáticos (latitude, altitude, continentalidade/proximidade do mar e correntes marítimas) e construção/interpretação de gráficos termopluviométricos segundo o critério de Gaussen (P ≤ 2T).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Amplitude Térmica Anual (ATA)",
+              "conteudo": "ATA = Temperatura Média do Mês mais Quente − Temperatura Média do Mês mais Frio (°C)."
+            },
+            {
+              "titulo": "Critério de Mês Seco (Gaussen)",
+              "conteudo": "Mês Seco quando Precipitação (mm) ≤ 2 × Temperatura (°C) — barra azul abaixo da linha vermelha."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p2_t1_questao.png",
+          "dicas_professor": [
+            "No hemisfério Norte os meses mais quentes são julho/agosto; se o gráfico tiver pico de calor em dezembro/janeiro, a estação fica no hemisfério Sul!",
+            "Confirma sempre que no eixo da precipitação os valores são o dobro dos valores do eixo da temperatura (P = 2T)."
+          ],
+          "checklist": [
+            "Distingo estado de tempo (curta duração) de clima (série ≥ 30 anos).",
+            "Explico como a latitude, a altitude e o mar fazem variar a temperatura e a chuva.",
+            "Calculo a ATA e identifico os meses secos num gráfico termopluviométrico."
+          ]
+        },
+        {
+          "id": "geo7_p2_t2",
+          "titulo": "Formas de Relevo e Bacias Hidrográficas",
+          "subdominio": "O Meio Natural - Relevo e Hidrografia",
+          "conceitos_chave": [
+            {
+              "termo": "Altitude vs Desnível",
+              "definicao": "Altitude é a distância vertical medida em metros a partir do nível médio das águas do mar (0 m); desnível é a diferença de altitude entre dois pontos."
+            },
+            {
+              "termo": "Montanha, Planalto e Planície",
+              "definicao": "Montanha: grande altitude (>1000 m), cumes pontiagudos e vertentes íngremes. Planalto: superfície plana ou ondulada a média/alta altitude com vales encaixados. Planície: superfície plana a baixa altitude (<200 m)."
+            },
+            {
+              "termo": "Rede e Bacia Hidrográfica",
+              "definicao": "Rede hidrográfica é o conjunto do rio principal com os seus afluentes e subafluentes; Bacia hidrográfica é toda a área de superfície terrestre drenada por essa rede."
+            },
+            {
+              "termo": "Perfil Longitudinal e Transversal do Rio",
+              "definicao": "Montante (nascente: vale em V fechado, forte desgaste/erosão) ➔ Curso Médio (transporte) ➔ Jusante (foz: vale em caleira largo, acumulação de aluviões)."
+            }
+          ],
+          "imagem_legenda": "Perfil topográfico das formas de relevo (montanha, planalto, planície) e estrutura de uma bacia hidrográfica da nascente à foz.",
+          "foco_teste": {
+            "questao_exemplo": "Observa o bloco-diagrama de uma bacia hidrográfica. (a) Distingue 'rede hidrográfica' de 'bacia hidrográfica'. (b) Caracteriza a forma do vale e o processo fluvial predominante junto à nascente (secção superior).",
+            "proposta_resolucao": "(a) A rede hidrográfica corresponde apenas ao conjunto dos cursos de água (rio principal, afluentes e subafluentes), enquanto a bacia hidrográfica abrange toda a superfície de terreno drenada por essa rede, delimitada pelas linhas de cumeada. (b) Junto à nascente (montante), o declive é acentuado, a velocidade da água é elevada, predominando o desgaste (erosão vertical) que escava um vale profundo em 'V' fechado (garganta).",
+            "criterio_cotacao": "Distinção rigorosa entre cursos de água e área drenada (50%) + relação entre declive, erosão e vale em V fechado na nascente (50%).",
+            "erro_frequente": "Confundir montante (lado da nascente) com jusante (lado da foz) ou trocar rede hidrográfica por bacia hidrográfica.",
+            "frequencia": "Alta (sai em 90% dos testes)",
+            "tipo_questao": "Análise de perfil de relevo e bloco-diagrama fluvial",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p2_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a diferença entre montante e jusante num curso de água?",
+              "verso": "Montante é a direção voltada para a nascente do rio; Jusante é a direção voltada para a foz.",
+              "dica": "Orientação fluvial"
+            },
+            {
+              "frente": "Que forma apresenta o vale de um rio no curso superior (junto à nascente) e no curso inferior (junto à foz)?",
+              "verso": "No curso superior apresenta vale em V fechado (forte erosão); no curso inferior apresenta vale largo em caleira ou planície aluvial (sedimentação).",
+              "dica": "Vales fluviais"
+            },
+            {
+              "frente": "O que são curvas de nível num mapa hipsométrico?",
+              "verso": "São linhas que unem pontos da superfície terrestre situados exatamente à mesma altitude.",
+              "dica": "Representação do relevo"
+            }
+          ],
+          "subtitulo": "Formas de Relevo (Montanha, Planalto, Planície) e Dinâmica das Bacias Hidrográficas",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Págs. 104–134",
+          "resumo_executivo": "Caracterização geomorfológica das grandes formas de relevo terrestre e representação por curvas de nível e mapas hipsométricos, articulada com o estudo da rede e bacia hidrográfica ao longo das três secções de um rio.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Três Secções de um Rio",
+              "conteudo": "Curso Superior (Erosão / Vale em V) ➔ Curso Médio (Transporte / Vale em V aberto) ➔ Curso Inferior (Sedimentação / Vale em caleira)."
+            },
+            {
+              "titulo": "Leitura de Curvas de Nível",
+              "conteudo": "Curvas muito juntas = vertente íngreme (forte declive) | Curvas afastadas = terreno plano (fraco declive)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p2_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p2_t2_questao.png",
+          "dicas_professor": [
+            "Para saberes se um afluente é da margem direita ou esquerda, tens de imaginar que estás no rio a olhar de montante (nascente) para jusante (foz)!",
+            "Não confundas altitude (em relação ao nível médio do mar) com altura de um monte em relação à planície vizinha."
+          ],
+          "checklist": [
+            "Distingo montanha, planalto, planície e colina pelo perfil e altitude.",
+            "Interpreto mapas hipsométricos e o espaçamento das curvas de nível.",
+            "Diferencio rede hidrográfica, bacia hidrográfica, leito normal, leito de cheia e leito de estiagem."
           ]
         }
       ]
@@ -169,14 +337,16 @@
               "definicao": "Balanço total da população: CE = Crescimento Natural + Saldo Migratório (Imigração - Emigração)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p3_t1_2.png",
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p3_t1_manual.png",
           "imagem_legenda": "Tipos de pirâmides etárias: Jovem (base larga), Rejuvenescida e Envelhecida (topo largo e base estreita).",
           "foco_teste": {
             "questao_exemplo": "Um país tem 10 milhões de habitantes, 80 000 nados-vivos, 110 000 óbitos, 40 000 imigrantes e 15 000 emigrantes. (a) Calcula o Crescimento Natural. (b) Calcula o Saldo Migratório. (c) A população aumentou ou diminuiu?",
-            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p3_t1_1.png",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p3_t1_questao.png",
             "proposta_resolucao": "(a) CN = 80 000 - 110 000 = -30 000 habitantes (saldo natural negativo). (b) SM = 40 000 - 15 000 = +25 000 habitantes. (c) Crescimento Efetivo = -30 000 + 25 000 = -5 000 habitantes. A população diminuiu em 5000 pessoas.",
             "criterio_cotacao": "Apresentação das equações (30%), cálculos corretos (50%) e conclusão fundamentada (20%).",
-            "erro_frequente": "Esquecer o sinal negativo quando os óbitos superam os nascimentos."
+            "erro_frequente": "Esquecer o sinal negativo quando os óbitos superam os nascimentos.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Cálculo demográfico completo e análise de pirâmides etárias"
           },
           "flashcards": [
             {
@@ -188,7 +358,111 @@
               "frente": "Qual a fórmula do Crescimento Efetivo da população?",
               "verso": "Crescimento Efetivo = Crescimento Natural + Saldo Migratório (CE = CN + SM).",
               "dica": "Demografia total"
+            },
+            {
+              "frente": "Qual a regra essencial para resolver exercícios de Indicadores Demográficos e Crescimento Populacional?",
+              "verso": "Apresentação das equações (30%), cálculos corretos (50%) e conclusão fundamentada (20%).",
+              "dica": "Dica de Exame"
             }
+          ],
+          "subtitulo": "Taxas de Natalidade, Mortalidade, Crescimento Natural, Efetivo e Pirâmides Etárias",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Págs. 138–168",
+          "resumo_executivo": "Cálculo e interpretação dos principais indicadores demográficos (em valores absolutos e taxas em permilagem ‰) e leitura estrutural das pirâmides etárias por grupos de idade (jovens 0-14, adultos 15-64 e idosos 65+).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Fórmulas Demográficas Essenciais",
+              "conteudo": "CN = N − M  |  TCN (‰) = TN − TM  |  CE = CN + SM (onde SM = Imigração − Emigração)."
+            },
+            {
+              "titulo": "Taxas em Permilagem (‰)",
+              "conteudo": "TN = (Nados-vivos / População Total) × 1000 ‰  |  TM = (Óbitos / População Total) × 1000 ‰."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p3_t1_questao.png",
+          "dicas_professor": [
+            "Presta muita atenção ao símbolo de permilagem (‰ = por mil, multiplica-se por 1000) em vez de percentagem (% = por cem)!",
+            "Quando o Crescimento Natural é negativo, dizemos que há um decréscimo natural (os óbitos superam os nados-vivos)."
+          ],
+          "checklist": [
+            "Calculo o Crescimento Natural, Saldo Migratório e Crescimento Efetivo sem errar sinais.",
+            "Calculo taxas em permilagem (‰) multiplicando por 1000.",
+            "Classifico pirâmides etárias (jovem/crescente vs idosa/decrescente) e proponho políticas natalistas ou antinatalistas."
+          ]
+        },
+        {
+          "id": "geo7_p3_t2",
+          "titulo": "Distribuição Espacial da População e Migrações",
+          "subdominio": "A População Mundial - Mobilidade e Povoamento",
+          "conceitos_chave": [
+            {
+              "termo": "Densidade Populacional",
+              "definicao": "Relação entre a população absoluta de um território e a sua superfície em km²: D = População / Área (expressa em hab./km²)."
+            },
+            {
+              "termo": "Vazios Humanos vs Focos Populacionais",
+              "definicao": "Vazios humanos: desertos quentes (Saara), regiões polares, altas montanhas e florestas equatoriais densas. Grandes focos: Ásia Oriental, Ásia Meridional e Europa Ocidental."
+            },
+            {
+              "termo": "Fatores Naturais e Humanos de Fixação",
+              "definicao": "Atrativos: clima temperado, planícies costeiras e fluviais, solos férteis, emprego, paz e infraestruturas. Repulsivos: clima extremo, relevo acidentado, guerras e desemprego."
+            },
+            {
+              "termo": "Tipos de Migrações e Saldo Migratório",
+              "definicao": "Internas (êxodo rural, pendulares) vs Internacionais (emigração = saída; imigração = entrada). Saldo Migratório = Imigrantes - Emigrantes."
+            }
+          ],
+          "imagem_legenda": "Mapa mundial dos grandes focos de concentração populacional, vazios humanos e principais fluxos migratórios internacionais.",
+          "foco_teste": {
+            "questao_exemplo": "Um concelho tem uma população de 45 000 habitantes e uma superfície de 150 km². (a) Calcula a sua densidade populacional. (b) Indica dois fatores naturais que explicam os grandes vazios humanos à escala mundial.",
+            "proposta_resolucao": "(a) Densidade Populacional = População / Área = 45 000 hab. / 150 km² = 300 hab./km². (b) Dois fatores naturais repulsivos são a aridez extrema (falta de água nos desertos quentes como o Saara) e o frio polar intenso com solos gelados (permafrost) nas regiões de alta latitude (ou o relevo muito acidentado e rarefação do oxigénio nas grandes cordilheiras).",
+            "criterio_cotacao": "Fórmula e cálculo com unidade hab./km² obrigatória (50%) + explicação de dois fatores naturais repulsivos (50%).",
+            "erro_frequente": "Omitir a unidade 'hab./km²' na densidade populacional ou confundir emigração (sair do país) com imigração (entrar no país).",
+            "frequencia": "Alta (sai em 90% dos testes)",
+            "tipo_questao": "Cálculo de densidade populacional e análise de causas/efeitos das migrações",
+            "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p3_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Como se calcula a Densidade Populacional e qual é a sua unidade?",
+              "verso": "Densidade = População Absoluta / Superfície do território. A unidade obrigatória é hab./km².",
+              "dica": "Fórmula demográfica"
+            },
+            {
+              "frente": "Quais são os 3 maiores focos de concentração populacional do mundo?",
+              "verso": "1. Ásia Oriental (China, Japão); 2. Ásia Meridional (Índia, Bangladesh); 3. Europa Ocidental e Central.",
+              "dica": "Distribuição mundial"
+            },
+            {
+              "frente": "O que é o êxodo rural?",
+              "verso": "É uma migração interna definitiva caracterizada pela saída da população do campo (meio rural) para a cidade (meio urbano) em busca de emprego e melhores condições de vida.",
+              "dica": "Migrações internas"
+            }
+          ],
+          "subtitulo": "Densidade Populacional, Fatores Atrativos/Repulsivos e Fluxos Migratórios",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Págs. 170–198",
+          "resumo_executivo": "Estudo das assimetrias na repartição mundial da população (focos populacionais vs vazios humanos), cálculo da densidade populacional e classificação das migrações quanto ao espaço, duração e causas.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Fórmula da Densidade Populacional",
+              "conteudo": "D = População Absoluta (hab.) / Área (km²)  ➔ Resultado em hab./km²."
+            },
+            {
+              "titulo": "Balanço Migratório",
+              "conteudo": "Saldo Migratório (SM) = Imigrantes (entradas) − Emigrantes (saídas)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/02_Geografia_7/geo7_p3_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/02_Geografia_7/geo7_p3_t2_questao.png",
+          "dicas_professor": [
+            "Distingue sempre causas naturais (secas, catástrofes), económicas (emprego, salários) e políticas/bélicas (guerras, perseguições — refugiados).",
+            "Nas consequências das migrações, analisa tanto a região de partida (envelhecimento, remessas dos emigrantes) como a de chegada (rejuvenescimento, multiculturalismo)."
+          ],
+          "checklist": [
+            "Calculo a densidade populacional e incluo sempre a unidade hab./km².",
+            "Localizo os principais vazios humanos e focos de concentração no mapa-mundo.",
+            "Explico as causas e consequências demográficas e económicas das migrações."
           ]
         }
       ]

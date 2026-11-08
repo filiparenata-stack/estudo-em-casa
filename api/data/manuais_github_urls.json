@@ -1,16 +1,16 @@
 {
-  "Ca_Marche_7_Cahier_d.exercices_Interactif.pdf": {
-    "id": 655590392,
-    "name": "Ca_Marche_7_Cahier_d.exercices_Interactif.pdf",
-    "size_mb": 37.5,
-    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/Ca_Marche_7_Cahier_d.exercices_Interactif.pdf",
-    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
-  },
   "Ca_Marche_7_Cahier_d._apprentissages.pdf": {
     "id": 655587832,
     "name": "Ca_Marche_7_Cahier_d._apprentissages.pdf",
     "size_mb": 7.6,
     "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/Ca_Marche_7_Cahier_d._apprentissages.pdf",
+    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
+  },
+  "Ca_Marche_7_Cahier_d.exercices_Interactif.pdf": {
+    "id": 655590392,
+    "name": "Ca_Marche_7_Cahier_d.exercices_Interactif.pdf",
+    "size_mb": 37.5,
+    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/Ca_Marche_7_Cahier_d.exercices_Interactif.pdf",
     "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
   },
   "Ca_Marche_7_Manual_Interactif.pdf": {
@@ -125,6 +125,41 @@
     "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/FAQ7_Reuniao_de_Equipas_Metodo_Jigsaw.pdf",
     "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
   },
+  "GEOPro_Interativo.pdf": {
+    "id": 655587594,
+    "name": "GEOPro_Interativo.pdf",
+    "size_mb": 6.6,
+    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEOPro_Interativo.pdf",
+    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
+  },
+  "GEO_Mais_7_Caderno_de_atividades_Interativo.pdf": {
+    "id": 655589244,
+    "name": "GEO_Mais_7_Caderno_de_atividades_Interativo.pdf",
+    "size_mb": 20.7,
+    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEO_Mais_7_Caderno_de_atividades_Interativo.pdf",
+    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
+  },
+  "GEO_Mais_7_Manual_Interativo.pdf": {
+    "id": 655591424,
+    "name": "GEO_Mais_7_Manual_Interativo.pdf",
+    "size_mb": 51.1,
+    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEO_Mais_7_Manual_Interativo.pdf",
+    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
+  },
+  "GEO_Mais_7_Portefolio_do_Professor.pdf": {
+    "id": 655588799,
+    "name": "GEO_Mais_7_Portefolio_do_Professor.pdf",
+    "size_mb": 17.4,
+    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEO_Mais_7_Portefolio_do_Professor.pdf",
+    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
+  },
+  "GEO_Mais_7_Professor.pdf": {
+    "id": 655589034,
+    "name": "GEO_Mais_7_Professor.pdf",
+    "size_mb": 19.8,
+    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEO_Mais_7_Professor.pdf",
+    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
+  },
   "GeoCienTIC_7_A_Descoberta_da_Geologia_de_Portugal.pdf": {
     "id": 655588254,
     "name": "GeoCienTIC_7_A_Descoberta_da_Geologia_de_Portugal.pdf",
@@ -181,41 +216,6 @@
     "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GeoCienTIC_7_Parte_I_Interativo.pdf",
     "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
   },
-  "GEOPro_Interativo.pdf": {
-    "id": 655587594,
-    "name": "GEOPro_Interativo.pdf",
-    "size_mb": 6.6,
-    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEOPro_Interativo.pdf",
-    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
-  },
-  "GEO_Mais_7_Caderno_de_atividades_Interativo.pdf": {
-    "id": 655589244,
-    "name": "GEO_Mais_7_Caderno_de_atividades_Interativo.pdf",
-    "size_mb": 20.7,
-    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEO_Mais_7_Caderno_de_atividades_Interativo.pdf",
-    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
-  },
-  "GEO_Mais_7_Manual_Interativo.pdf": {
-    "id": 655591424,
-    "name": "GEO_Mais_7_Manual_Interativo.pdf",
-    "size_mb": 51.1,
-    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEO_Mais_7_Manual_Interativo.pdf",
-    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
-  },
-  "GEO_Mais_7_Portefolio_do_Professor.pdf": {
-    "id": 655588799,
-    "name": "GEO_Mais_7_Portefolio_do_Professor.pdf",
-    "size_mb": 17.4,
-    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEO_Mais_7_Portefolio_do_Professor.pdf",
-    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
-  },
-  "GEO_Mais_7_Professor.pdf": {
-    "id": 655589034,
-    "name": "GEO_Mais_7_Professor.pdf",
-    "size_mb": 19.8,
-    "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/GEO_Mais_7_Professor.pdf",
-    "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
-  },
   "HSI7_Historia_Cover0_Manual.pdf": {
     "id": 655592164,
     "name": "HSI7_Historia_Cover0_Manual.pdf",
@@ -259,7 +259,7 @@
     "release_page": "https://github.com/filiparenata-stack/estudo-em-casa/releases/tag/v1.0-manuais-7ano"
   },
   "MX7_Matematica_Cover0_Manual_Parte_1_Interativo.pdf": {
-    "id": 655593017,
+    "id": 723629459,
     "name": "MX7_Matematica_Cover0_Manual_Parte_1_Interativo.pdf",
     "size_mb": 82.7,
     "url": "https://github.com/filiparenata-stack/estudo-em-casa/releases/download/v1.0-manuais-7ano/MX7_Matematica_Cover0_Manual_Parte_1_Interativo.pdf",

@@ -9,14 +9,126 @@ import {
   ChevronLeft,
   ChevronRight,
   Download,
-  ExternalLink,
   Layers,
   Sparkles,
   Bookmark,
-  FileText,
   Sun,
-  Moon
+  Moon,
+  Loader2,
+  AlertCircle,
+  RotateCw
 } from 'lucide-react';
+import * as pdfjsLib from 'pdfjs-dist';
+import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorkerUrl;
+
+const RANGE_CHUNK_SIZE = 262144; // 256 KB por bloco HTTP Range
+
+class HttpRangePdfTransport extends pdfjsLib.PDFDataRangeTransport {
+  constructor(length, initialData, url) {
+    super(length, initialData);
+    this.url = url;
+    this.controllers = new Set();
+  }
+
+  requestDataRange(begin, end) {
+    const controller = new AbortController();
+    this.controllers.add(controller);
+    const inclusiveEnd = Math.max(begin, end - 1);
+
+    fetch(this.url, {
+      headers: { Range: `bytes=${begin}-${inclusiveEnd}` },
+      signal: controller.signal
+    })
+      .then((res) => {
+        if (!res.ok && res.status !== 206) {
+          throw new Error(`Falha HTTP ${res.status} ao carregar bloco do PDF`);
+        }
+        return res.arrayBuffer();
+      })
+      .then((buffer) => {
+        this.controllers.delete(controller);
+        this.onDataRange(begin, new Uint8Array(buffer));
+      })
+      .catch((err) => {
+        this.controllers.delete(controller);
+        if (err.name !== 'AbortError') {
+          console.error('Erro ao obter intervalo de bytes do PDF:', err);
+        }
+      });
+  }
+
+  abort() {
+    for (const c of this.controllers) {
+      c.abort();
+    }
+    this.controllers.clear();
+    super.abort();
+  }
+}
+
+async function abrirDocumentoPdfComRange(pdfUrl, canonicalFilename, signal) {
+  let activeUrl = pdfUrl;
+
+  const fazerPedidoInicial = async (urlAlvo) => {
+    const resp = await fetch(urlAlvo, {
+      headers: { Range: `bytes=0-${RANGE_CHUNK_SIZE - 1}` },
+      signal
+    });
+    if (!resp.ok && resp.status !== 206) {
+      throw new Error(`HTTP ${resp.status}`);
+    }
+    const buf = await resp.arrayBuffer();
+    return { resp, bytes: new Uint8Array(buf) };
+  };
+
+  let { resp, bytes } = await fazerPedidoInicial(activeUrl);
+
+  // Em ambiente local Windows onde /books pode ser um symlink de texto (18 bytes),
+  // fazemos fallback automático para o endpoint /api/pdf-proxy do backend FastAPI
+  const isPdfHeader =
+    bytes.byteLength > 100 &&
+    bytes[0] === 0x25 && // %
+    bytes[1] === 0x50 && // P
+    bytes[2] === 0x44 && // D
+    bytes[3] === 0x46;   // F
+
+  if (!isPdfHeader && !activeUrl.startsWith('/api/pdf-proxy')) {
+    const fallbackName = canonicalFilename || activeUrl.split('/').pop().split('#')[0];
+    activeUrl = `/api/pdf-proxy?file=${encodeURIComponent(fallbackName)}`;
+    const retry = await fazerPedidoInicial(activeUrl);
+    resp = retry.resp;
+    bytes = retry.bytes;
+  }
+
+  const contentRange = resp.headers.get('Content-Range') || resp.headers.get('content-range') || '';
+  let totalLength = 0;
+  if (contentRange.includes('/')) {
+    const parsedTotal = parseInt(contentRange.split('/').pop().trim(), 10);
+    if (!isNaN(parsedTotal) && parsedTotal > 0) {
+      totalLength = parsedTotal;
+    }
+  }
+
+  if (resp.status === 206 && totalLength > bytes.byteLength) {
+    const transport = new HttpRangePdfTransport(totalLength, bytes, activeUrl);
+    const loadingTask = pdfjsLib.getDocument({
+      range: transport,
+      length: totalLength,
+      rangeChunkSize: RANGE_CHUNK_SIZE,
+      disableAutoFetch: true,
+      disableStream: true
+    });
+    return { loadingTask, transport };
+  }
+
+  // Caso o servidor tenha devolvido o ficheiro completo (200 OK ou ficheiro pequeno)
+  const loadingTask = pdfjsLib.getDocument({
+    data: bytes
+  });
+  return { loadingTask, transport: null };
+}
 
 export default function BookReaderModal({
   isOpen,
@@ -24,22 +136,37 @@ export default function BookReaderModal({
   book,
   initialPage = 1
 }) {
-  const [currentPage, setCurrentPage] = useState(initialPage);
-  const [pageInput, setPageInput] = useState(String(initialPage));
+  const [numPages, setNumPages] = useState(book?.paginas || 175);
+  const [currentPage, setCurrentPage] = useState(initialPage || 1);
+  const [pageInput, setPageInput] = useState(String(initialPage || 1));
   const [zoom, setZoom] = useState(100);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(Boolean(book?.unidades && book.unidades.length > 0));
+
+  const [loadingDoc, setLoadingDoc] = useState(false);
+  const [renderingPage, setRenderingPage] = useState(false);
+  const [docError, setDocError] = useState(null);
+  const [reloadCounter, setReloadCounter] = useState(0);
   const modalRef = useRef(null);
-  const iframeRef = useRef(null);
+  const canvasRef = useRef(null);
+  const viewportContainerRef = useRef(null);
+  const pdfDocRef = useRef(null);
+  const renderTaskRef = useRef(null);
 
-  const totalPages = book?.paginas || 175;
+  const totalPages = numPages || book?.paginas || 175;
 
-  const handlePageChange = useCallback((newPage) => {
-    const clamped = Math.max(1, Math.min(newPage, totalPages));
-    setCurrentPage(clamped);
-    setPageInput(String(clamped));
-  }, [totalPages]);
+  const handlePageChange = useCallback(
+    (newPage) => {
+      const clamped = Math.max(1, Math.min(newPage, totalPages));
+      setCurrentPage(clamped);
+      setPageInput(String(clamped));
+      if (viewportContainerRef.current) {
+        viewportContainerRef.current.scrollTop = 0;
+      }
+    },
+    [totalPages]
+  );
 
   const handlePrevPage = useCallback(() => {
     setCurrentPage((prev) => {
@@ -47,6 +174,9 @@ export default function BookReaderModal({
       setPageInput(String(next));
       return next;
     });
+    if (viewportContainerRef.current) {
+      viewportContainerRef.current.scrollTop = 0;
+    }
   }, []);
 
   const handleNextPage = useCallback(() => {
@@ -55,6 +185,9 @@ export default function BookReaderModal({
       setPageInput(String(next));
       return next;
     });
+    if (viewportContainerRef.current) {
+      viewportContainerRef.current.scrollTop = 0;
+    }
   }, [totalPages]);
 
   const [prevBookKey, setPrevBookKey] = useState(
@@ -63,9 +196,158 @@ export default function BookReaderModal({
   const currentBookKey = book?.id ? `${book.id}-${initialPage}` : '';
   if (currentBookKey !== prevBookKey) {
     setPrevBookKey(currentBookKey);
-    setCurrentPage(initialPage || 1);
-    setPageInput(String(initialPage || 1));
+    const startPage = Math.max(1, Math.min(initialPage || 1, book?.paginas || 999));
+    setCurrentPage(startPage);
+    setPageInput(String(startPage));
+    setNumPages(book?.paginas || 175);
   }
+
+  // Carregar o documento PDF em memória via PDF.js + HTTP Range (nunca dispara download no browser)
+  useEffect(() => {
+    if (!isOpen || !book?.pdfUrl) return;
+
+    let cancelled = false;
+    const abortController = new AbortController();
+    let activeTransport = null;
+    let activeLoadingTask = null;
+
+    setLoadingDoc(true);
+    setDocError(null);
+    pdfDocRef.current = null;
+
+    abrirDocumentoPdfComRange(book.pdfUrl, book.canonicalFilename, abortController.signal)
+      .then(({ loadingTask, transport }) => {
+        activeLoadingTask = loadingTask;
+        activeTransport = transport;
+        return loadingTask.promise;
+      })
+      .then((pdfDoc) => {
+        if (cancelled) {
+          pdfDoc.destroy();
+          return;
+        }
+        pdfDocRef.current = pdfDoc;
+        const realPages = pdfDoc.numPages || book.paginas || 1;
+        setNumPages(realPages);
+        setCurrentPage((prev) => {
+          const clamped = Math.max(1, Math.min(prev, realPages));
+          setPageInput(String(clamped));
+          return clamped;
+        });
+        setLoadingDoc(false);
+      })
+      .catch((err) => {
+        if (cancelled || err?.name === 'AbortError') return;
+        console.error('Erro ao carregar PDF no leitor integrado:', err);
+        setDocError('Não foi possível carregar a visualização rápida deste manual.');
+        setLoadingDoc(false);
+      });
+
+    return () => {
+      cancelled = true;
+      abortController.abort();
+      if (renderTaskRef.current) {
+        try {
+          renderTaskRef.current.cancel();
+        } catch {
+          // Ignorar cancelamento
+        }
+      }
+      if (activeTransport) {
+        try {
+          activeTransport.abort();
+        } catch {
+          // Ignorar
+        }
+      }
+      if (activeLoadingTask) {
+        try {
+          activeLoadingTask.destroy();
+        } catch {
+          // Ignorar
+        }
+      }
+      if (pdfDocRef.current) {
+        try {
+          pdfDocRef.current.destroy();
+        } catch {
+          // Ignorar
+        }
+        pdfDocRef.current = null;
+      }
+    };
+  }, [isOpen, book?.pdfUrl, book?.canonicalFilename, book?.paginas, reloadCounter]);
+
+  // Desenhar a página atual no elemento <canvas> sempre que currentPage ou zoom mudarem
+  useEffect(() => {
+    if (!isOpen || loadingDoc || !pdfDocRef.current || !canvasRef.current) return;
+
+    let cancelled = false;
+    const pdfDoc = pdfDocRef.current;
+    const pageNumber = Math.max(1, Math.min(currentPage, pdfDoc.numPages || totalPages));
+
+    setRenderingPage(true);
+
+    if (renderTaskRef.current) {
+      try {
+        renderTaskRef.current.cancel();
+      } catch {
+        // Ignorar
+      }
+    }
+
+    pdfDoc
+      .getPage(pageNumber)
+      .then((page) => {
+        if (cancelled || !canvasRef.current) return;
+
+        const baseScale = 1.35 * (zoom / 100);
+        const viewport = page.getViewport({ scale: baseScale });
+        const outputScale = window.devicePixelRatio || 1;
+
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+
+        canvas.width = Math.floor(viewport.width * outputScale);
+        canvas.height = Math.floor(viewport.height * outputScale);
+        canvas.style.width = `${Math.floor(viewport.width)}px`;
+        canvas.style.height = `${Math.floor(viewport.height)}px`;
+
+        const transform =
+          outputScale !== 1 ? [outputScale, 0, 0, outputScale, 0, 0] : null;
+
+        const renderContext = {
+          canvasContext: context,
+          transform,
+          viewport
+        };
+
+        const renderTask = page.render(renderContext);
+        renderTaskRef.current = renderTask;
+        return renderTask.promise;
+      })
+      .then(() => {
+        if (!cancelled) {
+          setRenderingPage(false);
+        }
+      })
+      .catch((err) => {
+        if (cancelled || err?.name === 'RenderingCancelledException') return;
+        console.error('Erro ao desenhar página do PDF:', err);
+        setRenderingPage(false);
+      });
+
+    return () => {
+      cancelled = true;
+      if (renderTaskRef.current) {
+        try {
+          renderTaskRef.current.cancel();
+        } catch {
+          // Ignorar
+        }
+      }
+    };
+  }, [isOpen, loadingDoc, currentPage, zoom, totalPages]);
 
   // Gestão de atalhos de teclado (Esc para fechar, setas para navegar páginas)
   useEffect(() => {
@@ -142,8 +424,8 @@ export default function BookReaderModal({
     }
   };
 
-  // URL do PDF com parâmetros nativos do Adobe / leitor do navegador
-  const pdfUrlWithParams = `${book.pdfUrl}#page=${currentPage}&zoom=${zoom}&toolbar=1&navpanes=1`;
+  const temUnidades = Array.isArray(book.unidades) && book.unidades.length > 0;
+  const downloadHref = book.downloadUrl || book.pdfUrl;
 
   return (
     <div
@@ -188,7 +470,7 @@ export default function BookReaderModal({
                   {book.ano || '3.º Ano'}
                 </span>
                 <span className="hidden sm:inline-block px-2 py-0.5 rounded-md text-[10px] font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200">
-                  Fast Web View ⚡
+                  Leitor Web PDF.js ⚡
                 </span>
               </div>
               <p
@@ -196,7 +478,7 @@ export default function BookReaderModal({
                   darkMode ? 'text-slate-400' : 'text-slate-500'
                 }`}
               >
-                {book.editora} • {book.tamanhoFormatado} • {totalPages} páginas digitalizadas
+                {book.editora || 'Porto Editora'} • {book.tamanhoFormatado || 'PDF Digital'} • {totalPages} páginas
               </p>
             </div>
           </div>
@@ -204,24 +486,26 @@ export default function BookReaderModal({
           {/* Ferramentas do Leitor */}
           <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             {/* Seletor de Capítulos / Sidebar Toggle */}
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className={`p-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
-                sidebarOpen
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : darkMode
-                  ? 'bg-slate-700 hover:bg-slate-600 text-slate-200'
-                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
-              }`}
-              title={sidebarOpen ? 'Ocultar Índice de Unidades' : 'Ver Índice de Unidades'}
-            >
-              <Layers className="w-4 h-4" />
-              <span className="hidden md:inline">Unidades</span>
-            </button>
+            {temUnidades && (
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className={`p-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
+                  sidebarOpen
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : darkMode
+                    ? 'bg-slate-700 hover:bg-slate-600 text-slate-200'
+                    : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
+                }`}
+                title={sidebarOpen ? 'Ocultar Índice de Unidades' : 'Ver Índice de Unidades'}
+              >
+                <Layers className="w-4 h-4" />
+                <span className="hidden md:inline">Unidades</span>
+              </button>
+            )}
 
             {/* Controlo de Zoom */}
             <div
-              className={`hidden sm:flex items-center rounded-xl p-0.5 border ${
+              className={`flex items-center rounded-xl p-0.5 border ${
                 darkMode ? 'bg-slate-700/60 border-slate-600' : 'bg-slate-100 border-slate-200'
               }`}
             >
@@ -276,27 +560,14 @@ export default function BookReaderModal({
               {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
             </button>
 
-            {/* Abrir em Separador Externo */}
+            {/* Descarregar PDF (único botão que efetua download explícito) */}
             <a
-              href={book.pdfUrl}
+              href={downloadHref}
+              download={book.canonicalFilename || 'livro.pdf'}
               target="_blank"
               rel="noopener noreferrer"
-              className={`hidden md:flex p-2 rounded-xl text-xs transition-colors cursor-pointer ${
-                darkMode
-                  ? 'bg-slate-700 hover:bg-slate-600 text-slate-200'
-                  : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
-              }`}
-              title="Abrir PDF numa nova aba"
-            >
-              <ExternalLink className="w-4 h-4" />
-            </a>
-
-            {/* Descarregar PDF */}
-            <a
-              href={book.pdfUrl}
-              download={book.canonicalFilename || 'livro.pdf'}
               className="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
-              title="Descarregar ficheiro PDF completo"
+              title="Descarregar ficheiro PDF completo para o teu computador"
             >
               <Download className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Descarregar</span>
@@ -317,12 +588,12 @@ export default function BookReaderModal({
           </div>
         </header>
 
-        {/* Corpo Principal: Sidebar de Capítulos + Visor Iframe PDF */}
+        {/* Corpo Principal: Sidebar de Capítulos + Visor Canvas PDF.js */}
         <div className="flex-1 flex overflow-hidden min-h-0 relative">
           {/* Sidebar / Gaveta de Unidades Curriculares */}
-          {sidebarOpen && (
+          {temUnidades && sidebarOpen && (
             <aside
-              className={`w-72 sm:w-80 shrink-0 border-r flex flex-col overflow-y-auto transition-all ${
+              className={`w-64 sm:w-80 shrink-0 border-r flex flex-col overflow-y-auto transition-all ${
                 darkMode
                   ? 'bg-slate-800/60 border-slate-700 text-slate-200'
                   : 'bg-slate-50/70 border-slate-200 text-slate-700'
@@ -371,7 +642,7 @@ export default function BookReaderModal({
                           {u.titulo}
                         </span>
                         <span
-                          className={`text-[10px] font-semibold px-1.5 py-0.5 rounded ${
+                          className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${
                             isActive
                               ? 'bg-blue-600 text-white'
                               : darkMode
@@ -412,35 +683,70 @@ export default function BookReaderModal({
             </aside>
           )}
 
-          {/* Área Central: Iframe Embutido do PDF */}
+          {/* Área Central: Visor Canvas Embutido do PDF */}
           <main
-            className={`flex-1 flex flex-col min-w-0 h-full relative ${
-              darkMode ? 'bg-slate-950' : 'bg-slate-100'
+            ref={viewportContainerRef}
+            className={`flex-1 flex flex-col items-center overflow-auto min-w-0 h-full relative p-3 sm:p-6 ${
+              darkMode ? 'bg-slate-950' : 'bg-slate-200/70'
             }`}
           >
-            {/* Visualizador de PDF via Iframe Nativo com Toolbar e Navegação */}
-            <iframe
-              ref={iframeRef}
-              key={`${book.pdfUrl}-${currentPage}-${zoom}`}
-              src={pdfUrlWithParams}
-              title={`Leitor do ${book.titulo}`}
-              className="w-full h-full border-0 bg-transparent"
-            />
-
-            {/* Aviso de Apoio e Fallback caso o navegador não renderize iframe de PDF */}
-            <noscript>
-              <div className="p-6 text-center">
-                <p className="text-sm">O teu navegador não suporta visualização embutida de PDFs.</p>
-                <a
-                  href={book.pdfUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-2 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg text-xs font-semibold"
-                >
-                  Abrir PDF numa nova aba
-                </a>
+            {loadingDoc && (
+              <div className="m-auto flex flex-col items-center justify-center gap-3 p-8 text-center">
+                <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
+                <div>
+                  <p className="text-sm font-bold">
+                    A abrir {book.titulo} no leitor do browser...
+                  </p>
+                  <p className="text-xs opacity-70 mt-1">
+                    Carregamento inteligente página a página (Fast Web View) sem descarregar o ficheiro
+                  </p>
+                </div>
               </div>
-            </noscript>
+            )}
+
+            {!loadingDoc && docError && (
+              <div className="m-auto max-w-md bg-white dark:bg-slate-800 rounded-2xl p-6 border border-red-200 dark:border-red-900/50 shadow-lg text-center flex flex-col items-center gap-3">
+                <AlertCircle className="w-10 h-10 text-red-500" />
+                <h4 className="text-sm font-bold">{docError}</h4>
+                <p className="text-xs opacity-75">
+                  Podes tentar recarregar a página no leitor ou transferir o PDF diretamente.
+                </p>
+                <div className="flex items-center gap-2 mt-1">
+                  <button
+                    onClick={() => setReloadCounter((c) => c + 1)}
+                    className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer"
+                  >
+                    <RotateCw className="w-3.5 h-3.5" />
+                    <span>Tentar Novamente</span>
+                  </button>
+                  <a
+                    href={downloadHref}
+                    download={book.canonicalFilename || 'livro.pdf'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Descarregar PDF</span>
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {!loadingDoc && !docError && (
+              <div className="relative my-auto flex items-center justify-center">
+                {renderingPage && (
+                  <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-slate-900/75 text-white text-[11px] font-semibold flex items-center gap-1.5 backdrop-blur-xs shadow-sm">
+                    <Loader2 className="w-3 h-3 animate-spin text-blue-400" />
+                    <span>A desenhar pág. {currentPage}...</span>
+                  </div>
+                )}
+                <canvas
+                  ref={canvasRef}
+                  className="bg-white shadow-xl rounded-lg border border-slate-300 dark:border-slate-700 transition-opacity"
+                />
+              </div>
+            )}
           </main>
         </div>
 
@@ -457,7 +763,7 @@ export default function BookReaderModal({
             <button
               onClick={handlePrevPage}
               disabled={currentPage <= 1}
-              className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 transition-colors disabled:opacity-40 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 transition-colors disabled:opacity-40 cursor-pointer ${
                 darkMode
                   ? 'bg-slate-700 hover:bg-slate-600 text-slate-200'
                   : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-sm'
@@ -493,7 +799,7 @@ export default function BookReaderModal({
             <button
               onClick={handleNextPage}
               disabled={currentPage >= totalPages}
-              className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 transition-colors disabled:opacity-40 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1 transition-colors disabled:opacity-40 cursor-pointer ${
                 darkMode
                   ? 'bg-slate-700 hover:bg-slate-600 text-slate-200'
                   : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-sm'
@@ -504,7 +810,7 @@ export default function BookReaderModal({
             </button>
           </div>
 
-          {/* Dica de Leitura e Unidade Atual */}
+          {/* Dica de Leitura */}
           <div className="hidden sm:flex items-center gap-2 text-xs">
             <span
               className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg ${
@@ -512,25 +818,21 @@ export default function BookReaderModal({
               }`}
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              <span>Dica: Podes usar as setas do teclado ← e → para folhear</span>
+              <span>Dica: Usa as setas ← e → do teclado para folhear sem sair da página</span>
             </span>
           </div>
 
-          {/* Ações Rápidas à Direita */}
+          {/* Indicador de Modo Leitura Online */}
           <div className="flex items-center gap-2">
-            <a
-              href={book.pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors ${
+            <span
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold ${
                 darkMode
-                  ? 'bg-slate-700 hover:bg-slate-600 text-slate-200'
-                  : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-sm'
+                  ? 'bg-emerald-900/40 text-emerald-300 border border-emerald-700/50'
+                  : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
               }`}
             >
-              <FileText className="w-3.5 h-3.5 text-blue-600" />
-              <span>Ver PDF</span>
-            </a>
+              Leitura no Browser Ativa
+            </span>
           </div>
         </footer>
       </div>

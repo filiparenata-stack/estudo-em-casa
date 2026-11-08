@@ -30,14 +30,16 @@
               "definicao": "Terra ➔ Sistema Solar ➔ Braço de Órion ➔ Via Láctea ➔ Grupo Local ➔ Superenxame da Virgem ➔ Universo Observável."
             }
           ],
-          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t1_1.png",
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t1_manual.png",
           "imagem_legenda": "Organização e hierarquia das estruturas no Universo: de satélites a superenxames de galáxias.",
           "foco_teste": {
             "questao_exemplo": "A estrela Sirius encontra-se a 8,6 anos-luz da Terra. Calcula a distância a Sirius em quilómetros, apresentando o resultado em notação científica com dois algarismos significativos. (Dado: 1 a.l. ≈ 9,5 × 10¹² km)",
-            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t1_1.png",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t1_questao.png",
             "proposta_resolucao": "d = 8,6 × (9,5 × 10¹² km) = 8,17 × 10¹³ km ≈ 8,2 × 10¹³ km. A luz emitida por Sirius hoje demorará 8,6 anos a chegar aos nossos telescópios.",
             "criterio_cotacao": "Obrigatório: fórmula ou proporção (20%), cálculo correto (40%), notação científica rigorosa (20%) e indicação correta da unidade km (20%).",
-            "erro_frequente": "Esquecer a notação científica ou confundir a unidade de distância (ano-luz) com uma unidade de tempo."
+            "erro_frequente": "Esquecer a notação científica ou confundir a unidade de distância (ano-luz) com uma unidade de tempo.",
+            "frequencia": "Muito Alta (sai em 95% dos testes)",
+            "tipo_questao": "Cálculo de conversão com Notação Científica"
           },
           "flashcards": [
             {
@@ -49,7 +51,36 @@
               "frente": "O ano-luz é uma unidade de tempo ou de distância?",
               "verso": "É estritamente uma unidade de distância astronómica (distância percorrida pela luz num ano no vácuo: ≈ 9,5 × 10¹² km).",
               "dica": "Não confundir"
+            },
+            {
+              "frente": "Qual o ponto essencial de exame sobre Universo e Distâncias no Universo?",
+              "verso": "Obrigatório: fórmula ou proporção (20%), cálculo correto (40%), notação científica rigorosa (20%) e indicação correta da unidade km (20%).",
+              "dica": "Exame"
             }
+          ],
+          "subtitulo": "Hierarquia Cósmica, Unidade Astronómica (ua) e Ano-luz (a.l.)",
+          "peso_teste": "35% da cotação do teste",
+          "paginas_manual": "Págs. 10–27",
+          "resumo_executivo": "Síntese da organização estrutural do Universo desde os planetas até aos superenxames de galáxias e aplicação rigorosa das unidades de distância astronómica (ua para o Sistema Solar e ano-luz para objetos fora do Sistema Solar).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Unidade Astronómica (ua)",
+              "conteudo": "1 ua ≈ 1,5 × 10⁸ km (150 milhões de km) — usada no Sistema Solar."
+            },
+            {
+              "titulo": "Ano-Luz (a.l.)",
+              "conteudo": "1 a.l. ≈ 9,5 × 10¹² km — distância que a luz percorre no vácuo em 1 ano."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t1_questao.png",
+          "dicas_professor": [
+            "Sublinha sempre se a distância pedida é dentro do Sistema Solar (usa ua) ou fora dele (usa ano-luz).",
+            "Apresenta sempre a unidade (km, ua ou a.l.) e confirma se o coeficiente da notação científica está entre 1 e 10."
+          ],
+          "checklist": [
+            "Sei ordenar corretamente as estruturas do Universo da menor para a maior.",
+            "Sei converter anos-luz e unidades astronómicas em quilómetros.",
+            "Nunca confundo o ano-luz (distância) com uma unidade de tempo."
           ]
         },
         {
@@ -70,14 +101,16 @@
               "definicao": "Plutão, Ceres e Éris não limparam a sua órbita. A cintura de asteroides situa-se entre Marte e Júpiter."
             }
           ],
-          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t2_1.png",
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t2_manual.png",
           "imagem_legenda": "Ordem dos planetas a partir do Sol e distinção entre planetas interiores e exteriores.",
           "foco_teste": {
             "questao_exemplo": "Considera a tabela com as características de dois planetas X e Y: Planeta X (densidade 5,4 g/cm³, 0 luas, superfície rochosa) e Planeta Y (densidade 1,3 g/cm³, 79 luas, atmosfera espessa). Classifica X e Y quanto ao tipo de planeta.",
-            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t2_1.png",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t2_questao.png",
             "proposta_resolucao": "O Planeta X é um planeta telúrico/rochoso (alta densidade e rochoso, típico dos planetas interiores como Mercúrio/Terra). O Planeta Y é um planeta gasoso/gigante (baixa densidade e múltiplos satélites, típico dos exteriores como Júpiter).",
             "criterio_cotacao": "Classificação correta acompanhada da justificação baseada nos dados da densidade e da presença de satélites.",
-            "erro_frequente": "Dizer que os planetas gasosos são mais densos porque são muito maiores (a densidade é massa por volume!)."
+            "erro_frequente": "Dizer que os planetas gasosos são mais densos porque são muito maiores (a densidade é massa por volume!).",
+            "frequencia": "Alta (sai em 90% dos testes)",
+            "tipo_questao": "Análise de tabela de dados planetários e justificação"
           },
           "flashcards": [
             {
@@ -89,7 +122,36 @@
               "frente": "Onde se localiza a Cintura Principal de Asteroides?",
               "verso": "Entre a órbita de Marte (último rochoso) e a órbita de Júpiter (primeiro gasoso).",
               "dica": "Fronteira rochosos/gasosos"
+            },
+            {
+              "frente": "Qual o ponto essencial de exame sobre O Sistema Solar e os Corpos Celestes?",
+              "verso": "Classificação correta acompanhada da justificação baseada nos dados da densidade e da presença de satélites.",
+              "dica": "Exame"
             }
+          ],
+          "subtitulo": "Planetas Telúricos vs Gigantes Gasosos, Planetas Anões e Corpos Menores",
+          "peso_teste": "35% da cotação do teste",
+          "paginas_manual": "Págs. 28–52",
+          "resumo_executivo": "Estudo comparativo entre os planetas interiores rochosos (Mercúrio, Vénus, Terra, Marte) e os gigantes gasosos exteriores (Júpiter, Saturno, Úrano, Neptuno), bem como asteroides, cometas e meteoroides.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Ordem a partir do Sol",
+              "conteudo": "Mercúrio ➔ Vénus ➔ Terra ➔ Marte | Cintura de Asteroides | Júpiter ➔ Saturno ➔ Úrano ➔ Neptuno."
+            },
+            {
+              "titulo": "Período Orbital vs Distância",
+              "conteudo": "Quanto maior a distância ao Sol, maior o período de translação (ano planetário mais longo)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t2_questao.png",
+          "dicas_professor": [
+            "Repara nos valores da massa volúmica (densidade): os planetas rochosos têm densidades elevadas (4 a 5,5 g/cm³), enquanto os gasosos têm densidades baixas (0,7 a 1,6 g/cm³).",
+            "Distingue sempre meteoro (rasto luminoso na atmosfera / estrela cadente) de meteorito (fragmento rochoso que atinge a superfície)."
+          ],
+          "checklist": [
+            "Sei distinguir planetas telúricos de gigantes gasosos por 3 critérios físicos.",
+            "Localizo a Cintura de Asteroides entre Marte e Júpiter.",
+            "Explico por que razão Plutão é classificado como planeta anão."
           ]
         },
         {
@@ -110,14 +172,16 @@
               "definicao": "Heterogénea: distinguem-se diferentes fases a olho nu (água e azeite). Coloidal: parece homogénea a olho nu mas é heterogénea ao microscópio ótico (leite, sangue, nevoeiro)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t3_1.png",
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t3_manual.png",
           "imagem_legenda": "Classificação da matéria: substâncias puras (elementares vs compostas) e misturas (homogéneas, heterogéneas e coloides).",
           "foco_teste": {
             "questao_exemplo": "Num laboratório prepararam-se três recipientes: A (água e sal totalmente dissolvido), B (água, areia e azeite) e C (leite gordo). Classifica cada sistema justificando.",
-            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t3_1.png",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t3_questao.png",
             "proposta_resolucao": "A é uma mistura homogénea (solução com uma única fase uniforme). B é uma mistura heterogénea (três fases distintas visíveis). C é uma mistura coloidal (efeito Tyndall, partículas dispersas visíveis ao microscópio).",
             "criterio_cotacao": "Classificação de cada mistura (60%) e justificação com base no número de fases observáveis (40%).",
-            "erro_frequente": "Considerar o leite como mistura homogénea por parecer uniforme a olho nu."
+            "erro_frequente": "Considerar o leite como mistura homogénea por parecer uniforme a olho nu.",
+            "frequencia": "Alta (sai em 85% dos testes)",
+            "tipo_questao": "Classificação de sistemas materiais com justificação"
           },
           "flashcards": [
             {
@@ -129,7 +193,36 @@
               "frente": "Qual a diferença entre substância elementar e substância composta?",
               "verso": "A elementar é formada por átomos de um só elemento químico (ex.: O₂), a composta por mais de um elemento (ex.: H₂O).",
               "dica": "Átomos"
+            },
+            {
+              "frente": "Qual o ponto essencial de exame sobre Substâncias Puras e Misturas?",
+              "verso": "Classificação de cada mistura (60%) e justificação com base no número de fases observáveis (40%).",
+              "dica": "Exame"
             }
+          ],
+          "subtitulo": "Substâncias Elementares e Compostas; Misturas Homogéneas, Heterogéneas e Coloidais",
+          "peso_teste": "30% da cotação do teste",
+          "paginas_manual": "Págs. 54–75",
+          "resumo_executivo": "Classificação macroscópica e corpuscular dos materiais em substâncias puras (com propriedades físicas fixas) e misturas de duas ou mais substâncias (homogéneas/soluções, heterogéneas e coloidais).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Critério de Pureza",
+              "conteudo": "Substância Pura: Ponto de Fusão (PF) e Ponto de Ebulição (PE) constantes | Mistura: PF e PE variáveis num intervalo."
+            },
+            {
+              "titulo": "Soluções (Misturas Homogéneas)",
+              "conteudo": "Solução = Solvente (maior proporção) + Soluto(s) (dissolvidos)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p1_t3_questao.png",
+          "dicas_professor": [
+            "Lembra-te dos coloides clássicos que caem sempre nos testes: leite, sangue, maionese, tinta e nevoeiro.",
+            "O ar limpo e filtrado é uma mistura homogénea gasosa (78% N₂, 21% O₂, 1% outros gases), nunca uma substância pura!"
+          ],
+          "checklist": [
+            "Distingo substância pura de mistura através de gráficos de mudança de estado.",
+            "Classifico misturas em homogéneas, heterogéneas e coloidais.",
+            "Identifico o soluto e o solvente numa solução aquosa ou alcoólica."
           ]
         }
       ]
@@ -161,14 +254,16 @@
               "definicao": "Libertação de gás (efervescência), alteração de cor, formação de um precipitado sólido, libertação de luz ou calor, emissão de cheiro."
             }
           ],
-          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t1_2.png",
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t1_manual.png",
           "imagem_legenda": "Evidências de reações químicas no laboratório e distinção molecular face às mudanças de estado.",
           "foco_teste": {
             "questao_exemplo": "Ao juntar ácido clorídrico a um pedaço de magnésio observa-se intensa efervescência e o tubo de ensaio aquece. Trata-se de uma transformação física ou química? Justifica com duas evidências observadas.",
-            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t1_1.png",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t1_questao.png",
             "proposta_resolucao": "Trata-se de uma transformação química (reação química). Evidências: libertação de um gás (efervescência de hidrogénio) e variação de temperatura (aquecimento do tubo / reação exotérmica), demonstrando a formação de novas substâncias.",
             "criterio_cotacao": "Identificação correta (40%) + indicação e justificação de ambas as evidências (60%).",
-            "erro_frequente": "Confundir efervescência por reação com ebulição de um líquido."
+            "erro_frequente": "Confundir efervescência por reação com ebulição de um líquido.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Questão experimental de interpretação de ensaio laboratorial"
           },
           "flashcards": [
             {
@@ -180,7 +275,36 @@
               "frente": "A fusão do gelo e a evaporação da água são transformações físicas ou químicas?",
               "verso": "Físicas, porque as moléculas continuam a ser de água (H₂O), alterando apenas a sua organização espacial.",
               "dica": "Estados físicos"
+            },
+            {
+              "frente": "Qual o ponto essencial de exame sobre Transformações Físicas vs Químicas?",
+              "verso": "Identificação correta (40%) + indicação e justificação de ambas as evidências (60%).",
+              "dica": "Exame"
             }
+          ],
+          "subtitulo": "Distinção entre Mudanças Físicas e Reações Químicas; Evidências Laboratoriais",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Págs. 76–104",
+          "resumo_executivo": "Identificação rigorosa de transformações físicas (mudanças de estado ou fragmentação sem alteração da identidade química) e transformações químicas (onde reagentes originam novos produtos de reação), incluindo fatores desencadeantes (calor, luz, corrente elétrica, ação mecânica e junção de substâncias).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Esquema Geral de Reação Química",
+              "conteudo": "Reagentes (substâncias iniciais) ➔ Produtos da Reação (novas substâncias formadas)."
+            },
+            {
+              "titulo": "Tipos de Transformação Química",
+              "conteudo": "Termólise (por ação do calor), Fotólise (por ação da luz) e Eletrólise (por ação da corrente elétrica)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t1_questao.png",
+          "dicas_professor": [
+            "Não confundas ebulição da água (transformação física: vapor continua a ser H₂O) com efervescência química (libertação de um novo gás, ex.: CO₂ ou H₂).",
+            "Indica sempre pelo menos duas evidências observáveis (mudança de cor, precipitado, libertação gasosa, variação de temperatura)."
+          ],
+          "checklist": [
+            "Identifico os reagentes (antes da seta) e os produtos de reação (depois da seta).",
+            "Reconheço os 5 sinais experimentais de reação química.",
+            "Distingo termólise, fotólise e eletrólise com exemplos reais."
           ]
         },
         {
@@ -201,14 +325,16 @@
               "definicao": "Um corpo flutua num líquido se a sua massa volúmica for menor que a do líquido; afunda se for maior."
             }
           ],
-          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t2_2.png",
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t2_manual.png",
           "imagem_legenda": "Gráfico de temperatura vs tempo durante o aquecimento de uma substância pura e cálculo de ρ = m / V.",
           "foco_teste": {
             "questao_exemplo": "Um bloco maciço tem uma massa de 270 g e ocupa um volume de 100 cm³. (a) Calcula a massa volúmica em g/cm³. (b) Sabendo que a massa volúmica da água pura é 1,0 g/cm³, o bloco flutuará ou afundará na água?",
-            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t2_1.png",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t2_questao.png",
             "proposta_resolucao": "(a) ρ = m / V = 270 g / 100 cm³ = 2,7 g/cm³ (alumínio). (b) O bloco afundará na água pura, pois a sua massa volúmica (2,7 g/cm³) é superior à da água (1,0 g/cm³).",
             "criterio_cotacao": "Fórmula explícita (25%), valor numérico e unidade g/cm³ (50%), justificação da flutuação comparando valores (25%).",
-            "erro_frequente": "Omitir a unidade no resultado final ou inverter m e V na fórmula."
+            "erro_frequente": "Omitir a unidade no resultado final ou inverter m e V na fórmula.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Problema numérico de cálculo de ρ e análise de flutuação"
           },
           "flashcards": [
             {
@@ -220,7 +346,36 @@
               "frente": "Como se comporta a temperatura de uma substância pura durante a ebulição?",
               "verso": "A temperatura permanece estritamente constante (patamar térmico) enquanto coexistem líquido e vapor.",
               "dica": "Patamar de mudança de estado"
+            },
+            {
+              "frente": "Qual o ponto essencial de exame sobre Massa Volúmica e Propriedades Físicas?",
+              "verso": "Fórmula explícita (25%), valor numérico e unidade g/cm³ (50%), justificação da flutuação comparando valores (25%).",
+              "dica": "Exame"
             }
+          ],
+          "subtitulo": "Cálculo de Densidade (ρ = m / V), Método da Proveta e Gráficos de Mudança de Estado",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Págs. 106–138",
+          "resumo_executivo": "Determinação experimental e analítica da massa volúmica de sólidos regulares, irregulares (por deslocamento de líquido na proveta) e líquidos, e interpretação dos patamares térmicos de fusão e ebulição.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Fórmula da Massa Volúmica",
+              "conteudo": "ρ = m / V  ⇔  m = ρ × V  ⇔  V = m / ρ  (Unidades: g/cm³ ou kg/m³)."
+            },
+            {
+              "titulo": "Volume de Sólido Irregular",
+              "conteudo": "V_sólido = V_final - V_inicial (lido na base do menisco da proveta)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p2_t2_questao.png",
+          "dicas_professor": [
+            "Escreve sempre a fórmula antes de substituíres os números: vale 20% a 25% da cotação da pergunta!",
+            "Na leitura da proveta graduada, posiciona os olhos na horizontal e lê na parte inferior do menisco côncavo."
+          ],
+          "checklist": [
+            "Sei isolar m, V e ρ a partir da fórmula ρ = m / V.",
+            "Calculo o volume de um objeto irregular pelo método de deslocamento de água.",
+            "Prevejo se um corpo flutua ou afunda comparando a sua massa volúmica com a do líquido."
           ]
         }
       ]
@@ -251,14 +406,16 @@
               "definicao": "Evaporação lenta do solvente permitindo a formação de cristais puros de soluto (ex.: salinas marinhas)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t1_2.png",
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t1_manual.png",
           "imagem_legenda": "Aparelhos laboratoriais: montagem de destilação simples com balão, termómetro, condensador e erlenmeyer.",
           "foco_teste": {
             "questao_exemplo": "Deseja-se obter água pura a partir de uma amostra de água salgada com terra em suspensão. Indica por ordem os dois processos laboratoriais a utilizar e identifica o papel do condensador de Liebig.",
-            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t1_1.png",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t1_questao.png",
             "proposta_resolucao": "1.º Filtração simples (para reter a terra no papel de filtro). 2.º Destilação simples (para separar a água do sal dissolvido). O condensador arrefece os vapores de água que se libertam no balão, fazendo-os passar ao estado líquido por condensação.",
             "criterio_cotacao": "Sequência correta dos métodos (50%) + explicação física do condensador (50%).",
-            "erro_frequente": "Propor decantação para separar o sal dissolvido (o sal não decanta por estar em solução!)."
+            "erro_frequente": "Propor decantação para separar o sal dissolvido (o sal não decanta por estar em solução!).",
+            "frequencia": "Muito Alta (sai em 95% dos testes)",
+            "tipo_questao": "Sequência experimental e legendagem de material de laboratório"
           },
           "flashcards": [
             {
@@ -270,7 +427,36 @@
               "frente": "Para que serve a ampola de decantação?",
               "verso": "Para separar líquidos imiscíveis com diferentes densidades (ex.: água e azeite).",
               "dica": "Laboratório"
+            },
+            {
+              "frente": "Qual o ponto essencial de exame sobre Métodos de Separação de Misturas?",
+              "verso": "Sequência correta dos métodos (50%) + explicação física do condensador (50%).",
+              "dica": "Exame"
             }
+          ],
+          "subtitulo": "Decantação, Filtração, Centrifugação, Cristalização, Destilação e Cromatografia",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 140–168",
+          "resumo_executivo": "Seleção e descrição sequencial dos processos físicos de separação dos componentes de misturas heterogéneas (sólido-sólido, sólido-líquido e líquido-líquido) e de misturas homogéneas (destilação simples/fracionada, cristalização e cromatografia em papel).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Misturas Heterogéneas",
+              "conteudo": "Sólido + Líquido: Decantação, Filtração, Centrifugação | Líquidos Imiscíveis: Ampola de Decantação."
+            },
+            {
+              "titulo": "Misturas Homogéneas",
+              "conteudo": "Recuperar só o sólido: Cristalização/Evaporação | Recuperar o líquido puro: Destilação Simples."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t1_questao.png",
+          "dicas_professor": [
+            "No condensador de Liebig da destilação, a água fria entra SEMPRE pela tubuladura inferior e sai pela superior (contra-corrente) para arrefecer totalmente o tubo!",
+            "Nunca uses filtração para separar sal dissolvido na água: o sal atravessa os poros do filtro!"
+          ],
+          "checklist": [
+            "Escolho a técnica certa conforme a mistura seja homogénea ou heterogénea.",
+            "Legendo corretamente a montagem de destilação simples e filtração.",
+            "Explico as mudanças de estado que ocorrem na destilação (ebulição + condensação)."
           ]
         },
         {
@@ -291,14 +477,16 @@
               "definicao": "Razão entre a energia útil obtida e a energia total fornecida (η = E_útil / E_total × 100%)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t2_2.png",
+          "imagem_manual": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t2_manual.png",
           "imagem_legenda": "Diagrama de Sankey mostrando a energia fornecida, a energia útil e a energia dissipada sob a forma de calor.",
           "foco_teste": {
             "questao_exemplo": "Uma lâmpada consome 100 J de energia elétrica e fornece 15 J de energia luminosa (útil). (a) O que aconteceu à restante energia? (b) Calcula o rendimento da lâmpada.",
-            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t2_1.png",
+            "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t2_questao.png",
             "proposta_resolucao": "(a) A energia restante (85 J) foi dissipada para o ambiente sob a forma de calor (energia térmica). (b) Rendimento = (15 J / 100 J) × 100% = 15%.",
             "criterio_cotacao": "Aplicação do princípio da conservação da energia (50%) e cálculo correto com símbolo percentual (50%).",
-            "erro_frequente": "Dizer que a energia de 85 J 'desapareceu' ou foi destruída."
+            "erro_frequente": "Dizer que a energia de 85 J 'desapareceu' ou foi destruída.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Análise de Diagrama de Sankey e cálculo de rendimento"
           },
           "flashcards": [
             {
@@ -310,7 +498,36 @@
               "frente": "Indica 3 fontes de energia renováveis e 2 não renováveis.",
               "verso": "Renováveis: solar, eólica, hídrica. Não renováveis: petróleo, gás natural (ou carvão/urânio).",
               "dica": "Sustentabilidade"
+            },
+            {
+              "frente": "Qual o ponto essencial de exame sobre Fontes de Energia e Conservação?",
+              "verso": "Aplicação do princípio da conservação da energia (50%) e cálculo correto com símbolo percentual (50%).",
+              "dica": "Exame"
             }
+          ],
+          "subtitulo": "Fontes Primárias e Secundárias, Lei da Conservação da Energia e Rendimento (η)",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 170–204",
+          "resumo_executivo": "Análise das fontes de energia renováveis e não renováveis, cadeia de transferências energéticas entre sistema e vizinhança, interpretação de diagramas de Sankey e cálculo do rendimento energético.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Balanço Energético (Conservação)",
+              "conteudo": "E_fornecida = E_útil + E_dissipada (em Joule, J, ou quilojoule, kJ)."
+            },
+            {
+              "titulo": "Rendimento Energético (η)",
+              "conteudo": "η (%) = (E_útil / E_fornecida) × 100%."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/01_Fisico_Quimica_7/fq7_p3_t2_questao.png",
+          "dicas_professor": [
+            "Num diagrama de Sankey, a largura de cada seta é diretamente proporcional à quantidade de energia (conta os quadradinhos da grelha!).",
+            "Nenhum aparelho real tem rendimento de 100% porque há sempre energia dissipada sob a forma de calor (aquecimento)."
+          ],
+          "checklist": [
+            "Distingo fontes de energia primárias (renováveis vs fósseis) de secundárias (eletricidade).",
+            "Aplico a expressão E_fornecida = E_útil + E_dissipada sem falhar unidades.",
+            "Calculo o rendimento percentual a partir de um diagrama de Sankey."
           ]
         }
       ]

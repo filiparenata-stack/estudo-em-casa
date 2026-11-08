@@ -29,14 +29,16 @@
               "definicao": "Construções monumentais em grandes blocos de pedra: Menires (culto à fertilidade/astros) e Antas ou Dólmenes (monumentos funerários coletivos)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p1_t1_2.png",
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p1_t1_manual.png",
           "imagem_legenda": "Aldeia neolítica mostrando a agricultura, pastorícia, tecelagem, moagem de cereais e antas megalíticas.",
           "foco_teste": {
             "questao_exemplo": "Explica por que razão a invenção da agricultura provocou a sedentarização das comunidades humanas no Neolítico.",
-            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p1_t1_1.png",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p1_t1_questao.png",
             "proposta_resolucao": "Ao inventar a agricultura e a pastorícia, o Homem deixou de ter necessidade de percorrer longas distâncias atrás dos animais ou frutos selvagens (nomadismo). Passou a ter de permanecer junto dos campos de cultivo para lavrar, semear, vigiar e colher os cereais, construindo habitações permanentes e fundando as primeiras aldeias (sedentarização).",
             "criterio_cotacao": "Relação causa-efeito entre os ciclos agrícolas e a necessidade de permanência no local (100%).",
-            "erro_frequente": "Dizer que o Homem do Paleolítico já praticava agricultura."
+            "erro_frequente": "Dizer que o Homem do Paleolítico já praticava agricultura.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Quadro comparativo Paleolítico vs Neolítico e relação causa-efeito"
           },
           "flashcards": [
             {
@@ -48,7 +50,36 @@
               "frente": "Para que serviam as Antas (ou Dólmenes) no Neolítico?",
               "verso": "Eram monumentos funerários coletivos para sepultamento dos mortos da comunidade.",
               "dica": "Megalitos"
+            },
+            {
+              "frente": "Qual o facto histórico decisivo em Paleolítico vs Neolítico: A Revolução Neolítica?",
+              "verso": "Ao inventar a agricultura e a pastorícia, o Homem deixou de ter necessidade de percorrer longas distâncias atrás dos animais ou frutos selvagens (nomadismo). Passou a ter de perman",
+              "dica": "Revisão"
             }
+          ],
+          "subtitulo": "Economia Recoletora e Nomadismo vs Economia Produtora, Sedentarização e Megalitismo",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 10–38",
+          "resumo_executivo": "Comparação sistemática entre o modo de vida das comunidades recoletoras do Paleolítico (caça, pesca, recoleção, nomadismo, pedra lascada, domínio do fogo e arte rupestre) e as transformações da Revolução Neolítica (agricultura, pastorícia, sedentarização, pedra polida, cerâmica e monumentos megalíticos).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Paleolítico (Economia Recoletora)",
+              "conteudo": "Nómadas ➔ Caça, pesca e recoleção ➔ Abrigos temporários/grutas ➔ Pedra lascada (bifaces) e Arte Rupestre."
+            },
+            {
+              "titulo": "Neolítico (Economia Produtora)",
+              "conteudo": "Sedentários ➔ Agricultura e Pastorícia ➔ Aldeamentos ➔ Pedra polida, cerâmica, cestaria, tecelagem e Megalitismo (Menires, Cromeleques e Antas/Dólmenes)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p1_t1_questao.png",
+          "dicas_professor": [
+            "Explica sempre a relação direta: Agricultura e Pastorícia (economia produtora) ➔ necessidade de cuidar das colheitas e rebanhos ➔ Sedentarização (construção das primeiras aldeias).",
+            "Distingue os 3 tipos de monumentos megalíticos: Menir (pedra isolada vertical), Cromeleque (círculo de menires, ex.: Almendres) e Anta/Dólmen (câmara funerária coletiva)."
+          ],
+          "checklist": [
+            "Distingo economia recoletora de economia produtora.",
+            "Explico como a descoberta da agricultura levou à sedentarização e divisão do trabalho.",
+            "Identifico menires, cromeleques e antas/dólmenes e a sua função mágica ou funerária."
           ]
         },
         {
@@ -69,14 +100,16 @@
               "definicao": "Apenas eram cidadãos os homens livres, filhos de pai e mãe atenienses com mais de 20 anos. Mulheres, metecos (estrangeiros) e escravos estavam excluídos dos direitos políticos."
             }
           ],
-          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p1_t2_2.png",
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p1_t2_manual.png",
           "imagem_legenda": "A Acrópole de Atenas e o esquema da pirâmide social da pólis ateniense (Cidadãos vs Não-Cidadãos).",
           "foco_teste": {
             "questao_exemplo": "Indica dois aspetos em que a democracia ateniense era direta e apresenta duas razões pelas quais era considerada uma democracia restrita ou imperfeita.",
-            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p1_t2_1.png",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p1_t2_questao.png",
             "proposta_resolucao": "Era direta porque os cidadãos participavam e votavam pessoalmente as leis na Eclésia, sem deputados intermediários. Era restrita porque apenas uma minoria (cerca de 10% a 15% da população) tinha estatuto de cidadão: as mulheres, os escravos e os metecos não tinham quaisquer direitos políticos.",
             "criterio_cotacao": "Identificação da participação direta (50%) + identificação dos grupos sociais excluídos (50%).",
-            "erro_frequente": "Pensar que as mulheres podiam votar na assembleia grega."
+            "erro_frequente": "Pensar que as mulheres podiam votar na assembleia grega.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Análise documental sobre a Democracia de Atenas e sociedade egípcia"
           },
           "flashcards": [
             {
@@ -88,7 +121,36 @@
               "frente": "Por que razão os egípcios mumificavam os corpos dos seus mortos?",
               "verso": "Acreditavam na vida após a morte e na imortalidade da alma (o Ka precisava do corpo preservado para regressar).",
               "dica": "Religião egípcia"
+            },
+            {
+              "frente": "Qual o facto histórico decisivo em A Civilização Egípcia e a Democracia Grega?",
+              "verso": "Era direta porque os cidadãos participavam e votavam pessoalmente as leis na Eclésia, sem deputados intermediários. Era restrita porque apenas uma minoria (cerca de 10% a 15% da po",
+              "dica": "Revisão"
             }
+          ],
+          "subtitulo": "O Egito Faraónico (Sociedade, Religião e Escrita) e a Democracia Ateniense no Século V a.C.",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 40–84",
+          "resumo_executivo": "Estudo das civilizações fluviais através do Antigo Egito (importância económica das cheias do Nilo, poder sacralizado do Faraó, sociedade hierarquizada e religião politeísta ligada à mumificação) e análise da Pólis de Atenas no século de Péricles (democracia direta mas restrita aos cidadãos).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Pirâmide Social do Antigo Egito",
+              "conteudo": "Topo: Faraó (rei-deus) ➔ Nobres, Sacerdotes e Escribas ➔ Artesãos e Comerciantes ➔ Base: Camponeses e Escravos."
+            },
+            {
+              "titulo": "Instituições da Democracia Ateniense",
+              "conteudo": "Eclésia (Assembleia de cidadãos que vota leis) | Bulé (Conselho dos 500 que prepara leis) | Helieia (Tribunal) | Estrategos (10 chefes militares)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p1_t2_questao.png",
+          "dicas_professor": [
+            "Na pergunta clássica sobre os limites da democracia ateniense, nomeia obrigatoriamente os 3 grupos excluídos: Mulheres, Metecos (estrangeiros residentes) e Escravos.",
+            "Lembra-te que a democracia grega era DIRETA (os cidadãos votavam de braço no ar na colina da Pnyx/Eclésia), enquanto a democracia atual é representativa."
+          ],
+          "checklist": [
+            "Explico a frase de Heródoto «O Egito é uma dádiva do Nilo».",
+            "Relaciono a crença na vida após a morte com a mumificação e construção das pirâmides.",
+            "Justifico por que razão a democracia ateniense era simultaneamente direta e restrita."
           ]
         }
       ]
@@ -119,14 +181,16 @@
               "definicao": "Cidades como Conímbriga, pontes (Chaves, Ponte de Lima), templos (Templo Romano de Évora) e indústrias de salga de peixe e garum (Tróia)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p2_t1_2.png",
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p2_t1_manual.png",
           "imagem_legenda": "A extensão máxima do Império Romano em torno do Mare Nostrum (Mediterrâneo) e os traçados das vias romanas.",
           "foco_teste": {
             "questao_exemplo": "Menciona quatro fatores que facilitaram a integração e romanização dos povos da Península Ibérica no Império Romano.",
-            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p2_t1_1.png",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p2_t1_questao.png",
             "proposta_resolucao": "1. A criação de uma densa rede de estradas e pontes (facilitando o comércio e a deslocação rápida das legiões); 2. A difusão do latim como língua comum oficial; 3. A aplicação do Direito Romano e a atribuição da cidadania romana; 4. A presença dos soldados do exército romano e a fundação de cidades com banhos, teatros e templos.",
             "criterio_cotacao": "Indicação correta e justificada de 4 fatores (25% cada).",
-            "erro_frequente": "Referir apenas monumentos isolados sem explicar o papel unificador do exército, do latim e do direito."
+            "erro_frequente": "Referir apenas monumentos isolados sem explicar o papel unificador do exército, do latim e do direito.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Identificação e explicação dos fatores e vestígios da Romanização"
           },
           "flashcards": [
             {
@@ -138,7 +202,111 @@
               "frente": "Dá dois exemplos de monumentos romanos preservados em Portugal.",
               "verso": "O Templo de Diana/Romano em Évora e as ruínas da cidade romana de Conímbriga (ou a Ponte Romana de Chaves).",
               "dica": "Património nacional"
+            },
+            {
+              "frente": "Qual o facto histórico decisivo em O Império Romano e a Romanização?",
+              "verso": "1. A criação de uma densa rede de estradas e pontes (facilitando o comércio e a deslocação rápida das legiões); 2. A difusão do latim como língua comum oficial; 3. A aplicação do D",
+              "dica": "Revisão"
             }
+          ],
+          "subtitulo": "Expansão em torno do Mare Nostrum, Pax Romana e Fatores da Romanização Ibérica",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Págs. 88–124",
+          "resumo_executivo": "Análise da formação do Império Romano, da concentração de poderes no Imperador a partir de Octávio César Augusto e dos veículos de aculturação (Romanização) que transformaram a economia, o urbanismo, a língua e o direito da Península Ibérica.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Os 4 Grandes Veículos da Romanização",
+              "conteudo": "1. Língua Latina | 2. Direito Romano e Cidadania (Édito de Caracala, 212) | 3. Rede de Estradas e Cidades | 4. Exército e Administração."
+            },
+            {
+              "titulo": "Economia Romana na Lusitânia",
+              "conteudo": "Economia monetária, urbana e comercial: exploração de minas, trilogia mediterrânica (trigo, vinha, oliveira) e fabrico de garum."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p2_t1_questao.png",
+          "dicas_professor": [
+            "Distingue sempre Conquista (domínio militar pelas legiões romanas, apesar da resistência lusitana de Viriato) de Romanização (assimilação pacífica e progressiva da língua, leis e cultura romana).",
+            "Cita exemplos concretos em Portugal: ruínas de Conímbriga, Templo Romano de Évora, Ponte Romana de Chaves e cetárias de Tróia."
+          ],
+          "checklist": [
+            "Explico o significado da expressão Mare Nostrum e o conceito de Pax Romana.",
+            "Enumero e explico os 4 veículos principais da Romanização.",
+            "Identifico monumentos romanos em Portugal (fórum, teatro, anfiteatro, termas, aqueduto)."
+          ]
+        },
+        {
+          "id": "hist7_p2_t2",
+          "titulo": "O Cristianismo, a Divisão do Império e as Invasões Bárbaras",
+          "subdominio": "Crise do Império Romano e Herança Cristã",
+          "conceitos_chave": [
+            {
+              "termo": "Origem e Difusão do Cristianismo",
+              "definicao": "Religião monoteísta fundada na mensagem de Jesus de Nazaré (igualdade espiritual, fraternidade e salvação). Inicialmente perseguidos nas catacumbas, os cristãos ganharam liberdade religiosa com o Édito de Milão (313, Constantino) e o Cristianismo tornou-se religião oficial do Império com o Édito de Tessalónica (380, Teodósio)."
+            },
+            {
+              "termo": "Divisão e Queda do Império Romano (476)",
+              "definicao": "Em 395, Teodósio dividiu o Império em Império Romano do Ocidente (capital em Roma) e Império Romano do Oriente (capital em Constantinopla). Em 476 d.C., a deposição de Rómulo Augústulo marcou o fim do Império do Ocidente e o início da Idade Média."
+            },
+            {
+              "termo": "As Invasões Bárbaras (Séculos IV-V)",
+              "definicao": "Povos germânicos (Suevos, Visigodos, Francos, Vândalos, Ostrogodos, Anglos e Saxões), empurrados pelos Hunos, atravessaram o limes (fronteira romana) e fundaram reinos independentes na Europa."
+            },
+            {
+              "termo": "Reinos Suevo e Visigodo na Península Ibérica",
+              "definicao": "Os Suevos fixaram-se no noroeste peninsular (capital em Braga) e os Visigodos unificaram depois toda a Hispânia (capital em Toledo), convertendo-se ao catolicismo e fundindo a tradição germânica com a herança romana."
+            }
+          ],
+          "imagem_legenda": "Linha cronológica do Cristianismo (Édito de Milão 313 e Tessalónica 380) e mapa das invasões bárbaras e reinos germânicos (Suevos e Visigodos).",
+          "foco_teste": {
+            "questao_exemplo": "Relaciona a promulgação do Édito de Milão (313) e do Édito de Tessalónica (380) com a afirmação do Cristianismo no Império Romano, e indica o acontecimento de 476 d.C. que marca tradicionalmente a transição da Idade Antiga para a Idade Média.",
+            "proposta_resolucao": "O Édito de Milão (313), promulgado pelo imperador Constantino, pôs fim às perseguições aos cristãos e concedeu a liberdade de culto no Império. Mais tarde, o Édito de Tessalónica (380), do imperador Teodósio, elevou o Cristianismo a religião oficial única do Império Romano. O marco histórico de 476 d.C. foi a queda do Império Romano do Ocidente (deposição do último imperador, Rómulo Augústulo, pelos povos bárbaros/hérulos comandados por Odoacro).",
+            "criterio_cotacao": "Distinção entre Édito de Milão (liberdade de culto) e Édito de Tessalónica (religião oficial) (60%) + referência à queda do Império Romano do Ocidente em 476 d.C. (40%).",
+            "erro_frequente": "Trocar o Édito de Milão (313, liberdade religiosa) com o Édito de Tessalónica (380, religião oficial do Estado).",
+            "frequencia": "Alta (sai em 90% dos testes)",
+            "tipo_questao": "Análise cronológica e mapa das invasões germânicas",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p2_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a diferença entre o Édito de Milão (313) e o Édito de Tessalónica (380)?",
+              "verso": "O Édito de Milão (Constantino, 313) concedeu liberdade de culto aos cristãos; o Édito de Tessalónica (Teodósio, 380) tornou o Cristianismo a religião oficial do Império Romano.",
+              "dica": "Cristianismo em Roma"
+            },
+            {
+              "frente": "Que povos germânicos se fixaram na Península Ibérica no século V e quais eram as suas capitais?",
+              "verso": "Os Suevos (no noroeste, com capital em Braga) e os Visigodos (que dominaram toda a Península, com capital em Toledo).",
+              "dica": "Península Ibérica"
+            },
+            {
+              "frente": "Que data e acontecimento marcam o fim da Idade Antiga e o início da Idade Média?",
+              "verso": "O ano de 476 d.C., com a queda do Império Romano do Ocidente (deposição do imperador Rómulo Augústulo).",
+              "dica": "Baliza cronológica"
+            }
+          ],
+          "subtitulo": "Difusão do Cristianismo (Éditos de Milão e Tessalónica) e os Reinos Bárbaros na Europa",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Págs. 126–154",
+          "resumo_executivo": "Compreensão da transição da Antiguidade Clássica para a Idade Média através da afirmação do Cristianismo no Império Romano, da divisão do Império em 395 e das invasões germânicas dos séculos IV e V que puseram fim ao Império Romano do Ocidente em 476.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Cronologia do Cristianismo Romano",
+              "conteudo": "Sécs. I-III: Perseguições (Catacumbas) ➔ 313: Édito de Milão (Liberdade de culto) ➔ 380: Édito de Tessalónica (Religião oficial)."
+            },
+            {
+              "titulo": "Transição para a Idade Média",
+              "conteudo": "395: Divisão do Império (Ocidente vs Oriente) ➔ Sécs. IV-V: Invasões Bárbaras ➔ 476: Queda de Roma (Fim da Idade Antiga)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p2_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p2_t2_questao.png",
+          "dicas_professor": [
+            "Memoriza as datas-chave: 313 (Édito de Milão — Constantino), 380 (Édito de Tessalónica — Teodósio), 395 (Divisão do Império) e 476 (Queda de Roma).",
+            "Na Península Ibérica, lembra-te que os Visigodos acabaram por integrar o Reino Suevo em 585 e adotaram o catolicismo e o código de leis hispano-romano."
+          ],
+          "checklist": [
+            "Distingo o Édito de Milão (313) do Édito de Tessalónica (380).",
+            "Localizo os reinos Suevo e Visigodo na Península Ibérica.",
+            "Explico as causas da queda do Império Romano do Ocidente em 476 d.C."
           ]
         }
       ]
@@ -169,14 +337,16 @@
               "definicao": "Documento papal do Papa Alexandre III que confirma e reconhece perante toda a cristandade a independência do Reino de Portugal."
             }
           ],
-          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p3_t1_2.png",
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p3_t1_manual.png",
           "imagem_legenda": "Pirâmide da sociedade feudal com as três ordens de estados e o mapa da Reconquista da Península Ibérica.",
           "foco_teste": {
             "questao_exemplo": "Identifica a data e o documento diplomático assinado em 1143 que marcou o reconhecimento da independência de Portugal e indica o nome do primeiro rei português.",
-            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p3_t1_1.png",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p3_t1_questao.png",
             "proposta_resolucao": "O documento foi o Tratado de Zamora, assinado em 1143 entre D. Afonso Henriques e Afonso VII de Leão. O primeiro rei de Portugal foi D. Afonso Henriques (O Conquistador).",
             "criterio_cotacao": "Tratado de Zamora (40%), ano 1143 (20%) e D. Afonso Henriques (40%).",
-            "erro_frequente": "Confundir o Tratado de Zamora (1143) com a Bula Papal Manifestis Probatum (1179)."
+            "erro_frequente": "Confundir o Tratado de Zamora (1143) com a Bula Papal Manifestis Probatum (1179).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Análise da pirâmide social feudal e cronologia da formação de Portugal"
           },
           "flashcards": [
             {
@@ -188,7 +358,111 @@
               "frente": "Que documento em 1179 confirmou internacionalmente a independência do reino de Portugal?",
               "verso": "A Bula Manifestis Probatum emitida pelo Papa Alexandre III.",
               "dica": "Reconhecimento papal"
+            },
+            {
+              "frente": "Qual o facto histórico decisivo em A Sociedade Feudal e o Nascimento de Portugal (1143)?",
+              "verso": "O documento foi o Tratado de Zamora, assinado em 1143 entre D. Afonso Henriques e Afonso VII de Leão. O primeiro rei de Portugal foi D. Afonso Henriques (O Conquistador).",
+              "dica": "Revisão"
             }
+          ],
+          "subtitulo": "Sociedade Feudal Tripartida, Vassalagem, Reconquista Cristã e Formação de Portugal (1143/1179)",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Págs. 158–196",
+          "resumo_executivo": "Caracterização das relações feudo-vassálicas, da organização de um senhorio feudal (reserva senhorial vs mansos servis) e da sociedade de ordens medieval, articulada com o processo de autonomia do Condado Portucalense até ao Tratado de Zamora (1143) e à Bula Manifestis Probatum (1179).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Etapas da Independência de Portugal",
+              "conteudo": "1096: Condado Portucalense (D. Henrique) ➔ 1128: Batalha de S. Mamede (D. Afonso Henriques) ➔ 1139: Batalha de Ourique ➔ 1143: Tratado de Zamora ➔ 1179: Bula Manifestis Probatum."
+            },
+            {
+              "titulo": "Sociedade de Três Ordens",
+              "conteudo": "Privilegiados: Clero (oratores) e Nobreza (bellatores) | Não Privilegiados: Povo / Camponeses e Servos (laboratores)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p3_t1_questao.png",
+          "dicas_professor": [
+            "Nunca confundas os 3 marcos de D. Afonso Henriques: 1128 (São Mamede — assume o governo do Condado contra a mãe D. Teresa), 1143 (Tratado de Zamora — reconhecimento pelo rei de Leão) e 1179 (Bula Manifestis Probatum — reconhecimento pelo Papa Alexandre III).",
+            "No domínio senhorial, lembra-te das obrigações dos camponeses: renda (parte da colheita), corveias (dias de trabalho gratuito na reserva do senhor) e banalidades (pagamento pelo uso do forno, moinho ou lagar)."
+          ],
+          "checklist": [
+            "Caracterizo as funções e privilégios do Clero, Nobreza e Povo.",
+            "Explico o contrato de vassalagem (homenagem, investidura e auxílio militar).",
+            "Domino as datas de 1128, 1139, 1143, 1179 e 1249 (conquista definitiva do Algarve)."
+          ]
+        },
+        {
+          "id": "hist7_p3_t2",
+          "titulo": "Desenvolvimento Urbano, Concelhos Medievais e a Crise de 1383-1385",
+          "subdominio": "Cidades, Cortes e Consolidação da Independência Portuguesa",
+          "conceitos_chave": [
+            {
+              "termo": "Renascimento Urbano e Burguesia (Sécs. XII-XIII)",
+              "definicao": "O excedente agrícola e o desenvolvimento das feiras e rotas comerciais marítimas (Flandres e Mediterrâneo) impulsionaram o crescimento dos burgos (cidades), fazendo emergir um novo grupo social ligado ao comércio e artesanato: a Burguesia."
+            },
+            {
+              "termo": "Cartas de Foral e Concelhos",
+              "definicao": "A Carta de Foral era o documento real ou senhorial que criava um Concelho, garantindo autonomia administrativa, direitos, deveres e impostos aos seus moradores (vizinhos/homens-bons)."
+            },
+            {
+              "termo": "As Cortes Medievais (1254)",
+              "definicao": "Assembleias consultivas convocadas pelo Rei onde tinham assento os representantes das três ordens sociais (Clero, Nobreza e, a partir das Cortes de Leiria de 1254 com D. Afonso III, os procuradores dos Concelhos/Povo)."
+            },
+            {
+              "termo": "A Crise de 1383-1385 e Aljubarrota",
+              "definicao": "Período de crise dinástica após a morte de D. Fernando (risco de perda da independência para D. João I de Castela pelo Tratado de Salvaterra de Magos). A revolução popular e burguesa apoiou D. João, Mestre de Avis, aclamado Rei nas Cortes de Coimbra (1385) e vitorioso na Batalha de Aljubarrota (14 de agosto de 1385, tática do quadrado de D. Nuno Álvares Pereira)."
+            }
+          ],
+          "imagem_legenda": "Organização dos Concelhos Medievais (Carta de Foral e Pelourinho), Cortes de Coimbra de 1385 e esquema tático da Batalha de Aljubarrota.",
+          "foco_teste": {
+            "questao_exemplo": "Durante a Crise de 1383-1385, a sociedade portuguesa dividiu-se em dois blocos. (a) Identifica os grupos sociais que apoiaram D. Beatriz/Castela e os que apoiaram D. João, Mestre de Avis. (b) Indica a importância das Cortes de Coimbra (abril de 1385) e da Batalha de Aljubarrota (agosto de 1385).",
+            "proposta_resolucao": "(a) A alta nobreza e o alto clero apoiaram maioritariamente D. Beatriz e o rei de Castela (temendo perder os seus privilégios senhoriais), enquanto a burguesia mercantil, o povo miúdo (mesteirais das cidades) e a pequena nobreza apoiaram D. João, Mestre de Avis, em defesa da independência nacional. (b) Nas Cortes de Coimbra (1385), graças aos argumentos jurídicos do doutor João das Regras, o Mestre de Avis foi eleito Rei de Portugal (D. João I, iniciando a 2.ª Dinastia / Dinastia de Avis). Na Batalha de Aljubarrota (14 de agosto de 1385), o exército português comandado por D. Nuno Álvares Pereira derrotou decisivamente o exército castelhano, garantindo militarmente a independência de Portugal.",
+            "criterio_cotacao": "Identificação correta dos grupos sociais de cada fação (40%) + papel político das Cortes de Coimbra (30%) + significado militar de Aljubarrota (30%).",
+            "erro_frequente": "Dizer que toda a nobreza apoiou o Mestre de Avis (a grande nobreza tradicional colocou-se ao lado do rei de Castela!).",
+            "frequencia": "Muito Alta (sai em 95% dos testes)",
+            "tipo_questao": "Questão de desenvolvimento sobre a Crise de 1383-1385 e os Concelhos",
+            "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p3_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "O que era uma Carta de Foral na Idade Média?",
+              "verso": "Era um documento concedido pelo rei (ou por um senhor feudal/eclesiástico) a uma povoação, criando um Concelho e fixando os direitos, privilégios e impostos dos seus habitantes.",
+              "dica": "Autonomia municipal"
+            },
+            {
+              "frente": "Qual a importância histórica das Cortes de Leiria de 1254 convocadas por D. Afonso III?",
+              "verso": "Foram as primeiras Cortes em Portugal onde participaram representantes do Povo (procuradores dos concelhos), ao lado do Clero e da Nobreza.",
+              "dica": "Cortes Medievais"
+            },
+            {
+              "frente": "Quem comandou militarmente as tropas portuguesas na Batalha de Aljubarrota (1385) e que dinastia se iniciou?",
+              "verso": "O Condestável D. Nuno Álvares Pereira (ao lado do rei D. João I). Iniciou-se a 2.ª Dinastia portuguesa: a Dinastia de Avis.",
+              "dica": "Crise de 1383-1385"
+            }
+          ],
+          "subtitulo": "Renascimento Urbano, Concelhos, Cortes Medievais e a Revolução de 1383-1385 (Aljubarrota)",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Págs. 198–232",
+          "resumo_executivo": "Análise do dinamismo económico e urbano dos séculos XII a XIV (feiras, burguesia, corporações de ofícios, universidades e estilo gótico), da crise do século XIV (fome, Peste Negra de 1348 e guerras) e da Crise de 1383-1385 que afirmou a independência portuguesa com a Dinastia de Avis.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Governo Local vs Central",
+              "conteudo": "Concelhos: regidos por Carta de Foral (assembleia de homens-bons) | Cortes: assembleia dos 3 estados (Clero, Nobreza e Povo desde Leiria 1254)."
+            },
+            {
+              "titulo": "Desfecho da Crise de 1383-1385",
+              "conteudo": "Abril 1385: Cortes de Coimbra (D. João I aclamado Rei) ➔ 14 Agosto 1385: Vitória em Aljubarrota (Nuno Álvares Pereira) ➔ Nova Nobreza e ascensão da Burguesia."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/04_Historia_7/hist7_p3_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/04_Historia_7/hist7_p3_t2_questao.png",
+          "dicas_professor": [
+            "Se sair uma pergunta sobre a Peste Negra (1348), explica a cadeia de consequências: grande mortalidade ➔ falta de mão de obra nos campos ➔ subida de salários e abandono das terras ➔ Lei das Sesmarias (1375, D. Fernando).",
+            "Na Crise de 1383-1385, destaca sempre o papel decisivo da burguesia de Lisboa e do Porto (que financiou a resistência) e do povo miúdo."
+          ],
+          "checklist": [
+            "Explico a importância das Cartas de Foral e das Cortes de Leiria de 1254.",
+            "Identifico a tríade da crise do século XIV (fome, peste e guerra) e a Lei das Sesmarias.",
+            "Explico as causas, os grupos sociais em confronto e o desfecho da Crise de 1383-1385."
           ]
         }
       ]

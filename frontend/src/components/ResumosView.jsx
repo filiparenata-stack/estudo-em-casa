@@ -28,6 +28,7 @@ import { LIVROS_RENATA_3ANO } from '../data/booksCatalog';
 export default function ResumosView({
   disciplina,
   periodo,
+  onMudarPeriodo,
   anoAtivo = '3',
   onIniciarQuiz,
   onIrParaFlashcards,
@@ -42,6 +43,15 @@ export default function ResumosView({
   const [periodoAtivo, setPeriodoAtivo] = useState(
     periodo && periodo !== 'Todos' ? periodo : '1_Periodo'
   );
+
+  // Sincronizar quando o período externo na Navbar muda
+  useEffect(() => {
+    if (periodo && periodo !== 'Todos') {
+      setPeriodoAtivo(periodo);
+    } else if (!periodoAtivo) {
+      setPeriodoAtivo('1_Periodo');
+    }
+  }, [periodo]);
 
   // Dados do dossiê do período (com imagens e match de testes)
   const [dossiePeriodo, setDossiePeriodo] = useState(null);
@@ -89,8 +99,8 @@ export default function ResumosView({
             titulo: `${disciplina.nome} 3.º Ano • ${fallbackLivro.titulo}`,
             metas: [
               `Compreender e consolidar os conteúdos de cada unidade do manual ${fallbackLivro.tituloCompleto}.`,
-              "Reconhecer vocabulário, regras essenciais e conceitos práticos do 1.º Ciclo.",
-              "Treinar com perguntas de autoavaliação e flashcards interativos."
+              'Reconhecer vocabulário, regras essenciais e conceitos práticos do 1.º Ciclo.',
+              'Treinar com perguntas de autoavaliação e flashcards interativos.'
             ],
             topicos: fallbackLivro.unidades.map((u) => ({
               id: `${disciplina.id}_u${u.numero}`,
@@ -135,6 +145,34 @@ export default function ResumosView({
       ...prev,
       [cardId]: !prev[cardId]
     }));
+  };
+
+  // Descarregar Sebenta em PDF do Resumo Livre Personalizado
+  const descarregarPdf = async () => {
+    if (!resumoAtual) return;
+    setAExportarPdf(true);
+    try {
+      const resp = await fetch('/api/exportar-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(resumoAtual)
+      });
+      if (!resp.ok) throw new Error('Falha ao compilar PDF do resumo.');
+      const blob = await resp.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const nomeDisc = (resumoAtual.disciplina_nome || disciplina?.nome || 'Disciplina').replace(/\s+/g, '_');
+      a.download = `Resumo_Livre_${nomeDisc}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (err) {
+      alert('Erro ao transferir PDF do resumo livre: ' + err.message);
+    } finally {
+      setAExportarPdf(false);
+    }
   };
 
   // Descarregar Sebenta em PDF Ilustrado do Período
@@ -281,6 +319,7 @@ export default function ResumosView({
                   key={p.id}
                   onClick={() => {
                     setPeriodoAtivo(p.id);
+                    if (onMudarPeriodo) onMudarPeriodo(p.id);
                     setModoPersonalizado(false);
                   }}
                   className={`flex-1 md:flex-none px-4 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
@@ -311,11 +350,11 @@ export default function ResumosView({
 
         {/* Botões de Exportação e Estudo */}
         <div className="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap">
-          {is3Ano && onAbrirLivro && (
+          {onAbrirLivro && (
             <button
               onClick={() => onAbrirLivro(disciplina, 1)}
               className="px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm shadow-purple-600/20 transition-all cursor-pointer"
-              title="Abrir o manual escolar no leitor online"
+              title="Abrir o manual escolar no leitor online integrado no browser"
             >
               <BookOpen className="w-3.5 h-3.5" />
               <span>Ler Manual Online</span>
@@ -323,22 +362,9 @@ export default function ResumosView({
           )}
 
           <button
-            onClick={() => onIniciarQuiz && onIniciarQuiz(dossiePeriodo?.titulo || 'Teste 3.º Ano')}
-            className={`px-3.5 py-2 rounded-xl text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer ${
-              is3Ano
-                ? 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20'
-                : 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-600/20'
-            }`}
-            title="Fazer simulação de teste com perguntas curriculares"
-          >
-            <BrainCircuit className="w-3.5 h-3.5" />
-            <span>Simular Teste</span>
-          </button>
-
-          <button
             onClick={descarregarPdfPeriodo}
             disabled={aExportarPdf || !dossiePeriodo}
-            className="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
+            className="flex-1 md:flex-none px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
             title="Descarregar a sebenta do período em PDF ilustrado com esquemas e testes"
           >
             {aExportarPdf ? (
@@ -346,13 +372,36 @@ export default function ResumosView({
             ) : (
               <Download className="w-3.5 h-3.5 text-blue-400" />
             )}
-            <span>Sebenta PDF</span>
+            <span>Sebenta em PDF</span>
+          </button>
+
+          <button
+            onClick={descarregarAnki}
+            disabled={aExportarAnki || !dossiePeriodo}
+            className="px-3.5 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
+            title="Descarregar baralho de cartões Anki para rever no telemóvel"
+          >
+            {aExportarAnki ? (
+              <Loader2 className="w-3.5 h-3.5 animate-spin" />
+            ) : (
+              <Layers className="w-3.5 h-3.5 text-blue-600" />
+            )}
+            <span>Exportar Anki (.txt)</span>
+          </button>
+
+          <button
+            onClick={() => onIniciarQuiz && onIniciarQuiz(dossiePeriodo?.titulo || 'Teste do Período')}
+            className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm shadow-emerald-600/20 transition-all cursor-pointer"
+            title="Fazer simulação de teste com cotação e avaliação oficial"
+          >
+            <BrainCircuit className="w-3.5 h-3.5" />
+            <span>Simular Teste</span>
           </button>
         </div>
       </div>
 
-      {/* Caixa Expansível de Tópicos Livres / Personalizados (7.º ano) */}
-      {!is3Ano && modoPersonalizado && (
+      {/* Caixa Expansível de Tópicos Livres / Personalizados */}
+      {modoPersonalizado && (
         <div className="bg-purple-50/60 border border-purple-200 rounded-2xl p-5 flex flex-col gap-3 transition-all animate-fadeIn">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -409,46 +458,216 @@ export default function ResumosView({
         </div>
       )}
 
-      {/* 2. Dossiê Oficial / Unidades Temáticas */}
+      {/* 1.5. Resumo Personalizado Gerado (Tópicos Livres) */}
+      {resumoAtual && (
+        <div className="bg-white rounded-2xl border-2 border-purple-300 shadow-md overflow-hidden flex flex-col gap-6 p-5 md:p-6 animate-fadeIn">
+          {/* Cabeçalho do Resumo Livre */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-purple-100">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 text-[11px] font-extrabold uppercase tracking-wider">
+                  Resumo Livre • {resumoAtual.disciplina_nome || disciplina?.nome}
+                </span>
+                {resumoAtual.indicacao_professor && (
+                  <span className="text-xs text-slate-500 font-medium">
+                    Tema: "{resumoAtual.indicacao_professor}"
+                  </span>
+                )}
+              </div>
+              <h2 className="text-xl md:text-2xl font-black text-slate-900 mt-1">
+                {resumoAtual.titulo}
+              </h2>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={descarregarPdf}
+                disabled={aExportarPdf}
+                className="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-all"
+              >
+                {aExportarPdf ? (
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                ) : (
+                  <Printer className="w-3.5 h-3.5 text-purple-300" />
+                )}
+                <span>📄 Descarregar PDF deste Resumo</span>
+              </button>
+
+              {onIrParaFlashcards && (
+                <button
+                  onClick={onIrParaFlashcards}
+                  className="px-3 py-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-200 text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-all"
+                >
+                  <Layers className="w-3.5 h-3.5 text-purple-600" />
+                  <span>🎴 Treinar Flashcards</span>
+                </button>
+              )}
+
+              {onIniciarQuiz && (
+                <button
+                  onClick={() => onIniciarQuiz(resumoAtual.indicacao_professor || resumoAtual.titulo)}
+                  className="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-all"
+                >
+                  <BrainCircuit className="w-3.5 h-3.5" />
+                  <span>🎯 Fazer Quiz sobre este Tema</span>
+                </button>
+              )}
+
+              <button
+                onClick={() => setResumoAtual(null)}
+                className="px-2.5 py-2 rounded-xl bg-slate-100 hover:bg-rose-50 text-slate-500 hover:text-rose-600 text-xs font-bold cursor-pointer transition-all"
+                title="Fechar Resumo Livre"
+              >
+                ✕ Fechar Resumo Livre
+              </button>
+            </div>
+          </div>
+
+          {/* Introdução */}
+          {resumoAtual.introducao && (
+            <div className="p-4 rounded-xl bg-purple-50/50 border border-purple-100 text-xs md:text-sm text-slate-700 leading-relaxed">
+              {resumoAtual.introducao}
+            </div>
+          )}
+
+          {/* Conceitos-Chave */}
+          {resumoAtual.conceitos_chave?.length > 0 && (
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+                <Lightbulb className="w-4 h-4 text-purple-600" />
+                Conceitos-Chave Essenciais
+              </span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {resumoAtual.conceitos_chave.map((c, i) => (
+                  <div
+                    key={i}
+                    className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/90 flex flex-col gap-1"
+                  >
+                    <span className="text-xs font-bold text-purple-900">
+                      {c.termo}
+                    </span>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      {c.definicao}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Esquemas e Fórmulas */}
+          {resumoAtual.esquemas_formulas?.length > 0 && (
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-blue-600" />
+                Esquemas, Relações e Fórmulas
+              </span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {resumoAtual.esquemas_formulas.map((ef, i) => (
+                  <div
+                    key={i}
+                    className="p-3.5 rounded-xl bg-blue-50/50 border border-blue-200 flex flex-col gap-1"
+                  >
+                    <span className="text-xs font-bold text-blue-950">
+                      {ef.titulo}
+                    </span>
+                    <p className="text-xs text-slate-700 font-mono whitespace-pre-line leading-relaxed">
+                      {ef.conteudo}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Pontos Fundamentais */}
+          {resumoAtual.pontos_fundamentais?.length > 0 && (
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+                <BookOpen className="w-4 h-4 text-emerald-600" />
+                Síntese de Conteúdos por Tópico
+              </span>
+              <div className="flex flex-col gap-3">
+                {resumoAtual.pontos_fundamentais.map((sec, i) => (
+                  <div
+                    key={i}
+                    className="p-4 rounded-xl bg-white border border-slate-200 flex flex-col gap-2"
+                  >
+                    <h4 className="text-xs md:text-sm font-bold text-slate-800">
+                      {sec.subtitulo}
+                    </h4>
+                    <ul className="list-disc list-inside flex flex-col gap-1 text-xs text-slate-600">
+                      {sec.itens?.map((item, j) => (
+                        <li key={j} className="leading-relaxed">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Atenção no Teste */}
+          {resumoAtual.atencao_no_teste?.length > 0 && (
+            <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex flex-col gap-2">
+              <span className="text-xs font-bold text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+                <AlertTriangle className="w-4 h-4 text-amber-600" />
+                Atenção no Teste — O que os Professores Mais Descontam:
+              </span>
+              <ul className="list-disc list-inside flex flex-col gap-1 text-xs text-amber-900">
+                {resumoAtual.atencao_no_teste.map((dica, i) => (
+                  <li key={i} className="leading-relaxed">
+                    {dica}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Documentos Consultados */}
+          {resumoAtual.documentos_consultados?.length > 0 && (
+            <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2 text-[11px] text-slate-400">
+              <FileCheck2 className="w-3.5 h-3.5 text-slate-400" />
+              <span className="font-semibold">Fontes e Manuais Consultados:</span>
+              {resumoAtual.documentos_consultados.map((doc, i) => (
+                <span
+                  key={i}
+                  className="px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium"
+                >
+                  {doc}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 2. Dossiê Oficial do Período */}
       {aCarregarPeriodo ? (
         <div className="bg-white rounded-2xl border border-slate-200 p-12 flex flex-col items-center justify-center gap-3 text-slate-500">
-          <Loader2 className={`w-8 h-8 ${is3Ano ? 'text-purple-600' : 'text-blue-600'} animate-spin`} />
+          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
           <p className="text-sm font-semibold text-slate-700">
-            A carregar as Unidades e Conceitos do {disciplina?.nome || ''}...
+            A carregar o Dossiê de Exame com esquemas e questões oficiais do {periodoAtivo.replace('_', '.º ')}...
           </p>
         </div>
       ) : dossiePeriodo ? (
         <div className="flex flex-col gap-6">
           {/* Cabeçalho do Dossiê com Metas Curriculares */}
-          <div
-            className={`text-white rounded-2xl p-6 shadow-sm border flex flex-col gap-4 ${
-              is3Ano
-                ? 'bg-gradient-to-r from-purple-950 via-slate-900 to-indigo-950 border-purple-900/60'
-                : 'bg-gradient-to-r from-slate-900 via-slate-800 to-blue-950 border-slate-800'
-            }`}
-          >
+          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-blue-950 text-white rounded-2xl p-6 shadow-sm border border-slate-800 flex flex-col gap-4">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
               <div>
-                <span
-                  className={`text-xs uppercase font-extrabold tracking-wider ${
-                    is3Ano ? 'text-purple-300' : 'text-blue-400'
-                  }`}
-                >
-                  {dossiePeriodo.disciplina_nome} • {is3Ano ? '3.º Ano da Renata (1.º Ciclo)' : '7.º Ano de Escolaridade'}
+                <span className="text-xs uppercase font-extrabold tracking-wider text-blue-400">
+                  {dossiePeriodo.disciplina_nome} • 7.º Ano de Escolaridade
                 </span>
                 <h2 className="text-xl md:text-2xl font-black text-white mt-0.5 tracking-tight">
                   {dossiePeriodo.titulo}
                 </h2>
               </div>
               <div className="flex items-center gap-2">
-                <span
-                  className={`px-3 py-1 rounded-full text-xs font-bold border ${
-                    is3Ano
-                      ? 'bg-purple-500/20 border-purple-400/30 text-purple-200'
-                      : 'bg-blue-500/20 border-blue-400/30 text-blue-300'
-                  }`}
-                >
-                  {dossiePeriodo.total_topicos || dossiePeriodo.topicos?.length} Unidades Temáticas
+                <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold">
+                  {dossiePeriodo.total_topicos || dossiePeriodo.topicos?.length} Unidades Essenciais
                 </span>
               </div>
             </div>
@@ -457,7 +676,7 @@ export default function ResumosView({
             {dossiePeriodo.metas?.length > 0 && (
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10 flex flex-col gap-2">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <Target className="w-3.5 h-3.5" /> Metas Curriculares & Objetivos de Aprendizagem:
+                  <Target className="w-3.5 h-3.5" /> O que é rigorosamente avaliado nos testes deste período:
                 </span>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-200">
                   {dossiePeriodo.metas.map((meta, i) => (
@@ -477,8 +696,8 @@ export default function ResumosView({
                 type="text"
                 value={filtroPesquisa}
                 onChange={(e) => setFiltroPesquisa(e.target.value)}
-                placeholder="Filtrar por tema ou conceito (ex.: dígrafos, frações, esqueleto, animais)..."
-                className="w-full pl-10 pr-4 py-2 bg-white/10 border border-white/20 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:bg-white/20 focus:border-purple-400 transition-all"
+                placeholder="Filtrar temas deste período (ex.: escalas, equações, rochas, verbos)..."
+                className="w-full pl-10 pr-4 py-2 bg-white/10 border border-white/20 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:bg-white/20 focus:border-blue-400 transition-all"
               />
               {filtroPesquisa && (
                 <button
@@ -491,24 +710,21 @@ export default function ResumosView({
             </div>
           </div>
 
-          {/* Lista de Unidades e Tópicos Curriculares */}
+          {/* Lista de Tópicos Curriculares Emparelhados */}
           <div className="flex flex-col gap-6">
             {topicosFiltrados.map((topico, idx) => {
               const resAberto = resolucoesAbertas[topico.id];
+              const imgQuestao = topico.foco_teste?.imagem_questao || topico.imagem_questao;
               return (
                 <div
                   key={topico.id}
                   className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:border-slate-300 transition-all"
                 >
-                  {/* Cabeçalho do Tópico / Unidade */}
-                  <div className="p-5 border-b border-slate-100 bg-slate-50/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                  {/* Cabeçalho do Tópico */}
+                  <div className="p-5 border-b border-slate-100 bg-slate-50/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
                     <div>
-                      <span
-                        className={`text-[11px] font-bold uppercase tracking-wider ${
-                          is3Ano ? 'text-purple-600' : 'text-blue-600'
-                        }`}
-                      >
-                        {topico.subdominio || `Unidade ${idx + 1}`}
+                      <span className={`text-[11px] font-bold uppercase tracking-wider ${is3Ano ? 'text-purple-600' : 'text-blue-600'}`}>
+                        {topico.subdominio || `Tópico ${idx + 1}`}
                       </span>
                       <h3 className="text-lg font-bold text-slate-900 mt-0.5">
                         {topico.titulo}
@@ -525,13 +741,13 @@ export default function ResumosView({
                         </button>
                       )}
                       <span className="text-xs px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600 font-semibold shadow-2xs">
-                        {topico.paginas_livro || `Unidade ${idx + 1}`}
+                        {topico.paginas_livro || topico.paginas_manual || `Unidade ${idx + 1}`}
                       </span>
                     </div>
                   </div>
 
                   <div className="p-5 md:p-6 flex flex-col gap-6">
-                    {/* Resumo Pedagógico da Unidade */}
+                    {/* Resumo Pedagógico da Unidade (3.º Ano) */}
                     {topico.resumo_pedagogico && (
                       <div className="bg-gradient-to-r from-purple-50/80 to-indigo-50/60 border border-purple-200/80 rounded-xl p-4 text-xs text-purple-950 leading-relaxed shadow-2xs">
                         <div className="font-bold text-purple-900 mb-1.5 flex items-center gap-1.5">
@@ -634,18 +850,18 @@ export default function ResumosView({
                         </div>
 
                         {/* Imagem da Questão de Teste (se existir) */}
-                        {topico.foco_teste.imagem_questao && topico.foco_teste.imagem_questao !== topico.imagem_manual && (
+                        {imgQuestao && imgQuestao !== topico.imagem_manual && (
                           <div
                             onClick={() =>
                               setImagemModal({
-                                src: topico.foco_teste.imagem_questao,
+                                src: imgQuestao,
                                 legenda: `Figura da Questão: ${topico.titulo}`
                               })
                             }
                             className="w-full max-h-56 rounded-lg bg-white border border-blue-100 p-2 flex items-center justify-center cursor-pointer hover:opacity-95"
                           >
                             <img
-                              src={topico.foco_teste.imagem_questao}
+                              src={imgQuestao}
                               alt="Figura da Questão"
                               className="max-h-48 object-contain"
                               onError={(e) => {
