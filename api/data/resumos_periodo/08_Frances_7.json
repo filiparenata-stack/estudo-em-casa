@@ -29,14 +29,16 @@
               "definicao": "Définis: le (masc.), la (fém.), l' (voyelle/h muet), les (pluriel). Indéfinis: un (masc.), une (fém.), des (pluriel)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p1_t1_2.png",
+          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p1_t1_manual.png",
           "imagem_legenda": "Tableau de conjugaison au présent des verbes être et avoir avec exemples d'utilisation.",
           "foco_teste": {
             "questao_exemplo": "Complète les phrases avec le verbe Être ou Avoir au présent: (a) Nous ______ portugais et nous ______ 12 ans. (b) Paul et Marc ______ des livres dans leur sac.",
-            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p1_t1_1.png",
+            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p1_t1_questao.png",
             "proposta_resolucao": "(a) Nous sommes portugais et nous avons 12 ans. (b) Paul et Marc ont des livres dans leur sac.",
             "criterio_cotacao": "Orthographe correcte de chaque verbe conjugué (33% chacun).",
-            "erro_frequente": "Confondre 'ils sont' (verbe être) et 'ils ont' (verbe avoir)."
+            "erro_frequente": "Confondre 'ils sont' (verbe être) et 'ils ont' (verbe avoir).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Exercices de conjugaison (Être / Avoir) et choix des articles"
           },
           "flashcards": [
             {
@@ -48,7 +50,111 @@
               "frente": "Conjugue le verbe AVOIR au présent pour toutes les personnes.",
               "verso": "J'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont.",
               "dica": "Possession et âge"
+            },
+            {
+              "frente": "Quelle est l'erreur fréquente à éviter dans Les Verbes Être et Avoir et les Articles ?",
+              "verso": "Confondre 'ils sont' (verbe être) et 'ils ont' (verbe avoir).",
+              "dica": "Conseil du prof"
             }
+          ],
+          "subtitulo": "Conjugaison au Présent de l'Indicatif des Verbes Auxiliaires (Être et Avoir) et Articles",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Pages 10–34",
+          "resumo_executivo": "Domínio absoluto dos dois verbos pilares da língua francesa no presente do indicativo (Être para estado, nacionalidade e descrição; Avoir para posse, idade e sensações) e aplicação dos artigos definidos e indefinidos.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Conjugaison : ÊTRE vs AVOIR",
+              "conteudo": "ÊTRE: suis, es, est, sommes, êtes, sont | AVOIR: J'ai, tu as, il a, nous avons, vous avez, ils ont."
+            },
+            {
+              "titulo": "Articles Définis et Indéfinis",
+              "conteudo": "Définis (o, a, os, as): le, la, l', les | Indéfinis (um, uma, uns): un, une, des."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p1_t1_questao.png",
+          "dicas_professor": [
+            "Cuidado com a idade em francês: diz-se SEMPRE com o verbo AVOIR («J'ai 12 ans», «Il a 13 ans»), nunca com o verbo être!",
+            "Não confundas a 3.ª pessoa do plural: 'ils SONT' (eles são/estão — verbo être) vs 'ils ONT' (eles têm — verbo avoir)."
+          ],
+          "checklist": [
+            "Sei conjugar de cor e sem erros ortográficos os verbos Être e Avoir.",
+            "Uso l' antes de palavras singulares começadas por vogal ou h mudo (l'école, l'hôtel).",
+            "Distingo 'ils sont' (être) de 'ils ont' (avoir) e uso 'avoir' para dizer a idade."
+          ]
+        },
+        {
+          "id": "fr7_p1_t2",
+          "titulo": "Salutations, Présentations, Nationalités et les Nombres (0–100)",
+          "subdominio": "Communication, Lexique et Grammaire de Base",
+          "conceitos_chave": [
+            {
+              "termo": "Se Saluer et Prendre Congé",
+              "definicao": "Formel: Bonjour Monsieur/Madame, Comment allez-vous ? / Très bien, merci. Informel: Salut ! Ça va ? / Ça va bien. Prendre congé: Au revoir, À bientôt, À demain, Bonne journée !"
+            },
+            {
+              "termo": "Se Présenter (Identité et Origine)",
+              "definicao": "Nom: Je m'appelle... (verbe s'appeler) | Âge: J'ai douze ans (verbe avoir) | Ville/Pays: J'habite à Lisbonne, au Portugal | Nationalité: Je suis portugais / portugaise."
+            },
+            {
+              "termo": "Prépositions devant les Pays et Villes",
+              "definicao": "À + Ville (à Paris, à Porto) | AU + Pays masculin singulier (au Portugal, au Brésil, au Maroc, au Japon) | EN + Pays féminin ou commencé par voyelle (en France, en Espagne, en Italie, en Angola) | AUX + Pays pluriel (aux États-Unis)."
+            },
+            {
+              "termo": "Les Mots Interrogatifs et les Nombres",
+              "definicao": "Comment (como), Où (onde), Quand (quando), Qui (quem), Quel/Quelle (qual: Quel âge as-tu ? Quelle est ta nationalité ?). Nombres clés: 15 (quinze), 20 (vingt), 70 (soixante-dix), 80 (quatre-vingts), 90 (quatre-vingt-dix), 100 (cent)."
+            }
+          ],
+          "imagem_legenda": "Fiche d'identité en français, règle des prépositions devant les pays (au / en / aux / à) et tableau des nombres de 0 à 100.",
+          "foco_teste": {
+            "questao_exemplo": "Complète la présentation avec les prépositions de lieu (à, au, en, aux) et les mots interrogatifs (Quel, Quelle, Où, Comment): (a) J'habite ______ Lisbonne, ______ Portugal, mais ma cousine habite ______ France. (b) «______ t'appelles-tu et ______ âge as-tu ?»",
+            "proposta_resolucao": "(a) à Lisbonne (ville), au Portugal (pays masculin commencé par consonne), en France (pays féminin terminé par -e). (b) Comment t'appelles-tu (nom) et quel âge as-tu ('âge' est un nom masculin singulier en français : quel âge).",
+            "criterio_cotacao": "20% pour chaque réponse correcte (prépositions géographiques et adjectifs/adverbes interrogatifs).",
+            "erro_frequente": "Écrire 'en Portugal' au lieu de 'au Portugal' ou écrire 'Quelle âge' au lieu de 'Quel âge' (en français, 'un âge' est masculin !).",
+            "frequencia": "Alta (sai em 95% dos testes)",
+            "tipo_questao": "Compréhension écrite, prépositions de pays et production d'une présentation",
+            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p1_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Quelle préposition utilise-t-on devant une ville, un pays masculin et un pays féminin ?",
+              "verso": "Ville : à (à Paris). Pays masculin : au (au Portugal). Pays féminin (ou voyelle) : en (en France, en Italie). Pays pluriel : aux (aux États-Unis).",
+              "dica": "Géographie en français"
+            },
+            {
+              "frente": "Comment écrit-on les nombres 70, 80 et 90 en français ?",
+              "verso": "70 = soixante-dix (60+10) ; 80 = quatre-vingts (4×20) ; 90 = quatre-vingt-dix (4×20+10).",
+              "dica": "Les nombres"
+            },
+            {
+              "frente": "Comment pose-t-on la question sur l'âge en français et pourquoi utilise-t-on 'Quel' ?",
+              "verso": "«Quel âge as-tu ?» — On utilise 'Quel' (masculin) parce que le mot 'âge' est masculin en français, et le verbe 'avoir' pour dire l'âge.",
+              "dica": "Piège d'examen"
+            }
+          ],
+          "subtitulo": "Actes de Parole (Saluer, Se Présenter), Prépositions Géographiques et Nombres (0–100)",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Pages 36–62",
+          "resumo_executivo": "Comunicação inicial em francês: saudar formal e informalmente, preencher e redigir uma ficha de apresentação pessoal, aplicar as preposições corretas antes de cidades e países (à, au, en, aux) e escrever os números por extenso.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Prépositions de Lieu (Villes et Pays)",
+              "conteudo": "Ville ➔ À (à Paris) | Pays Masc. ➔ AU (au Portugal) | Pays Fém./Voyelle ➔ EN (en France) | Pluriel ➔ AUX (aux États-Unis)."
+            },
+            {
+              "titulo": "Accord des Nationalités",
+              "conteudo": "Masculin ➔ Féminin : portugais ➔ portugaise, français ➔ française, anglais ➔ anglaise, italien ➔ italienne, belge ➔ belge."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p1_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p1_t2_questao.png",
+          "dicas_professor": [
+            "Regra rápida para saber se um país é feminino em francês: quase todos os países que terminam na letra '-e' são femininos e levam 'EN' (en France, en Espagne, en Italie, en Belgique, en Suisse). O Portugal termina em '-l', por isso é masculino e leva 'AU' (au Portugal)!",
+            "Lembra-te que na 1.ª pessoa do verbo s'appeler dobra-se o 'l': Je m'appelle, tu t'appelles, il s'appelle (mas nous nous appelons com um só 'l')."
+          ],
+          "checklist": [
+            "Apresento-me em francês indicando nome, idade, nacionalidade, morada e gostos.",
+            "Aplico sem errar as preposições à, au, en e aux antes de cidades e países.",
+            "Escrevo por extenso os números de 0 a 100 e uso Quel / Quelle nas perguntas."
           ]
         }
       ]
@@ -79,14 +185,16 @@
               "definicao": "Mon/ma/mes, ton/ta/tes, son/sa/ses, notre/nos, votre/vos, leur/leurs."
             }
           ],
-          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p2_t1_2.png",
+          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p2_t1_manual.png",
           "imagem_legenda": "Schéma des terminaisons des verbes en -ER et vocabulaire de la famille et du portrait.",
           "foco_teste": {
             "questao_exemplo": "Mets les verbes entre parenthèses au présent: (a) Elles ______ (habiter) à Paris. (b) Tu ______ (aimer) la musique française?",
-            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p2_t1_1.png",
+            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p2_t1_questao.png",
             "proposta_resolucao": "(a) habitent (terminaison -ent pour la 3e personne du pluriel). (b) aimes (terminaison -es pour tu).",
             "criterio_cotacao": "Radical et terminaison corrects (50% chaque phrase).",
-            "erro_frequente": "Oublier le 's' avec 'tu' ou prononcer la terminaison '-ent' qui est muette."
+            "erro_frequente": "Oublier le 's' avec 'tu' ou prononcer la terminaison '-ent' qui est muette.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Conjugaison des verbes en -ER et description physique d'une personne"
           },
           "flashcards": [
             {
@@ -98,7 +206,111 @@
               "frente": "Comment forme-t-on le féminin de l'adjectif 'intelligent'?",
               "verso": "Intelligente (on ajoute un -e au masculin).",
               "dica": "Accord"
+            },
+            {
+              "frente": "Quelle est l'erreur fréquente à éviter dans Les Verbes du 1er Groupe (-ER) et la Description ?",
+              "verso": "Oublier le 's' avec 'tu' ou prononcer la terminaison '-ent' qui est muette.",
+              "dica": "Conseil du prof"
             }
+          ],
+          "subtitulo": "Conjugaison des Verbes Réguliers en -ER, Portrait Physique et Caractère",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Pages 66–94",
+          "resumo_executivo": "Sistematização da conjugação no presente do indicativo dos verbos regulares do 1.º grupo (terminados em -ER, como parler, habiter, aimer, étudier, regarder) e vocabulário estruturado da descrição física e psicológica.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Terminaisons du 1er Groupe (-ER)",
+              "conteudo": "Je -e | Tu -es | Il/Elle/On -e | Nous -ons | Vous -ez | Ils/Elles -ent (ex.: parlent)."
+            },
+            {
+              "titulo": "Cas Particuliers en -GER et -CER",
+              "conteudo": "Manger ➔ nous mangeons (garde le 'e' devant -ons) | Commencer ➔ nous commençons (prend un 'ç' devant -ons)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p2_t1_questao.png",
+          "dicas_professor": [
+            "Na 3.ª pessoa do plural (ils/elles) dos verbos em -ER, a terminação é SEMPRE '-ent' (ils parlent, elles aiment), e nunca '-ont'!",
+            "Para descrever os olhos e o cabelo em francês, usa sempre o plural: «Il a les yeux bleus / verts / marron» e «Elle a les cheveux longs, raides / frisés et blonds / bruns / roux»."
+          ],
+          "checklist": [
+            "Conjugo qualquer verbo regular terminado em -ER nas 6 pessoas do presente.",
+            "Conheço a regra ortográfica de 'nous mangeons' e 'nous commençons'.",
+            "Descrevo a estatura, o cabelo, os olhos e a personalidade de uma personagem."
+          ]
+        },
+        {
+          "id": "fr7_p2_t2",
+          "titulo": "La Famille, les Adjectifs Possessifs, les Vêtements et les Couleurs",
+          "subdominio": "Lexique et Grammaire - Famille et Accord des Adjectifs",
+          "conceitos_chave": [
+            {
+              "termo": "Vocabulaire de la Famille",
+              "definicao": "Les grands-parents (le grand-père, la grand-mère), les parents (le père, la mère), les enfants (le fils, la fille), le frère / la sœur, l'oncle / la tante, le cousin / la cousine, le neveu / la nièce."
+            },
+            {
+              "termo": "Les Adjectifs Possessifs",
+              "definicao": "Singulier masculin: mon, ton, son | Singulier féminin: ma, ta, sa (Attention: devant voyelle ou h muet on utilise MON/TON/SON, ex.: mon amie, ton école) | Pluriel: mes, tes, ses | Pluriel possesseurs: notre/nos, votre/vos, leur/leurs."
+            },
+            {
+              "termo": "Les Vêtements et Accessoires (Verbe Porter / Mettre)",
+              "definicao": "Un pantalon, un jean, un t-shirt, un pull, un manteau, un blouson, une chemise, une jupe, une robe, des chaussures (fém.), des baskets (fém.), des lunettes, une casquette."
+            },
+            {
+              "termo": "L'Accord des Adjectifs de Couleur",
+              "definicao": "Accord en genre et en nombre avec le nom: vert ➔ verte(s), noir ➔ noire(s), bleu ➔ bleue(s), blanc ➔ blanche(s), violet ➔ violette(s). Exceptions invariables (noms de fruits/fleurs): marron et orange ne changent JAMAIS (des jupes marron, des pulls orange) !"
+            }
+          ],
+          "imagem_legenda": "Arbre généalogique de la famille, tableau des adjectifs possessifs et accord des couleurs avec les vêtements.",
+          "foco_teste": {
+            "questao_exemplo": "Complète avec l'adjectif possessif (mon, ma, mes) et accorde les adjectifs de couleur entre parenthèses: (a) Voici ______ mère et ______ amie Sophie. (b) Marie porte une robe ______ (blanc), des chaussures ______ (noir) et des gants ______ (marron).",
+            "proposta_resolucao": "(a) ma mère (féminin commencé par consonne) / mon amie ('amie' est féminin mais commence par une voyelle, donc on utilise 'mon' par euphonie !). (b) une robe blanche (féminin singulier de blanc) / des chaussures noires (féminin pluriel) / des gants marron ('marron' et 'orange' sont invariables).",
+            "criterio_cotacao": "Possessifs corrects avec la règle de la voyelle 'mon amie' (40%) + accord exact de 'blanche', 'noires' et invariabilité de 'marron' (60%).",
+            "erro_frequente": "Écrire 'ma amie' au lieu de 'mon amie' ou ajouter un 's' à 'marron' / 'orange'.",
+            "frequencia": "Alta (sai em 95% dos testes)",
+            "tipo_questao": "Arbre généalogique, adjectifs possessifs et description de vêtements",
+            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p2_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Pourquoi dit-on 'mon amie' et 'ton école' alors que 'amie' et 'école' sont des mots féminins ?",
+              "verso": "Devant un nom féminin singulier qui commence par une voyelle (a, e, i, o, u, y) ou un h muet, on remplace ma/ta/sa par mon/ton/son pour faciliter la prononciation.",
+              "dica": "Règle d'or des possessifs"
+            },
+            {
+              "frente": "Quel est le féminin des adjectifs de couleur 'blanc' et 'violet' ?",
+              "verso": "Blanc ➔ blanche ; Violet ➔ violette.",
+              "dica": "Féminin irrégulier"
+            },
+            {
+              "frente": "Quels sont les deux adjectifs de couleur très fréquents qui sont INVARIABLES (ne prennent ni -e ni -s) ?",
+              "verso": "MARRON et ORANGE (ex.: une jupe orange, des chaussures marron).",
+              "dica": "Couleurs invariables"
+            }
+          ],
+          "subtitulo": "Membres de la Famille, Adjectifs Possessifs, Vêtements et Accord des Couleurs",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Pages 96–124",
+          "resumo_executivo": "Exploração do vocabulário da família e do vestuário, domínio dos determinantes possessivos (incluindo a regra eufónica antes de vogal) e concordância em género e número dos adjetivos qualificativos e de cor.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Tableau des Adjectifs Possessifs",
+              "conteudo": "Masc. Sing: mon, ton, son | Fém. Sing: ma, ta, sa (mon/ton/son + voyelle !) | Pluriel: mes, tes, ses, nos, vos, leurs."
+            },
+            {
+              "titulo": "Règle des Adjectifs de Couleur",
+              "conteudo": "Variables: noir(e)(s), bleu(e)(s), vert(e)(s), blanc/blanche(s) | Invariables: MARRON et ORANGE."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p2_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p2_t2_questao.png",
+          "dicas_professor": [
+            "Armadilha clássica de teste: se o nome feminino singular começar por vogal ou h mudo (amie, école, histoire, adresse, équipe), é proibido escrever 'ma/ta/sa'; tens de escrever 'mon amie, ton école, son adresse'!",
+            "Nunca acrescentes '-e' nem '-s' às cores 'marron' e 'orange': são nomes de frutos e por isso ficam sempre invariáveis."
+          ],
+          "checklist": [
+            "Identifico todos os graus de parentesco numa árvore genealógica em francês.",
+            "Escolho corretamente entre mon/ma/mes, ton/ta/tes, son/sa/ses, notre/nos, leur/leurs.",
+            "Faço a concordância das cores com o vestuário respeitando as exceções marron e orange."
           ]
         }
       ]
@@ -129,14 +341,16 @@
               "definicao": "J'adore (+ article défini), j'aime, je n'aime pas, je déteste (ex.: 'J'adore les sciences')."
             }
           ],
-          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p3_t1_2.png",
+          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p3_t1_manual.png",
           "imagem_legenda": "Illustration du vocabulaire scolaire, expression de l'heure et règle de la négation encadrant le verbe.",
           "foco_teste": {
             "questao_exemplo": "Transforme la phrase affirmative en phrase négative: 'Lucas mange des fruits à la cantine.'",
-            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p3_t1_1.png",
+            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p3_t1_questao.png",
             "proposta_resolucao": "Lucas ne mange pas de fruits à la cantine. (Attention: l'article indéfini 'des' devient 'de' dans la phrase négative).",
             "criterio_cotacao": "Placement de 'ne ... pas' (60%) et transformation de 'des' en 'de' (40%).",
-            "erro_frequente": "Laisser 'des' au lieu de 'de' après 'pas' (ne ... pas de)."
+            "erro_frequente": "Laisser 'des' au lieu de 'de' après 'pas' (ne ... pas de).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Transformation de phrases affirmatives à la forme négative et lecture de l'heure"
           },
           "flashcards": [
             {
@@ -148,7 +362,111 @@
               "frente": "Comment dit-on 8h15 et 8h30 en français?",
               "verso": "Il est huit heures et quart (8h15) / Il est huit heures et demie (8h30).",
               "dica": "L'heure"
+            },
+            {
+              "frente": "Quelle est l'erreur fréquente à éviter dans La Négation et les Activités Quotidiennes ?",
+              "verso": "Laisser 'des' au lieu de 'de' après 'pas' (ne ... pas de).",
+              "dica": "Conseil du prof"
             }
+          ],
+          "subtitulo": "La Phrase Négative (ne... pas / jamais / plus), l'Heure et l'Expression des Goûts",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Pages 128–156",
+          "resumo_executivo": "Construção sintática da frase negativa em francês (estrutura que enquadra o verbo conjugado e transformação dos artigos indefinidos em 'de'), leitura das horas oficiais e correntes e expressão de preferências e passatempos.",
+          "esquemas_formulas": [
+            {
+              "titulo": "La Négation en Français",
+              "conteudo": "Sujet + NE (ou N' devant voyelle) + Verbe + PAS (ou jamais / plus / rien)."
+            },
+            {
+              "titulo": "Règle des Articles dans la Négation",
+              "conteudo": "Un / Une / Des ➔ deviennent DE (ou D') après 'ne... pas' (Sauf avec le verbe ÊTRE où un/une/des ne changent pas !)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p3_t1_questao.png",
+          "dicas_professor": [
+            "Atenção à regra 'PAS DE': «J'ai un chien» ➔ «Je n'ai pas DE chien»; «Elle a des frères» ➔ «Elle n'a pas DE frères». Exceção única: com o verbo ÊTRE mantém-se un/une/des («C'est un chat» ➔ «Ce n'est pas un chat»)!",
+            "Se o verbo começar por vogal ou h mudo (aimer, habiter, avoir, être, écouter), o 'ne' contrai obrigatoriamente para N' («Je n'aime pas», «Il n'est pas»)."
+          ],
+          "checklist": [
+            "Coloco corretamente 'ne... pas' (ou 'n'... pas') à volta do verbo conjugado.",
+            "Transformo un, une, des em 'de / d'' nas frases negativas (exceto com o verbo être).",
+            "Digo as horas em francês usando 'et quart' (:15), 'et demie' (:30), 'moins le quart' (:45), 'midi' e 'minuit'."
+          ]
+        },
+        {
+          "id": "fr7_p3_t2",
+          "titulo": "L'École, les Verbes Pronominaux (Routine) et les Articles Partitifs (Alimentation)",
+          "subdominio": "Vie Quotidienne, Verbes et Partitifs",
+          "conceitos_chave": [
+            {
+              "termo": "Les Verbes Pronominaux de la Routine",
+              "definicao": "Précédés du pronom réfléchi (me, te, se, nous, vous, se): se réveiller, se lever, se laver, s'habiller, se brosser les dents, se coucher. Ex. (se lever): je me lève, tu te lèves, il se lève, nous nous levons, vous vous levez, ils se lèvent."
+            },
+            {
+              "termo": "Les Articles Contractés (Aller AU / À LA / AUX)",
+              "definicao": "Préposition À + article défini: à + le = AU (aller au collège, au cinéma) | à + la = À LA (à la piscine) | à + l' = À L' (à l'école) | à + les = AUX (aux toilettes, jouer aux cartes)."
+            },
+            {
+              "termo": "Les Articles Partitifs (Repas et Aliments)",
+              "definicao": "Utilisés pour exprimer une quantité non comptable d'aliments (boire, manger, prendre): DU + masc. (du pain, du fromage, du lait) | DE LA + fém. (de la salade, de la soupe, de la viande) | DE L' + voyelle (de l'eau) | DES + pluriel (des pâtes, des fruits)."
+            },
+            {
+              "termo": "Le Partitif à la Forme Négative (PAS DE)",
+              "definicao": "Après une négation (ne... pas, ne... jamais) ou un adverbe de quantité (beaucoup de, un peu de), les articles du / de la / de l' / des se transforment TOUS en DE (ou D'): «Je bois du lait» ➔ «Je ne bois pas de lait»."
+            }
+          ],
+          "imagem_legenda": "Routine quotidienne avec les verbes pronominaux, emploi du temps au collège et règle des articles partitifs (du, de la, de l', des ➔ pas de).",
+          "foco_teste": {
+            "questao_exemplo": "Complète les phrases avec les articles partitifs (du, de la, de l', des ou de/d') et conjugue le verbe pronominal: (a) Au petit-déjeuner, Pierre mange ______ pain avec ______ confiture et il boit ______ eau, mais il ne boit pas ______ café. (b) Tous les matins, nous ______________ (se réveiller) à sept heures.",
+            "proposta_resolucao": "(a) du pain (masculin singulier) / de la confiture (féminin singulier) / de l'eau (commence par voyelle) / de café (phrase négative : après 'pas', le partitif devient toujours 'de'). (b) nous nous réveillons (pronom réfléchi 'nous' + terminaison -ons).",
+            "criterio_cotacao": "Articles partitifs affirmatifs et transformation négative en 'de' (60%) + conjugaison pronominale 'nous nous réveillons' (40%).",
+            "erro_frequente": "Écrire 'il ne boit pas du café' au lieu de 'il ne boit pas de café', ou oublier le deuxième 'nous' dans 'nous nous réveillons'.",
+            "frequencia": "Muito Alta (sai em 95% dos testes)",
+            "tipo_questao": "Articles partitifs (du, de la, de l', des, de) et verbes pronominaux",
+            "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p3_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Quels sont les 4 articles partitifs utilisés devant les aliments à la forme affirmative ?",
+              "verso": "du (masculin), de la (féminin), de l' (devant voyelle ou h muet) et des (pluriel).",
+              "dica": "Alimentation"
+            },
+            {
+              "frente": "Que deviennent les articles partitifs (du, de la, de l', des) dans une phrase négative ?",
+              "verso": "Ils deviennent tous DE (ou D' devant une voyelle) : «Je mange du chocolat» ➔ «Je ne mange pas de chocolat».",
+              "dica": "Négation + partitif"
+            },
+            {
+              "frente": "Quels sont les pronoms réfléchis des verbes pronominaux pour les 6 personnes (je, tu, il, nous, vous, ils) ?",
+              "verso": "je ME (m'), tu TE (t'), il/elle SE (s'), nous NOUS, vous VOUS, ils/elles SE (s').",
+              "dica": "Verbes pronominaux"
+            }
+          ],
+          "subtitulo": "Matières Scolaires, Verbes Pronominaux de la Routine et Articles Partitifs à la Cantine",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Pages 158–188",
+          "resumo_executivo": "Descrição da rotina diária através dos verbos pronominais reflexos (se lever, se laver, s'habiller), vocabulário das disciplinas e espaço escolar, artigos contraídos (au, à la, à l', aux) e artigos partitivos na alimentação.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Conjugaison Pronominale (Se lever)",
+              "conteudo": "Je me lève, tu te lèves, il se lève, nous nous levons, vous vous levez, ils se lèvent (Négation: Je ne me lève pas)."
+            },
+            {
+              "titulo": "Articles Partitifs (Aliments)",
+              "conteudo": "Affirmatif: du (masc.), de la (fém.), de l' (voyelle), des (pluriel) | Négatif ou Quantité: pas DE / beaucoup DE."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/08_Frances_7/fr7_p3_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/08_Frances_7/fr7_p3_t2_questao.png",
+          "dicas_professor": [
+            "Nos verbos pronominais na forma negativa, o 'ne' coloca-se ANTES do pronome reflexo: «Je NE me lève PAS tôt», «Nous NE nous couchons PAS tard».",
+            "Com os verbos de gosto (aimer, adorer, préférer, détester) usam-se sempre artigos DEFINIDOS (le, la, l', les): «J'aime LE chocolat». Com verbos de consumo (manger, boire, prendre) usam-se artigos PARTITIVOS: «Je mange DU chocolat»!"
+          ],
+          "checklist": [
+            "Conjugo verbos pronominais no presente (na afirmativa e na negativa).",
+            "Distingo quando usar artigos definidos (com aimer/adorer) e partitivos (com manger/boire).",
+            "Transformo du, de la, de l', des em 'de / d'' depois de 'pas' ou 'beaucoup'."
           ]
         }
       ]

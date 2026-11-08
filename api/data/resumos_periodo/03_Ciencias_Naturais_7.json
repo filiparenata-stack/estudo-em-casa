@@ -29,14 +29,16 @@
               "definicao": "Ser vivo adaptado a condições ambientais muito específicas (ex.: Corais de águas quentes e pouco profundas). Permite caracterizar o ambiente do passado."
             }
           ],
-          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t1_2.png",
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t1_manual.png",
           "imagem_legenda": "Trilobites (Paleozoico), Amonites (Mesozoico) e processos de fossilização (mineralização, moldagem, mumificação).",
           "foco_teste": {
             "questao_exemplo": "Foram descobertos fósseis de corais num estrato rochoso numa serra no centro de Portugal. Que tipo de fóssil é este e o que nos permite concluir sobre o ambiente daquela região no passado?",
-            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t1_1.png",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t1_questao.png",
             "proposta_resolucao": "Trata-se de um fóssil de fácies. Permite concluir que aquela região, no passado geológico em que os corais viveram, esteve submersa por um mar quente, límpido, bem iluminado e pouco profundo.",
             "criterio_cotacao": "Classificação como fóssil de fácies (50%) e descrição completa do paleoambiente marinho (50%).",
-            "erro_frequente": "Confundir fóssil de idade (datação) com fóssil de fácies (clima e meio ambiente)."
+            "erro_frequente": "Confundir fóssil de idade (datação) com fóssil de fácies (clima e meio ambiente).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Interpretação de coluna estratigráfica com fósseis"
           },
           "flashcards": [
             {
@@ -48,7 +50,36 @@
               "frente": "As trilobites e as amonites são características de que eras geológicas?",
               "verso": "Trilobites ➔ Era Paleozoica (Primária). Amonites ➔ Era Mesozoica (Secundária).",
               "dica": "Grandes eras"
+            },
+            {
+              "frente": "Qual o erro mais comum a evitar no teste sobre Fósseis e Paleoambientes?",
+              "verso": "Confundir fóssil de idade (datação) com fóssil de fácies (clima e meio ambiente).",
+              "dica": "Atenção ao Erro"
             }
+          ],
+          "subtitulo": "Processos de Fossilização, Fósseis de Idade vs Fácies e Estratigrafia",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 12–42",
+          "resumo_executivo": "Compreensão das condições de formação de somatofósseis e icnofósseis, processos de fossilização (mineralização, moldagem, incarbonização e conservação/mumificação) e aplicação dos princípios estratigráficos na datação relativa e reconstituição paleoambiental.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Fóssil de Idade vs Fóssil de Fácies",
+              "conteudo": "Idade (datação): viveu pouco tempo + grande dispersão geográfica | Fácies (ambiente): longa duração + condições ecológicas restritas."
+            },
+            {
+              "titulo": "Princípios Estratigráficos",
+              "conteudo": "Sobreposição dos Estratos (o mais profundo é o mais antigo) e Identidade Paleontológica (estratos com os mesmos fósseis de idade têm a mesma idade)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t1_questao.png",
+          "dicas_professor": [
+            "Lembra-te sempre: Trilobites = Era Paleozoica (ambiente marinho); Amonites e Dinossauros = Era Mesozoica.",
+            "Se uma questão pedir para reconstituir o paleoambiente (ex.: mar quente e pouco profundo onde viviam corais), está a usar o conceito de Fóssil de Fácies e o Princípio do Atualismo!"
+          ],
+          "checklist": [
+            "Distingo somatofóssil (corpo/concha/osso) de icnofóssil (pegadas, tocas, fezes).",
+            "Diferencio fóssil de idade de fóssil de fácies e identifico a sua utilidade.",
+            "Ordeno cronologicamente estratos aplicando o Princípio da Sobreposição."
           ]
         },
         {
@@ -69,14 +100,16 @@
               "definicao": "Divergentes (riftes oceânicos, criação de crosta), Convergentes (fossas oceânicas e cordilheiras, destruição de crosta) e Conservantes/Transformantes (falhas sem criação nem destruição)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t2_2.png",
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t2_manual.png",
           "imagem_legenda": "Mapa das placas tectónicas globais e tipos de limites (convergentes, divergentes e transformantes).",
           "foco_teste": {
             "questao_exemplo": "Explica de que modo a descoberta de fósseis de Mesosaurus (um réptil de água doce incapaz de atravessar oceanos) em África e na América do Sul apoiou a teoria de Wegener.",
-            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t2_1.png",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t2_questao.png",
             "proposta_resolucao": "Sendo o Mesosaurus um animal terrestre de água doce que não conseguia nadar no oceano Atlântico salgado, a sua presença simultânea em África e na América do Sul comprova que os dois continentes estiveram outrora unidos num único bloco continental.",
             "criterio_cotacao": "Identificação do argumento paleontológico (30%), menção às limitações biológicas do animal (40%) e conclusão do contacto continental prévio (30%).",
-            "erro_frequente": "Dizer que os animais migraram nadando pelo oceano Atlântico."
+            "erro_frequente": "Dizer que os animais migraram nadando pelo oceano Atlântico.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Análise de mapa tectónico e argumentos de Wegener"
           },
           "flashcards": [
             {
@@ -88,7 +121,36 @@
               "frente": "O que acontece num limite divergente entre placas tectónicas?",
               "verso": "As placas afastam-se, sobe magma do manto através do rifte e forma-se nova crosta oceânica.",
               "dica": "Afastamento"
+            },
+            {
+              "frente": "Qual o erro mais comum a evitar no teste sobre Deriva Continental e Tectónica de Placas?",
+              "verso": "Dizer que os animais migraram nadando pelo oceano Atlântico.",
+              "dica": "Atenção ao Erro"
             }
+          ],
+          "subtitulo": "Teoria da Deriva Continental (Wegener), Expansão dos Fundos Oceânicos e Limites de Placas",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 44–78",
+          "resumo_executivo": "Evolução histórica desde a hipótese da Pangeia de Alfred Wegener (e os seus 4 argumentos clássicos) até à moderna Teoria da Tectónica de Placas, explicando o motor das correntes de convecção na astenosfera e a dinâmica dos limites divergentes, convergentes e transformantes.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Os 4 Argumentos de Wegener",
+              "conteudo": "Morfológico (costas), Paleontológico (fósseis), Litológico/Geológico (rochas) e Paleoclimático (glaciares/carvão)."
+            },
+            {
+              "titulo": "Idade da Crosta Oceânica",
+              "conteudo": "Mais jovem junto ao rifte (limite divergente) e progressivamente mais antiga à medida que nos aproximamos dos continentes/fossas."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p1_t2_questao.png",
+          "dicas_professor": [
+            "Se o enunciado perguntar por que razão a teoria de Wegener não foi aceite na época, responde: porque Wegener não conseguiu explicar que força física movia os continentes (só mais tarde se descobriram as correntes de convecção do manto!).",
+            "Não confundas Rifte (limite divergente / construtivo onde nasce crosta) com Fossa Oceânica (zona de subducção / limite convergente onde a crosta mergulha e funde)."
+          ],
+          "checklist": [
+            "Identifico e explico os 4 argumentos da Deriva Continental de Wegener.",
+            "Relaciono as correntes de convecção do manto com o movimento das placas litosféricas.",
+            "Caracterizo limites divergentes, convergentes e transformantes."
           ]
         }
       ]
@@ -119,14 +181,16 @@
               "definicao": "Lava ácida, muito viscosa e rica em sílica e gases; liberta nuvens ardentes, grandes projeções de piroclastos (cinzas, lapilli e bombas) e forma agulhas vulcânicas ou cúpulas."
             }
           ],
-          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t1_2.png",
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t1_manual.png",
           "imagem_legenda": "Corte transversal de um vulcão ativo e comparação visual entre erupção efusiva e explosiva.",
           "foco_teste": {
             "questao_exemplo": "Um vulcão emitiu lavas pastosas que solidificaram rapidamente na cratera, originando fortes explosões com nuvens de cinzas e piroclastos. Classifica o tipo de erupção e caracteriza a viscosidade e teor em gases da lava.",
-            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t1_1.png",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t1_questao.png",
             "proposta_resolucao": "Trata-se de uma erupção do tipo explosivo. A lava é muito viscosa (ácida, escorre com grande dificuldade) e tem um teor muito elevado de gases retidos, cuja libertação violenta provoca as explosões e fragmentação de rochas.",
             "criterio_cotacao": "Classificação correta (40%) + análise correta da viscosidade e teor gasoso (60%).",
-            "erro_frequente": "Associar erupção explosiva a lava muito fluida (é o oposto: a fluida dá escoadas calmas!)."
+            "erro_frequente": "Associar erupção explosiva a lava muito fluida (é o oposto: a fluida dá escoadas calmas!).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Quadro comparativo de tipos de erupção vulcânica"
           },
           "flashcards": [
             {
@@ -138,7 +202,36 @@
               "frente": "Quais são as 3 manifestações de vulcanismo secundário?",
               "verso": "Fumarolas (emissões de vapor/gás), Géiseres (jatos intermitentes de água a ferver) e Nascentes Termais (águas quentes ricas em minerais).",
               "dica": "Vulcanismo atenuado"
+            },
+            {
+              "frente": "Qual o erro mais comum a evitar no teste sobre Vulcanismo Central e Tipos de Erupção?",
+              "verso": "Associar erupção explosiva a lava muito fluida (é o oposto: a fluida dá escoadas calmas!).",
+              "dica": "Atenção ao Erro"
             }
+          ],
+          "subtitulo": "Aparelho Vulcânico, Propriedades das Lavas (Fluida vs Viscosa) e Vulcanismo Secundário",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 82–114",
+          "resumo_executivo": "Estudo da morfologia de um vulcão central, relação entre o teor em sílica/gases da lava e o caráter efusivo, explosivo ou misto da erupção, e identificação das manifestações residuais e benefícios do vulcanismo.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Erupção Efusiva (Lava Fluida)",
+              "conteudo": "Pobre em sílica e gases ➔ escorre facilmente em longas escoadas ➔ cone baixo e largo."
+            },
+            {
+              "titulo": "Erupção Explosiva (Lava Viscosa)",
+              "conteudo": "Rica em sílica e gases ➔ bloqueia a chaminé ➔ grandes explosões, nuvens ardentes e piroclastos (cinzas, lapilli, bombas)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t1_questao.png",
+          "dicas_professor": [
+            "Associa sempre: Lava Viscosa = muita sílica = dificuldade em libertar gases = Erupção Explosiva = Nuvens Ardentes + Agulha Vulcânica.",
+            "Nos Açores existem exemplos notáveis de vulcanismo secundário: fumarolas/sulfataras das Furnas, caldeiras e nascentes termais."
+          ],
+          "checklist": [
+            "Legendo todos os elementos de um corte de aparelho vulcânico.",
+            "Relaciono a viscosidade da lava e o teor de gases com o tipo de erupção.",
+            "Distingo fumarolas, géiseres e nascentes termais."
           ]
         },
         {
@@ -159,14 +252,16 @@
               "definicao": "Richter: mede a Magnitude (quantidade real de energia libertada, calculada a partir dos sismogramas). Mercalli Modificada: mede a Intensidade (danos observados em edifícios e sensações humanas, de I a XII em numeração romana)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t2_2.png",
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t2_manual.png",
           "imagem_legenda": "Propagação das ondas sísmicas a partir do hipocentro e localização do epicentro à superfície.",
           "foco_teste": {
             "questao_exemplo": "Um sismo com magnitude 6,5 causou destruição total de edifícios (Grau IX da escala de Mercalli) na localidade A e apenas foi sentido por pessoas em repouso (Grau III) na localidade B. Explica por que razão a magnitude foi idêntica mas a intensidade foi diferente.",
-            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t2_1.png",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t2_questao.png",
             "proposta_resolucao": "A magnitude é única para todo o sismo porque mede a quantidade total de energia libertada no hipocentro. A intensidade varia com a distância ao epicentro, a natureza dos solos e a qualidade das construções, sendo maior junto ao epicentro (localidade A) e menor em locais afastados (localidade B).",
             "criterio_cotacao": "Conceito de magnitude como valor único de energia (50%) + explicação da variação da intensidade com a distância/danos (50%).",
-            "erro_frequente": "Afirmar que a magnitude diminui à medida que nos afastamos do epicentro (a magnitude não muda, o que diminui é a intensidade!)."
+            "erro_frequente": "Afirmar que a magnitude diminui à medida que nos afastamos do epicentro (a magnitude não muda, o que diminui é a intensidade!).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Análise de Carta de Isossistas e comparação Richter vs Mercalli"
           },
           "flashcards": [
             {
@@ -178,7 +273,36 @@
               "frente": "Onde se localiza o epicentro em relação ao hipocentro?",
               "verso": "Na superfície terrestre, exatamente na linha vertical direta acima do hipocentro.",
               "dica": "Superfície"
+            },
+            {
+              "frente": "Qual o erro mais comum a evitar no teste sobre Sismicidade: Hipocentro, Epicentro e Escalas Sísmicas?",
+              "verso": "Afirmar que a magnitude diminui à medida que nos afastamos do epicentro (a magnitude não muda, o que diminui é a intensidade!).",
+              "dica": "Atenção ao Erro"
             }
+          ],
+          "subtitulo": "Origem dos Sismos, Ondas Sísmicas, Cartas de Isossistas e Escalas de Richter vs Mercalli",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 116–148",
+          "resumo_executivo": "Análise da génese tectónica dos sismos por rotura de falhas, propagação das ondas sísmicas a partir do hipocentro até ao epicentro, leitura de cartas de isossistas e distinção rigorosa entre Magnitude (energia libertada) e Intensidade (efeitos e estragos).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Escala de Richter (Magnitude)",
+              "conteudo": "Escala quantitativa aberta (ex.: 6,2) que mede a energia libertada no hipocentro. Tem um VALOR ÚNICO para cada sismo."
+            },
+            {
+              "titulo": "Escala de Mercalli Modificada (Intensidade)",
+              "conteudo": "Escala qualitativa de I a XII (numeração romana) que avalia os danos e a perceção humana. VARIA de local para local."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p2_t2_questao.png",
+          "dicas_professor": [
+            "Numa carta de isossistas, o epicentro localiza-se sempre no centro da linha curva fechada de MAIOR intensidade (em algarismos romanos, ex.: VIII ou IX). Se o centro estiver no mar, há risco de Tsunami!",
+            "Nunca escrevas graus de Mercalli com algarismos árabes (escreve sempre I, II, III, IV, V... até XII)."
+          ],
+          "checklist": [
+            "Distingo hipocentro (interior) de epicentro (superfície na vertical do foco).",
+            "Identifico o epicentro e o grau máximo numa carta de isossistas.",
+            "Explico por que razão um sismo tem apenas uma magnitude mas várias intensidades."
           ]
         }
       ]
@@ -209,14 +333,16 @@
               "definicao": "Resultam da transformação de rochas pré-existentes sob altas pressões e temperaturas sem chegarem a fundir (ex.: xisto, gnaisse, mármore)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t1_2.png",
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t1_manual.png",
           "imagem_legenda": "O Ciclo das Rochas: interligação dinâmica entre rochas magmáticas, sedimentares e metamórficas.",
           "foco_teste": {
             "questao_exemplo": "Compara o granito e o basalto quanto à sua génese (origem) e textura dos minerais visíveis.",
-            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t1_1.png",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t1_questao.png",
             "proposta_resolucao": "O granito é uma rocha magmática intrusiva (plutónica): arrefecimento lento em profundidade, permitindo a formação de cristais bem desenvolvidos visíveis a olho nu (textura granular). O basalto é uma rocha magmática extrusiva (vulcânica): arrefecimento rápido à superfície, com cristais microscópicos dispersos numa massa vítrea (textura agranular).",
             "criterio_cotacao": "Classificação correta de ambas as rochas (40%) e comparação da velocidade de arrefecimento com o tamanho dos cristais (60%).",
-            "erro_frequente": "Dizer que o mármore é uma rocha magmática (o mármore é metamórfico derivado do calcário sedimentar)."
+            "erro_frequente": "Dizer que o mármore é uma rocha magmática (o mármore é metamórfico derivado do calcário sedimentar).",
+            "frequencia": "Muito Alta (sai em 95% dos testes)",
+            "tipo_questao": "Comparação Granito vs Basalto e diagrama do Ciclo das Rochas"
           },
           "flashcards": [
             {
@@ -228,7 +354,111 @@
               "frente": "Que rocha se obtém por metamorfismo do calcário?",
               "verso": "O mármore.",
               "dica": "Metamorfismo"
+            },
+            {
+              "frente": "Qual o erro mais comum a evitar no teste sobre Os Três Grandes Grupos de Rochas e o Ciclo Litológico?",
+              "verso": "Dizer que o mármore é uma rocha magmática (o mármore é metamórfico derivado do calcário sedimentar).",
+              "dica": "Atenção ao Erro"
             }
+          ],
+          "subtitulo": "Génese das Rochas Sedimentares e Magmáticas (Plutónicas vs Vulcânicas) e Ciclo Litológico",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 152–188",
+          "resumo_executivo": "Caracterização dos processos petrogenéticos das rochas sedimentares (detríticas, quimiogénicas e biogénicas) e das rochas magmáticas (relação entre profundidade/velocidade de arrefecimento e textura cristalina do granito vs basalto).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Formação de Rochas Sedimentares",
+              "conteudo": "Meteorização ➔ Erosão ➔ Transporte ➔ Sedimentação ➔ Diagénese (Compactação + Cimentação)."
+            },
+            {
+              "titulo": "Arrefecimento Magmático e Textura",
+              "conteudo": "Lento em profundidade ➔ Rocha Plutónica/Intrusiva com macrocristais (Granito) | Rápido à superfície ➔ Rocha Vulcânica/Extrusiva microcristalina (Basalto)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t1_questao.png",
+          "dicas_professor": [
+            "Distingue bem Meteorização (alteração e desagregação da rocha no local por água, gelo, raízes ou temperatura) de Erosão (remoção dos detritos pela água ou vento).",
+            "Nas rochas sedimentares, distingue as soltas/não consolidadas (areia, argila, balastros) das coerentes/consolidadas após diagénese (arenito, argilito, conglomerado)."
+          ],
+          "checklist": [
+            "Ordeno e defino as 5 etapas da génese das rochas sedimentares.",
+            "Classifico rochas sedimentares em detríticas, quimiogénicas (calcário, sal-gema) e biogénicas (carvão, calcário conquífero).",
+            "Explico a diferença de tamanho dos cristais entre o granito e o basalto."
+          ]
+        },
+        {
+          "id": "cn7_p3_t2",
+          "titulo": "Metamorfismo, Identificação de Rochas e Recursos Geológicos",
+          "subdominio": "Dinâmica Externa e Geologia Aplicada",
+          "conceitos_chave": [
+            {
+              "termo": "Metamorfismo de Contacto vs Regional",
+              "definicao": "Contacto: ocorre junto a intrusões magmáticas devido ao calor intenso (origina rochas não foliadas como o mármore e a corneana). Regional: ocorre em limites convergentes sob elevada pressão e temperatura (origina rochas foliadas como a ardósia, o xisto e o gnaisse)."
+            },
+            {
+              "termo": "Textura Foliada vs Não Foliada",
+              "definicao": "Foliada (ou xistosa): minerais alinhados em planos paralelos devido à pressão orientada (xisto, gnaisse). Não foliada (granoblástica): cristais desenvolvidos sem orientação preferencial (mármore, quartzito)."
+            },
+            {
+              "termo": "Minerais e Propriedades Diagnósticas",
+              "definicao": "Identificação através da cor, risca (cor do mineral em pó na porcelana), brilho, clivagem/fratura, reação ao ácido (efervescência na calcite) e dureza na Escala de Mohs (1-Talco a 10-Diamante)."
+            },
+            {
+              "termo": "Recursos Geológicos e Exploração Sustentável",
+              "definicao": "Recursos minerais (metálicos e rochas industriais/ornamentais), energéticos (petróleo, carvão, gás natural, urânio, geotermia) e hidrogeológicos (águas subterrâneas em aquíferos)."
+            }
+          ],
+          "imagem_legenda": "Comparação entre metamorfismo regional (pressão e foliação: argilito ➔ xisto ➔ gnaisse) e de contacto (calor: calcário ➔ mármore), e escala de Mohs.",
+          "foco_teste": {
+            "questao_exemplo": "Numa zona de colisão entre duas placas continentais formaram-se extensas camadas de xisto e gnaisse com minerais dispostos em bandas paralelas. (a) Identifica o tipo de metamorfismo ocorrido. (b) Explica a causa da textura foliada observada nestas rochas.",
+            "proposta_resolucao": "(a) Trata-se de metamorfismo regional. (b) A textura foliada (ou bandada) resulta da ação de elevadas pressões orientadas (tensão tectónica de compressão) combinadas com altas temperaturas em profundidade, que forçam os minerais a recristalizar e alinhar-se perpendicularmente à direção da força compressiva.",
+            "criterio_cotacao": "Identificação do metamorfismo regional (40%) + relação entre pressão orientada/tensão e o alinhamento paralelo dos minerais no estado sólido (60%).",
+            "erro_frequente": "Dizer que a rocha fundiu durante o metamorfismo (se houver fusão total forma-se magma e a rocha passará a ser magmática!).",
+            "frequencia": "Alta (sai em 90% dos testes)",
+            "tipo_questao": "Identificação de metamorfismo, chave dicotómica e propriedades de minerais",
+            "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a rocha metamórfica resultante do calcário e do arenito?",
+              "verso": "O calcário origina o mármore; o arenito rico em quartzo origina o quartzito.",
+              "dica": "Rochas não foliadas"
+            },
+            {
+              "frente": "Na Escala de Mohs, se um mineral A risca o mineral B, qual deles tem maior dureza?",
+              "verso": "O mineral A é mais duro do que o mineral B (o diamante tem dureza máxima 10 e o talco dureza mínima 1).",
+              "dica": "Dureza mineral"
+            },
+            {
+              "frente": "Como se distingue laboratorialmente o calcário (ou mármore) do granito e do quartzo?",
+              "verso": "Fazendo o teste do ácido clorídrico: o calcário e o mármore (constituídos por calcite) fazem viva efervescência devido à libertação de CO₂.",
+              "dica": "Ensaio diagnóstico"
+            }
+          ],
+          "subtitulo": "Metamorfismo (Regional vs Contacto), Propriedades dos Minerais e Recursos Geológicos",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 190–224",
+          "resumo_executivo": "Estudo dos fatores de metamorfismo (calor, tensão/pressão e fluidos de circulação), distinção entre rochas metamórficas foliadas e não foliadas, propriedades diagnósticas dos minerais e gestão sustentável dos recursos geológicos.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Sequência de Metamorfismo Regional",
+              "conteudo": "Argilito (sedimentar) ➔ Ardósia ➔ Filito ➔ Micaxisto ➔ Gnaisse (metamorfismo crescente com foliação)."
+            },
+            {
+              "titulo": "Metamorfismo de Contacto (Térmico)",
+              "conteudo": "Calcário ➔ Mármore | Arenito ➔ Quartzito | Argilito ➔ Corneana (textura não foliada / granoblástica)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/03_Ciencias_Naturais_7/cn7_p3_t2_questao.png",
+          "dicas_professor": [
+            "Sublinha sempre: o metamorfismo ocorre NO ESTADO SÓLIDO (sem fusão). A pressão orientada cria planos de foliação (xistosidade).",
+            "Recorda que os combustíveis fósseis (carvão, petróleo, gás natural) são recursos geológicos NÃO renováveis à escala de tempo humana."
+          ],
+          "checklist": [
+            "Distingo metamorfismo regional de metamorfismo de contacto.",
+            "Relaciono a pressão orientada com a presença de foliação (xisto, gnaisse).",
+            "Utilizo a Escala de Mohs e chaves dicotómicas para identificar minerais e rochas."
           ]
         }
       ]

@@ -29,14 +29,16 @@
               "definicao": "Placed BEFORE main verbs (ex: 'He often plays football'), but AFTER the verb to be (ex: 'She is always on time')."
             }
           ],
-          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p1_t1_2.png",
+          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p1_t1_manual.png",
           "imagem_legenda": "Grammar box comparing Present Simple (routine) with Present Continuous (action in progress).",
           "foco_teste": {
             "questao_exemplo": "Complete the sentences with Present Simple or Present Continuous: (a) Listen! Mark ______ (play) the guitar in his room. (b) My parents usually ______ (go) to work by train.",
-            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p1_t1_1.png",
+            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p1_t1_questao.png",
             "proposta_resolucao": "(a) is playing (action happening right now indicated by 'Listen!'). (b) go (routine action indicated by the frequency adverb 'usually').",
             "criterio_cotacao": "Correct verb form for each sentence (50% each).",
-            "erro_frequente": "Forgetting the auxiliary 'is/are' in the continuous tense or adding '-s' to verbs with 'I/You/We/They'."
+            "erro_frequente": "Forgetting the auxiliary 'is/are' in the continuous tense or adding '-s' to verbs with 'I/You/We/They'.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Gap-filling with Present Simple vs Present Continuous & Word Order"
           },
           "flashcards": [
             {
@@ -48,7 +50,111 @@
               "frente": "When do you use Present Continuous?",
               "verso": "For actions happening at the exact moment of speaking (now, at the moment, Look!).",
               "dica": "-ing form"
+            },
+            {
+              "frente": "What is the most common exam mistake in Present Simple vs Present Continuous?",
+              "verso": "Forgetting the auxiliary 'is/are' in the continuous tense or adding '-s' to verbs with 'I/You/We/They'.",
+              "dica": "Exam Tip"
             }
+          ],
+          "subtitulo": "Contrastive Grammar: Routines & Permanent States vs Actions in Progress Now",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Pages 12–36",
+          "resumo_executivo": "Domínio da conjugação afirmativa, negativa e interrogativa do Present Simple (3.ª pessoa do singular -s/-es/-ies e auxiliares do/does) em contraste com o Present Continuous (am/is/are + -ing) através dos marcadores temporais e advérbios de frequência.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Present Simple Structure",
+              "conteudo": "(+) He/She/It + V-s/es | (-) doesn't + V(inf) | (?) Does + he/she/it + V(inf)?"
+            },
+            {
+              "titulo": "Present Continuous Structure",
+              "conteudo": "(+) am/is/are + V-ing | (-) am not / isn't / aren't + V-ing | (?) Am/Is/Are + Subj + V-ing?"
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p1_t1_questao.png",
+          "dicas_professor": [
+            "Sublinha sempre a expressão de tempo na frase: se tiver 'now, right now, at the moment, Look!, Listen!', usa Present Continuous; se tiver 'usually, every day, on Mondays', usa Present Simple.",
+            "Cuidado com o verbo principal após 'doesn't' ou 'Does': perde sempre o '-s' final (ex.: 'She doesn't like', nunca 'doesn't likes')!"
+          ],
+          "checklist": [
+            "Sei aplicar as regras ortográficas do -s/-es/-ies na 3.ª pessoa do singular.",
+            "Coloco os advérbios de frequência antes do verbo principal e depois do verbo To Be.",
+            "Distingo sem hesitar os marcadores temporais de Present Simple e Present Continuous."
+          ]
+        },
+        {
+          "id": "ing7_p1_t2",
+          "titulo": "Daily Routines, Food & Quantifiers (Countable vs Uncountable)",
+          "subdominio": "Vocabulary & Grammar - Quantifiers",
+          "conceitos_chave": [
+            {
+              "termo": "Countable vs Uncountable Nouns",
+              "definicao": "Countable nouns have singular and plural forms (an apple / two apples). Uncountable nouns cannot be counted individually and have no plural (milk, bread, water, money, information)."
+            },
+            {
+              "termo": "Some vs Any",
+              "definicao": "SOME is used in affirmative sentences and polite offers/requests ('Would you like some tea?'). ANY is used in negative sentences and general questions ('There isn't any milk' / 'Do you have any brothers?')."
+            },
+            {
+              "termo": "How much vs How many",
+              "definicao": "HOW MANY + plural countable nouns ('How many eggs do we need?'). HOW MUCH + uncountable nouns ('How much sugar do you take?')."
+            },
+            {
+              "termo": "A few vs A little / A lot of",
+              "definicao": "A FEW = some, with plural countable nouns ('a few biscuits'). A LITTLE = some, with uncountable nouns ('a little water'). A LOT OF = large quantity with both countable and uncountable."
+            }
+          ],
+          "imagem_legenda": "Visual guide to Countable vs Uncountable food items, daily routine clock, and the rules for some/any/much/many.",
+          "foco_teste": {
+            "questao_exemplo": "Complete the sentences with SOME, ANY, MUCH or MANY: (a) How ______ water do you drink every day? (b) There aren't ______ eggs in the fridge, but there is ______ cheese. (c) How ______ students are there in your class?",
+            "proposta_resolucao": "(a) much ('water' is uncountable). (b) any (negative plural countable 'eggs') / some (affirmative clause with uncountable 'cheese'). (c) many ('students' is a plural countable noun).",
+            "criterio_cotacao": "25% for each correct quantifier based on noun countability and sentence polarity.",
+            "erro_frequente": "Using 'How many' with uncountable nouns like 'bread', 'money' or 'water', or using 'some' in negative sentences.",
+            "frequencia": "Alta (sai em 95% dos testes)",
+            "tipo_questao": "Multiple choice and gap-filling with quantifiers & food vocabulary",
+            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p1_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "When do we use 'How much' vs 'How many'?",
+              "verso": "We use 'How much' with uncountable nouns (water, time, money) and 'How many' with plural countable nouns (books, apples, friends).",
+              "dica": "Countability rule"
+            },
+            {
+              "frente": "Why do we use 'some' in 'Would you like some coffee?' even though it is a question?",
+              "verso": "Because it is a polite offer (or request), where 'some' is used instead of 'any'.",
+              "dica": "Exception to the question rule"
+            },
+            {
+              "frente": "What is the difference between 'a few' and 'a little'?",
+              "verso": "'A few' is used with plural countable nouns (a few friends); 'a little' is used with uncountable nouns (a little milk).",
+              "dica": "Small quantities"
+            }
+          ],
+          "subtitulo": "Countable & Uncountable Nouns, Some/Any, Much/Many and Daily Routine Expressions",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Pages 38–64",
+          "resumo_executivo": "Sistematização do vocabulário das rotinas diárias, refeições e alimentos, articulado com as regras gramaticais de quantificação para nomes contáveis e incontáveis em frases afirmativas, negativas e interrogativas.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Some vs Any Rule",
+              "conteudo": "SOME: Affirmative (+) & Offers/Requests | ANY: Negative (-) & General Questions (?)."
+            },
+            {
+              "titulo": "Quantifiers Matrix",
+              "conteudo": "Countable Plural: How many / many / a few | Uncountable: How much / much / a little."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p1_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p1_t2_questao.png",
+          "dicas_professor": [
+            "Atenção aos nomes que são INCONTÁVEIS em inglês (têm verbo sempre no singular): bread, toast, milk, water, fruit, money, homework, information, advice, furniture.",
+            "Se uma pergunta começar por 'Would you like...' ou 'Can I have...', é uma oferta ou pedido educado: usa sempre SOME e nunca ANY!"
+          ],
+          "checklist": [
+            "Classifico corretamente alimentos e objetos em Countable (C) e Uncountable (U).",
+            "Escolho entre 'some' e 'any' consoante a frase seja afirmativa, negativa, pergunta ou oferta.",
+            "Uso 'How much / a little' para incontáveis e 'How many / a few' para contáveis no plural."
           ]
         }
       ]
@@ -79,14 +185,16 @@
               "definicao": "good ➔ better ➔ the best; bad ➔ worse ➔ the worst; far ➔ further ➔ the furthest."
             }
           ],
-          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p2_t1_1.png",
+          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p2_t1_manual.png",
           "imagem_legenda": "Summary chart showing short, long, and irregular comparative and superlative forms.",
           "foco_teste": {
             "questao_exemplo": "Complete with the correct comparative or superlative form: (a) London is ________ (busy) than Porto. (b) This sofa is ________________ (comfortable) in the whole house.",
-            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p2_t1_1.png",
+            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p2_t1_questao.png",
             "proposta_resolucao": "(a) busier (short adjective ending in -y: changes to -ier + than). (b) the most comfortable (long adjective in superlative context: the most + adjective).",
             "criterio_cotacao": "Correct spelling and comparative/superlative structure (50% each).",
-            "erro_frequente": "Writing 'more busier' (double comparative) or forgetting 'the' before superlatives."
+            "erro_frequente": "Writing 'more busier' (double comparative) or forgetting 'the' before superlatives.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Sentence transformation and completion with Comparatives & Superlatives"
           },
           "flashcards": [
             {
@@ -98,7 +206,111 @@
               "frente": "How do you form the comparative of a long adjective like 'modern'?",
               "verso": "more modern than (never add -er to long adjectives).",
               "dica": "Rule for long adjectives"
+            },
+            {
+              "frente": "What is the most common exam mistake in Comparative and Superlative Adjectives?",
+              "verso": "Writing 'more busier' (double comparative) or forgetting 'the' before superlatives.",
+              "dica": "Exam Tip"
             }
+          ],
+          "subtitulo": "Degrees of Adjectives: Comparative (-er / more / as...as) and Superlative (the -est / the most)",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Pages 68–94",
+          "resumo_executivo": "Formação e aplicação dos graus comparativo (de superioridade, igualdade e inferioridade) e superlativo dos adjetivos curtos (1 sílaba e 2 sílabas terminados em -y), longos (2+ sílabas) e irregulares.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Comparative of Superiority (2 items)",
+              "conteudo": "Short Adj: adj-er + than (bigger than) | Long Adj: more + adj + than (more expensive than)."
+            },
+            {
+              "titulo": "Superlative of Superiority (3+ items / group)",
+              "conteudo": "Short Adj: the + adj-est (the biggest) | Long Adj: the most + adj (the most expensive)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p2_t1_questao.png",
+          "dicas_professor": [
+            "Procura a palavra-pista na frase: se tiver 'THAN' depois do espaço, é obrigatoriamente Comparativo! Se tiver 'THE' antes do espaço (ou 'in the world / of all'), é Superlativo!",
+            "Aplica a regra CVC (Consoante-Vogal-Consoante) nos adjetivos curtos: big ➔ bigger, hot ➔ hotter, thin ➔ thinner, sad ➔ sadder."
+          ],
+          "checklist": [
+            "Distingo adjetivos curtos de adjetivos longos e aplico a regra do -y (-ier / -iest).",
+            "Memorizei os comparativos e superlativos irregulares (good, bad, far).",
+            "Uso 'as + adjective + as' para formar o comparativo de igualdade."
+          ]
+        },
+        {
+          "id": "ing7_p2_t2",
+          "titulo": "Physical Description, Personality, Clothes & Prepositions of Place",
+          "subdominio": "Vocabulary & Communication - Describing People and Places",
+          "conceitos_chave": [
+            {
+              "termo": "Physical Appearance (To Be vs Have Got)",
+              "definicao": "Use TO BE for height, build and age (She is tall, slim and young). Use HAVE GOT for hair, eyes and facial features (He has got short curly brown hair, green eyes and freckles)."
+            },
+            {
+              "termo": "Adjective Order for Hair & Eyes",
+              "definicao": "Order before the noun: Length + Style + Colour + NOUN (ex: 'long straight blonde hair', 'big round blue eyes'). Adjectives in English never take a plural -s!"
+            },
+            {
+              "termo": "Personality Adjectives & Feelings",
+              "definicao": "Positive: friendly, kind, hardworking, outgoing, polite, funny. Negative/Other: shy, lazy, stubborn, bossy, nervous, excited."
+            },
+            {
+              "termo": "Prepositions of Place & Movement",
+              "definicao": "Place: in, on, under, next to / beside, between, behind, in front of, opposite. Movement: into, out of, across, along, past, through, towards."
+            }
+          ],
+          "imagem_legenda": "Illustrated chart of physical appearance (hair order: length + style + colour), clothing items, and prepositions of place in a town.",
+          "foco_teste": {
+            "questao_exemplo": "Read the description and complete with the correct form of TO BE or HAVE GOT and put the hair adjectives in the right order: 'My cousin Leo (a) ______ tall and athletic. He (b) ______ (brown / short / wavy) hair and he (c) ______ wearing a blue hoodie today.'",
+            "proposta_resolucao": "(a) is (verb to be for height and build). (b) has got short wavy brown (have got for hair + order: Length [short] + Style [wavy] + Colour [brown]). (c) is (Present Continuous 'is wearing' for clothes worn right now).",
+            "criterio_cotacao": "Correct auxiliary verbs 'is' and 'has got' (50%) + exact adjective order 'short wavy brown' (50%).",
+            "erro_frequente": "Saying 'He has tall' instead of 'He is tall', or putting colour before length ('brown short hair').",
+            "frequencia": "Alta (sai em 90% dos testes)",
+            "tipo_questao": "Reading comprehension, character matching and descriptive writing",
+            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p2_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "What is the correct order of adjectives to describe hair in English?",
+              "verso": "Length + Style + Colour + hair (e.g., 'She has got long curly red hair').",
+              "dica": "L-S-C order"
+            },
+            {
+              "frente": "What question do we ask for someone's personality vs physical appearance?",
+              "verso": "Personality: 'What is he/she like?' | Physical appearance: 'What does he/she look like?'",
+              "dica": "Look like vs Be like"
+            },
+            {
+              "frente": "What is the difference between 'in front of' and 'opposite'?",
+              "verso": "'In front of' means ahead in the same direction (like in a queue); 'opposite' means facing each other across a street or table.",
+              "dica": "Prepositions of place"
+            }
+          ],
+          "subtitulo": "Describing People (Appearance & Character), Clothing and Prepositions of Place",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Pages 96–122",
+          "resumo_executivo": "Desenvolvimento da competência descritiva e espacial em inglês: distinção estrutural entre o verbo To Be e Have Got no retrato físico, ordem canónica dos adjetivos, vocabulário de vestuário e preposições de lugar e movimento na cidade.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Describing People Formula",
+              "conteudo": "Height/Build/Age: Subject + AM/IS/ARE + adj | Hair/Eyes/Features: Subject + HAVE/HAS GOT + adj + noun."
+            },
+            {
+              "titulo": "Hair Adjective Order",
+              "conteudo": "1. Length (short/long) ➔ 2. Style (straight/wavy/curly) ➔ 3. Colour (black/brown/blonde/red) + hair."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p2_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p2_t2_questao.png",
+          "dicas_professor": [
+            "Para descrever a roupa que alguém traz vestida numa imagem, usa sempre o Present Continuous: 'She is wearing a red dress and white trainers'.",
+            "Não confundas as perguntas: 'What is he like?' pede traços de personalidade (kind, funny); 'What does he look like?' pede aspeto físico (tall, blue eyes)!"
+          ],
+          "checklist": [
+            "Uso 'is/are' para estatura/idade e 'has/have got' para cabelo, olhos e barba/sardas.",
+            "Ordeno corretamente até 3 adjetivos antes da palavra 'hair' ou 'eyes'.",
+            "Localizo edifícios no mapa usando next to, opposite, between, behind e in front of."
           ]
         }
       ]
@@ -129,14 +341,16 @@
               "definicao": "Auxiliary DID: Did you visit London? / I didn't visit London. The main verb stays in the INFINITIVE!"
             }
           ],
-          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p3_t1_1.png",
+          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p3_t1_manual.png",
           "imagem_legenda": "Past Simple affirmative, negative (didn't + inf) and question (Did + subj + inf) structures.",
           "foco_teste": {
             "questao_exemplo": "Turn the sentence into negative and question: 'Sarah went to the sports club yesterday.'",
-            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p3_t1_1.png",
+            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p3_t1_questao.png",
             "proposta_resolucao": "Negative: Sarah didn't go to the sports club yesterday. Question: Did Sarah go to the sports club yesterday?",
             "criterio_cotacao": "Use of didn't / Did (50%) and returning 'went' to base form 'go' (50%).",
-            "erro_frequente": "Writing 'didn't went' (wrong! Auxiliary already carries the past, verb must be in base form)."
+            "erro_frequente": "Writing 'didn't went' (wrong! Auxiliary already carries the past, verb must be in base form).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Complete text/sentences in Past Simple & Rewrite in Negative/Interrogative"
           },
           "flashcards": [
             {
@@ -148,7 +362,111 @@
               "frente": "Is 'I didn't saw the film' correct?",
               "verso": "No! Correct is: 'I didn't see the film' (after didn't, the verb is always in the bare infinitive).",
               "dica": "Common test trap"
+            },
+            {
+              "frente": "What is the most common exam mistake in Past Simple: Regular & Irregular Verbs?",
+              "verso": "Writing 'didn't went' (wrong! Auxiliary already carries the past, verb must be in base form).",
+              "dica": "Exam Tip"
             }
+          ],
+          "subtitulo": "Talking About the Past: Regular (-ed) & Irregular Verbs, Affirmative, Negative and Questions",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Pages 126–156",
+          "resumo_executivo": "Estudo completo do Past Simple do verbo To Be (was/were) e dos verbos regulares e irregulares para relatar acontecimentos passados concluídos, utilizando o auxiliar DID / DIDN'T nas interrogativas e negativas.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Past Simple of TO BE (No 'did'!)",
+              "conteudo": "I/He/She/It WAS (wasn't) | You/We/They WERE (weren't) | Questions: Was he...? / Were they...?"
+            },
+            {
+              "titulo": "Other Verbs in Past Simple",
+              "conteudo": "(+) V-ed or 2nd column | (-) Subject + didn't + V(infinitive) | (?) Did + Subject + V(infinitive)?"
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p3_t1_questao.png",
+          "dicas_professor": [
+            "Regra de Ouro para não perder pontos: quando usas DID ou DIDN'T, o verbo principal regressa SEMPRE ao infinitivo sem 'to' (ex.: 'She went' ➔ 'She didn't go' / 'Did she go?').",
+            "Nunca uses 'did/didn't' com o verbo To Be! O passado de To Be faz a negativa e a pergunta sozinho: 'wasn't / weren't' e 'Was she...? / Were you...?'."
+          ],
+          "checklist": [
+            "Conheço os marcadores do Past Simple (yesterday, last week, two days ago, in 2020).",
+            "Sei de cor os 25 verbos irregulares mais frequentes do 7.º ano (go, see, buy, have, eat, make, take, write...).",
+            "Transformo frases afirmativas em negativas (didn't + inf) e interrogativas (Did + subj + inf)."
+          ]
+        },
+        {
+          "id": "ing7_p3_t2",
+          "titulo": "Future Forms (Be Going To vs Will), Modal Verbs & Holiday Plans",
+          "subdominio": "Grammar & Travel Communication",
+          "conceitos_chave": [
+            {
+              "termo": "Be Going To (Plans & Evidence)",
+              "definicao": "Structure: am / is / are + going to + infinitive. Used for future plans/intentions ('I am going to travel to London this summer') and predictions based on present visual evidence ('Look at those black clouds! It is going to rain')."
+            },
+            {
+              "termo": "Future with WILL (Spontaneous & Predictions)",
+              "definicao": "Structure: will / won't + bare infinitive. Used for instant decisions ('I'm thirsty — I'll drink water'), promises, offers, and general opinions about the future with I think, I hope, probably."
+            },
+            {
+              "termo": "Modal Verbs (Can, Must, Should)",
+              "definicao": "Followed by bare infinitive (without 'to'): CAN/COULD (ability, permission), MUST (strong obligation / rule), MUSTN'T (prohibition), SHOULD / SHOULDN'T (advice)."
+            },
+            {
+              "termo": "Holidays & Travel Vocabulary",
+              "definicao": "Accommodation (hotel, youth hostel, campsite), transport (flight, underground/tube, ferry, coach) and activities (go sightseeing, buy souvenirs, take photos, sunbathe)."
+            }
+          ],
+          "imagem_legenda": "Contrastive diagram of Future Forms (Be going to vs Will), Modal Verbs rules, and holiday itinerary vocabulary.",
+          "foco_teste": {
+            "questao_exemplo": "Complete the sentences using WILL or BE GOING TO and the verbs in brackets: (a) 'Why are you holding a suitcase?' 'Because I ______________ (visit) my grandparents in Madrid this weekend.' (b) I think people ______________ (live) on Mars in 2100. (c) You ______ (must / mustn't) forget your passport at the airport!",
+            "proposta_resolucao": "(a) am going to visit (pre-arranged plan/intention). (b) will live (prediction/opinion introduced by 'I think'). (c) mustn't (prohibition / strong negative obligation).",
+            "criterio_cotacao": "35% for (a) 'am going to visit', 35% for (b) 'will live', and 30% for (c) 'mustn't'.",
+            "erro_frequente": "Forgetting the verb 'to be' (am/is/are) before 'going to', or adding 'to' after modal verbs ('must to go').",
+            "frequencia": "Alta (sai em 90% dos testes)",
+            "tipo_questao": "Future tense selection, Modal Verbs completion & Holiday writing",
+            "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p3_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "When do we use 'be going to' instead of 'will'?",
+              "verso": "We use 'be going to' for prior plans/intentions and when there is clear present evidence (e.g., dark clouds in the sky).",
+              "dica": "Future plans"
+            },
+            {
+              "frente": "What is the negative short form of 'will not'?",
+              "verso": "won't (followed by the verb in the bare infinitive, e.g., 'They won't be late').",
+              "dica": "Spelling alert"
+            },
+            {
+              "frente": "Which modal verb do we use to give advice, and which one expresses prohibition?",
+              "verso": "Advice: should / shouldn't. Prohibition: mustn't.",
+              "dica": "Modal verbs"
+            }
+          ],
+          "subtitulo": "Future Plans & Predictions (Be Going To vs Will), Modal Verbs and Holidays",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Pages 158–186",
+          "resumo_executivo": "Expressão do futuro em língua inglesa distinguindo planos prévios e evidências presentes (Be going to) de previsões gerais e decisões espontâneas (Will), complementada pelos verbos modais de capacidade, obrigação e conselho em contexto de viagens.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Be Going To vs Will",
+              "conteudo": "Plan/Intention or Present Evidence: am/is/are + going to + V | Instant Decision, Promise or 'I think': will/won't + V."
+            },
+            {
+              "titulo": "Modal Verbs Summary",
+              "conteudo": "Can/Could (ability/request) | Must (obligation) | Mustn't (prohibition) | Should/Shouldn't (advice)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/05_Ingles_7/ing7_p3_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/05_Ingles_7/ing7_p3_t2_questao.png",
+          "dicas_professor": [
+            "Se a frase tiver 'I think, I believe, I hope, maybe, perhaps, probably', escolhe imediatamente WILL / WON'T.",
+            "Os verbos modais (can, must, should, will) são invariáveis (não levam -s na 3.ª pessoa) e são seguidos diretamente pelo verbo no infinitivo sem 'to'!"
+          ],
+          "checklist": [
+            "Distingo quando usar 'be going to' e quando usar 'will' em exercícios de exame.",
+            "Uso must, mustn't, should, shouldn't e can/could sem acrescentar 'to'.",
+            "Domino o vocabulário essencial de férias, meios de transporte e alojamento."
           ]
         }
       ]

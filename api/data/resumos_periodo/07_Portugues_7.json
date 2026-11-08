@@ -29,14 +29,16 @@
               "definicao": "Metáfora (associação direta de sentido sem palavra comparativa), Comparação (usa 'como', 'parece'), Personificação (atribuição de traços humanos a seres inanimados) e Hipérbole (exagero intencional)."
             }
           ],
-          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p1_t1_2.png",
+          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p1_t1_manual.png",
           "imagem_legenda": "Tabela de sistematização das classes gramaticais e mapa concetual dos recursos de estilo.",
           "foco_teste": {
             "questao_exemplo": "Identifica a classe e subclasse das palavras sublinhadas na frase: 'Aquele rapaz perdeu o livro, mas eu emprestei-lhe o meu.' (Palavras: Aquele, mas, meu).",
-            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p1_t1_1.png",
+            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p1_t1_questao.png",
             "proposta_resolucao": "- 'Aquele': Determinante demonstrativo (acompanha o nome 'rapaz'). - 'mas': Conjunção coordenativa adversativa (introduz oposição). - 'meu': Pronome possessivo (substitui a expressão 'meu livro').",
             "criterio_cotacao": "Classe e subclasse completas de cada palavra (33% cada).",
-            "erro_frequente": "Classificar 'meu' como determinante quando ele está a substituir o nome e não a acompanhá-lo."
+            "erro_frequente": "Classificar 'meu' como determinante quando ele está a substituir o nome e não a acompanhá-lo.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Identificação de classes e subclasses de palavras em contexto"
           },
           "flashcards": [
             {
@@ -48,7 +50,111 @@
               "frente": "Que conjunções coordenativas introduzem uma ideia de oposição?",
               "verso": "As conjunções adversativas: mas, porém, contudo, todavia, no entanto.",
               "dica": "Conjunções"
+            },
+            {
+              "frente": "Qual a regra fundamental a recordar em Classes de Palavras e Recursos Expressivos?",
+              "verso": "Classificar 'meu' como determinante quando ele está a substituir o nome e não a acompanhá-lo.",
+              "dica": "Gramática / Leitura"
             }
+          ],
+          "subtitulo": "Morfologia: Nomes, Adjetivos, Verbos, Advérbios, Determinantes, Pronomes, Quantificadores e Preposições",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 14–56",
+          "resumo_executivo": "Sistematização completa das 10 classes e respetivas subclasses de palavras exigidas no 7.º ano, com foco na distinção em contexto frásico entre determinantes/quantificadores (que acompanham o nome) e pronomes (que substituem o nome).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Regra de Ouro: Determinante vs Pronome",
+              "conteudo": "Antes de um Nome ➔ Determinante ('Esta mochila é azul') | Em vez do Nome ➔ Pronome ('Esta é azul')."
+            },
+            {
+              "titulo": "Verbos Principais e Auxiliares",
+              "conteudo": "Intransitivos (sem complemento), Transitivos Diretos (CD), Indiretos (CI ou CO) e Copulativos (ser, estar, ficar, parecer, permanecer + Predicativo do Sujeito)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p1_t1_questao.png",
+          "dicas_professor": [
+            "Atenção à palavra 'A' / 'O' / 'AS' / 'OS': antes de um nome é Determinante Artigo Definido ('Comprei a revista'); antes de um verbo ou ligado por hífen é Pronome Pessoal ('Comprei-a ontem' / 'Não a vi'); a ligar duas palavras é Preposição ('Fui a Coimbra')!",
+            "Nos verbos copulativos (ser, estar, ficar, parecer, continuar, permanecer, tornar-se), o que vem a seguir é sempre Predicativo do Sujeito e nunca Complemento Direto!"
+          ],
+          "checklist": [
+            "Distingo determinantes e quantificadores de pronomes pelo contexto da frase.",
+            "Classifico verbos quanto à transitividade (intransitivo, transitivo direto/indireto, copulativo).",
+            "Identifico advérbios (negação, afirmação, quantidade e grau, tempo, lugar, modo) e preposições contraídas (do, na, pelo, ao)."
+          ]
+        },
+        {
+          "id": "port7_p1_t2",
+          "titulo": "Texto Narrativo: Categorias da Narrativa e Recursos Expressivos",
+          "subdominio": "Educação Literária e Leitura - Narrativa",
+          "conceitos_chave": [
+            {
+              "termo": "Estrutura da Ação (Interna e Externa)",
+              "definicao": "Estrutura interna: Situação Inicial (introdução), Desenvolvimento (peripécias e ponto culminante/clímax) e Conclusão (desenlace). Ação principal vs secundária; aberta vs fechada."
+            },
+            {
+              "termo": "Narrador e Personagens",
+              "definicao": "Narrador: Participante / Autodiegético (1.ª pessoa, protagonista ou testemunha) vs Não Participante / Heterodiegético (3.ª pessoa). Personagens: Principal/Protagonista, Secundárias e Figurantes; caracterização direta (explícita) vs indireta (deduzida das ações)."
+            },
+            {
+              "termo": "Espaço (Físico, Social, Psicológico) e Tempo",
+              "definicao": "Espaço físico (locais), social (ambiente/grupos) e psicológico (emoções/memórias). Tempo cronológico (relógio/calendário), histórico (época) e do discurso (linear, recuo/analepse ou avanço/prolepse)."
+            },
+            {
+              "termo": "Recursos Expressivos Essenciais",
+              "definicao": "Comparação (com conectivo 'como'), Metáfora (identificação direta sem 'como'), Personificação (animismo de seres inanimados), Hipérbole (exagero), Anáfora (repetição no início de frases/versos) e Antítese (contraste de ideias opostas)."
+            }
+          ],
+          "imagem_legenda": "Esquema das 5 categorias da narrativa (Ação, Narrador, Personagens, Espaço e Tempo) e quadro exemplificado dos recursos expressivos.",
+          "foco_teste": {
+            "questao_exemplo": "Lê o excerto: «Naquela manhã de inverno, o velho pescador olhava o mar furioso que rugia como um leão faminto. Sem hesitar, lançou o barco às ondas para salvar o cãozinho.» (a) Classifica o narrador quanto à presença. (b) Retira uma caracterização indireta da personagem e identifica dois recursos expressivos presentes na primeira frase.",
+            "proposta_resolucao": "(a) O narrador é não participante (heterodiegético), pois narra na 3.ª pessoa («olhava», «lançou») sem intervir nos acontecimentos. (b) Caracterização indireta: o pescador é corajoso, altruísta e solidário (deduz-se da ação «Sem hesitar, lançou o barco às ondas para salvar o cãozinho»). Recursos expressivos na 1.ª frase: Personificação («o mar furioso que rugia» — atribuição de fúria e rugido ao mar) e Comparação («rugia como um leão faminto» — presença do elemento comparativo 'como').",
+            "criterio_cotacao": "Classificação do narrador com justificação (30%) + inferência de traço psicológico por caracterização indireta (35%) + identificação e explicação dos 2 recursos expressivos (35%).",
+            "erro_frequente": "Confundir caracterização direta (adjetivos ditos no texto: «velho pescador») com caracterização indireta (traços psicológicos deduzidos a partir das atitudes da personagem).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Questionário de compreensão literária e identificação de recursos expressivos",
+            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p1_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Qual a diferença entre Caracterização Direta e Caracterização Indireta de uma personagem?",
+              "verso": "Na direta, os traços físicos ou psicológicos são ditos explicitamente no texto; na indireta, o leitor tem de deduzir a personalidade através das ações, comportamentos e falas da personagem.",
+              "dica": "Categorias da narrativa"
+            },
+            {
+              "frente": "Como se distingue o narrador participante (autodiegético/homodiegético) do não participante (heterodiegético)?",
+              "verso": "O participante conta a história na 1.ª pessoa ('eu/nós') fazendo parte das personagens; o não participante narra de fora, na 3.ª pessoa ('ele/eles').",
+              "dica": "Presença do narrador"
+            },
+            {
+              "frente": "Que recurso expressivo consiste em atribuir sentimentos ou ações humanas a elementos da natureza ou objetos?",
+              "verso": "A Personificação (ou prosopopeia), ex.: 'O vento chorava entre as árvores'.",
+              "dica": "Recursos expressivos"
+            }
+          ],
+          "subtitulo": "Categorias do Texto Narrativo (Ação, Narrador, Personagens, Espaço, Tempo) e Figuras de Estilo",
+          "peso_teste": "50% da cotação do teste",
+          "paginas_manual": "Págs. 58–104",
+          "resumo_executivo": "Análise literária de contos e narrativas de autores portugueses e estrangeiros, dominando a classificação da ação, do narrador, das personagens, do espaço e do tempo, bem como a identificação e valor expressivo das figuras de retórica.",
+          "esquemas_formulas": [
+            {
+              "titulo": "As 5 Categorias da Narrativa",
+              "conteudo": "1. Ação (relevo e estrutura) | 2. Narrador (participante vs não participante) | 3. Personagens | 4. Tempo | 5. Espaço."
+            },
+            {
+              "titulo": "Figuras de Estilo Mais Avaliadas",
+              "conteudo": "Comparação (como) | Metáfora (fusão direta) | Personificação | Hipérbole | Enumeração | Anáfora | Antítese."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p1_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p1_t2_questao.png",
+          "dicas_professor": [
+            "Quando o teste pede para explicar o 'valor expressivo' de uma metáfora ou personificação, não basta nomear o recurso: tens de explicar que efeito ou ideia o autor quis destacar naquela frase concreta!",
+            "Nas respostas de interpretação de texto, começa sempre por retomar as palavras da pergunta e cita um breve elemento do texto entre aspas («...») para comprovar."
+          ],
+          "checklist": [
+            "Classifico a ação, o narrador, as personagens, o espaço e o tempo num conto.",
+            "Diferencio caracterização direta (física e psicológica) de caracterização indireta.",
+            "Identifico e explico o sentido de metáforas, comparações, personificações e hipérboles."
           ]
         }
       ]
@@ -83,14 +189,16 @@
               "definicao": "Elemento acessório que indica tempo, lugar ou modo; pode ser retirado da frase sem afetar a sua gramaticalidade."
             }
           ],
-          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p2_t1_2.png",
+          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p2_t1_manual.png",
           "imagem_legenda": "Árvore sintática das funções da frase: Sujeito, Predicado, Complementos e Modificadores.",
           "foco_teste": {
             "questao_exemplo": "Na frase: 'Ontem, a professora entregou o teste ao aluno na sala de aula', identifica a função sintática de: (a) 'Ontem'; (b) 'o teste'; (c) 'ao aluno'; (d) 'na sala de aula'.",
-            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p2_t1_1.png",
+            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p2_t1_questao.png",
             "proposta_resolucao": "(a) 'Ontem': Modificador (do grupo verbal / de frase). (b) 'o teste': Complemento direto (entregou-o). (c) 'ao aluno': Complemento indireto (entregou-lhe). (d) 'na sala de aula': Modificador do grupo verbal (valor locativo acessório).",
             "criterio_cotacao": "Classificação correta de cada uma das 4 funções sintáticas (25% cada).",
-            "erro_frequente": "Confundir complemento oblíquo com modificador (se pode ser retirado sem estragar o sentido essencial do verbo, é modificador!)."
+            "erro_frequente": "Confundir complemento oblíquo com modificador (se pode ser retirado sem estragar o sentido essencial do verbo, é modificador!).",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Identificação de funções sintáticas, pronominalização e frase passiva"
           },
           "flashcards": [
             {
@@ -102,7 +210,111 @@
               "frente": "Qual a diferença entre Complemento Oblíquo e Modificador?",
               "verso": "O Complemento Oblíquo é obrigatório para o sentido do verbo (ex.: 'Vou a casa'); o Modificador é acessório e pode ser retirado (ex.: 'Cheguei cedo').",
               "dica": "Obrigatoriedade"
+            },
+            {
+              "frente": "Qual a regra fundamental a recordar em Funções Sintáticas no Grupo Verbal?",
+              "verso": "Confundir complemento oblíquo com modificador (se pode ser retirado sem estragar o sentido essencial do verbo, é modificador!).",
+              "dica": "Gramática / Leitura"
             }
+          ],
+          "subtitulo": "Sintaxe da Frase: Sujeito, Predicado, Predicativo do Sujeito, Complementos (CD, CI, CO, Agente da Passiva) e Modificador",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Págs. 108–152",
+          "resumo_executivo": "Análise sintática rigorosa ao nível da frase simples e complexa: classificação do sujeito, identificação de todos os constituintes internos do grupo verbal (CD, CI, CO, Agente da Passiva, Predicativo do Sujeito e Modificador do Grupo Verbal) e transformação ativa ⇄ passiva.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Testes de Substituição Pronominal",
+              "conteudo": "Complemento Direto (CD) ➔ o, a, os, as | Complemento Indireto (CI) ➔ lhe, lhes | Complemento Oblíquo (CO) ➔ obrigatório, mas NÃO substitui por lhe!"
+            },
+            {
+              "titulo": "Frase Ativa ➔ Frase Passiva",
+              "conteudo": "CD da ativa passa a Sujeito da passiva | Sujeito da ativa passa a Complemento Agente da Passiva (introduzido por 'por' / 'pelo')."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p2_t1_questao.png",
+          "dicas_professor": [
+            "Como distinguir Complemento Oblíquo (CO) de Modificador do Grupo Verbal (MGV)? Faz o teste da supressão: se tapares o grupo e o verbo ficar incompleto/sem sentido (ex.: 'O João mora [em Faro]' ou 'Ela gosta [de música]'), é Complemento Oblíquo! Se puderes retirar sem afetar o verbo (ex.: 'O João estudou [em Faro]'), é Modificador!",
+            "Na pronominalização com verbos terminados em -r, -s, -z, a consoante cai e o pronome passa a lo, la, los, las (ex.: 'Vou comer o bolo' ➔ 'Vou comê-lo'). Se terminar em som nasal (-m, -ão, -õe), passa a no, na, nos, nas ('Eles viram o filme' ➔ 'Eles viram-no')!"
+          ],
+          "checklist": [
+            "Classifico o sujeito em simples, composto, subentendido e indeterminado.",
+            "Aplico os testes de substituição por 'o/a' (CD) e 'lhe/lhes' (CI) e distingo CO de Modificador.",
+            "Identifico o Predicativo do Sujeito (com verbos copulativos) e o Complemento Agente da Passiva."
+          ]
+        },
+        {
+          "id": "port7_p2_t2",
+          "titulo": "O Texto Dramático, Linguagem Teatral e Discurso Direto vs Indireto",
+          "subdominio": "Educação Literária e Gramática - Teatro e Discurso",
+          "conceitos_chave": [
+            {
+              "termo": "Texto Principal vs Texto Secundário (Didascálias)",
+              "definicao": "Texto Principal: composto pelas falas dos atores (diálogo, monólogo ou aparte). Texto Secundário (Didascálias ou indicações cénicas): surge em itálico ou entre parênteses, indicando gestos, entoação, movimentação, cenário, luz e guarda-roupa."
+            },
+            {
+              "termo": "Estrutura Externa e Interna da Peça Teatral",
+              "definicao": "Estrutura Externa: divisão em Atos (mudança de cenário) e Cenas (entrada ou saída de personagens). Estrutura Interna: Exposição (apresentação), Conflito (desenrolar da intriga dramática) e Desenlace (desfecho)."
+            },
+            {
+              "termo": "Formas de Discurso Teatral",
+              "definicao": "Diálogo (conversa entre duas ou mais personagens), Monólogo (uma personagem fala sozinha expondo os seus pensamentos) e Aparte (comentário curto dito para o público que as outras personagens em palco fingem não ouvir)."
+            },
+            {
+              "termo": "Transposição do Discurso Direto para Indireto",
+              "definicao": "Mudança de 1.ª/2.ª pessoa para 3.ª pessoa; tempos verbais recuam (Presente ➔ Pretérito Imperfeito; Pretérito Perfeito ➔ Mais-que-perfeito; Futuro ➔ Condicional); advérbios mudam (aqui ➔ ali; hoje ➔ naquele dia; agora ➔ naquele momento; este ➔ aquele)."
+            }
+          ],
+          "imagem_legenda": "Anatomia do texto dramático (falas vs didascálias, atos e cenas) e tabela de conversão do Discurso Direto para o Discurso Indireto.",
+          "foco_teste": {
+            "questao_exemplo": "Passa a seguinte fala teatral do discurso direto para o discurso indireto: «D. Pedro (aproximando-se com entusiasmo) — Amigos, hoje comprei este cavalo aqui na feira e amanhã partirei convosco!»",
+            "proposta_resolucao": "Aproximando-se com entusiasmo, D. Pedro disse aos amigos (ou afirmou) que, naquele dia, tinha comprado (ou comprara) aquele cavalo ali na feira e que no dia seguinte partiria com eles.",
+            "criterio_cotacao": "Verbo introdutor e conjunção 'que' (20%) + transformação dos tempos verbais: comprei ➔ tinha comprado/comprara e partirei ➔ partiria (40%) + transformação de pronomes/determinantes e deíticos temporais/espaciais: hoje ➔ naquele dia, este ➔ aquele, aqui ➔ ali, convosco ➔ com eles (40%).",
+            "erro_frequente": "Manter palavras do discurso direto como 'hoje', 'aqui' ou 'este' ao passar a frase para o discurso indireto.",
+            "frequencia": "Muito Alta (sai em 95% dos testes)",
+            "tipo_questao": "Análise de excerto dramático e reescrita em Discurso Indireto",
+            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p2_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Para que servem as didascálias (indicações cénicas) num texto dramático?",
+              "verso": "Formam o texto secundário (em itálico/parênteses) e dão instruções ao encenador e aos atores sobre gestos, tom de voz, cenário, vestuário e movimentação em palco.",
+              "dica": "Texto dramático"
+            },
+            {
+              "frente": "O que determina a mudança de 'Cena' e a mudança de 'Ato' numa peça de teatro?",
+              "verso": "Muda-se de Cena sempre que entra ou sai uma personagem de palco; muda-se de Ato quando há mudança de espaço/cenário ou grande salto temporal.",
+              "dica": "Estrutura externa"
+            },
+            {
+              "frente": "Na passagem para o discurso indireto, em que tempos se transformam o Presente do Indicativo e o Futuro?",
+              "verso": "O Presente do Indicativo passa a Pretérito Imperfeito ('estou' ➔ 'estava'); o Futuro passa a Condicional ('irei' ➔ 'iria').",
+              "dica": "Discurso indireto"
+            }
+          ],
+          "subtitulo": "O Texto Dramático (Falas, Didascálias, Atos e Cenas) e Transformação Discurso Direto ⇄ Indireto",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Págs. 154–192",
+          "resumo_executivo": "Estudo da estrutura externa e interna do género dramático, função cénica das didascálias e modalidades de réplica (diálogo, monólogo, aparte), articulado com as regras gramaticais de transposição entre o discurso direto e o discurso indireto.",
+          "esquemas_formulas": [
+            {
+              "titulo": "Estrutura do Texto Dramático",
+              "conteudo": "Texto Principal: Réplicas/Falas (Diálogo, Monólogo, Aparte) | Texto Secundário: Didascálias / Indicações Cénicas."
+            },
+            {
+              "titulo": "Mudanças no Discurso Indireto",
+              "conteudo": "1.ª/2.ª pessoa ➔ 3.ª pessoa | Presente ➔ Imperfeito | Perfeito ➔ Mais-que-perfeito | aqui ➔ ali | hoje ➔ naquele dia | este ➔ aquele."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p2_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p2_t2_questao.png",
+          "dicas_professor": [
+            "Quando reescreves uma pergunta direta em discurso indireto, usa verbos como 'perguntou se...' ou 'quis saber...', elimina o ponto de interrogação e coloca ponto final!",
+            "Se a fala direta tiver um Vocativo (ex.: «— Maria, vem cá!»), no discurso indireto esse vocativo passa a Complemento Indireto do verbo introdutor («Ele pediu à Maria que fosse lá»)."
+          ],
+          "checklist": [
+            "Distingo texto principal de texto secundário (didascálias) e explico a sua utilidade.",
+            "Reconheço atos, cenas, diálogos, monólogos e apartes num texto teatral.",
+            "Converto frases do discurso direto para o indireto alterando verbos, pronomes, tempos e lugares."
           ]
         }
       ]
@@ -133,14 +345,16 @@
               "definicao": "Introduzida por pronome relativo sem antecedente (ex.: 'Quem cala consente')."
             }
           ],
-          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p3_t1_2.png",
+          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p3_t1_manual.png",
           "imagem_legenda": "Guia de classificação de orações coordenadas e subordinadas adverbiais e respetivas conjunções.",
           "foco_teste": {
             "questao_exemplo": "Divide e classifica as orações da frase complexa: 'Quando o sinal tocou, os alunos saíram da sala porque a aula tinha terminado.'",
-            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p3_t1_1.png",
+            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p3_t1_questao.png",
             "proposta_resolucao": "1. 'Quando o sinal tocou': Oração subordinada adverbial temporal. 2. 'os alunos saíram da sala': Oração subordinante. 3. 'porque a aula tinha terminado': Oração subordinada adverbial causal.",
             "criterio_cotacao": "Divisão rigorosa (30%) + classificação exata de cada uma das 3 orações (70%).",
-            "erro_frequente": "Chamar 'oração principal' a toda a frase em vez de isolar a oração subordinante."
+            "erro_frequente": "Chamar 'oração principal' a toda a frase em vez de isolar a oração subordinante.",
+            "frequencia": "Muito Alta (sai em 100% dos testes)",
+            "tipo_questao": "Divisão e classificação completa de orações em frases complexas"
           },
           "flashcards": [
             {
@@ -152,7 +366,111 @@
               "frente": "Qual a diferença entre oração subordinante e subordinada?",
               "verso": "A subordinante é o núcleo principal da frase; a subordinada depende da subordinante e desempenha uma função sintática nessa frase.",
               "dica": "Dependência sintática"
+            },
+            {
+              "frente": "Qual a regra fundamental a recordar em Complexidade Frásica: Coordenação e Subordinação?",
+              "verso": "Chamar 'oração principal' a toda a frase em vez de isolar a oração subordinante.",
+              "dica": "Gramática / Leitura"
             }
+          ],
+          "subtitulo": "Frase Complexa: Orações Coordenadas e Orações Subordinadas Adverbiais, Substantivas e Adjetivas",
+          "peso_teste": "55% da cotação do teste",
+          "paginas_manual": "Págs. 196–234",
+          "resumo_executivo": "Domínio da divisão e classificação de orações em frases complexas: coordenação (copulativa, adversativa, disjuntiva, conclusiva e explicativa) e subordinação adverbial (causal, temporal, final, condicional, comparativa, consecutiva e concessiva), substantiva completiva e adjetiva relativa.",
+          "esquemas_formulas": [
+            {
+              "titulo": "As 5 Orações Coordenadas",
+              "conteudo": "Copulativa (e, nem) | Adversativa (mas, porém) | Disjuntiva (ou) | Conclusiva (logo, portanto) | Explicativa (pois, que)."
+            },
+            {
+              "titulo": "Orações Subordinadas Adverbiais",
+              "conteudo": "Causal (porque, como) | Temporal (quando, mal) | Final (para que) | Condicional (se, caso) | Concessiva (embora) | Comparativa (como) | Consecutiva (tão... que)."
+            }
+          ],
+          "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p3_t1_questao.png",
+          "dicas_professor": [
+            "Regra prática para dividir orações: sublinha primeiro todos os VERBOS conjugados (cada verbo principal equivale a uma oração) e rodeia a conjunção ou pronome que inicia a segunda oração (a conjunção pertence sempre à oração que ela introduz!).",
+            "Atenção à palavra 'COMO': se estiver no início da frase com sentido de 'visto que / porque' (ex.: 'Como estava a chover, fiquei em casa'), introduz uma Oração Subordinada Adverbial CAUSAL!"
+          ],
+          "checklist": [
+            "Divido corretamente frases complexas incluindo sempre a conjunção no início da oração respetiva.",
+            "Classifico todas as 5 subclasses de orações coordenadas.",
+            "Distingo orações subordinadas adverbiais (causais, temporais, finais, condicionais, concessivas), substantivas completivas e adjetivas relativas."
+          ]
+        },
+        {
+          "id": "port7_p3_t2",
+          "titulo": "O Texto Poético (Métrica e Rima) e os Textos dos Media (Notícia e Crónica)",
+          "subdominio": "Educação Literária e Leitura - Poesia e Jornalismo",
+          "conceitos_chave": [
+            {
+              "termo": "Sujeito Poético e Estrutura Estrófica",
+              "definicao": "O 'eu lírico' (sujeito poético) exprime emoções e estados de espírito (não confundir com o autor empírico). Classificação das estrofes pelo n.º de versos: Monóstico (1), Dístico (2), Terceto (3), Quadra (4), Quintilha (5), Sextilha (6), Oitava (8), Décima (10)."
+            },
+            {
+              "termo": "Esquema Rimático e Tipos de Rima",
+              "definicao": "Emparelhada (AABB), Cruzada (ABAB), Interpolada (ABBA) e Versos Soltos/Brancos (sem rima). Quanto ao som: Consoante (igualdade de vogais e consoantes a partir da tónica) vs Toante (só vogais). Quanto à classe gramatical: Pobre (mesma classe) vs Rica (classes diferentes)."
+            },
+            {
+              "termo": "Escansão e Sílabas Métricas",
+              "definicao": "Contagem das sílabas métricas de um verso apenas até à última sílaba tónica da última palavra, fazendo as elisões/sinalefas vocálicas (ex.: 7 sílabas = redondilha maior; 5 sílabas = redondilha menor; 10 sílabas = decassílabo)."
+            },
+            {
+              "termo": "Estrutura da Notícia e Regra dos 5 W",
+              "definicao": "Texto informativo e objetivo estruturado em pirâmide invertida: 1. Título (e antetítulo/subtítulo); 2. Lead (1.º parágrafo que responde a QUEM? O QUÊ? QUANDO? ONDE?); 3. Corpo da Notícia (desenvolve o COMO? e o PORQUÊ?)."
+            }
+          ],
+          "imagem_legenda": "Guia de análise formal do poema (estrofes, rima ABBA/ABAB e escansão métrica) e pirâmide invertida da Notícia jornalística.",
+          "foco_teste": {
+            "questao_exemplo": "Observa a quadra: «Ó mar salgado, quanto do teu sal (A) / São lágrimas de Portugal! (A) / Por te cruzarmos, quantas mães choraram, (B) / Quantos filhos em vão rezaram! (B)». (a) Classifica a estrofe e a rima. (b) Faz a escansão (divisão em sílabas métricas) do 2.º verso: «São lágrimas de Portugal!».",
+            "proposta_resolucao": "(a) A estrofe tem 4 versos, classificando-se como uma quadra. O esquema rimático é AABB, tratando-se de rima emparelhada (e rica no par 'sal' [nome] / 'Portugal' [nome próprio], e pobre em 'choraram' / 'rezaram' [ambos verbos]). (b) Escansão: São (1) / lá (2) / gri (3) / mas (4) / de (5) / Por (6) / tu (7) / gal! (8) — o verso tem 8 sílabas métricas (conta-se até à última sílaba tónica '-gal').",
+            "criterio_cotacao": "Classificação da quadra e rima emparelhada AABB (50%) + escansão correta até à última sílaba tónica (50%).",
+            "erro_frequente": "Contar todas as sílabas gramaticais até ao fim do verso em vez de parar na última sílaba tónica e de juntar vogais entre palavras (sinalefa).",
+            "frequencia": "Alta (sai em 90% dos testes)",
+            "tipo_questao": "Análise formal de poema (escansão e rima) e estrutura da Notícia",
+            "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p3_t2_questao.png"
+          },
+          "flashcards": [
+            {
+              "frente": "Como se classificam as estrofes com 2, 3, 4 e 5 versos?",
+              "verso": "2 versos: Dístico; 3 versos: Terceto; 4 versos: Quadra; 5 versos: Quintilha.",
+              "dica": "Estrofes poéticas"
+            },
+            {
+              "frente": "Como se distingue a rima cruzada, emparelhada e interpolada?",
+              "verso": "Cruzada: ABAB; Emparelhada: AABB; Interpolada (ou oposta): ABBA.",
+              "dica": "Esquema rimático"
+            },
+            {
+              "frente": "A que perguntas deve responder obrigatoriamente o Lead (1.º parágrafo) de uma notícia?",
+              "verso": "Quem? (Who), O quê? (What), Quando? (When) e Onde? (Where). O Como e o Porquê são desenvolvidos no corpo da notícia.",
+              "dica": "Texto dos Media"
+            }
+          ],
+          "subtitulo": "Análise do Texto Poético (Estrofe, Métrica, Rima) e Textos dos Media (Notícia, Entrevista, Crónica)",
+          "peso_teste": "45% da cotação do teste",
+          "paginas_manual": "Págs. 236–272",
+          "resumo_executivo": "Estudo formal e interpretativo da poesia lírica (versificação, escansão métrica, esquemas rimáticos e recursos expressivos) e caracterização dos géneros jornalísticos e mediáticos (estrutura em pirâmide invertida da notícia, lead e distinção entre facto e opinião).",
+          "esquemas_formulas": [
+            {
+              "titulo": "Classificação Formal do Poema",
+              "conteudo": "Estrofe: Dístico (2), Terceto (3), Quadra (4), Quintilha (5) | Rima: Emparelhada (AABB), Cruzada (ABAB), Interpolada (ABBA)."
+            },
+            {
+              "titulo": "A Pirâmide Invertida da Notícia",
+              "conteudo": "1. Título (síntese apelativa) ➔ 2. Lead / Guia (Quem? O quê? Quando? Onde?) ➔ 3. Corpo da Notícia (Como? Porquê?)."
+            }
+          ],
+          "imagem_manual": "/imagens_resumos/07_Portugues_7/port7_p3_t2_manual.png",
+          "imagem_questao": "/imagens_resumos/07_Portugues_7/port7_p3_t2_questao.png",
+          "dicas_professor": [
+            "Na escansão (contagem de sílabas métricas), junta sempre a vogal átona final de uma palavra com a vogal inicial da palavra seguinte numa única sílaba (sinalefa) e pára de contar na última sílaba tónica do verso!",
+            "Numa Notícia, a linguagem tem de ser estritamente objetiva, clara e na 3.ª pessoa (sem opiniões pessoais do jornalista)."
+          ],
+          "checklist": [
+            "Classifico estrofes pelo número de versos e identifico o esquema rimático (ABAB, AABB, ABBA).",
+            "Faço a escansão de versos aplicando a regra da última sílaba tónica e das elisões vocálicas.",
+            "Identifico as 3 partes da notícia e as 6 perguntas fundamentais do jornalismo."
           ]
         }
       ]

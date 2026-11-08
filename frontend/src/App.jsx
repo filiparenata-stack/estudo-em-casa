@@ -154,6 +154,7 @@ export default function App() {
             <ResumosView
               disciplina={disciplinaSelecionada}
               periodo={periodoAtivo}
+              onMudarPeriodo={setPeriodoAtivo}
               anoAtivo={anoAtivo}
               onIniciarQuiz={iniciarQuizComTema}
               onIrParaFlashcards={() => setViewAtiva('flashcards')}
@@ -167,6 +168,8 @@ export default function App() {
             <FlashcardsView
               resumoAtual={resumoAtual}
               disciplina={disciplinaSelecionada}
+              periodo={periodoAtivo}
+              onMudarPeriodo={setPeriodoAtivo}
               anoAtivo={anoAtivo}
             />
           )}
@@ -175,6 +178,7 @@ export default function App() {
             <QuizView
               disciplina={disciplinaSelecionada}
               periodo={periodoAtivo}
+              onMudarPeriodo={setPeriodoAtivo}
               anoAtivo={anoAtivo}
               topicosIniciais={topicoQuiz}
             />

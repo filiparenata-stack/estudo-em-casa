@@ -146,12 +146,14 @@ def post_gerar_quiz(req: QuizRequest):
     # Gerar quiz pedagógico e rigoroso com questões curadas e conceitos reais do 7.º Ano
     questoes = motor_quiz.gerar_quiz_pedagogico(
         disciplina_id=req.disciplina_id,
-        tema=req.topicos,
+        periodo=req.periodo,
+        tema=req.topicos or "",
         quantidade=req.quantidade or 8
     )
 
     return {
         "disciplina_id": req.disciplina_id,
+        "periodo": req.periodo,
         "topicos": req.topicos,
         "total_questoes": len(questoes),
         "questoes": questoes
