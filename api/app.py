@@ -68,8 +68,8 @@ def get_status():
     }
 
 @app.get("/api/disciplinas")
-def get_disciplinas():
-    return motor.listar_disciplinas()
+def get_disciplinas(ano: Optional[str] = None):
+    return motor.listar_disciplinas(ano=ano)
 
 @app.get("/api/manuais/{disc_id}")
 def get_manuais(disc_id: str):

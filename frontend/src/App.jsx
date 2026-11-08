@@ -5,9 +5,61 @@ import ResumosView from './components/ResumosView';
 import FlashcardsView from './components/FlashcardsView';
 import QuizView from './components/QuizView';
 import BibliotecaView from './components/BibliotecaView';
+import BookReaderModal from './components/BookReaderModal';
+import { LIVROS_RENATA_3ANO } from './data/booksCatalog';
 import { Loader2 } from 'lucide-react';
 
+const DISCIPLINAS_3ANO_FALLBACK = [
+  {
+    id: 'portugues_3ano',
+    nome: 'Português 3',
+    ano: 3,
+    icone: 'BookOpenText',
+    livro_pdf: '/books/livro_portugues_3ano.pdf',
+    total_recursos: 5,
+    total_manuais: 1,
+    cor: 'from-purple-500 to-indigo-600',
+    cor_badge: 'bg-purple-100 text-purple-800'
+  },
+  {
+    id: 'matematica_3ano',
+    nome: 'Matemática 3',
+    ano: 3,
+    icone: 'Calculator',
+    livro_pdf: '/books/livro_matematica_3ano.pdf',
+    total_recursos: 5,
+    total_manuais: 1,
+    cor: 'from-rose-500 to-red-600',
+    cor_badge: 'bg-rose-100 text-rose-800'
+  },
+  {
+    id: 'estudo_meio_3ano',
+    nome: 'Estudo do Meio 3',
+    ano: 3,
+    icone: 'Leaf',
+    livro_pdf: '/books/livro_estudo_do_meio_3ano.pdf',
+    total_recursos: 5,
+    total_manuais: 1,
+    cor: 'from-emerald-500 to-teal-600',
+    cor_badge: 'bg-emerald-100 text-emerald-800'
+  },
+  {
+    id: 'ingles_3ano',
+    nome: 'Inglês 3',
+    ano: 3,
+    icone: 'Languages',
+    livro_pdf: '/books/livro_ingles_3ano.pdf',
+    total_recursos: 5,
+    total_manuais: 1,
+    cor: 'from-sky-500 to-blue-600',
+    cor_badge: 'bg-sky-100 text-sky-800'
+  }
+];
+
 export default function App() {
+  const [anoAtivo, setAnoAtivo] = useState(() => {
+    return localStorage.getItem('ano_escolar') || '3';
+  });
   const [disciplinas, setDisciplinas] = useState([]);
   const [disciplinaSelecionada, setDisciplinaSelecionada] = useState(null);
   const [periodoAtivo, setPeriodoAtivo] = useState('Todos');
@@ -16,33 +68,60 @@ export default function App() {
   const [topicoQuiz, setTopicoQuiz] = useState('');
   const [aCarregar, setACarregar] = useState(true);
 
+  // Leitor Global de Livros em PDF
+  const [leitorLivro, setLeitorLivro] = useState(null);
+  const [paginaInicialLeitor, setPaginaInicialLeitor] = useState(1);
+
+  const handleAbrirLivro = (disciplinaOuId, pagina = 1) => {
+    const discId = typeof disciplinaOuId === 'string' ? disciplinaOuId : disciplinaOuId?.id;
+    const livro =
+      LIVROS_RENATA_3ANO.find(
+        (l) => l.disciplinaId === discId || (discId && discId.startsWith(l.disciplinaId.split('_')[0]))
+      ) || LIVROS_RENATA_3ANO[0];
+    setLeitorLivro(livro);
+    setPaginaInicialLeitor(pagina);
+  };
+
   useEffect(() => {
-    fetch('/api/disciplinas')
-      .then((res) => res.json())
+    localStorage.setItem('ano_escolar', anoAtivo);
+    setACarregar(true);
+
+    fetch(`/api/disciplinas?ano=${anoAtivo}`)
+      .then((res) => {
+        if (!res.ok) throw new Error('Falha HTTP');
+        return res.json();
+      })
       .then((data) => {
-        setDisciplinas(data || []);
-        if (data && data.length > 0) {
-          setDisciplinaSelecionada(data[0]);
+        const lista = data && data.length > 0 ? data : (anoAtivo === '3' ? DISCIPLINAS_3ANO_FALLBACK : []);
+        setDisciplinas(lista);
+        if (lista.length > 0) {
+          setDisciplinaSelecionada(lista[0]);
         }
       })
       .catch((err) => {
         console.error('Falha ao contactar API:', err);
+        if (anoAtivo === '3') {
+          setDisciplinas(DISCIPLINAS_3ANO_FALLBACK);
+          setDisciplinaSelecionada(DISCIPLINAS_3ANO_FALLBACK[0]);
+        }
       })
       .finally(() => {
         setACarregar(false);
       });
-  }, []);
+  }, [anoAtivo]);
 
   const iniciarQuizComTema = (tema) => {
     setTopicoQuiz(tema);
     setViewAtiva('quiz');
   };
 
-  if (aCarregar) {
+  if (aCarregar && disciplinas.length === 0) {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center gap-3 text-slate-500">
-        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
-        <p className="text-sm font-semibold">A carregar acervo do 7.º Ano...</p>
+        <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
+        <p className="text-sm font-semibold">
+          A carregar acervo do {anoAtivo === '3' ? '3.º Ano (Renata)' : '7.º Ano'}...
+        </p>
       </div>
     );
   }
@@ -51,11 +130,13 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Barra de Navegação Superior */}
       <Navbar
+        anoAtivo={anoAtivo}
+        setAnoAtivo={setAnoAtivo}
         periodoAtivo={periodoAtivo}
         setPeriodoAtivo={setPeriodoAtivo}
         viewAtiva={viewAtiva}
         setViewAtiva={setViewAtiva}
-        totalFicheiros={4987}
+        totalFicheiros={anoAtivo === '3' ? 787 : 4987}
       />
 
       {/* Conteúdo Principal com Sidebar */}
@@ -64,6 +145,8 @@ export default function App() {
           disciplinas={disciplinas}
           disciplinaSelecionada={disciplinaSelecionada}
           setDisciplinaSelecionada={setDisciplinaSelecionada}
+          anoAtivo={anoAtivo}
+          onAbrirLivro={handleAbrirLivro}
         />
 
         <main className="flex-1 flex flex-col min-w-0">
@@ -71,8 +154,10 @@ export default function App() {
             <ResumosView
               disciplina={disciplinaSelecionada}
               periodo={periodoAtivo}
+              anoAtivo={anoAtivo}
               onIniciarQuiz={iniciarQuizComTema}
               onIrParaFlashcards={() => setViewAtiva('flashcards')}
+              onAbrirLivro={handleAbrirLivro}
               resumoAtual={resumoAtual}
               setResumoAtual={setResumoAtual}
             />
@@ -82,6 +167,7 @@ export default function App() {
             <FlashcardsView
               resumoAtual={resumoAtual}
               disciplina={disciplinaSelecionada}
+              anoAtivo={anoAtivo}
             />
           )}
 
@@ -89,6 +175,7 @@ export default function App() {
             <QuizView
               disciplina={disciplinaSelecionada}
               periodo={periodoAtivo}
+              anoAtivo={anoAtivo}
               topicosIniciais={topicoQuiz}
             />
           )}
@@ -96,6 +183,7 @@ export default function App() {
           {viewAtiva === 'biblioteca' && (
             <BibliotecaView
               disciplina={disciplinaSelecionada}
+              anoAtivo={anoAtivo}
               onVerResumos={(disciplinaId) => {
                 if (disciplinaId) {
                   const target = disciplinas.find(
@@ -111,6 +199,14 @@ export default function App() {
           )}
         </main>
       </div>
+
+      {/* Leitor Global de PDFs Online */}
+      <BookReaderModal
+        isOpen={!!leitorLivro}
+        onClose={() => setLeitorLivro(null)}
+        book={leitorLivro}
+        initialPage={paginaInicialLeitor}
+      />
     </div>
   );
 }

@@ -10,13 +10,66 @@ import {
   Sparkles
 } from 'lucide-react';
 
-export default function FlashcardsView({ resumoAtual, disciplina }) {
+export default function FlashcardsView({ resumoAtual, disciplina, anoAtivo = '3' }) {
   const [cartaoIndex, setCartaoIndex] = useState(0);
   const [virado, setVirado] = useState(false);
   const [mostrarDica, setMostrarDica] = useState(false);
   const [aprendidos, setAprendidos] = useState(new Set());
+  const [cardsLista, setCardsLista] = useState([]);
 
-  const flashcards = resumoAtual?.flashcards || [
+  const is3Ano = anoAtivo === '3' || disciplina?.ano === 3 || disciplina?.id?.endsWith('_3ano');
+
+  useEffect(() => {
+    if (resumoAtual?.flashcards && resumoAtual.flashcards.length > 0) {
+      setCardsLista(resumoAtual.flashcards);
+      setCartaoIndex(0);
+      return;
+    }
+
+    if (disciplina) {
+      fetch(`/api/resumo/periodo?disciplina_id=${disciplina.id}&periodo=Todos`)
+        .then((res) => {
+          if (!res.ok) throw new Error('API');
+          return res.json();
+        })
+        .then((data) => {
+          const extraidos = [];
+          if (data.topicos) {
+            for (const t of data.topicos) {
+              if (t.flashcards && t.flashcards.length > 0) {
+                for (const fc of t.flashcards) {
+                  extraidos.push({
+                    id: fc.id || `fc_${extraidos.length + 1}`,
+                    frente: fc.frente || fc.pergunta,
+                    verso: fc.verso || fc.resposta,
+                    dica: fc.dica || `Unidade: ${t.titulo}`,
+                    categoria: t.titulo || 'Conteúdo Escolar'
+                  });
+                }
+              }
+              if (t.conceitos_chave) {
+                for (const c of t.conceitos_chave) {
+                  extraidos.push({
+                    id: `c_${c.termo}`,
+                    frente: `O que é ou significa «${c.termo}»?`,
+                    verso: c.definicao,
+                    dica: `Páginas do manual: ${t.paginas_livro || t.subdominio || ''}`,
+                    categoria: 'Conceito Chave'
+                  });
+                }
+              }
+            }
+          }
+          if (extraidos.length > 0) {
+            setCardsLista(extraidos);
+            setCartaoIndex(0);
+          }
+        })
+        .catch(() => {});
+    }
+  }, [disciplina, resumoAtual]);
+
+  const flashcards = cardsLista.length > 0 ? cardsLista : (resumoAtual?.flashcards || [
     {
       id: 1,
       frente: 'O que são Minerais?',
@@ -30,15 +83,8 @@ export default function FlashcardsView({ resumoAtual, disciplina }) {
       verso: 'Um mineral é um composto homogéneo individual; uma rocha é um agregado natural formado por um ou mais minerais (ou matéria orgânica).',
       dica: 'Pensa em tijolo (mineral) vs parede (rocha).',
       categoria: 'Comparações'
-    },
-    {
-      id: 3,
-      frente: 'Como se calcula a Velocidade Média?',
-      verso: 'v = d / Δt, onde v é a velocidade média (m/s ou km/h), d é a distância percorrida e Δt é o intervalo de tempo decorrido.',
-      dica: 'Lembra-te de converter horas para segundos ou km para metros se o teste pedir em SI.',
-      categoria: 'Fórmulas'
     }
-  ];
+  ]);
 
   const atual = flashcards[cartaoIndex] || flashcards[0];
   const total = flashcards.length;

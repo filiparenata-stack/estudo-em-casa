@@ -422,7 +422,62 @@ class MotorQuizzes:
         tema_l = (tema or "").lower().strip()
         palavras_tema = [p.rstrip('s') for p in re.findall(r'\w+', tema_l) if len(p) > 2]
 
-        # 1. Obter questões curadas para a disciplina
+        # 0. Suporte direto a disciplinas do 3.º Ano (Renata)
+        if "_3ano" in disciplina_id or disciplina_id in ["portugues_3ano", "matematica_3ano", "estudo_meio_3ano", "ingles_3ano"]:
+            disc_clean = disciplina_id if "_3ano" in disciplina_id else f"{disciplina_id}_3ano"
+            json_path = os.path.join(DIR_DATA, "resumos_periodo", f"{disc_clean}.json")
+            if os.path.exists(json_path):
+                try:
+                    with open(json_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    questoes_3ano = []
+                    for u in data.get("unidades", []):
+                        u_tit = u.get("titulo", "")
+                        lista_q = u.get("questoes_quiz", []) or u.get("perguntas_quiz", [])
+                        for q in lista_q:
+                            opcoes_raw = list(q.get("opcoes", []))
+                            if not opcoes_raw:
+                                continue
+                            certo_val = q.get("resposta_correta", 0)
+                            if isinstance(certo_val, int) and certo_val < len(opcoes_raw):
+                                texto_certo = opcoes_raw[certo_val]
+                            elif str(certo_val) in opcoes_raw:
+                                texto_certo = str(certo_val)
+                            else:
+                                texto_certo = opcoes_raw[0]
+
+                            random.shuffle(opcoes_raw)
+                            letras = ["A", "B", "C", "D"]
+                            opcoes_fmt = []
+                            letra_certa = "A"
+                            for i, opt_txt in enumerate(opcoes_raw[:4]):
+                                l = letras[i]
+                                if opt_txt == texto_certo:
+                                    letra_certa = l
+                                opcoes_fmt.append({"letra": l, "texto": opt_txt})
+
+                            questoes_3ano.append({
+                                "disciplina_id": disc_clean,
+                                "grupo": f"3.º Ano • {u_tit}",
+                                "enunciado": q.get("pergunta", ""),
+                                "tipo": "escolha_multipla",
+                                "opcoes": opcoes_fmt,
+                                "resposta_correta": letra_certa,
+                                "explicacao": q.get("explicacao", ""),
+                                "ficheiro_origem": data.get("livro_referencia", "Manual 3.º Ano")
+                            })
+
+                    if questoes_3ano:
+                        random.shuffle(questoes_3ano)
+                        resultado = questoes_3ano[:quantidade]
+                        for idx, item in enumerate(resultado):
+                            item["numero"] = f"{idx + 1}"
+                            item["id"] = f"q_{disc_clean}_{idx + 1}"
+                        return resultado
+                except Exception as e:
+                    print(f"Erro ao carregar quiz do 3 ano: {e}")
+
+        # 1. Obter questões curadas para a disciplina (7.º Ano)
         questoes_curadas = QUESTOES_CURADAS_7ANO.get(disciplina_id, [])
         candidatos_curados = []
         for q in questoes_curadas:

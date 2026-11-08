@@ -254,6 +254,50 @@ class GeradorResumos:
             with open(json_path, "r", encoding="utf-8") as f:
                 dados_disc = json.load(f)
 
+            # Caso 3.º Ano (estruturado por Unidades Temáticas do Manual)
+            if "unidades" in dados_disc:
+                unidades = dados_disc.get("unidades", [])
+                topicos_convertidos = []
+                for idx, u in enumerate(unidades):
+                    topicos_convertidos.append({
+                        "id": u.get("id", f"{disc_id}_u{idx+1}"),
+                        "titulo": u.get("titulo", f"Unidade {idx+1}"),
+                        "subdominio": f"Manual • {u.get('paginas_livro', '')}",
+                        "paginas_livro": u.get("paginas_livro", ""),
+                        "pagina_inicio": u.get("pagina_inicio", 1),
+                        "pagina_fim": u.get("pagina_fim", 1),
+                        "resumo_pedagogico": u.get("resumo_pedagogico", ""),
+                        "conceitos_chave": u.get("conceitos_chave", []),
+                        "flashcards": u.get("flashcards", []),
+                        "perguntas_quiz": u.get("questoes_quiz", []) or u.get("perguntas_quiz", []),
+                        "foco_teste": {
+                            "questao_exemplo": (u.get("questoes_quiz") or u.get("perguntas_quiz"))[0]["pergunta"] if (u.get("questoes_quiz") or u.get("perguntas_quiz")) else "",
+                            "proposta_resolucao": (u.get("questoes_quiz") or u.get("perguntas_quiz"))[0]["explicacao"] if (u.get("questoes_quiz") or u.get("perguntas_quiz")) else "",
+                            "criterio_cotacao": "Identificação correta e aplicação do conceito curricular.",
+                            "erro_frequente": "Confundir termos ou não ler todas as opções com atenção."
+                        } if (u.get("questoes_quiz") or u.get("perguntas_quiz")) else None
+                    })
+
+                metas_gerais = [
+                    f"Dominar os conteúdos essenciais de cada unidade do manual {dados_disc.get('livro_referencia', '')}.",
+                    "Compreender e aplicar os conceitos-chave em situações práticas e exercícios.",
+                    "Consolidar vocabulário e regras fundamentais através de flashcards e simuladores de teste."
+                ]
+
+                return {
+                    "disciplina_id": disc_id,
+                    "disciplina_nome": dados_disc.get("disciplina_nome", disc_id),
+                    "ano": 3,
+                    "icone": dados_disc.get("icone", "BookOpen"),
+                    "livro_referencia": dados_disc.get("livro_referencia", ""),
+                    "periodo": periodo,
+                    "titulo": f"Manual {dados_disc.get('disciplina_nome', '')} 3.º Ano - Unidades Temáticas",
+                    "metas": metas_gerais,
+                    "topicos": topicos_convertidos,
+                    "unidades": unidades,
+                    "total_topicos": len(topicos_convertidos)
+                }
+
             p_chave = periodo
             if periodo in ["1", "1º", "1.º", "1_Periodo", "Todos"]:
                 p_chave = "1_Periodo"

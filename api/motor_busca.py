@@ -68,6 +68,54 @@ DISCIPLINAS_CONFIG = {
     }
 }
 
+DISCIPLINAS_3ANO_CONFIG = {
+    "portugues_3ano": {
+        "nome": "Português 3",
+        "ano": 3,
+        "cor": "from-purple-500 to-indigo-600",
+        "cor_badge": "bg-purple-100 text-purple-800 border-purple-300",
+        "icone": "BookOpenText",
+        "descricao": "Missão ZUP 3 • Ortografia, Gramática, Leitura e Texto",
+        "livro_pdf": "/books/livro_portugues_3ano.pdf",
+        "total_paginas": 175,
+        "total_unidades": 5
+    },
+    "matematica_3ano": {
+        "nome": "Matemática 3",
+        "ano": 3,
+        "cor": "from-rose-500 to-red-600",
+        "cor_badge": "bg-rose-100 text-rose-800 border-rose-300",
+        "icone": "Calculator",
+        "descricao": "Missão ZUP 3 • Números até 10 000, Multiplicação e Geometria",
+        "livro_pdf": "/books/livro_matematica_3ano.pdf",
+        "total_paginas": 164,
+        "total_unidades": 5
+    },
+    "estudo_meio_3ano": {
+        "nome": "Estudo do Meio 3",
+        "ano": 3,
+        "cor": "from-emerald-500 to-teal-600",
+        "cor_badge": "bg-emerald-100 text-emerald-800 border-emerald-300",
+        "icone": "Leaf",
+        "descricao": "Missão ZUP 3 • Corpo Humano, Saúde, Rochas e Portugal",
+        "livro_pdf": "/books/livro_estudo_do_meio_3ano.pdf",
+        "total_paginas": 171,
+        "total_unidades": 5
+    },
+    "ingles_3ano": {
+        "nome": "Inglês 3",
+        "ano": 3,
+        "cor": "from-sky-500 to-blue-600",
+        "cor_badge": "bg-sky-100 text-sky-800 border-sky-300",
+        "icone": "Languages",
+        "descricao": "Easy-Peasy English 3 • Greetings, School, Family and Animals",
+        "livro_pdf": "/books/livro_ingles_3ano.pdf",
+        "total_paginas": 141,
+        "total_unidades": 5
+    }
+}
+
+
 class MotorBusca:
     def __init__(self):
         self.catalogo = self._carregar_catalogo()
@@ -175,7 +223,24 @@ class MotorBusca:
                 "tipo": "Manual Oficial Escola Virtual"
             })
 
-    def listar_disciplinas(self):
+    def listar_disciplinas(self, ano=None):
+        if str(ano) == "3":
+            res = []
+            for disc_id, conf in DISCIPLINAS_3ANO_CONFIG.items():
+                res.append({
+                    "id": disc_id,
+                    "nome": conf["nome"],
+                    "ano": 3,
+                    "cor": conf["cor"],
+                    "cor_badge": conf["cor_badge"],
+                    "icone": conf["icone"],
+                    "descricao": conf["descricao"],
+                    "livro_pdf": conf.get("livro_pdf"),
+                    "total_recursos": conf.get("total_unidades", 5),
+                    "total_manuais": 1
+                })
+            return res
+
         res = []
         for disc_id, conf in DISCIPLINAS_CONFIG.items():
             tot_recursos = len(self.indice_por_disciplina.get(disc_id, []))
@@ -183,6 +248,7 @@ class MotorBusca:
             res.append({
                 "id": disc_id,
                 "nome": conf["nome"],
+                "ano": 7,
                 "cor": conf["cor"],
                 "cor_badge": conf["cor_badge"],
                 "icone": conf["icone"],
@@ -193,10 +259,42 @@ class MotorBusca:
         return res
 
     def obter_manuais(self, disc_id):
+        if disc_id in DISCIPLINAS_3ANO_CONFIG:
+            conf = DISCIPLINAS_3ANO_CONFIG[disc_id]
+            pdf_path = os.path.join(BASE_DIR, "public", "books", f"livro_{disc_id}.pdf")
+            return [{
+                "caminho": pdf_path,
+                "nome": f"{conf['nome']} ({conf['descricao'].split(' • ')[0]})",
+                "nome_simples": conf["nome"],
+                "projeto": conf["descricao"].split(" • ")[0],
+                "tamanho_mb": round(conf.get("total_paginas", 150) * 0.12, 1),
+                "tem_pdf_local": True,
+                "url_github": conf["livro_pdf"],
+                "link_escolavirtual": conf["livro_pdf"],
+                "tipo": "Manual Escolar Digitalizado (3.º Ano)",
+                "ano": 3,
+                "pdf_url": conf["livro_pdf"]
+            }]
         return self.manuais_por_disciplina.get(disc_id, [])
 
     def listar_topicos_sugeridos(self, disc_id, periodo=None):
-        """Retorna tópicos extraídos dos títulos de testes, fichas e planificações da disciplina."""
+        """Retorna tópicos extraídos das unidades ou do catálogo da disciplina."""
+        if disc_id in DISCIPLINAS_3ANO_CONFIG:
+            topicos_3ano = []
+            json_path = os.path.join(os.path.dirname(__file__), "data", "resumos_periodo", f"{disc_id}.json")
+            if os.path.exists(json_path):
+                try:
+                    with open(json_path, "r", encoding="utf-8") as f:
+                        data = json.load(f)
+                    for u in data.get("unidades", []):
+                        topicos_3ano.append(u.get("titulo", ""))
+                        for c in u.get("conceitos_chave", []):
+                            if c.get("termo"):
+                                topicos_3ano.append(c["termo"])
+                except Exception:
+                    pass
+            return [t for t in topicos_3ano if t][:40]
+
         recursos = self.indice_por_disciplina.get(disc_id, [])
         topicos = set()
         for r in recursos:

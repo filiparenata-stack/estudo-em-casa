@@ -23,14 +23,21 @@ import {
   Search
 } from 'lucide-react';
 
+import { LIVROS_RENATA_3ANO } from '../data/booksCatalog';
+
 export default function ResumosView({
   disciplina,
   periodo,
+  anoAtivo = '3',
   onIniciarQuiz,
   onIrParaFlashcards,
+  onAbrirLivro,
   resumoAtual,
   setResumoAtual
 }) {
+  const is3Ano = anoAtivo === '3' || disciplina?.ano === 3 || disciplina?.id?.endsWith('_3ano');
+  const [unidadeFiltro, setUnidadeFiltro] = useState('');
+
   // Estado do Período selecionado (1_Periodo, 2_Periodo, 3_Periodo)
   const [periodoAtivo, setPeriodoAtivo] = useState(
     periodo && periodo !== 'Todos' ? periodo : '1_Periodo'
@@ -59,6 +66,10 @@ export default function ResumosView({
     setACarregarPeriodo(true);
     setErro(null);
 
+    const fallbackLivro = LIVROS_RENATA_3ANO.find(
+      (l) => l.disciplinaId === disciplina.id || (disciplina.id && disciplina.id.startsWith(l.disciplinaId.split('_')[0]))
+    );
+
     fetch(`/api/resumo/periodo?disciplina_id=${disciplina.id}&periodo=${periodoAtivo}`)
       .then((res) => {
         if (!res.ok) throw new Error('Não foi possível carregar o dossiê do período.');
@@ -69,6 +80,34 @@ export default function ResumosView({
       })
       .catch((err) => {
         console.error(err);
+        if (fallbackLivro) {
+          setDossiePeriodo({
+            disciplina_id: disciplina.id,
+            disciplina_nome: disciplina.nome,
+            ano: 3,
+            livro_referencia: fallbackLivro.tituloCompleto,
+            titulo: `${disciplina.nome} 3.º Ano • ${fallbackLivro.titulo}`,
+            metas: [
+              `Compreender e consolidar os conteúdos de cada unidade do manual ${fallbackLivro.tituloCompleto}.`,
+              "Reconhecer vocabulário, regras essenciais e conceitos práticos do 1.º Ciclo.",
+              "Treinar com perguntas de autoavaliação e flashcards interativos."
+            ],
+            topicos: fallbackLivro.unidades.map((u) => ({
+              id: `${disciplina.id}_u${u.numero}`,
+              titulo: u.titulo,
+              subdominio: `Manual • Páginas ${u.paginaInicio}-${u.paginaFim}`,
+              paginas_livro: `Páginas ${u.paginaInicio}-${u.paginaFim}`,
+              pagina_inicio: u.paginaInicio,
+              pagina_fim: u.paginaFim,
+              resumo_pedagogico: u.descricao,
+              conceitos_chave: (u.conceitos || []).map((c) => ({
+                termo: c,
+                definicao: `Conceito curricular fundamental abordado nas páginas ${u.paginaInicio}-${u.paginaFim}.`
+              }))
+            })),
+            total_topicos: fallbackLivro.unidades.length
+          });
+        }
       })
       .finally(() => {
         setACarregarPeriodo(false);
@@ -187,11 +226,15 @@ export default function ResumosView({
   };
 
   const topicosFiltrados = dossiePeriodo?.topicos?.filter((t) => {
+    if (unidadeFiltro && !t.titulo.toLowerCase().includes(unidadeFiltro.toLowerCase())) {
+      return false;
+    }
     if (!filtroPesquisa.trim()) return true;
     const q = filtroPesquisa.toLowerCase();
     return (
       t.titulo.toLowerCase().includes(q) ||
-      t.subdominio.toLowerCase().includes(q) ||
+      t.subdominio?.toLowerCase().includes(q) ||
+      t.resumo_pedagogico?.toLowerCase().includes(q) ||
       t.conceitos_chave?.some((c) => c.termo.toLowerCase().includes(q) || c.definicao.toLowerCase().includes(q)) ||
       t.foco_teste?.questao_exemplo?.toLowerCase().includes(q)
     );
@@ -199,54 +242,103 @@ export default function ResumosView({
 
   return (
     <div className="flex-1 p-4 md:p-6 max-w-6xl mx-auto flex flex-col gap-6">
-      {/* 1. Barra de Seleção de Períodos e Ações Rápidas */}
+      {/* 1. Barra de Seleção de Períodos / Unidades e Ações Rápidas */}
       <div className="bg-white rounded-2xl p-4 md:p-5 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
-        {/* Abas dos Períodos */}
-        <div className="flex items-center gap-2 p-1.5 bg-slate-100 rounded-xl w-full md:w-auto">
-          {[
-            { id: '1_Periodo', label: '1.º Período' },
-            { id: '2_Periodo', label: '2.º Período' },
-            { id: '3_Periodo', label: '3.º Período' }
-          ].map((p) => {
-            const isSelected = periodoAtivo === p.id && !modoPersonalizado;
-            return (
-              <button
-                key={p.id}
-                onClick={() => {
-                  setPeriodoAtivo(p.id);
-                  setModoPersonalizado(false);
-                }}
-                className={`flex-1 md:flex-none px-4 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
-                  isSelected
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
-                }`}
-              >
-                {p.label}
-              </button>
-            );
-          })}
+        {/* Abas dos Períodos (7.º Ano) ou Unidades do Manual (3.º Ano) */}
+        {is3Ano ? (
+          <div className="flex items-center gap-1.5 p-1.5 bg-purple-50/70 border border-purple-200/80 rounded-xl w-full md:w-auto overflow-x-auto">
+            <span className="text-xs font-bold text-purple-900 px-2 py-1 shrink-0 flex items-center gap-1">
+              <BookOpen className="w-3.5 h-3.5 text-purple-600" />
+              <span>Unidades:</span>
+            </span>
+            {['Todas', 'Unidade 1', 'Unidade 2', 'Unidade 3', 'Unidade 4', 'Unidade 5'].map((uLabel, uIdx) => {
+              const isSelected = (unidadeFiltro === uLabel) || (uLabel === 'Todas' && !unidadeFiltro);
+              return (
+                <button
+                  key={uIdx}
+                  onClick={() => setUnidadeFiltro(uLabel === 'Todas' ? '' : uLabel)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
+                    isSelected
+                      ? 'bg-purple-600 text-white shadow-sm'
+                      : 'text-purple-800 hover:bg-purple-100/70'
+                  }`}
+                >
+                  {uLabel}
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="flex items-center gap-2 p-1.5 bg-slate-100 rounded-xl w-full md:w-auto">
+            {[
+              { id: '1_Periodo', label: '1.º Período' },
+              { id: '2_Periodo', label: '2.º Período' },
+              { id: '3_Periodo', label: '3.º Período' }
+            ].map((p) => {
+              const isSelected = periodoAtivo === p.id && !modoPersonalizado;
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => {
+                    setPeriodoAtivo(p.id);
+                    setModoPersonalizado(false);
+                  }}
+                  className={`flex-1 md:flex-none px-4 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
+                    isSelected
+                      ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
+                  }`}
+                >
+                  {p.label}
+                </button>
+              );
+            })}
 
-          <button
-            onClick={() => setModoPersonalizado(!modoPersonalizado)}
-            className={`px-3 py-2 rounded-lg text-xs md:text-sm font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
-              modoPersonalizado
-                ? 'bg-purple-600 text-white shadow-md'
-                : 'text-slate-500 hover:text-purple-600 hover:bg-white/60'
-            }`}
-            title="Pesquisar ou compilar tópicos específicos"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Tópicos Livres</span>
-          </button>
-        </div>
+            <button
+              onClick={() => setModoPersonalizado(!modoPersonalizado)}
+              className={`px-3 py-2 rounded-lg text-xs md:text-sm font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+                modoPersonalizado
+                  ? 'bg-purple-600 text-white shadow-md'
+                  : 'text-slate-500 hover:text-purple-600 hover:bg-white/60'
+              }`}
+              title="Pesquisar ou compilar tópicos específicos"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Tópicos Livres</span>
+            </button>
+          </div>
+        )}
 
         {/* Botões de Exportação e Estudo */}
-        <div className="flex items-center gap-2 w-full md:w-auto justify-end">
+        <div className="flex items-center gap-2 w-full md:w-auto justify-end flex-wrap">
+          {is3Ano && onAbrirLivro && (
+            <button
+              onClick={() => onAbrirLivro(disciplina, 1)}
+              className="px-3.5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm shadow-purple-600/20 transition-all cursor-pointer"
+              title="Abrir o manual escolar no leitor online"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Ler Manual Online</span>
+            </button>
+          )}
+
+          <button
+            onClick={() => onIniciarQuiz && onIniciarQuiz(dossiePeriodo?.titulo || 'Teste 3.º Ano')}
+            className={`px-3.5 py-2 rounded-xl text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer ${
+              is3Ano
+                ? 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-600/20'
+                : 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-600/20'
+            }`}
+            title="Fazer simulação de teste com perguntas curriculares"
+          >
+            <BrainCircuit className="w-3.5 h-3.5" />
+            <span>Simular Teste</span>
+          </button>
+
           <button
             onClick={descarregarPdfPeriodo}
             disabled={aExportarPdf || !dossiePeriodo}
-            className="flex-1 md:flex-none px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
+            className="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 disabled:opacity-50 text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
             title="Descarregar a sebenta do período em PDF ilustrado com esquemas e testes"
           >
             {aExportarPdf ? (
@@ -254,36 +346,13 @@ export default function ResumosView({
             ) : (
               <Download className="w-3.5 h-3.5 text-blue-400" />
             )}
-            <span>Sebenta em PDF</span>
-          </button>
-
-          <button
-            onClick={descarregarAnki}
-            disabled={aExportarAnki || !dossiePeriodo}
-            className="px-3.5 py-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
-            title="Descarregar baralho de cartões Anki para rever no telemóvel"
-          >
-            {aExportarAnki ? (
-              <Loader2 className="w-3.5 h-3.5 animate-spin" />
-            ) : (
-              <Layers className="w-3.5 h-3.5 text-blue-600" />
-            )}
-            <span>Exportar Anki (.txt)</span>
-          </button>
-
-          <button
-            onClick={() => onIniciarQuiz && onIniciarQuiz(dossiePeriodo?.titulo || 'Teste do Período')}
-            className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold flex items-center gap-1.5 shadow-sm shadow-emerald-600/20 transition-all cursor-pointer"
-            title="Fazer simulação de teste com cotação e avaliação oficial do 7.º ano"
-          >
-            <BrainCircuit className="w-3.5 h-3.5" />
-            <span>Simular Teste</span>
+            <span>Sebenta PDF</span>
           </button>
         </div>
       </div>
 
-      {/* Caixa Expansível de Tópicos Livres / Personalizados */}
-      {modoPersonalizado && (
+      {/* Caixa Expansível de Tópicos Livres / Personalizados (7.º ano) */}
+      {!is3Ano && modoPersonalizado && (
         <div className="bg-purple-50/60 border border-purple-200 rounded-2xl p-5 flex flex-col gap-3 transition-all animate-fadeIn">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -340,30 +409,46 @@ export default function ResumosView({
         </div>
       )}
 
-      {/* 2. Dossiê Oficial do Período */}
+      {/* 2. Dossiê Oficial / Unidades Temáticas */}
       {aCarregarPeriodo ? (
         <div className="bg-white rounded-2xl border border-slate-200 p-12 flex flex-col items-center justify-center gap-3 text-slate-500">
-          <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          <Loader2 className={`w-8 h-8 ${is3Ano ? 'text-purple-600' : 'text-blue-600'} animate-spin`} />
           <p className="text-sm font-semibold text-slate-700">
-            A carregar o Dossiê de Exame com esquemas e questões oficiais do {periodoAtivo.replace('_', '.º ')}...
+            A carregar as Unidades e Conceitos do {disciplina?.nome || ''}...
           </p>
         </div>
       ) : dossiePeriodo ? (
         <div className="flex flex-col gap-6">
           {/* Cabeçalho do Dossiê com Metas Curriculares */}
-          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-blue-950 text-white rounded-2xl p-6 shadow-sm border border-slate-800 flex flex-col gap-4">
+          <div
+            className={`text-white rounded-2xl p-6 shadow-sm border flex flex-col gap-4 ${
+              is3Ano
+                ? 'bg-gradient-to-r from-purple-950 via-slate-900 to-indigo-950 border-purple-900/60'
+                : 'bg-gradient-to-r from-slate-900 via-slate-800 to-blue-950 border-slate-800'
+            }`}
+          >
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
               <div>
-                <span className="text-xs uppercase font-extrabold tracking-wider text-blue-400">
-                  {dossiePeriodo.disciplina_nome} • 7.º Ano de Escolaridade
+                <span
+                  className={`text-xs uppercase font-extrabold tracking-wider ${
+                    is3Ano ? 'text-purple-300' : 'text-blue-400'
+                  }`}
+                >
+                  {dossiePeriodo.disciplina_nome} • {is3Ano ? '3.º Ano da Renata (1.º Ciclo)' : '7.º Ano de Escolaridade'}
                 </span>
                 <h2 className="text-xl md:text-2xl font-black text-white mt-0.5 tracking-tight">
                   {dossiePeriodo.titulo}
                 </h2>
               </div>
               <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold">
-                  {dossiePeriodo.total_topicos || dossiePeriodo.topicos?.length} Unidades Essenciais
+                <span
+                  className={`px-3 py-1 rounded-full text-xs font-bold border ${
+                    is3Ano
+                      ? 'bg-purple-500/20 border-purple-400/30 text-purple-200'
+                      : 'bg-blue-500/20 border-blue-400/30 text-blue-300'
+                  }`}
+                >
+                  {dossiePeriodo.total_topicos || dossiePeriodo.topicos?.length} Unidades Temáticas
                 </span>
               </div>
             </div>
@@ -372,7 +457,7 @@ export default function ResumosView({
             {dossiePeriodo.metas?.length > 0 && (
               <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10 flex flex-col gap-2">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <Target className="w-3.5 h-3.5" /> O que é rigorosamente avaliado nos testes deste período:
+                  <Target className="w-3.5 h-3.5" /> Metas Curriculares & Objetivos de Aprendizagem:
                 </span>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-200">
                   {dossiePeriodo.metas.map((meta, i) => (
@@ -392,8 +477,8 @@ export default function ResumosView({
                 type="text"
                 value={filtroPesquisa}
                 onChange={(e) => setFiltroPesquisa(e.target.value)}
-                placeholder="Filtrar temas deste período (ex.: escalas, equações, rochas, verbos)..."
-                className="w-full pl-10 pr-4 py-2 bg-white/10 border border-white/20 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:bg-white/20 focus:border-blue-400 transition-all"
+                placeholder="Filtrar por tema ou conceito (ex.: dígrafos, frações, esqueleto, animais)..."
+                className="w-full pl-10 pr-4 py-2 bg-white/10 border border-white/20 rounded-xl text-xs text-white placeholder-slate-400 focus:outline-none focus:bg-white/20 focus:border-purple-400 transition-all"
               />
               {filtroPesquisa && (
                 <button
@@ -406,7 +491,7 @@ export default function ResumosView({
             </div>
           </div>
 
-          {/* Lista de Tópicos Curriculares Emparelhados */}
+          {/* Lista de Unidades e Tópicos Curriculares */}
           <div className="flex flex-col gap-6">
             {topicosFiltrados.map((topico, idx) => {
               const resAberto = resolucoesAbertas[topico.id];
@@ -415,22 +500,47 @@ export default function ResumosView({
                   key={topico.id}
                   className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:border-slate-300 transition-all"
                 >
-                  {/* Cabeçalho do Tópico */}
-                  <div className="p-5 border-b border-slate-100 bg-slate-50/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-2">
+                  {/* Cabeçalho do Tópico / Unidade */}
+                  <div className="p-5 border-b border-slate-100 bg-slate-50/50 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
                     <div>
-                      <span className="text-[11px] font-bold text-blue-600 uppercase tracking-wider">
-                        {topico.subdominio || `Tópico ${idx + 1}`}
+                      <span
+                        className={`text-[11px] font-bold uppercase tracking-wider ${
+                          is3Ano ? 'text-purple-600' : 'text-blue-600'
+                        }`}
+                      >
+                        {topico.subdominio || `Unidade ${idx + 1}`}
                       </span>
                       <h3 className="text-lg font-bold text-slate-900 mt-0.5">
                         {topico.titulo}
                       </h3>
                     </div>
-                    <span className="text-xs px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600 font-semibold shadow-2xs">
-                      Unidade {idx + 1}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      {topico.pagina_inicio && onAbrirLivro && (
+                        <button
+                          onClick={() => onAbrirLivro(disciplina, topico.pagina_inicio)}
+                          className="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                        >
+                          <BookOpen className="w-3.5 h-3.5" />
+                          <span>Pág. {topico.pagina_inicio}</span>
+                        </button>
+                      )}
+                      <span className="text-xs px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600 font-semibold shadow-2xs">
+                        {topico.paginas_livro || `Unidade ${idx + 1}`}
+                      </span>
+                    </div>
                   </div>
 
                   <div className="p-5 md:p-6 flex flex-col gap-6">
+                    {/* Resumo Pedagógico da Unidade */}
+                    {topico.resumo_pedagogico && (
+                      <div className="bg-gradient-to-r from-purple-50/80 to-indigo-50/60 border border-purple-200/80 rounded-xl p-4 text-xs text-purple-950 leading-relaxed shadow-2xs">
+                        <div className="font-bold text-purple-900 mb-1.5 flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                          <span>Síntese Curricular do Manual Escolar:</span>
+                        </div>
+                        <p>{topico.resumo_pedagogico}</p>
+                      </div>
+                    )}
                     {/* 1. Teoria e Conceitos-Chave */}
                     {topico.conceitos_chave?.length > 0 && (
                       <div className="flex flex-col gap-3">

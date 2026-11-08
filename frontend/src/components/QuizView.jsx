@@ -23,17 +23,23 @@ const SUGESTOES_TOPICOS = {
   "05_Ingles_7": ["Present Continuous", "Past Simple Verbs", "Comparatives & Superlatives", "Daily Routines", "Vocabulary"],
   "06_Matematica_7": ["Equações do 1.º Grau", "Potências de Base 10", "Proporcionalidade Direta", "Ângulos do Triângulo", "Áreas e Perímetros"],
   "07_Portugues_7": ["Classes de Palavras", "Funções Sintáticas", "Complemento Indireto", "Personificação", "Metáfora"],
-  "08_Frances_7": ["Verbes du 1er groupe", "Articles définis", "Présentation", "Vocabulaire de base"]
+  "08_Frances_7": ["Verbes du 1er groupe", "Articles définis", "Présentation", "Vocabulaire de base"],
+  "portugues_3ano": ["Ortografia e Dígrafos", "Classes de Palavras", "Nomes e Adjetivos", "Tipos de Frase", "Verbos e Tempos"],
+  "matematica_3ano": ["Números até 10 000", "Adição e Subtração", "Multiplicação e Tabuadas", "Geometria e Polígonos", "Frações e Medidas"],
+  "estudo_meio_3ano": ["Corpo Humano e Esqueleto", "Saúde e Higiene", "Rochas e Solos", "Portugal e Distritos", "Animais e Plantas"],
+  "ingles_3ano": ["Greetings & Numbers", "School Supplies", "Family Members", "House & Rooms", "Farm Animals"]
 };
 
-export default function QuizView({ disciplina, periodo, topicosIniciais }) {
+export default function QuizView({ disciplina, periodo, topicosIniciais, anoAtivo = '3' }) {
   const [topicos, setTopicos] = useState(topicosIniciais || '');
   const [questoes, setQuestoes] = useState([]);
   const [indiceAtual, setIndiceAtual] = useState(0);
   const [respostasUsuario, setRespostasUsuario] = useState({});
   const [aCarregar, setACarregar] = useState(false);
   const [concluido, setConcluido] = useState(false);
-  const [modoExame, setModoExame] = useState(false); // false = modo prática (feedback na hora), true = modo exame (só no fim)
+  const [modoExame, setModoExame] = useState(false);
+
+  const is3Ano = anoAtivo === '3' || disciplina?.ano === 3 || disciplina?.id?.endsWith('_3ano');
 
   const carregarQuiz = async (temaParaUsar) => {
     const tema = temaParaUsar !== undefined ? temaParaUsar : topicos;
@@ -56,7 +62,35 @@ export default function QuizView({ disciplina, periodo, topicosIniciais }) {
       });
       if (!resp.ok) throw new Error('Erro ao carregar quiz.');
       const data = await resp.json();
-      setQuestoes(data.questoes || []);
+      let questoesCarregadas = data.questoes || [];
+
+      if (questoesCarregadas.length === 0 && (disciplina.ano === 3 || disciplina.id?.endsWith('_3ano'))) {
+        const resResumo = await fetch(`/api/resumo/periodo?disciplina_id=${disciplina.id}&periodo=Todos`);
+        if (resResumo.ok) {
+          const dadosRes = await resResumo.json();
+          const letras = ['A', 'B', 'C', 'D'];
+          for (const t of (dadosRes.topicos || [])) {
+            for (const q of (t.perguntas_quiz || [])) {
+              const opcFmt = (q.opcoes || []).map((opt, i) => ({
+                letra: letras[i] || 'A',
+                texto: opt
+              }));
+              questoesCarregadas.push({
+                id: `q_${questoesCarregadas.length + 1}`,
+                numero: `${questoesCarregadas.length + 1}`,
+                grupo: `3.º Ano • ${t.titulo}`,
+                enunciado: q.pergunta,
+                opcoes: opcFmt,
+                resposta_correta: letras[q.resposta_correta] || 'A',
+                explicacao: q.explicacao,
+                ficheiro_origem: `Manual ${disciplina.nome}`
+              });
+            }
+          }
+        }
+      }
+
+      setQuestoes(questoesCarregadas);
     } catch (err) {
       alert('Erro ao carregar perguntas do teste: ' + err.message);
     } finally {

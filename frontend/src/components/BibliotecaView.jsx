@@ -17,11 +17,11 @@ import {
 import { LIVROS_RENATA_3ANO } from '../data/booksCatalog';
 import BookReaderModal from './BookReaderModal';
 
-export default function BibliotecaView({ disciplina, onVerResumos }) {
+export default function BibliotecaView({ disciplina, onVerResumos, anoAtivo = '3' }) {
   const [manuais, setManuais] = useState([]);
   const [busca, setBusca] = useState('');
   const [abertoInfo, setAbertoInfo] = useState(null);
-  const [filtroCategoria, setFiltroCategoria] = useState('todos'); // 'todos', 'renata', 'oficiais'
+  const [filtroCategoria, setFiltroCategoria] = useState(anoAtivo === '3' ? 'renata' : 'todos');
 
   // Estado para o Leitor Online de PDFs
   const [leitorAberto, setLeitorAberto] = useState(false);
@@ -30,6 +30,14 @@ export default function BibliotecaView({ disciplina, onVerResumos }) {
 
   // Estado para a Gaveta / Modal de Resumos Curriculares
   const [resumosModalLivro, setResumosModalLivro] = useState(null);
+
+  useEffect(() => {
+    if (anoAtivo === '3') {
+      setFiltroCategoria('renata');
+    } else if (anoAtivo === '7') {
+      setFiltroCategoria('todos');
+    }
+  }, [anoAtivo]);
 
   useEffect(() => {
     if (!disciplina) return;
