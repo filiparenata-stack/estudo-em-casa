@@ -19,7 +19,9 @@ from PIL import Image
 if sys.stdout and hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
-BASE_DIR = r"c:\Users\Miguel\Documents\ESCOLA"
+BASE_DIR = r"C:\Users\filip\Documents\ESCOLA" if os.path.exists(r"C:\Users\filip\Documents\ESCOLA") else (
+    r"c:\Users\Miguel\Documents\ESCOLA" if os.path.exists(r"c:\Users\Miguel\Documents\ESCOLA") else os.path.expanduser("~/Documents/ESCOLA")
+)
 REPO_EV = os.path.join(BASE_DIR, "Escola_Virtual_7_Ano")
 APP_DIR = os.path.join(BASE_DIR, "app_estudo_7ano")
 OUTPUT_JSON_DIR = os.path.join(APP_DIR, "api", "data", "resumos_periodo")

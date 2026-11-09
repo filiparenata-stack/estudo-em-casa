@@ -28,7 +28,9 @@ except ImportError:
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
 PUBLIC_BOOKS_DIR = REPO_ROOT / "public" / "books"
-DOCUMENTS_DIR = Path.home() / "Documents" / "ESCOLA"
+
+# Caminho principal definido pelo utilizador
+DOCUMENTS_DIR = Path(r"C:\Users\filip\Documents\ESCOLA") if Path(r"C:\Users\filip\Documents\ESCOLA").parent.exists() else (Path.home() / "Documents" / "ESCOLA")
 EV_8ANO_DIR = DOCUMENTS_DIR / "Escola_Virtual_8_Ano"
 
 USER_EMAIL = "Silva.Joakim@gmail.com"
