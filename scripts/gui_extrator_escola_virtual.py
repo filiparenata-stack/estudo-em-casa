@@ -229,17 +229,33 @@ class EscolaVirtualWorker:
                     email = payload.get("email", DEFAULT_EMAIL)
                     password = payload.get("password", DEFAULT_PASS)
                     if context is None:
-                        self.log("[Browser] A abrir Chrome visível (sessão persistente)...")
+                        self.log("[Browser] A abrir navegador visível (sessão persistente)...")
                         playwright = sync_playwright().start()
                         os.makedirs(SESSION_DIR, exist_ok=True)
-                        context = playwright.chromium.launch_persistent_context(
+                        launch_kwargs = dict(
                             user_data_dir=str(SESSION_DIR),
                             headless=False,
-                            viewport={"width": 1600, "height": 950},
-                            device_scale_factor=2,
+                            no_viewport=True,
                             accept_downloads=True,
-                            args=["--start-maximized"],
+                            ignore_default_args=["--enable-automation"],
+                            args=[
+                                "--start-maximized",
+                                "--disable-blink-features=AutomationControlled",
+                                "--disable-popup-blocking",
+                            ],
                         )
+                        for ch in ("chrome", "msedge", None):
+                            try:
+                                kw = dict(launch_kwargs)
+                                if ch:
+                                    kw["channel"] = ch
+                                context = playwright.chromium.launch_persistent_context(**kw)
+                                self.log(f"[Browser] Iniciado com: {ch or 'chromium (Playwright)'}")
+                                break
+                            except Exception as ch_err:
+                                if ch is None:
+                                    raise ch_err
+                                self.log(f"[Browser] Canal '{ch}' indisponível, a tentar alternativa...")
                         page = context.pages[0] if context.pages else context.new_page()
 
                     self._fazer_login_e_listar(page, email, password)
