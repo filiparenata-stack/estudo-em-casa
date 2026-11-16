@@ -19,9 +19,11 @@ import os
 import queue
 import re
 import shutil
+import subprocess
 import sys
 import threading
 import time
+import urllib.request
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -206,12 +208,34 @@ class EscolaVirtualWorker:
         self.stop_event.clear()
         self.cmd_queue.put((cmd, payload))
 
+    def _encontrar_browser_windows(self) -> Optional[str]:
+        candidatos = [
+            os.path.expandvars(r"%ProgramFiles%\Google\Chrome\Application\chrome.exe"),
+            os.path.expandvars(r"%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe"),
+            os.path.expandvars(r"%LocalAppData%\Google\Chrome\Application\chrome.exe"),
+            os.path.expandvars(r"%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"),
+            os.path.expandvars(r"%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"),
+            os.path.expandvars(r"%ProgramFiles%\BraveSoftware\Brave-Browser\Application\brave.exe"),
+        ]
+        for c in candidatos:
+            if c and os.path.isfile(c):
+                return c
+        return None
+
+    def _cdp_ativo(self, port: int = 9222) -> bool:
+        try:
+            with urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=1) as r:
+                return r.status == 200
+        except Exception:
+            return False
+
     def _worker_loop(self):
         if not HAS_PLAYWRIGHT:
             self.log("[ERRO] Playwright não está instalado. Executa o descarregar_8ano.bat novamente.")
             return
 
         playwright = None
+        cdp_browser = None
         context = None
         page = None
 
@@ -229,34 +253,60 @@ class EscolaVirtualWorker:
                     email = payload.get("email", DEFAULT_EMAIL)
                     password = payload.get("password", DEFAULT_PASS)
                     if context is None:
-                        self.log("[Browser] A abrir navegador visível (sessão persistente)...")
                         playwright = sync_playwright().start()
-                        os.makedirs(SESSION_DIR, exist_ok=True)
-                        launch_kwargs = dict(
-                            user_data_dir=str(SESSION_DIR),
-                            headless=False,
-                            no_viewport=True,
-                            accept_downloads=True,
-                            ignore_default_args=["--enable-automation"],
-                            args=[
-                                "--start-maximized",
-                                "--disable-blink-features=AutomationControlled",
-                                "--disable-popup-blocking",
-                            ],
-                        )
-                        for ch in ("chrome", "msedge", None):
-                            try:
-                                kw = dict(launch_kwargs)
-                                if ch:
-                                    kw["channel"] = ch
-                                context = playwright.chromium.launch_persistent_context(**kw)
-                                self.log(f"[Browser] Iniciado com: {ch or 'chromium (Playwright)'}")
-                                break
-                            except Exception as ch_err:
-                                if ch is None:
-                                    raise ch_err
-                                self.log(f"[Browser] Canal '{ch}' indisponível, a tentar alternativa...")
-                        page = context.pages[0] if context.pages else context.new_page()
+                        cdp_dir = SCRIPT_DIR / "ev_cdp_profile"
+                        os.makedirs(cdp_dir, exist_ok=True)
+
+                        # 1. Tentar lançar Chrome/Edge real do Windows como processo normal (sem flags de automação!)
+                        exe = self._encontrar_browser_windows()
+                        if exe or self._cdp_ativo(9222):
+                            if not self._cdp_ativo(9222) and exe:
+                                self.log(f"[Browser] A abrir navegador real: {os.path.basename(exe)} (modo normal CDP)...")
+                                subprocess.Popen(
+                                    [
+                                        exe,
+                                        "--remote-debugging-port=9222",
+                                        f"--user-data-dir={cdp_dir}",
+                                        "--start-maximized",
+                                        "--no-first-run",
+                                        "--no-default-browser-check",
+                                    ],
+                                    stdout=subprocess.DEVNULL,
+                                    stderr=subprocess.DEVNULL,
+                                )
+                                for _ in range(20):
+                                    if self._cdp_ativo(9222):
+                                        break
+                                    time.sleep(0.5)
+
+                            if self._cdp_ativo(9222):
+                                try:
+                                    cdp_browser = playwright.chromium.connect_over_cdp("http://127.0.0.1:9222")
+                                    context = cdp_browser.contexts[0]
+                                    page = context.pages[0] if context.pages else context.new_page()
+                                    self.log("[Browser] ✓ Ligado ao Chrome/Edge real via CDP (zero deteção de automação)!")
+                                except Exception as cdp_err:
+                                    self.log(f"[Browser] Falha na ligação CDP: {cdp_err}")
+                                    cdp_browser = None
+                                    context = None
+
+                        # 2. Fallback caso CDP não esteja disponível
+                        if context is None:
+                            self.log("[Browser] A usar Chromium/Playwright como fallback...")
+                            os.makedirs(SESSION_DIR, exist_ok=True)
+                            context = playwright.chromium.launch_persistent_context(
+                                user_data_dir=str(SESSION_DIR),
+                                headless=False,
+                                no_viewport=True,
+                                accept_downloads=True,
+                                ignore_default_args=["--enable-automation"],
+                                args=[
+                                    "--start-maximized",
+                                    "--disable-blink-features=AutomationControlled",
+                                    "--disable-popup-blocking",
+                                ],
+                            )
+                            page = context.pages[0] if context.pages else context.new_page()
 
                     self._fazer_login_e_listar(page, email, password)
 
@@ -290,7 +340,9 @@ class EscolaVirtualWorker:
                 self.ui_callback("status", "Erro na operação")
 
         try:
-            if context:
+            if cdp_browser:
+                cdp_browser.close()
+            elif context:
                 context.close()
             if playwright:
                 playwright.stop()
