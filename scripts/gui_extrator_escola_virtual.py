@@ -248,25 +248,26 @@ class EscolaVirtualWorker:
                     if page is None:
                         self.log("[Aviso] Liga primeiro à Escola Virtual.")
                     else:
-                        self._descobrir_livros(page)
+                        active_page = self._get_active_page(context, page)
+                        self._descobrir_livros(active_page)
 
                 elif cmd == "diagnose":
                     if page is None:
                         self.log("[Aviso] Liga primeiro à Escola Virtual.")
                     else:
-                        self._diagnosticar_leitor(page, payload)
+                        self._diagnosticar_leitor(context, page, payload)
 
                 elif cmd == "download_book":
                     if page is None:
                         self.log("[Aviso] Liga primeiro à Escola Virtual.")
                     else:
-                        self._descarregar_livro(page, payload)
+                        self._descarregar_livro(context, page, payload)
 
                 elif cmd == "download_resources":
                     if page is None:
                         self.log("[Aviso] Liga primeiro à Escola Virtual.")
                     else:
-                        self._descarregar_recursos(page, payload)
+                        self._descarregar_recursos(context, page, payload)
 
             except Exception as e:
                 self.log(f"[Erro] Exceção na tarefa '{cmd}': {e}")
@@ -279,6 +280,24 @@ class EscolaVirtualWorker:
                 playwright.stop()
         except Exception:
             pass
+
+    def _get_active_page(self, context, fallback_page):
+        """Retorna o separador mais relevante (ex: leitor aberto numa nova aba)."""
+        if not context:
+            return fallback_page
+        pages = [p for p in context.pages if not p.is_closed()]
+        if not pages:
+            return fallback_page
+        # Preferir separadores que pareçam ser o leitor
+        for p in reversed(pages):
+            u = (p.url or "").lower()
+            if any(k in u for k in ["ereader", "reader", "viewer", "flipbook", "book"]):
+                return p
+        # Caso contrário, usar o separador mais recente (que não seja about:blank)
+        for p in reversed(pages):
+            if (p.url or "") != "about:blank":
+                return p
+        return pages[-1]
 
     def _fazer_login_e_listar(self, page, email: str, password: str):
         self.ui_callback("status", "A aceder à Escola Virtual...")
@@ -313,14 +332,40 @@ class EscolaVirtualWorker:
 
     def _descobrir_livros(self, page):
         self.ui_callback("status", "A ler biblioteca da Escola Virtual...")
-        self.log("[Biblioteca] A procurar manuais e recursos disponíveis na página atual...")
+        self.log(f"[Biblioteca] A procurar manuais e capas em {page.url} ...")
         time.sleep(2)
 
-        # Extrair cartões/links visíveis na biblioteca
+        # Extrair cartões/links visíveis na biblioteca OU capas individuais numa página /detail/
         itens_js = page.evaluate(
             """() => {
                 const results = [];
                 const seen = new Set();
+
+                // 1. Se estivermos numa página de detalhe (/detail/), detetar capas de volumes (#cover-0, cover_prof, etc.)
+                const coverImgs = document.querySelectorAll('img[src*="cover_"], img[src*="ereader"], [id^="cover-"] img, [id^="cover-"]');
+                coverImgs.forEach((el, idx) => {
+                    const img = el.tagName === 'IMG' ? el : el.querySelector('img');
+                    const src = img ? (img.getAttribute('src') || '') : '';
+                    const container = el.closest('[id^="cover-"], a, button, .card, div') || el;
+                    const idAttr = container.id || el.id || '';
+                    let label = (container.innerText || img?.getAttribute('alt') || img?.getAttribute('title') || '').trim().replace(/\\s+/g, ' ');
+                    if (!label && src) {
+                        const parts = src.split('/');
+                        label = parts[parts.length - 1] || `Capa ${idx + 1}`;
+                    }
+                    if (src && !seen.has(src)) {
+                        seen.add(src);
+                        const selector = idAttr ? `#${idAttr}` : `img[src="${src}"]`;
+                        results.push({
+                            titulo: `[Volume ${idx + 1}] ${label.slice(0, 85)}`,
+                            href: '',
+                            selector: selector,
+                            tag: 'COVER'
+                        });
+                    }
+                });
+
+                // 2. Cartões/links gerais da biblioteca
                 const selectors = [
                     'a[href*="detail"]',
                     'a[href*="library"]',
@@ -329,7 +374,7 @@ class EscolaVirtualWorker:
                     '.card', '.book-card', '.library-item', '[class*="card"]', '[class*="book"]', '[class*="manual"]'
                 ];
                 for (const sel of selectors) {
-                    document.querySelectorAll(sel).forEach((el, idx) => {
+                    document.querySelectorAll(sel).forEach((el) => {
                         const text = (el.innerText || el.getAttribute('title') || el.getAttribute('aria-label') || '').trim();
                         const cleanText = text.replace(/\\s+/g, ' ').slice(0, 110);
                         const href = el.getAttribute('href') || (el.querySelector('a') ? el.querySelector('a').getAttribute('href') : '') || '';
@@ -338,6 +383,7 @@ class EscolaVirtualWorker:
                             results.push({
                                 titulo: cleanText,
                                 href: href,
+                                selector: '',
                                 tag: el.tagName
                             });
                         }
@@ -348,15 +394,30 @@ class EscolaVirtualWorker:
         )
 
         self.log(f"[Biblioteca] Detetados {len(itens_js)} itens na página atual ({page.url}).")
-        if not itens_js:
+        if "/detail/" in (page.url or "").lower():
+            self.log("[Dica] Estás na página de detalhe do projeto! Seleciona um [Volume] na lista (ou clica na capa no Chrome) para abrir o leitor.")
+        elif not itens_js:
             self.log("[Dica] Navega no Chrome até à tua Biblioteca (ex.: 8.º Ano) e clica em '🔄 Atualizar Lista'.")
         self.ui_callback("books_list", itens_js)
         self.ui_callback("status", f"Pronto ({len(itens_js)} itens encontrados)")
 
-    def _abrir_item_no_browser(self, page, item: Dict):
+    def _abrir_item_no_browser(self, context, page, item: Dict):
+        """Abre um item da lista e retorna o separador ativo (mesmo que abra numa nova aba)."""
         href = item.get("href") or ""
+        selector = item.get("selector") or ""
         titulo = item.get("titulo") or ""
-        if href and href.startswith("http"):
+        num_pages_before = len([p for p in context.pages if not p.is_closed()]) if context else 1
+
+        if selector:
+            try:
+                loc = page.locator(selector).first
+                if loc.is_visible(timeout=3000):
+                    self.log(f"[Navegação] A clicar em '{titulo}' ({selector})...")
+                    loc.click()
+                    time.sleep(3.5)
+            except Exception as e:
+                self.log(f"[Aviso] Não foi possível clicar em '{selector}': {e}")
+        elif href and href.startswith("http"):
             page.goto(href, wait_until="domcontentloaded")
             time.sleep(3)
         elif href and href.startswith("/"):
@@ -369,19 +430,37 @@ class EscolaVirtualWorker:
                 loc = page.locator(f"text='{termo}'").first
                 if loc.is_visible(timeout=2000):
                     loc.click()
-                    time.sleep(3)
+                    time.sleep(3.5)
             except Exception:
                 self.log(f"[Aviso] Não foi possível clicar automaticamente em '{titulo}'. Abre o livro manualmente no Chrome.")
 
-    def _diagnosticar_leitor(self, page, payload: Dict):
+        if context:
+            pages_now = [p for p in context.pages if not p.is_closed()]
+            if len(pages_now) > num_pages_before:
+                nova_pag = pages_now[-1]
+                self.log(f"[Navegação] Novo separador detetado: {nova_pag.url}")
+                try:
+                    nova_pag.bring_to_front()
+                except Exception:
+                    pass
+                return nova_pag
+
+        return self._get_active_page(context, page)
+
+    def _diagnosticar_leitor(self, context, page, payload: Dict):
         """
         Monitoriza o tráfego de rede e estrutura DOM/iframes durante 3 páginas
         para identificar exatamente como o leitor da Escola Virtual desenha as páginas.
         """
         self.ui_callback("status", "A monitorizar leitor (3 páginas)...")
+        use_current_tab = bool(payload.get("use_current_tab"))
         item = payload.get("book")
-        if item:
-            self._abrir_item_no_browser(page, item)
+
+        if use_current_tab or not item:
+            active_page = self._get_active_page(context, page)
+            self.log(f"[Diagnóstico] A usar separador já aberto: {active_page.url}")
+        else:
+            active_page = self._abrir_item_no_browser(context, page, item)
 
         self.log("\n" + "=" * 60)
         self.log("[DIAGNÓSTICO DO LEITOR] A monitorizar rede e DOM...")
@@ -400,11 +479,16 @@ class EscolaVirtualWorker:
             except Exception:
                 pass
 
-        page.on("response", on_response)
+        if context:
+            context.on("response", on_response)
+        else:
+            active_page.on("response", on_response)
 
+        tabs_info = [f"[{idx}] {p.url}" for idx, p in enumerate(context.pages) if not p.is_closed()] if context else [active_page.url]
         relatorio_linhas = [
-            f"URL atual: {page.url}",
-            f"Total frames: {len(page.frames)}",
+            f"Separadores abertos ({len(tabs_info)}): " + " | ".join(tabs_info),
+            f"URL ativa analisada: {active_page.url}",
+            f"Total frames: {len(active_page.frames)}",
         ]
 
         for p_idx in range(1, 4):
@@ -412,7 +496,7 @@ class EscolaVirtualWorker:
                 break
             time.sleep(2.5)
             relatorio_linhas.append(f"\n--- Página de Teste {p_idx} ---")
-            for idx_f, frame in enumerate(page.frames):
+            for idx_f, frame in enumerate(active_page.frames):
                 try:
                     info = frame.evaluate(
                         """() => {
@@ -420,26 +504,34 @@ class EscolaVirtualWorker:
                                 w: c.width, h: c.height, cw: c.clientWidth, ch: c.clientHeight, id: c.id, cls: c.className
                             }));
                             const imgs = Array.from(document.querySelectorAll('img'))
-                                .filter(i => i.clientWidth > 150 && i.clientHeight > 150)
+                                .filter(i => i.clientWidth > 120 && i.clientHeight > 120)
                                 .map(i => ({src: (i.src || '').slice(0, 120), w: i.clientWidth, h: i.clientHeight, cls: i.className}));
+                            const iframes = Array.from(document.querySelectorAll('iframe')).map(f => ({
+                                id: f.id, cls: f.className, src: (f.src || '').slice(0, 120), w: f.clientWidth, h: f.clientHeight
+                            }));
                             const nextBtns = Array.from(document.querySelectorAll('button, a, [role="button"]'))
                                 .filter(b => /next|seguinte|prox|right|arrow/i.test((b.className || '') + ' ' + (b.getAttribute('aria-label') || '') + ' ' + (b.getAttribute('title') || '')))
                                 .map(b => ({tag: b.tagName, cls: b.className, aria: b.getAttribute('aria-label'), title: b.getAttribute('title')}));
-                            return {canvases, imgs, nextBtns};
+                            return {canvases, imgs, iframes, nextBtns};
                         }"""
                     )
-                    relatorio_linhas.append(f"Frame[{idx_f}] URL={frame.url[:100]}")
+                    relatorio_linhas.append(f"Frame[{idx_f}] URL={frame.url[:110]}")
                     relatorio_linhas.append(f"  Canvases: {info['canvases']}")
-                    relatorio_linhas.append(f"  Imgs (>150px): {info['imgs']}")
+                    relatorio_linhas.append(f"  Imgs (>120px): {info['imgs']}")
+                    if info["iframes"]:
+                        relatorio_linhas.append(f"  Iframes: {info['iframes']}")
                     relatorio_linhas.append(f"  Botões Seguinte: {info['nextBtns']}")
                 except Exception as fe:
                     relatorio_linhas.append(f"Frame[{idx_f}] erro: {fe}")
 
             if p_idx < 3:
-                page.keyboard.press("ArrowRight")
+                active_page.keyboard.press("ArrowRight")
 
         try:
-            page.remove_listener("response", on_response)
+            if context:
+                context.remove_listener("response", on_response)
+            else:
+                active_page.remove_listener("response", on_response)
         except Exception:
             pass
 
@@ -462,10 +554,11 @@ class EscolaVirtualWorker:
     def _capturar_melhor_imagem_pagina(self, page, destino_png: str) -> str:
         """
         Método Híbrido Inteligente:
-        1. Procura o maior <canvas> visível em qualquer frame e extrai via toDataURL().
-        2. Se não houver canvas, procura a maior <img> de página (>400px) e faz screenshot do elemento.
+        1. Procura o maior <canvas> visível em qualquer frame e extrai via toDataURL()
+           (ou locator.screenshot se CORS bloquear toDataURL).
+        2. Se não houver canvas, procura a maior <img> de página (>300px) e faz screenshot do elemento.
         3. Fallback: screenshot da janela inteira (viewport).
-        Retorna o método usado ('canvas', 'elemento_img', 'viewport').
+        Retorna o método usado ('canvas', 'canvas_screenshot', 'elemento_img', 'viewport').
         """
         melhor_frame = None
         melhor_area = 0
@@ -523,6 +616,22 @@ class EscolaVirtualWorker:
             except Exception:
                 pass
 
+            # Fallback para CORS tainted canvas: screenshot direto do elemento <canvas>
+            try:
+                canvases = melhor_frame.locator("canvas").all()
+                best_loc = None
+                best_a = 0
+                for loc in canvases:
+                    box = loc.bounding_box()
+                    if box and box["width"] * box["height"] > best_a:
+                        best_a = box["width"] * box["height"]
+                        best_loc = loc
+                if best_loc and best_a > 100000:
+                    best_loc.screenshot(path=destino_png)
+                    return "canvas_screenshot"
+            except Exception:
+                pass
+
         if melhor_frame and melhor_tipo == "img":
             try:
                 imgs = melhor_frame.locator("img").all()
@@ -542,8 +651,9 @@ class EscolaVirtualWorker:
         page.screenshot(path=destino_png, full_page=False)
         return "viewport"
 
-    def _descarregar_livro(self, page, payload: Dict):
+    def _descarregar_livro(self, context, page, payload: Dict):
         item = payload.get("book") or {}
+        use_current_tab = bool(payload.get("use_current_tab"))
         max_paginas = int(payload.get("max_pages", 240))
         titulo = item.get("titulo") or "Manual_8_Ano"
         pdf_nome = inferir_nome_pdf(titulo)
@@ -556,8 +666,11 @@ class EscolaVirtualWorker:
 
         os.makedirs(pasta_raw, exist_ok=True)
 
-        if item:
-            self._abrir_item_no_browser(page, item)
+        if use_current_tab or not item:
+            active_page = self._get_active_page(context, page)
+            self.log(f"[Captura] A usar separador já aberto: {active_page.url}")
+        else:
+            active_page = self._abrir_item_no_browser(context, page, item)
 
         self.ui_callback("status", f"A capturar: {titulo[:35]}...")
         self.log(f"\n[Captura] A iniciar '{titulo}' (limite: {max_paginas} páginas)...")
@@ -566,7 +679,6 @@ class EscolaVirtualWorker:
 
         consecutivos_iguais = 0
         tam_anterior = None
-        capturadas = 0
 
         for i in range(1, max_paginas + 1):
             if self.stop_event.is_set():
@@ -575,7 +687,7 @@ class EscolaVirtualWorker:
 
             # Fechar popups eventuais
             try:
-                btn_ok = page.locator("button:has-text('OK'), button:has-text('Fechar')").first
+                btn_ok = active_page.locator("button:has-text('OK'), button:has-text('Fechar')").first
                 if btn_ok.is_visible(timeout=300):
                     btn_ok.click()
                     time.sleep(0.6)
@@ -584,8 +696,7 @@ class EscolaVirtualWorker:
 
             time.sleep(1.3)
             destino_png = str(pasta_raw / f"raw_page_{i:03d}.png")
-            metodo = self._capturar_melhor_imagem_pagina(page, destino_png)
-            capturadas += 1
+            metodo = self._capturar_melhor_imagem_pagina(active_page, destino_png)
 
             tam_atual = os.path.getsize(destino_png)
             if tam_anterior and abs(tam_atual - tam_anterior) < 120:
@@ -604,14 +715,14 @@ class EscolaVirtualWorker:
             # Avançar página
             avancou = False
             try:
-                page.keyboard.press("ArrowRight")
+                active_page.keyboard.press("ArrowRight")
                 avancou = True
             except Exception:
                 pass
 
             if not avancou:
                 try:
-                    btn_next = page.locator(".page-next, .btn-next, [aria-label*='Seguinte'], [title*='seguinte']").first
+                    btn_next = active_page.locator(".page-next, .btn-next, [aria-label*='Seguinte'], [title*='seguinte']").first
                     if btn_next.is_visible(timeout=500):
                         btn_next.click()
                 except Exception:
@@ -627,19 +738,22 @@ class EscolaVirtualWorker:
         self.ui_callback("progress", (1, 1))
         self.ui_callback("status", f"Concluído: {pdf_nome}")
 
-    def _descarregar_recursos(self, page, payload: Dict):
+    def _descarregar_recursos(self, context, page, payload: Dict):
         item = payload.get("book") or {}
+        use_current_tab = bool(payload.get("use_current_tab"))
         titulo = item.get("titulo") or "Recursos_8_Ano"
         pasta_testes = EV_8ANO_DIR / slugify(titulo) / "02_Testes_e_Avaliacao"
         os.makedirs(pasta_testes, exist_ok=True)
 
-        if item:
-            self._abrir_item_no_browser(page, item)
+        if use_current_tab or not item:
+            active_page = self._get_active_page(context, page)
+        else:
+            active_page = self._abrir_item_no_browser(context, page, item)
 
         self.ui_callback("status", "A procurar testes e fichas...")
         self.log(f"\n[Testes/Fichas] A procurar ficheiros descarregáveis em '{titulo}'...")
 
-        links = page.locator(
+        links = active_page.locator(
             "a[href*='.pdf'], a[href*='.docx'], a[href*='.zip'], button:has-text('Descarregar'), [title*='Descarregar']"
         ).all()
         self.log(f"  Encontrados {len(links)} links potenciais.")
@@ -649,7 +763,7 @@ class EscolaVirtualWorker:
             if self.stop_event.is_set():
                 break
             try:
-                with page.expect_download(timeout=5000) as dl_info:
+                with active_page.expect_download(timeout=5000) as dl_info:
                     elem.click()
                 dl = dl_info.value
                 dest = pasta_testes / dl.suggested_filename
@@ -773,8 +887,17 @@ class AppExtratorGUI:
             font=("Segoe UI", 9),
         ).grid(row=0, column=1, sticky="w", padx=10, pady=2)
 
+        self.use_current_tab_var = tk.BooleanVar(value=False)
+        tk.Checkbutton(
+            actions_frame,
+            text="📌 Usar separador já aberto no Chrome (se já abriste o leitor do livro)",
+            variable=self.use_current_tab_var,
+            font=("Segoe UI", 9, "bold"),
+            fg="#1e40af",
+        ).grid(row=1, column=0, columnspan=2, sticky="w", padx=4, pady=(4, 2))
+
         btn_row = tk.Frame(actions_frame)
-        btn_row.grid(row=1, column=0, columnspan=2, sticky="ew", pady=(8, 4))
+        btn_row.grid(row=2, column=0, columnspan=2, sticky="ew", pady=(6, 4))
 
         tk.Button(
             btn_row,
@@ -810,7 +933,7 @@ class AppExtratorGUI:
         ).pack(side="left")
 
         diag_row = tk.Frame(actions_frame)
-        diag_row.grid(row=2, column=0, columnspan=2, sticky="ew", pady=(4, 2))
+        diag_row.grid(row=3, column=0, columnspan=2, sticky="ew", pady=(4, 2))
 
         tk.Button(
             diag_row,
@@ -873,23 +996,34 @@ class AppExtratorGUI:
 
     def _on_download_book(self):
         book = self._get_selected_book()
-        if not book:
+        use_tab = self.use_current_tab_var.get()
+        if not book and not use_tab:
             if not messagebox.askyesno(
                 "Nenhum livro selecionado",
                 "Não selecionaste nenhum livro na lista.\nQueres capturar o livro que já está aberto no Chrome neste momento?",
             ):
                 return
+            use_tab = True
         max_pages = 5 if self.modo_var.get() == "teste" else 240
         self.progress_bar["value"] = 0
-        self.worker.send_command("download_book", {"book": book or {}, "max_pages": max_pages})
+        self.worker.send_command(
+            "download_book",
+            {"book": book or {}, "max_pages": max_pages, "use_current_tab": use_tab},
+        )
 
     def _on_download_resources(self):
         book = self._get_selected_book()
-        self.worker.send_command("download_resources", {"book": book or {}})
+        self.worker.send_command(
+            "download_resources",
+            {"book": book or {}, "use_current_tab": self.use_current_tab_var.get()},
+        )
 
     def _on_diagnose(self):
         book = self._get_selected_book()
-        self.worker.send_command("diagnose", {"book": book})
+        self.worker.send_command(
+            "diagnose",
+            {"book": book, "use_current_tab": self.use_current_tab_var.get()},
+        )
 
     def _on_copy_diagnostic(self):
         if not self.last_diagnostic:
