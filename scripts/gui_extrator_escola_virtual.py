@@ -13,6 +13,7 @@ Permite:
 """
 
 import base64
+import ctypes
 import glob
 import io
 import os
@@ -27,7 +28,7 @@ import urllib.request
 from pathlib import Path
 from typing import Dict, List, Optional
 
-from PIL import Image
+from PIL import Image, ImageChops, ImageGrab, ImageStat
 
 try:
     import customtkinter as ctk
@@ -230,10 +231,6 @@ class EscolaVirtualWorker:
             return False
 
     def _worker_loop(self):
-        if not HAS_PLAYWRIGHT:
-            self.log("[ERRO] Playwright não está instalado. Executa o descarregar_8ano.bat novamente.")
-            return
-
         playwright = None
         cdp_browser = None
         context = None
@@ -249,6 +246,18 @@ class EscolaVirtualWorker:
                 break
 
             try:
+                if cmd == "open_chrome_app":
+                    self._abrir_app_chrome()
+                    continue
+
+                elif cmd == "capture_window":
+                    self._capturar_janela_app_chrome(payload or {})
+                    continue
+
+                if not HAS_PLAYWRIGHT:
+                    self.log("[ERRO] Playwright não está instalado. Usa o Modo App Chrome acima ou executa descarregar_8ano.bat.")
+                    continue
+
                 if cmd == "connect":
                     email = payload.get("email", DEFAULT_EMAIL)
                     password = payload.get("password", DEFAULT_PASS)
@@ -844,6 +853,136 @@ class EscolaVirtualWorker:
         self.log(f"✓ Download de recursos terminado: {baixados} ficheiro(s) guardado(s) em {pasta_testes}")
         self.ui_callback("status", f"Recursos concluídos ({baixados} ficheiros)")
 
+    def _abrir_app_chrome(self):
+        url = "https://app.escolavirtual.pt/library/libraryteacher"
+        exe = self._encontrar_browser_windows()
+        if exe:
+            self.log(f"[App Chrome] A abrir {url} em modo App ({os.path.basename(exe)})...")
+            subprocess.Popen(
+                [exe, f"--app={url}", "--start-maximized"],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+            self.ui_callback("status", "App Escola Virtual aberta. Abre um manual e clica em Capturar.")
+        else:
+            import webbrowser
+            webbrowser.open(url)
+            self.log(f"[App Chrome] Aberto no navegador padrão: {url}")
+
+    def _capturar_janela_app_chrome(self, payload: Dict):
+        if sys.platform != "win32":
+            self.log("[Erro] A captura direta de janela requer Windows.")
+            return
+
+        titulo = payload.get("titulo") or "Manual_8_Ano"
+        max_paginas = int(payload.get("max_pages", 240))
+        fullscreen = bool(payload.get("fullscreen", False))
+        delay_s = float(payload.get("delay", 1.5))
+
+        pdf_nome = inferir_nome_pdf(titulo)
+        pasta_slug = slugify(titulo)
+        pasta_disc = EV_8ANO_DIR / pasta_slug
+        pasta_raw = pasta_disc / "raw_capturas"
+        pasta_a4 = pasta_disc / "paginas_a4"
+        caminho_pdf_final = pasta_disc / "01_Manuais_e_Cadernos_PDF" / pdf_nome
+        os.makedirs(pasta_raw, exist_ok=True)
+
+        user32 = ctypes.windll.user32
+        try:
+            user32.SetProcessDPIAware()
+        except Exception:
+            pass
+
+        self.ui_callback("status", "Clica na janela do manual (5s)...")
+        self.log("\n" + "=" * 60)
+        self.log(f"[MODO APP CHROME] Manual: {titulo} -> {pdf_nome}")
+        self.log("⏳ CLICA NA JANELA DA APP ESCOLA VIRTUAL (com a página 1 aberta)!")
+        for seg in range(5, 0, -1):
+            if self.stop_event.is_set():
+                self.log("[Parado] Cancelado antes de iniciar.")
+                return
+            self.log(f"  A começar em {seg}...")
+            time.sleep(1)
+
+        hwnd = user32.GetForegroundWindow()
+        length = user32.GetWindowTextLengthW(hwnd)
+        buf = ctypes.create_unicode_buffer(length + 1)
+        user32.GetWindowTextW(hwnd, buf, length + 1)
+        win_title = buf.value or "Janela Ativa"
+
+        class RECT(ctypes.Structure):
+            _fields_ = [
+                ("left", ctypes.c_long),
+                ("top", ctypes.c_long),
+                ("right", ctypes.c_long),
+                ("bottom", ctypes.c_long),
+            ]
+
+        rect = RECT()
+        user32.GetWindowRect(hwnd, ctypes.byref(rect))
+        left, top, right, bottom = rect.left, rect.top, rect.right, rect.bottom
+        if not fullscreen:
+            top = min(bottom - 100, top + 36)
+            left += 8
+            right -= 8
+            bottom -= 8
+
+        self.log(f"✓ Janela bloqueada: '{win_title}' ({right - left}x{bottom - top} px)")
+        self.ui_callback("status", f"A capturar: {titulo[:30]}...")
+
+        prev_img = None
+        consecutivos_iguais = 0
+        VK_RIGHT = 0x27
+        KEYEVENTF_KEYUP = 0x0002
+
+        for i in range(1, max_paginas + 1):
+            if self.stop_event.is_set():
+                self.log("[Parado] Captura interrompida pelo utilizador.")
+                break
+
+            try:
+                user32.SetForegroundWindow(hwnd)
+            except Exception:
+                pass
+
+            time.sleep(0.25)
+            img = ImageGrab.grab(bbox=(left, top, right, bottom)).convert("RGB")
+            destino_png = str(pasta_raw / f"raw_page_{i:03d}.png")
+            img.save(destino_png, "PNG")
+
+            if prev_img is not None:
+                diff = ImageChops.difference(img, prev_img)
+                mean_diff = sum(ImageStat.Stat(diff).mean) / 3.0
+                if mean_diff < 0.4:
+                    consecutivos_iguais += 1
+                else:
+                    consecutivos_iguais = 0
+            prev_img = img
+
+            tam_kb = round(os.path.getsize(destino_png) / 1024)
+            self.ui_callback("progress", (i, max_paginas))
+            self.log(f"  Pág {i}/{max_paginas} [App Chrome] ({tam_kb} KB)")
+
+            if consecutivos_iguais >= 3:
+                self.log("✓ Detetado o fim do livro (3 páginas iguais seguidas).")
+                break
+
+            # Enviar seta direita para avançar página
+            user32.keybd_event(VK_RIGHT, 0, 0, 0)
+            time.sleep(0.05)
+            user32.keybd_event(VK_RIGHT, 0, KEYEVENTF_KEYUP, 0)
+            time.sleep(delay_s)
+
+        paginas_a4 = processar_e_dividir_spreads(str(pasta_raw), str(pasta_a4), log_fn=self.log)
+        if compilar_pdf(paginas_a4, str(caminho_pdf_final), log_fn=self.log):
+            os.makedirs(PUBLIC_BOOKS_DIR, exist_ok=True)
+            destino_public = PUBLIC_BOOKS_DIR / pdf_nome
+            shutil.copy2(str(caminho_pdf_final), str(destino_public))
+            self.log(f"✓ Sincronizado com o site: {destino_public}")
+
+        self.ui_callback("progress", (1, 1))
+        self.ui_callback("status", f"Concluído: {pdf_nome}")
+
 
 # ==============================================================================
 # INTERFACE GRÁFICA DESKTOP (CustomTkinter / Tkinter)
@@ -875,9 +1014,68 @@ class AppExtratorGUI:
 
     def _build_ui(self):
         pad = 12
-        # --- Cabeçalho & Credenciais ---
-        top_frame = tk.LabelFrame(self.root, text=" 1. Ligação à Escola Virtual ", padx=10, pady=8, font=("Segoe UI", 10, "bold"))
-        top_frame.pack(fill="x", padx=pad, pady=(pad, 6))
+        # --- MODO APP CHROME (RECOMENDADO) ---
+        app_frame = tk.LabelFrame(
+            self.root,
+            text=" ★ MODO RECOMENDADO: App Chrome (Sem Playwright / Sem about:blank) ",
+            padx=10,
+            pady=8,
+            font=("Segoe UI", 10, "bold"),
+            fg="#065f46",
+        )
+        app_frame.pack(fill="x", padx=pad, pady=(pad, 4))
+
+        tk.Button(
+            app_frame,
+            text="🚀 Abrir App Escola Virtual",
+            bg="#0f766e",
+            fg="white",
+            font=("Segoe UI", 9, "bold"),
+            padx=10,
+            pady=4,
+            command=lambda: self.worker.send_command("open_chrome_app"),
+        ).grid(row=0, column=0, padx=(0, 10))
+
+        tk.Label(app_frame, text="Disciplina / PDF:").grid(row=0, column=1, sticky="w", padx=(0, 4))
+        self.app_disciplina_var = tk.StringVar(value="Físico-Química (8.º Ano)")
+        ttk.Combobox(
+            app_frame,
+            textvariable=self.app_disciplina_var,
+            width=26,
+            values=[
+                "Físico-Química (8.º Ano)",
+                "Geografia (8.º Ano)",
+                "Ciências Naturais (8.º Ano)",
+                "História (8.º Ano)",
+                "Inglês (8.º Ano)",
+                "Matemática (8.º Ano)",
+                "Português (8.º Ano)",
+                "Francês (8.º Ano)",
+            ],
+        ).grid(row=0, column=2, padx=(0, 10))
+
+        self.app_fullscreen_var = tk.BooleanVar(value=False)
+        tk.Checkbutton(
+            app_frame,
+            text="Ecrã Inteiro (F11)",
+            variable=self.app_fullscreen_var,
+            font=("Segoe UI", 9),
+        ).grid(row=0, column=3, padx=(0, 10))
+
+        tk.Button(
+            app_frame,
+            text="📸 Capturar Manual da Janela Aberta",
+            bg="#059669",
+            fg="white",
+            font=("Segoe UI", 9, "bold"),
+            padx=12,
+            pady=4,
+            command=self._on_capture_window,
+        ).grid(row=0, column=4, padx=4)
+
+        # --- Cabeçalho & Credenciais (Playwright / Biblioteca) ---
+        top_frame = tk.LabelFrame(self.root, text=" 1. Ligação à Escola Virtual (Opcional / Biblioteca) ", padx=10, pady=8, font=("Segoe UI", 10, "bold"))
+        top_frame.pack(fill="x", padx=pad, pady=(4, 6))
 
         tk.Label(top_frame, text="Email:").grid(row=0, column=0, sticky="w", padx=(0, 4))
         self.email_var = tk.StringVar(value=DEFAULT_EMAIL)
@@ -1061,6 +1259,20 @@ class AppExtratorGUI:
 
     def _on_connect(self):
         self.worker.send_command("connect", {"email": self.email_var.get().strip(), "password": self.pass_var.get()})
+
+    def _on_capture_window(self):
+        titulo = self.app_disciplina_var.get().strip() or "Manual_8_Ano"
+        max_pages = 5 if self.modo_var.get() == "teste" else 240
+        self.progress_bar["value"] = 0
+        self.worker.send_command(
+            "capture_window",
+            {
+                "titulo": titulo,
+                "max_pages": max_pages,
+                "fullscreen": self.app_fullscreen_var.get(),
+                "delay": 1.5,
+            },
+        )
 
     def _on_download_book(self):
         book = self._get_selected_book()
