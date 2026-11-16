@@ -46,7 +46,7 @@ if not defined PYTHON_EXE (
 )
 
 echo Python detetado: %PYTHON_EXE%
-"%PYTHON_EXE%" -c "import PIL, pypdf" >nul 2>nul || "%PYTHON_EXE%" -m pip install --upgrade pillow pypdf playwright
+"%PYTHON_EXE%" -c "import PIL, pypdf" >nul 2>nul || "%PYTHON_EXE%" -m pip install --upgrade pillow pypdf
 
 echo.
 echo 2. A iniciar interface grafica do extrator Escola Virtual...
