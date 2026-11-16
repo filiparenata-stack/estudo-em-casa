@@ -179,6 +179,20 @@ def recortar_area_util_leitor(im: Image.Image) -> Image.Image:
     return im_meio
 
 
+def imagens_sao_iguais(im1: Image.Image, im2: Image.Image, limiar_medio: float = 1.1) -> Tuple[bool, float]:
+    """
+    Compara duas imagens de página de forma tolerante a pequenas variações de cursor/render.
+    Retorna (sao_iguais, diferenca_media).
+    """
+    if im1 is None or im2 is None:
+        return False, 999.0
+    a = im1.convert("RGB").resize((240, 240), Image.Resampling.BILINEAR)
+    b = im2.convert("RGB").resize((240, 240), Image.Resampling.BILINEAR)
+    diff = ImageChops.difference(a, b)
+    mean_diff = sum(ImageStat.Stat(diff).mean) / 3.0
+    return mean_diff < limiar_medio, mean_diff
+
+
 def processar_e_dividir_spreads(
     pasta_raw_imgs: str,
     pasta_paginas_a4: str,
@@ -187,7 +201,7 @@ def processar_e_dividir_spreads(
 ) -> List[str]:
     """
     Processa todas as capturas:
-    1. Ignora páginas totalmente pretas/vazias.
+    1. Ignora páginas totalmente pretas/vazias e páginas repetidas no fim.
     2. Aplica recorte inteligente do leitor Escola Virtual (remove barras e margens brancas com '<').
     3. Se a página resultante for dupla (largura > 1.18 * altura), divide automaticamente
        em duas páginas A4 verticais (esquerda + direita).
@@ -211,6 +225,7 @@ def processar_e_dividir_spreads(
     log_fn(f"[Processamento] A recortar e formatar {len(imgs)} capturas...")
     paginas_finais: List[str] = []
     num_pagina = 1
+    prev_util_im: Optional[Image.Image] = None
 
     for caminho_img in imgs:
         try:
@@ -224,6 +239,12 @@ def processar_e_dividir_spreads(
 
                 if recorte_auto:
                     im = recortar_area_util_leitor(im)
+
+                iguais, _ = imagens_sao_iguais(im, prev_util_im)
+                if iguais:
+                    log_fn(f"  [Ignorada] Página repetida removida ({os.path.basename(caminho_img)})")
+                    continue
+                prev_util_im = im.copy()
 
                 w, h = im.size
                 # Se for página dupla (spread 2 páginas lado a lado), dividir ao meio
@@ -414,10 +435,33 @@ class AppChromeWorker:
             user32.mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0)
             time.sleep(0.05)
             user32.mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
+            # Afastar o cursor para o canto neutro para evitar tooltips/hover sobre a página
+            time.sleep(0.05)
+            user32.SetCursorPos(left + 14, top + 60)
         else:
             user32.keybd_event(VK_RIGHT, 0, 0, 0)
             time.sleep(0.05)
             user32.keybd_event(VK_RIGHT, 0, KEYEVENTF_KEYUP, 0)
+
+    def _progresso_barra_leitor(self, img: Image.Image) -> Optional[float]:
+        """Lê a posição (0.0 a 1.0) da bola vermelha na barra de progresso inferior do leitor."""
+        try:
+            w, h = img.size
+            if w < 200 or h < 200:
+                return None
+            faixa = img.crop((0, int(h * 0.94), w, h)).resize((200, 16), Image.Resampling.BILINEAR)
+            px = faixa.load()
+            red_xs = []
+            for x in range(200):
+                for y in range(16):
+                    r, g, b = px[x, y]
+                    if r > 175 and g < 75 and b < 75:
+                        red_xs.append(x)
+            if red_xs:
+                return (sum(red_xs) / len(red_xs)) / 200.0
+        except Exception:
+            pass
+        return None
 
     def _testar_recorte_1_pagina(self, payload: Dict):
         if sys.platform != "win32":
@@ -455,7 +499,7 @@ class AppChromeWorker:
 
         titulo = payload.get("titulo") or "Manual_8_Ano"
         pdf_nome = payload.get("pdf_name") or f"{slugify(titulo)}.pdf"
-        max_paginas = int(payload.get("max_pages", 240))
+        max_paginas = int(payload.get("max_pages", 400))
         fullscreen = bool(payload.get("fullscreen", False))
         recorte_auto = bool(payload.get("recorte_auto", True))
         nav_mode = payload.get("nav_mode", "hibrido")  # 'hibrido', 'teclado', 'clique'
@@ -496,6 +540,7 @@ class AppChromeWorker:
 
         prev_img = None
         consecutivos_iguais = 0
+        num_salvas = 0
 
         for i in range(1, max_paginas + 1):
             if self.stop_event.is_set():
@@ -508,42 +553,51 @@ class AppChromeWorker:
 
             # Comparar se a página mudou face à captura anterior
             if prev_img is not None:
-                # Redimensionar para comparação rápida caso o recorte varie 1-2px
-                cmp_cur = img_util.resize((300, 300))
-                cmp_prev = prev_img.resize((300, 300))
-                diff = ImageChops.difference(cmp_cur, cmp_prev)
-                mean_diff = sum(ImageStat.Stat(diff).mean) / 3.0
+                iguais, mean_diff = imagens_sao_iguais(img_util, prev_img, limiar_medio=1.15)
 
-                if mean_diff < 0.45 and nav_mode == "hibrido":
-                    # Se a tecla Seta Direita não mudou a página, tentar clicar na seta direita '>' do leitor!
-                    self.log("    [Navegação Híbrida] Tecla não avançou página; a clicar na seta direita (>) do leitor...")
+                if iguais and nav_mode == "hibrido":
+                    # Se a tecla Seta Direita não mudou a página, tentar clicar na seta direita '>' do leitor
+                    self.log("    [Navegação Híbrida] Tecla não avançou; a testar clique na seta direita (>)...")
                     self._avancar_pagina_hibrido(hwnd, bbox, usar_clique_seta=True)
                     time.sleep(delay_s)
                     img = ImageGrab.grab(bbox=bbox).convert("RGB")
                     img_util = recortar_area_util_leitor(img) if recorte_auto else img
-                    cmp_cur = img_util.resize((300, 300))
-                    diff = ImageChops.difference(cmp_cur, cmp_prev)
-                    mean_diff = sum(ImageStat.Stat(diff).mean) / 3.0
+                    iguais, mean_diff = imagens_sao_iguais(img_util, prev_img, limiar_medio=1.15)
 
-                if mean_diff < 0.45:
+                if iguais:
                     consecutivos_iguais += 1
+                    prog_barra = self._progresso_barra_leitor(img)
+                    if prog_barra is not None and prog_barra >= 0.90:
+                        self.log(f"✓ Fim do livro detetado (barra a {int(prog_barra * 100)}% e página não avança mais).")
+                        break
+                    if consecutivos_iguais >= 2:
+                        self.log(f"✓ Fim do livro detetado após {num_salvas} capturas (a página já não avança, dif={mean_diff:.2f}).")
+                        break
+                    # Tentar mais uma vez após pequena pausa caso a página estivesse a carregar
+                    self.log(f"  [Verificação fim {consecutivos_iguais}/2] Página igual (dif={mean_diff:.2f}); a confirmar antes de parar...")
+                    self._avancar_pagina_hibrido(hwnd, bbox, usar_clique_seta=(nav_mode == "clique"))
+                    time.sleep(delay_s + 0.8)
+                    continue
                 else:
                     consecutivos_iguais = 0
 
             prev_img = img_util
+            num_salvas += 1
 
-            if consecutivos_iguais >= 3:
-                self.log("✓ Detetado o fim do livro (a página não mudou 3 vezes seguidas).")
-                break
-
-            destino_png = str(pasta_raw / f"raw_page_{i:03d}.png")
+            destino_png = str(pasta_raw / f"raw_page_{num_salvas:03d}.png")
             img.save(destino_png, "PNG")
 
             tam_kb = round(os.path.getsize(destino_png) / 1024)
-            self.ui_callback("progress", (i, max_paginas))
-            self.log(f"  Pág {i}/{max_paginas} capturada ({tam_kb} KB)")
+            prog_barra = self._progresso_barra_leitor(img)
+            if prog_barra is not None:
+                pct_real = max(1, min(100, int(prog_barra * 100)))
+                self.ui_callback("progress", (pct_real, 100))
+                self.log(f"  Captura {num_salvas} (barra ~{pct_real}%) | {tam_kb} KB")
+            else:
+                self.ui_callback("progress", (i, max_paginas))
+                self.log(f"  Captura {num_salvas}/{max_paginas} | {tam_kb} KB")
 
-            if i < max_paginas:
+            if num_salvas < max_paginas:
                 usar_clique = nav_mode == "clique"
                 self._avancar_pagina_hibrido(hwnd, bbox, usar_clique_seta=usar_clique)
                 time.sleep(delay_s)
@@ -724,7 +778,7 @@ class AppExtratorGUI:
 
         tk.Radiobutton(
             actions_frame,
-            text="📘 Ficheiro Completo (até 250 páginas)",
+            text="📘 Ficheiro Completo (até 400 páginas)",
             variable=self.modo_var,
             value="completo",
             font=("Segoe UI", 9, "bold"),
@@ -882,7 +936,7 @@ class AppExtratorGUI:
 
     def _on_start_capture(self):
         item = self._get_selected_item()
-        max_pages = 5 if self.modo_var.get() == "teste" else 250
+        max_pages = 5 if self.modo_var.get() == "teste" else 400
         self.progress_bar["value"] = 0
         self.worker.send_command(
             "capture_window",
