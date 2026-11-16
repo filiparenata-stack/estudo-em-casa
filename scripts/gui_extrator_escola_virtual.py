@@ -179,7 +179,15 @@ def recortar_area_util_leitor(im: Image.Image) -> Image.Image:
     return im_meio
 
 
-def imagens_sao_iguais(im1: Image.Image, im2: Image.Image, limiar_medio: float = 1.1) -> Tuple[bool, float]:
+def extrair_miolo_fixo(im: Image.Image) -> Image.Image:
+    """Extrai região central fixa (14%..86% L x 10%..88% A) sem barras/margens para comparação estável."""
+    w, h = im.size
+    if w < 100 or h < 100:
+        return im
+    return im.crop((int(w * 0.14), int(h * 0.10), int(w * 0.86), int(h * 0.88)))
+
+
+def imagens_sao_iguais(im1: Image.Image, im2: Image.Image, limiar_medio: float = 2.0) -> Tuple[bool, float]:
     """
     Compara duas imagens de página de forma tolerante a pequenas variações de cursor/render.
     Retorna (sao_iguais, diferenca_media).
@@ -193,6 +201,112 @@ def imagens_sao_iguais(im1: Image.Image, im2: Image.Image, limiar_medio: float =
     return mean_diff < limiar_medio, mean_diff
 
 
+def parse_pagina_total(texto: str) -> Tuple[Optional[int], Optional[int]]:
+    """
+    Extrai (pagina_atual, total_paginas) de textos como:
+    '12 / 240', '239-240 / 240', '192 de 192', 'Pág. 15/180'.
+    """
+    if not texto:
+        return None, None
+    norm = re.sub(r"\s+", " ", texto).strip()
+    m = re.search(r"(?:(\d{1,4})\s*[-–]\s*)?(\d{1,4})\s*(?:/|de|of)\s*(\d{1,4})\b", norm, flags=re.IGNORECASE)
+    if not m:
+        return None, None
+    try:
+        cur = int(m.group(2))
+        tot = int(m.group(3))
+        # Evitar falsos positivos como datas (ex: 16/11) ou anos (ex: 2026)
+        if 4 <= tot <= 999 and 1 <= cur <= tot:
+            return cur, tot
+    except Exception:
+        pass
+    return None, None
+
+
+class WindowsBarraOCR:
+    """Worker persistente PowerShell + Windows.Media.Ocr para ler 'X / Y' na barra inferior."""
+
+    def __init__(self):
+        self.proc = None
+
+    def _iniciar(self) -> bool:
+        if sys.platform != "win32":
+            return False
+        if self.proc is not None and self.proc.poll() is None:
+            return True
+        ps_script = r"""
+$ErrorActionPreference = 'SilentlyContinue'
+Add-Type -AssemblyName System.Runtime.WindowsRuntime
+$asTaskGeneric = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where-Object { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and $_.GetParameters()[0].ParameterType.Name -eq 'IAsyncOperation`1' })[0]
+function Await($WinRtTask, $ResultType) {
+    $asTask = $asTaskGeneric.MakeGenericMethod($ResultType)
+    $netTask = $asTask.Invoke($null, @($WinRtTask))
+    $netTask.Wait(-1) | Out-Null
+    $netTask.Result
+}
+[Windows.Storage.StorageFile, Windows.Storage, ContentType=WindowsRuntime] | Out-Null
+[Windows.Graphics.Imaging.BitmapDecoder, Windows.Graphics, ContentType=WindowsRuntime] | Out-Null
+[Windows.Media.Ocr.OcrEngine, Windows.Foundation, ContentType=WindowsRuntime] | Out-Null
+$ocrEngine = [Windows.Media.Ocr.OcrEngine]::TryCreateFromUserProfileLanguages()
+if (-not $ocrEngine) {
+    $lang = New-Object Windows.Globalization.Language("en-US")
+    $ocrEngine = [Windows.Media.Ocr.OcrEngine]::TryCreateFromLanguage($lang)
+}
+while ($true) {
+    $path = [Console]::In.ReadLine()
+    if ($null -eq $path -or $path -eq 'EXIT') { break }
+    $out = ''
+    try {
+        $file = Await ([Windows.Storage.StorageFile]::GetFileFromPathAsync($path)) ([Windows.Storage.StorageFile])
+        $stream = Await ($file.OpenAsync([Windows.Storage.FileAccessMode]::Read)) ([Windows.Storage.Streams.IRandomAccessStream])
+        $decoder = Await ([Windows.Graphics.Imaging.BitmapDecoder]::CreateAsync($stream)) ([Windows.Graphics.Imaging.BitmapDecoder])
+        $bmp = Await ($decoder.GetSoftwareBitmapAsync()) ([Windows.Graphics.Imaging.SoftwareBitmap])
+        $res = Await ($ocrEngine.RecognizeAsync($bmp)) ([Windows.Media.Ocr.OcrResult])
+        $out = ($res.Text -replace "[\r\n]+", " ")
+        $stream.Dispose()
+    } catch { $out = '' }
+    [Console]::Out.WriteLine($out)
+    [Console]::Out.Flush()
+}
+"""
+        try:
+            self.proc = subprocess.Popen(
+                ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", ps_script],
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.DEVNULL,
+                text=True,
+                encoding="utf-8",
+                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0),
+            )
+            return True
+        except Exception:
+            self.proc = None
+            return False
+
+    def ler_imagem(self, img_path: str) -> str:
+        if not self._iniciar() or not self.proc or not self.proc.stdin or not self.proc.stdout:
+            return ""
+        try:
+            self.proc.stdin.write(img_path + "\n")
+            self.proc.stdin.flush()
+            return (self.proc.stdout.readline() or "").strip()
+        except Exception:
+            self.fechar()
+            return ""
+
+    def fechar(self):
+        if self.proc:
+            try:
+                if self.proc.stdin:
+                    self.proc.stdin.write("EXIT\n")
+                    self.proc.stdin.flush()
+                self.proc.terminate()
+            except Exception:
+                pass
+            self.proc = None
+
+
 def processar_e_dividir_spreads(
     pasta_raw_imgs: str,
     pasta_paginas_a4: str,
@@ -201,7 +315,7 @@ def processar_e_dividir_spreads(
 ) -> List[str]:
     """
     Processa todas as capturas:
-    1. Ignora páginas totalmente pretas/vazias e páginas repetidas no fim.
+    1. Ignora páginas totalmente pretas/vazias e páginas repetidas (comparando o miolo fixo).
     2. Aplica recorte inteligente do leitor Escola Virtual (remove barras e margens brancas com '<').
     3. Se a página resultante for dupla (largura > 1.18 * altura), divide automaticamente
        em duas páginas A4 verticais (esquerda + direita).
@@ -225,26 +339,27 @@ def processar_e_dividir_spreads(
     log_fn(f"[Processamento] A recortar e formatar {len(imgs)} capturas...")
     paginas_finais: List[str] = []
     num_pagina = 1
-    prev_util_im: Optional[Image.Image] = None
+    recent_cores: List[Image.Image] = []
 
     for caminho_img in imgs:
         try:
             with Image.open(caminho_img) as raw_im:
-                im = raw_im.convert("RGB")
+                raw_rgb = raw_im.convert("RGB")
 
-                extrema = im.getextrema()
+                extrema = raw_rgb.getextrema()
                 if extrema and max(e[1] for e in extrema) < 15:
                     log_fn(f"  [Ignorada] Página preta detetada em {os.path.basename(caminho_img)}")
                     continue
 
-                if recorte_auto:
-                    im = recortar_area_util_leitor(im)
-
-                iguais, _ = imagens_sao_iguais(im, prev_util_im)
-                if iguais:
+                core = extrair_miolo_fixo(raw_rgb)
+                if any(imagens_sao_iguais(core, pc, limiar_medio=2.0)[0] for pc in recent_cores):
                     log_fn(f"  [Ignorada] Página repetida removida ({os.path.basename(caminho_img)})")
                     continue
-                prev_util_im = im.copy()
+                recent_cores.append(core.copy())
+                if len(recent_cores) > 3:
+                    recent_cores.pop(0)
+
+                im = recortar_area_util_leitor(raw_rgb) if recorte_auto else raw_rgb
 
                 w, h = im.size
                 # Se for página dupla (spread 2 páginas lado a lado), dividir ao meio
@@ -492,6 +607,27 @@ class AppChromeWorker:
         except Exception:
             pass
 
+    def _ler_pagina_barra_inferior(
+        self,
+        img: Image.Image,
+        ocr: WindowsBarraOCR,
+        tmp_path: Path,
+    ) -> Tuple[Optional[int], Optional[int], str]:
+        """Recorta a barra inferior, amplia 3x e lê 'X / Y' com Windows OCR."""
+        try:
+            w, h = img.size
+            if w < 200 or h < 200:
+                return None, None, ""
+            strip = img.crop((0, int(h * 0.89), w, h)).convert("L")
+            sw, sh = strip.size
+            strip_up = strip.resize((sw * 3, sh * 3), Image.Resampling.BICUBIC)
+            strip_up.save(str(tmp_path), "PNG")
+            txt = ocr.ler_imagem(str(tmp_path))
+            cur, tot = parse_pagina_total(txt)
+            return cur, tot, txt
+        except Exception:
+            return None, None, ""
+
     def _capturar_janela_app_chrome(self, payload: Dict):
         if sys.platform != "win32":
             self.log("[Erro] A captura direta de janela requer Windows.")
@@ -538,69 +674,114 @@ class AppChromeWorker:
         self.log(f"✓ Janela bloqueada: '{win_title}' ({right - left}x{bottom - top} px)")
         self.ui_callback("status", f"A capturar: {pdf_nome}...")
 
-        prev_img = None
+        ocr = WindowsBarraOCR()
+        ocr_tmp_path = pasta_disc / "_tmp_barra_ocr.png"
+        recent_cores: List[Image.Image] = []
         consecutivos_iguais = 0
         num_salvas = 0
+        ultimo_cur: Optional[int] = None
+        ultimo_tot: Optional[int] = None
 
-        for i in range(1, max_paginas + 1):
-            if self.stop_event.is_set():
-                self.log("[Parado] Captura interrompida pelo utilizador.")
-                break
+        try:
+            for i in range(1, max_paginas + 1):
+                if self.stop_event.is_set():
+                    self.log("[Parado] Captura interrompida pelo utilizador.")
+                    break
 
-            time.sleep(0.25)
-            img = ImageGrab.grab(bbox=bbox).convert("RGB")
-            img_util = recortar_area_util_leitor(img) if recorte_auto else img
+                time.sleep(0.25)
+                img = ImageGrab.grab(bbox=bbox).convert("RGB")
+                core = extrair_miolo_fixo(img)
 
-            # Comparar se a página mudou face à captura anterior
-            if prev_img is not None:
-                iguais, mean_diff = imagens_sao_iguais(img_util, prev_img, limiar_medio=1.15)
+                # Verificar se esta captura já é igual às últimas guardadas (sem desvios de recorte)
+                if recent_cores:
+                    iguais = False
+                    min_diff = 999.0
+                    for pc in recent_cores:
+                        eq, d = imagens_sao_iguais(core, pc, limiar_medio=2.0)
+                        min_diff = min(min_diff, d)
+                        if eq:
+                            iguais = True
+                            break
 
-                if iguais and nav_mode == "hibrido":
-                    # Se a tecla Seta Direita não mudou a página, tentar clicar na seta direita '>' do leitor
-                    self.log("    [Navegação Híbrida] Tecla não avançou; a testar clique na seta direita (>)...")
-                    self._avancar_pagina_hibrido(hwnd, bbox, usar_clique_seta=True)
-                    time.sleep(delay_s)
-                    img = ImageGrab.grab(bbox=bbox).convert("RGB")
-                    img_util = recortar_area_util_leitor(img) if recorte_auto else img
-                    iguais, mean_diff = imagens_sao_iguais(img_util, prev_img, limiar_medio=1.15)
+                    if iguais and nav_mode == "hibrido":
+                        self.log("    [Navegação Híbrida] Tecla não avançou; a testar clique na seta direita (>)...")
+                        self._avancar_pagina_hibrido(hwnd, bbox, usar_clique_seta=True)
+                        time.sleep(delay_s)
+                        img = ImageGrab.grab(bbox=bbox).convert("RGB")
+                        core = extrair_miolo_fixo(img)
+                        iguais = False
+                        min_diff = 999.0
+                        for pc in recent_cores:
+                            eq, d = imagens_sao_iguais(core, pc, limiar_medio=2.0)
+                            min_diff = min(min_diff, d)
+                            if eq:
+                                iguais = True
+                                break
 
-                if iguais:
-                    consecutivos_iguais += 1
-                    prog_barra = self._progresso_barra_leitor(img)
-                    if prog_barra is not None and prog_barra >= 0.90:
-                        self.log(f"✓ Fim do livro detetado (barra a {int(prog_barra * 100)}% e página não avança mais).")
+                    if iguais:
+                        consecutivos_iguais += 1
+                        prog_barra = self._progresso_barra_leitor(img)
+                        if (
+                            (ultimo_cur is not None and ultimo_tot is not None and ultimo_cur >= ultimo_tot)
+                            or (prog_barra is not None and prog_barra >= 0.90)
+                            or consecutivos_iguais >= 2
+                        ):
+                            self.log(
+                                f"✓ Fim do livro confirmado após {num_salvas} páginas guardadas "
+                                f"(nenhuma página repetida gravada, dif={min_diff:.2f})."
+                            )
+                            break
+                        self.log(
+                            f"  [Verificação fim {consecutivos_iguais}/2] Página igual (dif={min_diff:.2f}); "
+                            "a tentar avançar uma última vez sem guardar..."
+                        )
+                        self._avancar_pagina_hibrido(hwnd, bbox, usar_clique_seta=(nav_mode == "clique"))
+                        time.sleep(delay_s + 0.8)
+                        continue
+                    else:
+                        consecutivos_iguais = 0
+
+                recent_cores.append(core.copy())
+                if len(recent_cores) > 2:
+                    recent_cores.pop(0)
+
+                num_salvas += 1
+                destino_png = str(pasta_raw / f"raw_page_{num_salvas:03d}.png")
+                img.save(destino_png, "PNG")
+                tam_kb = round(os.path.getsize(destino_png) / 1024)
+
+                # Ler indicador 'X / Y' na barra inferior + posição da barra vermelha
+                cur_pag, tot_pag, _ = self._ler_pagina_barra_inferior(img, ocr, ocr_tmp_path)
+                if cur_pag is not None and tot_pag is not None:
+                    ultimo_cur, ultimo_tot = cur_pag, tot_pag
+
+                prog_barra = self._progresso_barra_leitor(img)
+                if cur_pag is not None and tot_pag is not None:
+                    pct_real = max(1, min(100, int((cur_pag / tot_pag) * 100)))
+                    self.ui_callback("progress", (cur_pag, tot_pag))
+                    self.log(f"  Captura {num_salvas} | Barra inferior: pág {cur_pag}/{tot_pag} ({pct_real}%) | {tam_kb} KB")
+                    if cur_pag >= tot_pag:
+                        self.log(f"✓ Última página ({cur_pag}/{tot_pag}) lida na barra inferior! A finalizar PDF...")
                         break
-                    if consecutivos_iguais >= 2:
-                        self.log(f"✓ Fim do livro detetado após {num_salvas} capturas (a página já não avança, dif={mean_diff:.2f}).")
-                        break
-                    # Tentar mais uma vez após pequena pausa caso a página estivesse a carregar
-                    self.log(f"  [Verificação fim {consecutivos_iguais}/2] Página igual (dif={mean_diff:.2f}); a confirmar antes de parar...")
-                    self._avancar_pagina_hibrido(hwnd, bbox, usar_clique_seta=(nav_mode == "clique"))
-                    time.sleep(delay_s + 0.8)
-                    continue
+                elif prog_barra is not None:
+                    pct_real = max(1, min(100, int(prog_barra * 100)))
+                    self.ui_callback("progress", (pct_real, 100))
+                    self.log(f"  Captura {num_salvas} (barra ~{pct_real}%) | {tam_kb} KB")
                 else:
-                    consecutivos_iguais = 0
+                    self.ui_callback("progress", (i, max_paginas))
+                    self.log(f"  Captura {num_salvas}/{max_paginas} | {tam_kb} KB")
 
-            prev_img = img_util
-            num_salvas += 1
-
-            destino_png = str(pasta_raw / f"raw_page_{num_salvas:03d}.png")
-            img.save(destino_png, "PNG")
-
-            tam_kb = round(os.path.getsize(destino_png) / 1024)
-            prog_barra = self._progresso_barra_leitor(img)
-            if prog_barra is not None:
-                pct_real = max(1, min(100, int(prog_barra * 100)))
-                self.ui_callback("progress", (pct_real, 100))
-                self.log(f"  Captura {num_salvas} (barra ~{pct_real}%) | {tam_kb} KB")
-            else:
-                self.ui_callback("progress", (i, max_paginas))
-                self.log(f"  Captura {num_salvas}/{max_paginas} | {tam_kb} KB")
-
-            if num_salvas < max_paginas:
-                usar_clique = nav_mode == "clique"
-                self._avancar_pagina_hibrido(hwnd, bbox, usar_clique_seta=usar_clique)
-                time.sleep(delay_s)
+                if num_salvas < max_paginas:
+                    usar_clique = nav_mode == "clique"
+                    self._avancar_pagina_hibrido(hwnd, bbox, usar_clique_seta=usar_clique)
+                    time.sleep(delay_s)
+        finally:
+            ocr.fechar()
+            try:
+                if ocr_tmp_path.exists():
+                    ocr_tmp_path.unlink()
+            except Exception:
+                pass
 
         paginas_a4 = processar_e_dividir_spreads(
             str(pasta_raw),
