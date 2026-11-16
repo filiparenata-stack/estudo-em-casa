@@ -6,7 +6,15 @@ echo ===================================================================
 echo     ESCOLA VIRTUAL 8. ANO - EXTRATOR DE MANUAIS E TESTES
 echo ===================================================================
 echo.
-echo 1. A verificar dependencias do Python (Playwright, Pillow, pypdf)...
+echo 0. A atualizar codigo do GitHub (git pull origin main)...
+where git >nul 2>nul
+if not errorlevel 1 (
+    git pull origin main
+) else (
+    echo [Aviso] git nao encontrado no PATH, a continuar com ficheiros locais...
+)
+echo.
+echo 1. A verificar dependencias do Python (Pillow, pypdf)...
 echo.
 
 set "PYTHON_EXE="
@@ -38,8 +46,7 @@ if not defined PYTHON_EXE (
 )
 
 echo Python detetado: %PYTHON_EXE%
-"%PYTHON_EXE%" -m pip install --upgrade playwright pillow pypdf
-"%PYTHON_EXE%" -m playwright install chromium
+"%PYTHON_EXE%" -c "import PIL, pypdf" >nul 2>nul || "%PYTHON_EXE%" -m pip install --upgrade pillow pypdf playwright
 
 echo.
 echo 2. A iniciar interface grafica do extrator Escola Virtual...
