@@ -613,12 +613,13 @@ class AppChromeWorker:
         ocr: WindowsBarraOCR,
         tmp_path: Path,
     ) -> Tuple[Optional[int], Optional[int], str]:
-        """Recorta a barra inferior, amplia 3x e lê 'X / Y' com Windows OCR."""
+        """Recorta a zona inferior direita ('Página 10-11 / 193'), amplia 3x e lê com Windows OCR."""
         try:
             w, h = img.size
             if w < 200 or h < 200:
                 return None, None, ""
-            strip = img.crop((0, int(h * 0.89), w, h)).convert("L")
+            # Zona exata do contador 'Página X-Y / Total' no canto inferior direito do leitor EV
+            strip = img.crop((int(w * 0.72), int(h * 0.93), int(w * 0.96), h)).convert("L")
             sw, sh = strip.size
             strip_up = strip.resize((sw * 3, sh * 3), Image.Resampling.BICUBIC)
             strip_up.save(str(tmp_path), "PNG")
@@ -751,9 +752,11 @@ class AppChromeWorker:
                 tam_kb = round(os.path.getsize(destino_png) / 1024)
 
                 # Ler indicador 'X / Y' na barra inferior + posição da barra vermelha
-                cur_pag, tot_pag, _ = self._ler_pagina_barra_inferior(img, ocr, ocr_tmp_path)
+                cur_pag, tot_pag, raw_ocr_txt = self._ler_pagina_barra_inferior(img, ocr, ocr_tmp_path)
                 if cur_pag is not None and tot_pag is not None:
                     ultimo_cur, ultimo_tot = cur_pag, tot_pag
+                elif num_salvas == 1 and raw_ocr_txt:
+                    self.log(f"  [OCR Barra] Texto detetado: '{raw_ocr_txt}'")
 
                 prog_barra = self._progresso_barra_leitor(img)
                 if cur_pag is not None and tot_pag is not None:
@@ -770,6 +773,9 @@ class AppChromeWorker:
                 else:
                     self.ui_callback("progress", (i, max_paginas))
                     self.log(f"  Captura {num_salvas}/{max_paginas} | {tam_kb} KB")
+
+                if num_salvas >= max_paginas and max_paginas <= 10:
+                    self.log("ℹ️ Parou em 5 capturas porque está selecionado '🧪 Modo Teste'. Seleciona '📘 Ficheiro Completo' para o livro inteiro!")
 
                 if num_salvas < max_paginas:
                     usar_clique = nav_mode == "clique"
