@@ -42,10 +42,10 @@ echo Python detetado: %PYTHON_EXE%
 "%PYTHON_EXE%" -m playwright install chromium
 
 echo.
-echo 2. A iniciar extrator com navegador controlado...
+echo 2. A iniciar interface grafica do extrator Escola Virtual...
 echo.
 
-"%PYTHON_EXE%" "%~dp0scripts\descarregar_escola_virtual_8ano.py"
+"%PYTHON_EXE%" "%~dp0scripts\gui_extrator_escola_virtual.py"
 
 echo.
 echo ===================================================================
